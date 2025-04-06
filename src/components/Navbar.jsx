@@ -25,20 +25,8 @@ const FloatingNavbar = () => {
           </Link>
         </li>
         <li className="relative group">
-          <Link href="/" className="">
+          <Link href="/products" className="">
             Products
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-          </Link>
-        </li>
-        <li className="relative group">
-          <Link href="/" className="">
-            Services
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-          </Link>
-        </li>
-        <li className="relative group">
-          <Link href="/contact" className="">
-            Contact
             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
@@ -49,8 +37,8 @@ const FloatingNavbar = () => {
           </Link>
         </li>
         <li className="relative group">
-          <Link href="/products" className="">
-            Products
+          <Link href="/contact" className="">
+            Contact
             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
