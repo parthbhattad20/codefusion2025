@@ -1,10 +1,14 @@
-'use client'
-import { Divide } from 'lucide-react';
-import Image from 'next/image';
+import Footer from '@/components/Footer';
+import Hero from '@/components/Hero';
+import Testimonials from '@/components/Testimonials';
 
 export default function Home() {
   
   return (
-    <div>Landing Page</div>
+    <div>
+      <Hero />
+      <Testimonials />
+      <Footer />
+    </div>
   );
 }
