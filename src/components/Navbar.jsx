@@ -15,37 +15,37 @@ const FloatingNavbar = () => {
         <li className="relative group">
           <Link href="/" className="">
             Home
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
         <li className="relative group">
           <Link href="/about" className="">
             About
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
         <li className="relative group">
           <Link href="/products" className="">
             Products
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
         <li className="relative group">
           <Link href="/services" className="">
             Services
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
         <li className="relative group">
           <Link href="/contact" className="">
             Contact
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
         <li className="relative group">
           <Link href="/blogs" className="">
             Blogs
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
       </ul>
