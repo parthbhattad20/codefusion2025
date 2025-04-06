@@ -1,37 +1,39 @@
 'use client'; 
 
 import Link from 'next/link';
+import { SelectTheme } from './theme-toggler';
 
 const FloatingNavbar = () => {
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-md shadow-lg rounded-full px-6 py-2 z-50 border border-gray-200">
-      <ul className="flex space-x-6 text-sm font-medium text-gray-700">
-        <li>
-          <Link href="/">
-            <span className="hover:text-blue-600 transition duration-200 cursor-pointer">Home</span>
+    <nav className="flex items-center justify-between mx-4 my-3">
+      <h1 className="text-2xl font-bold font-secondary">
+        <Link href="/">
+          .Vulnuris.
+        </Link>
+      </h1>
+      <ul className="flex items-center gap-8 py-3 px-7 bg-foreground/5 backdrop-blur-sm dark:bg-white/10 rounded-full">
+        <li className="relative group">
+          <Link href="/" className="">
+            Home
+            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
-        <li>
-          <Link href="/about">
-            <span className="hover:text-blue-600 transition duration-200 cursor-pointer">About</span>
+        <li className="relative group">
+          <Link href="/about" className="">
+            About
+            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
-        <li>
-          <Link href="/services">
-            <span className="hover:text-blue-600 transition duration-200 cursor-pointer">Services</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/products">
-            <span className="hover:text-blue-600 transition duration-200 cursor-pointer">Products</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact">
-            <span className="hover:text-blue-600 transition duration-200 cursor-pointer">Contact Us</span>
+        <li className="relative group">
+          <Link href="/contact" className="">
+            Contact
+            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
         </li>
       </ul>
+      <div className="p-4 bg-foreground/5 backdrop-blur-sm dark:bg-white/10 rounded-full">
+        <SelectTheme/>
+      </div>
     </nav>
   );
 };
