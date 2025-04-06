@@ -124,3 +124,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* global overrides for markdown rendered with prose */
+.prose h1 {
+  @apply text-4xl font-bold mt-6 mb-4;
+}
+.prose h2 {
+  @apply text-3xl font-semibold mt-6 mb-4;
+}
+.prose h3 {
+  @apply text-2xl font-semibold mt-5 mb-3;
+}
+.prose p {
+  @apply text-base leading-7 mb-4;
+}
+.prose a {
+  @apply text-blue-600 underline font-medium;
+}
+.prose ul {
+  @apply list-disc ml-6 mb-4;
+}
+.prose ol {
+  @apply list-decimal ml-6 mb-4;
+}
+.prose blockquote {
+  @apply border-l-4 pl-4 italic text-gray-600 my-4;
+}
+.prose img {
+  @apply rounded-md my-4;
+}
