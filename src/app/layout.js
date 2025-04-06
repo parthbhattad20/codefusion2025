@@ -1,5 +1,6 @@
 import './globals.css';
 import FloatingNavbar from '../components/Navbar';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata = {
   title: 'Vulnuris',
@@ -8,13 +9,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`antialiased`}
         suppressHydrationWarning
       >
-        <FloatingNavbar />
-        {children}
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+          <FloatingNavbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
