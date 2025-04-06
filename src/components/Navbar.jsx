@@ -1,4 +1,4 @@
-'use client'; // if using app directory in Next.js 13+
+'use client'; 
 
 import Link from 'next/link';
 
