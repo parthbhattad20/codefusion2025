@@ -4,6 +4,46 @@ import { Button } from "./ui/button";
 export default function Hero() {
   return (
     <div className="font-primary pt-10 grid place-content-center">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+
+        <div
+          className="absolute top-1/2 left-1/2 w-[1200px] max-w-[150vw] aspect-square 
+                    -translate-x-1/2 -translate-y-full
+                    border border-violet-500/30 rounded-full
+                    shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
+                    style={{
+                      clipPath: "inset(80% 0 0 0)",
+                      background: `
+                        linear-gradient(to top, 
+                          rgba(123, 22, 205, 0.26) 0%, 
+                          rgba(164, 55, 236, 0) 20%)
+                      `
+                    }}
+        />
+
+        <div
+          className="absolute bottom-1/2 left-1/2 w-[1200px] max-w-[150vw] aspect-square 
+                    -translate-x-1/2 translate-y-full
+                    border border-violet-500/30 rounded-full
+                    shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
+          style={{
+            clipPath: "inset(0 0 80% 0)",
+            background: `
+              linear-gradient(to bottom, 
+                rgba(123, 22, 205, 0.26) 0%, 
+                rgba(164, 55, 236, 0) 20%)
+            `
+          }}
+        />
+
+        
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-4 
+                    bg-gradient-to-r from-violet-500/5 via-violet-500/80 to-violet-500/5
+                    blur-sm rounded-full"
+        />
+      </div>
+
       <div className="flex flex-col items-center my-6">
         <h1 className="text-7xl font-bold font-secondary max-w-3xl mx-auto">
           Securing your Digital
@@ -17,6 +57,9 @@ export default function Hero() {
             <Button size="lg" className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">Get In Touch</Button>
             <Button size="lg" variant="outline" className="rounded-full font-bold text-lg">Learn More</Button>
         </div>
+      </div>
+      <div className= "h-[30vh]">
+
       </div>
       <div className="my-8">
         <h2 className="font-bold text-xl text-gray-700">Making Security effortess for <span className="bg-gradient-to-b from-violet-400 to-violet-800 bg-clip-text text-transparent">200+</span> customers</h2>
