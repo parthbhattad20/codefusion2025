@@ -11,7 +11,8 @@ export default function CyberChatBot() {
     if (!input.trim()) return;
 
     const userMessage = { sender: 'user', text: input };
-    setMessages((prev) => [...prev, userMessage]);
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
     setInput('');
     setLoading(true);
 
@@ -19,7 +20,7 @@ export default function CyberChatBot() {
       const res = await fetch('/api/gemini-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ messages: updatedMessages }),
       });
 
       const data = await res.json();
@@ -31,14 +32,13 @@ export default function CyberChatBot() {
       setLoading(false);
     }
   };
-
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') sendMessage();
   };
 
   return (
     <div className="max-w-xl mx-auto p-4 border rounded shadow-md">
-      <h2 className="text-xl font-bold mb-4 text-center">🛡️ Cybersecurity Expert Chatbot</h2>
+      <h2 className="text-xl font-bold mb-4 text-center">🛡️ Vulnuris AI</h2>
       <div className="h-64 overflow-y-auto border p-3 mb-4 bg-gray-50 rounded">
         {messages.map((msg, idx) => (
           <div key={idx} className={`mb-2 text-sm ${msg.sender === 'user' ? 'text-right' : 'text-left'}`}>
