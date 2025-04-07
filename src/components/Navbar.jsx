@@ -8,7 +8,7 @@ const FloatingNavbar = () => {
     <nav className="flex items-center justify-between max-w-11/12 mx-auto my-4">
       <h1 className="text-2xl font-bold font-secondary">
         <Link href="/">
-          VULNERIS
+          <img className='h-12 w-12' src="./assets/vul_logo.png" alt="vulenris logo" />
         </Link>
       </h1>
       <ul className="flex items-center gap-8 py-3 px-7 bg-foreground/5 backdrop-blur-sm dark:bg-white/10 rounded-full">

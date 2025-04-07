@@ -5,12 +5,7 @@ export default function Footer() {
     <div className="grid grid-cols-4 grid-rows-4 gap-3 max-w-11/12 mx-auto py-12 font-primary">
       <div>
         <p className="text-sm mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quis libero nostrum quisquam tempora blanditiis eum, unde esse assumenda maiores veritatis</p>
-        <h2 className="text-5xl font-bold font-secondary">VULNERIS</h2>
-        <ul className="flex gap-4 my-6">
-          <li className="h-20 w-20"><img className="h-20 w-20" src="./assets/ISO-27701-certified.png" alt="cert1" /></li>
-          <li className="h-20 w-20"><img className="h-20 w-20" src="./assets/iso9001.png" alt="cert2" /></li>
-          <li className="h-20 w-20"><img className="h-20 w-20" src="./assets/iso27001.png" alt="cert3" /></li>
-        </ul>
+        <h2 className="text-5xl font-bold font-secondary flex gap-2 items-center"><img className="h-15 w-15" src="./assets/vul_logo.png" alt="vulenris logo" />VULNERIS</h2>
       </div>
       <div className="flex flex-col gap-3 justify-self-center">
         <h3 className="font-bold text-lg">Home</h3>
