@@ -37,7 +37,7 @@ export default function CyberChatBot() {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-4 border rounded shadow-md">
+    <div className="max-w-xl mx-auto p-4 border rounded shadow-md">
       <h2 className="text-xl font-bold mb-4 text-center">🛡️ Cybersecurity Expert Chatbot</h2>
       <div className="h-64 overflow-y-auto border p-3 mb-4 bg-gray-50 rounded">
         {messages.map((msg, idx) => (
