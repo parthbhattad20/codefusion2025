@@ -4,10 +4,11 @@ import { Button } from "./ui/button";
 export default function Hero() {
   return (
     <div className="font-primary pt-10 grid place-content-center">
-      <div className="flex flex-col items-center my-6 py-6 relative">
+      <div className="flex flex-col items-center my-6 py-14 relative " 
+      >
 
         <div
-          className="absolute inset-0 overflow-hidden pointer-events-none"
+          className="absolute -z-10 inset-0 overflow-hidden pointer-events-none"
           aria-hidden="true"
         >
           <div
@@ -68,9 +69,9 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-      <div className="h-[30vh]"></div>
+      {/* <div className="h-[30vh]"></div> */}
       <div className="my-8">
-        <h2 className="font-bold text-xl text-gray-700">
+        <h2 className="font-bold text-xl text-gray-700 dark:text-gray-400">
           Making Security effortess for{" "}
           <span className="bg-gradient-to-b from-violet-400 to-violet-800 bg-clip-text text-transparent">
             200+
@@ -145,11 +146,6 @@ export default function Hero() {
       </div>
       <div className="flex flex-col items-center gap-4">
         <div className="grid grid-cols-3 gap-4">
-          {/* <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
-                <Users size={50} />
-                <p className="text-3xl font-bold mt-3">200+</p>
-                <p className="text-sm text-gray-500 mt-2">Happy Customers</p>
-            </div> */}
           <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
             <Smartphone size={50} />
             <p className="text-3xl font-bold mt-3">80+</p>
