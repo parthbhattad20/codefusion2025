@@ -1,11 +1,11 @@
 import { Card, CardContent} from '@/components/ui/card'; 
-import { ChevronRight, Search, Shield, Wrench } from 'lucide-react';
+import { ChevronDown, ChevronRight, Search, Shield, Wrench } from 'lucide-react';
 export default function Approach(){
 return (
     <section className="mb-16">
            <Card className="p-8 shadow-sm"> 
              <CardContent className="p-0">                
-                <h2 className="text-3xl font-bold mb-8 text-center text-primary flex items-center justify-center">Our Approach: Find <ChevronRight /> Fix <ChevronRight /> Fortify</h2>
+                <h2 className="text-3xl font-bold mb-8 text-center text-primary flex flex-col lg:flex-row items-center justify-center">Our Approach: <span className='hidden lg:ml-2 lg:flex lg:items-center'> Find <ChevronRight/>  Fix <ChevronRight/> Fortify</span></h2>
                 <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg text-center">
                 
                    <Card className="p-6 shadow-sm hover:shadow-md transition-shadow duration-300"> 

@@ -4,12 +4,12 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-1 gap-3 max-w-11/12 mx-auto py-12 font-primary">
+      <div className="grid grid-cols-2 md:grid-row-2 lg:grid-cols-4 lg:grid-rows-1 gap-3 max-w-11/12 mx-auto py-12 font-primary">
         <div>
           <p className="text-sm mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quis libero nostrum quisquam tempora blanditiis eum, unde esse assumenda maiores veritatis</p>
-          <h2 className="text-5xl font-bold font-secondary flex gap-2 items-center"><img className="h-15 w-15" src="./assets/vul_logo.png" alt="vulenris logo" />VULNURIS</h2>
+          <h2 className="text-3xl md:text-5xl font-bold font-secondary flex gap-2 items-center"><img className="h-7.5 w-7.5 md:h-15 md:w-15" src="./assets/vul_logo.png" alt="vulenris logo" />VULNURIS</h2>
         </div>
-        <div className="hidden md:flex flex-col gap-3 justify-self-center">
+        <div className="hidden lg:flex flex-col gap-3 justify-self-center">
           <h3 className="font-bold text-lg">Home</h3>
           <ul className="flex flex-col gap-2">
             <li>
@@ -34,7 +34,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="hidden md:flex flex-col gap-3 justify-self-center">
+        <div className="hidden lg:flex flex-col gap-3 justify-self-center">
           <h3 className="font-bold text-lg">Company</h3>
           <ul className="flex flex-col gap-2">
             <li>
@@ -55,7 +55,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="flex flex-col gap-3 justify-self-center">
-          <h3 className="hidden md:block font-bold text-lg">Socials</h3>
+          <h3 className="hidden lg:block font-bold text-lg">Socials</h3>
           <ul className="flex gap-6">
             <li><Linkedin /></li>
             <li><Instagram /></li>

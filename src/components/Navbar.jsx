@@ -41,7 +41,7 @@ const FloatingNavbar = () => {
       </Link>
 
       {/* Navigation Menu */}
-      <nav className="fixed top-0 left-0 w-full z-50 md:top-4 md:left-1/2 md:-translate-x-1/2 md:w-auto">
+      <nav className="fixed top-0 left-0 w-full z-50 md:top-4 md:left-1/2 md:-translate-x-1/2 md:w-3/4 lg:w-7/12 xl:w-auto">
         {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-background/80 backdrop-blur-sm transition-all duration-300 md:hidden ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -78,12 +78,12 @@ const FloatingNavbar = () => {
           <div className={`fixed inset-0 top-[300px] flex flex-col md:relative md:inset-auto md:flex-row md:items-center ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
           } transition-transform duration-300 ease-in-out`}>
-            <ul className="flex flex-col items-center justify-center h-full space-y-8 md:space-y-0 md:flex-row md:items-center md:gap-6">
+            <ul className="flex flex-col items-center justify-center h-full space-y-8 md:space-y-0 md:flex-row md:items-center gap-8">
               {[ 'About', 'Products', 'Services', 'Contact', 'Blogs'].map((item) => (
                 <li key={item} className="relative group">
                   <Link 
                     href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-                    className="px-1 py-2 text-lg md:text-sm font-medium transition-colors"
+                    className="md:px-1 py-2 text-lg md:text-sm font-medium transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item}
