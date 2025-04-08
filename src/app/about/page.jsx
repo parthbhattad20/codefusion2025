@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; 
-import Approach from '../../components/OurAppoarch';
-import OurTeam from '../../components/Team';
-import Clients from '../../components/Clients';
-import Partner from '../../components/Partner';
-import Impact from '../../components/Impact';
-import OurValues from '../../components/OurValues';
+import Approach from '@/components/OurAppoarch';
+import OurTeam from '@/components/Team';
+import Clients from '@/components/Clients';
+import Partner from '@/components/Partner';
+import Impact from '@/components/Impact';
+import OurValues from '@/components/OurValues';
 import { ChevronRight } from 'lucide-react';
 
 
@@ -15,7 +15,7 @@ import { ChevronRight } from 'lucide-react';
 const AboutPage = () => {
   return (
     
-    <div className="min-h-screen bg-background text-foreground px-6 py-16 mt-20">
+    <div className="min-h-screen bg-background text-foreground px-6 py-16">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-20">
@@ -43,7 +43,11 @@ const AboutPage = () => {
              
              <div className="bg-accent w-full h-64 rounded-lg flex items-center justify-center">
              
-                <p className="text-accent-foreground font-semibold">Visual Element Placeholder</p>
+             <img
+              src="./assets/products/about.jpg"
+              alt="Phished-Partner logo"
+              className='object-cover w-full h-full rounded-lg'
+            />
              </div>
           </div>
         </section>

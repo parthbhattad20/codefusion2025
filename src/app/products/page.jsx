@@ -15,7 +15,7 @@ const ProductImagePlaceholder = ({ className, text = "Product Screenshot" }) => 
 
 const products = [
   {
-    name: "Vulnuris Insight Platform",
+    name: "kloudraksha",
     tagline: "Continuous asset discovery, vulnerability scanning, and risk prioritization.",
     features: [
       "Real-time asset inventory",
@@ -23,12 +23,12 @@ const products = [
       "Contextual risk scoring",
       "Integration with ticketing systems"
     ],
-    imageSrc: "/placeholder-product-1.png", 
+    imageSrc: "./assets/products/kloudraksha.png", 
     imageAlt: "Vulnuris Insight Platform dashboard",
     link: "/products/insight-platform"
   },
   {
-    name: "Vulnuris Threat Intel",
+    name: "Vumas",
     tagline: "Actionable threat intelligence tailored to your industry and infrastructure.",
     features: [
       "Curated threat feeds",
@@ -36,12 +36,12 @@ const products = [
       "IOC tracking and alerting",
       "Executive threat briefings"
     ],
-    imageSrc: "/placeholder-product-2.png",
+    imageSrc: "./assets/products/Vumas.png",
     imageAlt: "Vulnuris Threat Intel dashboard",
     link: "/products/threat-intel"
   },
   {
-    name: "Vulnuris PhishGuard",
+    name: "Phishinstinct",
     tagline: "Train your employees and test their awareness against phishing attacks.",
     features: [
       "Customizable phishing templates",
@@ -49,7 +49,7 @@ const products = [
       "Detailed reporting and analytics",
       "Integrated awareness training modules"
     ],
-    imageSrc: "/placeholder-product-3.png",
+    imageSrc: "./assets/products/Phishinstinct.png",
     imageAlt: "Vulnuris PhishGuard interface",
     link: "/products/phishguard"
   }
@@ -96,14 +96,12 @@ const ProductsPage = () => {
 
               
               <div className={`${index % 2 !== 0 ? '' : 'md:order-last'}`}>
-                 <ProductImagePlaceholder text={`${product.name} Mockup`} />
-                 {/* Replace Placeholder with:
                  <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
                     className="rounded-lg shadow-lg border border-border"
                  />
-                 */}
+                
               </div>
 
             </div>
