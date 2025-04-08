@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; 
-import Approach from '../sections/OurAppoarch';
-import OurTeam from '../sections/Team';
-import Clients from '../sections/Clients';
-import Partner from '../sections/Partner';
-import Impact from '../sections/Impact';
-import OurValues from '../sections/OurValues';
+import Approach from '../../components/OurAppoarch';
+import OurTeam from '../../components/Team';
+import Clients from '../../components/Clients';
+import Partner from '../../components/Partner';
+import Impact from '../../components/Impact';
+import OurValues from '../../components/OurValues';
 import { ChevronRight } from 'lucide-react';
 
 
