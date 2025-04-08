@@ -37,9 +37,9 @@ const ContactPage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 auto-rows-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 lg:gap-8 auto-rows-auto">
 
-          <Card className="lg:col-span-1 lg:row-span-2 order-1">
+          <Card className="lg:row-span-2 order-1">
             <CardHeader>
               <CardTitle className="text-3xl">Send Us a Message</CardTitle>
               <CardDescription>We'll get back to you as soon as possible.</CardDescription>
@@ -77,7 +77,7 @@ const ContactPage = () => {
 
           
 
-          <Card className="order-3 lg:order-3">
+          <Card className="lg:row-span-1 order-3">
             <CardHeader>
               <CardTitle className="text-2xl">Contact Information</CardTitle>
             </CardHeader>
@@ -120,9 +120,23 @@ const ContactPage = () => {
             </CardContent>
           </Card>
 
-           <Card className="order-2 p-4 flex items-center justify-center">
-             <MapPlaceholder className="w-full h-full" />
-           </Card>
+          <Card className="lg:row-span-1 order-2 p-4">
+            <div className="w-full h-[200px] rounded-lg overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Bhosari%20Rd,%20Sector%20No.%2011,%20Chikhali,%20Pimpri-Chinchwad,%20Maharashtra%20412105+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </Card>
+
 
            
 
