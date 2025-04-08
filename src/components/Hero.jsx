@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 export default function Hero() {
   return (
     <div className="font-primary pt-10 grid place-content-center">
-<div className="flex flex-col items-center my-6 py-14 relative">
+<div className="flex flex-col items-center my-6 pt-14 lg:py-14 relative">
 
 <div
   className="absolute -z-10 inset-0 overflow-hidden pointer-events-none w-full"
@@ -67,10 +67,10 @@ export default function Hero() {
 
 
 
-        <h1 className="text-7xl font-bold font-secondary max-w-3xl mx-auto">
+        <h1 className="text-5xl md:text-7xl font-bold font-secondary max-w-3xl mx-auto text-center">
           Securing your Digital World 1 byte at a time
         </h1>
-        <p className="max-w-2xl text-center py-4 text-lg text-gray-400">
+        <p className="max-w-2xl text-center py-4 md:text-lg text-gray-400">
           Safeguard your organization's sensitive data and digital assets with
           confidence, relying on our proven cyber security services
         </p>
@@ -92,7 +92,7 @@ export default function Hero() {
       </div>
       {/* <div className="h-[30vh]"></div> */}
       <div className="my-8">
-        <h2 className="font-bold text-xl text-gray-700 dark:text-gray-400">
+        <h2 className="font-bold text-center lg:text-left text-xl text-gray-700 dark:text-gray-400">
           Making Security effortess for{" "}
           <span className="bg-gradient-to-b from-violet-400 to-violet-800 bg-clip-text text-transparent">
             200+
@@ -166,7 +166,7 @@ export default function Hero() {
         </ul>
       </div>
       <div className="flex flex-col items-center gap-4 mb-8">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
             <Smartphone size={50} />
             <p className="text-3xl font-bold mt-3">80+</p>

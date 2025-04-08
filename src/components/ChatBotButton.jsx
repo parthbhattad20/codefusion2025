@@ -12,7 +12,7 @@ function ChatBotButton() {
         {/* Chat Toggle Button */}
         <button
         onClick={() => setShowChatBot(!showChatBot)}
-        className="fixed bottom-8 right-8 w-14 h-14 flex items-center justify-center
+        className="fixed bottom-3 right-3 md:bottom-8 md:right-8 w-14 h-14 flex items-center justify-center
                    bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg
                    transition-all duration-200 hover:scale-110 z-50"
         aria-label="Toggle chat"

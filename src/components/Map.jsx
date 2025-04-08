@@ -27,9 +27,9 @@ export default function OurPresence() {
   }, []);
 
   return (
-    <section className="py-40 bg-white dark:bg-black w-full">
+    <section className="py-10 lg:py-40 bg-white dark:bg-black w-full">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="font-bold text-xl md:text-4xl text-black dark:text-white">
+        <h2 className="font-bold text-3xl md:text-4xl text-black dark:text-white">
           Our{" "}
           <span className="text-neutral-400">
             {"Presence".split("").map((char, idx) => (
@@ -45,7 +45,7 @@ export default function OurPresence() {
             ))}
           </span>
         </h2>
-        <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
+        <p className="md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
           We secure our clients across the globe . Our expertise powers trust, resilience, and protection—wherever you are.
         </p>
       </div>
