@@ -35,7 +35,7 @@ export default function Partner(){
                 </div>
 
                 <div className="text-center mt-20 mb-10">
-                <h3 className="text-3xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
+                <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-slate-500 to-slate-950 dark:from-slate-300 dark:to-slate-700 text-transparent">
                     Ready to Fortify Your Defenses?
                 </h3>
                 
@@ -45,7 +45,7 @@ export default function Partner(){
                 
                 <Button
                     size="lg"
-                    className="bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition duration-300 text-lg shadow-md">
+                    className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
                     Become a Partner
                 </Button>
                 </div>

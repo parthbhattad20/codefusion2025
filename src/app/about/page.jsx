@@ -8,6 +8,7 @@ import Clients from '../sections/Clients';
 import Partner from '../sections/Partner';
 import Impact from '../sections/Impact';
 import OurValues from '../sections/OurValues';
+import { ChevronRight } from 'lucide-react';
 
 
 
@@ -19,11 +20,11 @@ const AboutPage = () => {
 
         <div className="text-center mb-20">
     
-          <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
+          <h1 className="text-5xl md:text-6xl font-extrabold bg-clip-text bg-gradient-to-r from-violet-500 to-blue-900 text-transparent">
             About Vulnuris
           </h1>
     
-          <p className="mt-4 text-xl text-muted-foreground">Find › Fix › Fortify</p>
+          <p className="mt-4 text-xl text-muted-foreground flex items-center justify-center gap-1">Find <ChevronRight size={15} /> Fix <ChevronRight size={15} /> Fortify</p>
         </div>
 
         <section className="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

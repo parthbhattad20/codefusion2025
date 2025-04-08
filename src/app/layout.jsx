@@ -4,6 +4,8 @@ import localFont from 'next/font/local';
 import { Bricolage_Grotesque, Work_Sans } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { cn } from '@/lib/utils';
+import Footer from '@/components/Footer';
+import ChatBotButton from '@/components/ChatBotButton';
 
 const circular = localFont({
   variable: '--font-paragraph',
@@ -69,6 +71,10 @@ export default function RootLayout({ children }) {
           <main>
             <FloatingNavbar />
             {children}
+            <ChatBotButton />
+            <div className='bg-foreground/5 backdrop-blur-sm dark:bg-white/10'>
+              <Footer />
+            </div>
           </main>
         </ThemeProvider>
       </body>

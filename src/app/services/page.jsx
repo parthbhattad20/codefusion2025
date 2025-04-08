@@ -1,6 +1,3 @@
-'use client';
-
-import React from 'react';
 import Link from 'next/link'; 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -48,11 +45,11 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground px-6 py-16">
+    <div className="min-h-screen bg-background text-foreground px-6 py-16 font-primary">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-primary">
+          <h1 className="text-5xl md:text-6xl font-extrabold font-secondary bg-clip-text bg-gradient-to-br from-violet-500 to-blue-900 text-transparent">
             Our Cybersecurity Services
           </h1>
           <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -65,7 +62,7 @@ const ServicesPage = () => {
             const IconComponent = service.icon;
             return (
               <Card key={index} className="flex flex-col h-full shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-                <CardHeader className="flex flex-row items-center space-x-4 pb-4">
+                <CardHeader className="flex flex-row items-center space-x-4">
                   <IconComponent className="w-10 h-10 text-primary flex-shrink-0" />
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                 </CardHeader>
@@ -74,7 +71,7 @@ const ServicesPage = () => {
                     {service.description}
                   </p>
                 </CardContent>
-                <div className="p-6 pt-0 mt-auto">
+                <div className="px-6">
                   <Link href={service.link} passHref legacyBehavior>
                     <Button variant="outline" size="sm" className="w-full">
                       Learn More
@@ -87,7 +84,7 @@ const ServicesPage = () => {
         </div>
 
         <div className="text-center mt-20">
-          <h3 className="text-3xl font-semibold mb-4 text-primary">
+          <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-slate-500 to-slate-950 dark:from-slate-300 dark:to-slate-700 text-transparent">
             Ready to Enhance Your Security?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -96,7 +93,7 @@ const ServicesPage = () => {
           <Link href="/contact" passHref legacyBehavior>
              <Button
                size="lg"
-               className="bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition duration-300 text-lg shadow-md">
+               className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
                Request a Consultation
              </Button>
           </Link>

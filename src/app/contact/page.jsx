@@ -25,11 +25,11 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground px-6 py-16">
+    <div className="min-h-screen bg-background text-foreground px-6 py-16 font-primary">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-primary">
+          <h1 className="text-5xl md:text-6xl font-extrabold font-secondary bg-clip-text bg-gradient-to-br from-violet-500 to-blue-900 text-transparent">
             Get In Touch
           </h1>
           <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -41,7 +41,7 @@ const ContactPage = () => {
 
           <Card className="lg:col-span-1 lg:row-span-2 order-1">
             <CardHeader>
-              <CardTitle className="text-2xl">Send Us a Message</CardTitle>
+              <CardTitle className="text-3xl">Send Us a Message</CardTitle>
               <CardDescription>We'll get back to you as soon as possible.</CardDescription>
             </CardHeader>
             <CardContent>
@@ -66,9 +66,9 @@ const ContactPage = () => {
                   </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">Your Message</Label>
-                  <Textarea id="message" placeholder="How can we help you secure your assets?" required rows={6} />
+                  <Textarea id="message" placeholder="How can we help you secure your assets?" required rows={8} className="min-h-[150px] resize-none"/>
                 </div>
-                <Button type="submit" size="lg" className="w-full md:w-auto bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:opacity-90">
+                <Button type="submit" className="px-6 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-md">
                   Send Message
                 </Button>
               </form>
@@ -79,7 +79,7 @@ const ContactPage = () => {
 
           <Card className="order-3 lg:order-3">
             <CardHeader>
-              <CardTitle>Contact Information</CardTitle>
+              <CardTitle className="text-2xl">Contact Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-5 text-sm">
               <div className="flex items-start space-x-3">

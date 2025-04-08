@@ -61,7 +61,7 @@ const ProductsPage = () => {
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-20">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-primary">
+          <h1 className="text-5xl md:text-6xl font-extrabold bg-clip-text bg-gradient-to-br from-violet-500 to-blue-900 text-transparent">
             Our Security Products
           </h1>
           <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -112,7 +112,7 @@ const ProductsPage = () => {
 
 
         <div className="text-center mt-24 mb-10 border-t border-border pt-16">
-          <h3 className="text-3xl font-semibold mb-4 text-primary">
+          <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-slate-500 to-slate-950 dark:from-slate-300 dark:to-slate-700 text-transparent">
             Integrate Your Defenses
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -121,7 +121,7 @@ const ProductsPage = () => {
           <Link href="/contact?subject=Platform%20Demo" passHref legacyBehavior>
              <Button
                size="lg"
-               className="bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition duration-300 text-lg shadow-md">
+               className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
                Request a Demo
              </Button>
           </Link>

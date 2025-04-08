@@ -13,7 +13,7 @@ function ChatBotButton() {
         <button
         onClick={() => setShowChatBot(!showChatBot)}
         className="fixed bottom-8 right-8 w-14 h-14 flex items-center justify-center
-                   bg-violet-600 hover:bg-violet-700 text-white rounded-full shadow-lg
+                   bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg
                    transition-all duration-200 hover:scale-110 z-50"
         aria-label="Toggle chat"
           >
@@ -26,7 +26,7 @@ function ChatBotButton() {
         
           {/* Chat Window */}
           <div
-        className={`fixed bottom-28 right-8 bg-white dark:bg-gray-800
+        className={`fixed z-10 bottom-28 right-8 bg-white dark:bg-gray-800
                     shadow-lg rounded-lg overflow-hidden transition-all duration-300
                     transform ${showChatBot ? 'translate-y-0 opacity-100' :
                     'translate-y-10 opacity-0 pointer-events-none'}`}
