@@ -11,18 +11,33 @@ export default function Clients(){
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="text-center md:text-left">
                 
-                <h2 className="text-3xl font-bold mb-6 text-primary">Trusted By Industry Leaders</h2>
+                <h2 className="text-3xl font-bold mb-6 text-primary">Our Technology Partners</h2>
                 
                 <p className="text-lg text-muted-foreground mb-6">
                 From innovative startups to established enterprises, organizations rely on Vulnuris to safeguard their digital assets.
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 items-center">
                 
-                <PlaceholderLogo />
-                <PlaceholderLogo />
-                <PlaceholderLogo />
-                <PlaceholderLogo />
-                <PlaceholderLogo />
+                <img
+              src="./assets/tech/kali.png"
+              alt="Kali-Partner logo"
+            />                
+            <img
+              src="./assets/tech/nessus.png"
+              alt="Nessus-Partner logo"
+            />
+            <img
+              src="./assets/tech/phished.png"
+              alt="Phished-Partner logo"
+            />
+            <img
+              src="./assets/tech/portswigger.png"
+              alt="Port-swigger-Partner logo"
+            />
+            <img
+              src="./assets/tech/tech partner 2.png"
+              alt="Port-swigger-Partner logo"
+            />
                 </div>
                 
                 <div className="mt-6 p-4 bg-accent border-l-4 border-primary rounded-r-md">
@@ -43,10 +58,26 @@ export default function Clients(){
                 We collaborate with leading technology providers and security innovators to deliver comprehensive solutions.
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 items-center">
-                <PlaceholderLogo className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300" />
-                <PlaceholderLogo className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300" />
-                <PlaceholderLogo className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300" />
-                <PlaceholderLogo className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300" />
+                <img
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              src="./assets/partners/alnoorain.png"
+              alt="Alnoorain company logo"
+            />
+                <img
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              src="./assets/partners/dcode.png"
+              alt="Dcode company logo"
+            />
+            <img
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              src="./assets/partners/spiere.png"
+              alt="Spiere company logo"
+            />
+            <img
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              src="./assets/partners/thinkinfinity.png"
+              alt="Thinkinfinity company logo"
+            />
                 </div>
             </div>
             </div>

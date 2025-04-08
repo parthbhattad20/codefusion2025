@@ -102,63 +102,63 @@ export default function Hero() {
         <ul className="grid grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-9 grid-flow-col-dense gap-6 place-items-center my-6 border-t pt-4 pb-2">
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/kirloskar.png"
               alt="Kirloskar company logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/kyb.png"
               alt="KYB company logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/lnt.png"
               alt="L&T company logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/piaggio.png"
               alt="Piaggio company logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/revolut.png"
               alt="Revolut company logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/sndt.png"
               alt="Sndt org logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/technogen.png"
               alt="Technogen company logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/theintell.png"
               alt="theintell company logo"
             />
           </li>
           <li className="flex items-center justify-center h-25 w-25">
             <img
-              className="block"
+              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="./assets/clients/vidyan.png"
               alt="PVG org logo"
             />
