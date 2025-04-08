@@ -104,7 +104,7 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }) {
                   x={projectPoint(dot.start.lat, dot.start.lng).x + 5}
                   y={projectPoint(dot.start.lat, dot.start.lng).y - 5}
                   fontSize="6"
-                  fill="white"
+                  fill="var(--foreground)"
                 >
               {dot.name}
             </text>

@@ -46,7 +46,7 @@ export default function OurPresence() {
           </span>
         </h2>
         <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
-          We secure our clients across the globe. Our expertise powers trust, resilience, and protection—wherever you are.
+          We secure our clients across the globe . Our expertise powers trust, resilience, and protection—wherever you are.
         </p>
       </div>
 
