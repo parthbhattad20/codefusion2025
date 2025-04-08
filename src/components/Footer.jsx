@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -11,18 +12,46 @@ export default function Footer() {
         <div className="flex flex-col gap-3 justify-self-center">
           <h3 className="font-bold text-lg">Home</h3>
           <ul className="flex flex-col gap-2">
-            <li>About</li>
-            <li>Products</li>
-            <li>Services</li>
-            <li>Testimonials</li>
+            <li>
+              <Link href="/about" className="">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/products" className="">
+                Products
+              </Link>
+            </li> 
+            <li>
+              <Link href="/services" className="">
+                Services
+              </Link>
+            </li>           
+            <li>
+              <Link href="/#testimonials" className="">
+                Testimonials
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="flex flex-col gap-3 justify-self-center">
           <h3 className="font-bold text-lg">Company</h3>
           <ul className="flex flex-col gap-2">
-            <li>Career</li>
-            <li>Blog</li>
-            <li>Support Center</li>
+            <li>
+              <Link href="/about#our-team" className="">
+                Career
+              </Link>
+            </li>
+            <li>
+              <Link href="/blogs" className="">
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="">
+                Support Center
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="flex flex-col gap-3 justify-self-center">
@@ -35,7 +64,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-11/12 mx-auto h-5 mt-6 pb-8 gap-5 flex justify-between items-center">
-        <p className="text-sm">© 2025 VULNERIS. All rights reserved.</p>
+        <p className="text-sm">© 2025 VULNURIS. All rights reserved.</p>
         <div className="flex gap-5">
           <p className="text-sm">Privacy Policy</p>
           <p className="text-sm">Terms of Service</p>

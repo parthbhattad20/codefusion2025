@@ -11,7 +11,7 @@ export default function OurTeam(){
          
       ];
     return(
-        <section className="mb-16 text-center">
+        <section className="mb-16 text-center" id="our-team">
         <h2 className="text-4xl font-bold mb-8 text-primary">Meet the Experts</h2>
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-10">
             Our strength lies in our people – a diverse collective of passionate cybersecurity professionals dedicated to your protection.

@@ -46,7 +46,7 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="flex flex-col gap-3 py-10 max-w-6xl mx-auto border-t px-4">
+    <div className="flex flex-col gap-3 py-10 max-w-6xl mx-auto border-t px-4" id="testimonials">
       <h2 className="text-4xl text-center font-bold">
         Don't take our word for it! <br />
         See what our clients say
