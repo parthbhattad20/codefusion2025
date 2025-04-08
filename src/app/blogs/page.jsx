@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function BlogList() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="max-w-5xl mx-auto px-4 py-10 mt-20">
       <h1 className="text-3xl font-bold mb-8">Latest Blog Posts</h1>
       <div className="grid gap-6 sm:grid-cols-2">
         {BlogData.map((post) => (

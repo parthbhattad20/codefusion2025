@@ -99,7 +99,7 @@ export default function Hero() {
           </span>{" "}
           customers
         </h2>
-        <ul className="grid grid-rows-1 grid-flow-col-dense gap-6 place-items-center my-6 border-t pt-4 pb-2">
+        <ul className="grid grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-9 grid-flow-col-dense gap-6 place-items-center my-6 border-t pt-4 pb-2">
           <li className="flex items-center justify-center h-25 w-25">
             <img
               className="block"
@@ -165,7 +165,7 @@ export default function Hero() {
           </li>
         </ul>
       </div>
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4 mb-8">
         <div className="grid grid-cols-3 gap-4">
           <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
             <Smartphone size={50} />

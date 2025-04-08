@@ -57,7 +57,7 @@ const products = [
 
 const ProductsPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground px-6 py-16">
+    <div className="min-h-screen bg-background text-foreground px-6 py-16 mt-20">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-20">
