@@ -5,7 +5,7 @@ import WhatWeDo from '@/components/WhatWeDo';
 
 export default function Home() {
   return (
-    <div>
+    <div className='mt-20'>
       <Hero />
       <WhatWeDo />
       <Testimonials />

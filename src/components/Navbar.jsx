@@ -1,58 +1,113 @@
-'use client'; 
+'use client';
 
 import Link from 'next/link';
 import { SelectTheme } from './theme-toggler';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const FloatingNavbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 30);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Prevent scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
+
   return (
-    <nav className="flex items-center justify-between max-w-11/12 mx-auto my-4">
-      <h1 className="text-2xl font-bold font-secondary">
-        <Link href="/">
-          <img className='h-12 w-12' src="./assets/vul_logo.png" alt="vulenris logo" />
-        </Link>
-      </h1>
-      <ul className="flex items-center gap-8 py-3 px-7 bg-foreground/5 backdrop-blur-sm dark:bg-white/10 rounded-full">
-        <li className="relative group">
-          <Link href="/" className="">
-            Home
-            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+    <>
+      {/* Static Logo - only visible when not scrolled on desktop */}
+      <Link 
+        href="/" 
+        className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden md:block ${
+          isScrolled ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
+        <img className='h-12 w-12' src="./assets/vul_logo.png" alt="vulenris logo" />
+      </Link>
+
+      {/* Navigation Menu */}
+      <nav className="fixed top-0 left-0 w-full z-50 md:top-4 md:left-1/2 md:-translate-x-1/2 md:w-auto">
+        {/* Mobile Menu Overlay */}
+        <div className={`fixed inset-0 bg-background/80 backdrop-blur-sm transition-all duration-300 md:hidden ${
+          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`} />
+
+        {/* Navbar Container */}
+        <div className={`flex items-center justify-between md:gap-6 p-4 md:py-3 md:px-6 md:rounded-full transition-all duration-300 ${
+          isScrolled || isMenuOpen ? 'bg-foreground/5 backdrop-blur-md dark:bg-white/10 md:border md:border-white/10 md:shadow-lg' : ''
+        }`}>
+          {/* Logo - always visible on mobile, conditionally on desktop */}
+          <Link href="/" className="md:hidden">
+            <img className='h-8 w-8' src="./assets/vul_logo.png" alt="vulenris logo" />
           </Link>
-        </li>
-        <li className="relative group">
-          <Link href="/about" className="">
-            About
-            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+          
+          <Link 
+            href="/" 
+            className={`hidden md:block flex-shrink-0 transition-opacity duration-300 ${
+              isScrolled ? 'opacity-100' : 'opacity-0 invisible'
+            }`}
+          >
+            <img className='h-8 w-8' src="./assets/vul_logo.png" alt="vulenris logo" />
           </Link>
-        </li>
-        <li className="relative group">
-          <Link href="/products" className="">
-            Products
-            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-          </Link>
-        </li>
-        <li className="relative group">
-          <Link href="/services" className="">
-            Services
-            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-          </Link>
-        </li>
-        <li className="relative group">
-          <Link href="/contact" className="">
-            Contact
-            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-          </Link>
-        </li>
-        <li className="relative group">
-          <Link href="/blogs" className="">
-            Blogs
-            <span className="absolute -left-1.5 top-1/2 -translate-y-1/2 -translate-x-1/2 h-1 w-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
-          </Link>
-        </li>
-      </ul>
-      <div className="p-4 bg-foreground/5 backdrop-blur-sm dark:bg-white/10 rounded-full">
-        <SelectTheme/>
-      </div>
-    </nav>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="z-50 md:hidden"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
+          {/* Navigation Links */}
+          <div className={`fixed inset-0 top-[300px] flex flex-col md:relative md:inset-auto md:flex-row md:items-center ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
+          } transition-transform duration-300 ease-in-out`}>
+            <ul className="flex flex-col items-center justify-center h-full space-y-8 md:space-y-0 md:flex-row md:items-center md:gap-6">
+              {[ 'About', 'Products', 'Services', 'Contact', 'Blogs'].map((item) => (
+                <li key={item} className="relative group">
+                  <Link 
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
+                    className="px-1 py-2 text-lg md:text-sm font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item}
+                    <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                  </Link>
+                </li>
+              ))}
+              {/* Theme Selector - Mobile Only */}
+              <li className="md:hidden">
+                <SelectTheme />
+              </li>
+            </ul>
+          </div>
+
+          {/* Divider and Theme Selector - Desktop Only */}
+          <div className="hidden md:flex md:items-center md:gap-4">
+            <div className={`h-5 w-px transition-opacity duration-300 ${
+              isScrolled ? 'bg-gray-300 dark:bg-gray-700 opacity-100' : 'opacity-0'
+            }`} />
+            <SelectTheme />
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 
