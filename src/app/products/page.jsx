@@ -5,17 +5,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react'; 
 
-
-const ProductImagePlaceholder = ({ className, text = "Product Screenshot" }) => (
-    <div className={`bg-muted border border-border rounded-lg flex items-center justify-center h-64 md:h-80 w-full ${className}`}>
-        <p className="text-muted-foreground text-sm font-medium">{text}</p>
-    </div>
-);
-
-
 const products = [
   {
-    name: "kloudraksha",
+    name: "Kloudraksha",
     tagline: "Continuous asset discovery, vulnerability scanning, and risk prioritization.",
     features: [
       "Real-time asset inventory",
@@ -25,7 +17,7 @@ const products = [
     ],
     imageSrc: "./assets/products/kloudraksha.png", 
     imageAlt: "Vulnuris Insight Platform dashboard",
-    link: "/products/insight-platform"
+    link: "/products/kloudraksha"
   },
   {
     name: "Vumas",
@@ -38,7 +30,7 @@ const products = [
     ],
     imageSrc: "./assets/products/Vumas.png",
     imageAlt: "Vulnuris Threat Intel dashboard",
-    link: "/products/threat-intel"
+    link: "/products/vumas"
   },
   {
     name: "Phishinstinct",
@@ -51,7 +43,7 @@ const products = [
     ],
     imageSrc: "./assets/products/Phishinstinct.png",
     imageAlt: "Vulnuris PhishGuard interface",
-    link: "/products/phishguard"
+    link: "/products/phishinstinct"
   }
 ];
 

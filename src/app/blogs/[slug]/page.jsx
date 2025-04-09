@@ -79,9 +79,9 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className="bg-white min-h-screen px-4 md:px-8 py-10 mt-10 lg:mt-20">
+    <div className="min-h-screen px-4 md:px-8 py-10 mt-10 lg:mt-20">
       <div className="max-w-4xl mx-auto">
-        <Link href="/blogs" className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black transition mb-6">
+        <Link href="/blogs" className="inline-flex items-center gap-2 text-sm text-secondary-foreground hover:text-primary transition-colors mb-6">
           <ArrowLeft className="h-4 w-4" />
           Back to Blog
         </Link>
@@ -98,7 +98,7 @@ export default async function Page({ params }) {
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-8">
+        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-8">
           {post.date && <span>{post.date}</span>}
           {post.readTime && <span>{post.readTime}</span>}
           {post.author && (
