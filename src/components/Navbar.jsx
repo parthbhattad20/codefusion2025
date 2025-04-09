@@ -32,7 +32,7 @@ const FloatingNavbar = () => {
       
       <Link 
         href="/" 
-        className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden md:block ${
+        className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden md:block hover:animate-spin-once ${
           isScrolled ? 'opacity-0' : 'opacity-100'
         }`}
       >
@@ -57,7 +57,7 @@ const FloatingNavbar = () => {
           }`}
         >
           {/* Logo - always visible on mobile, conditionally on desktop */}
-          <Link href="/" className="md:hidden">
+          <Link href="/" className="md:hidden hover:animate-spin-once">
             <Image width="32" height="32" className="h-8 w-8" src="/assets/vul_logo.png" alt="vulenris logo" />
           </Link>
 
