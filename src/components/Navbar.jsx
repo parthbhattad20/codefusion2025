@@ -22,14 +22,14 @@ const FloatingNavbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent scroll when menu is open
+  
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
   }, [isMenuOpen]);
 
   return (
     <>
-      {/* Static Logo - only visible when not scrolled on desktop */}
+      
       <Link 
         href="/" 
         className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden md:block ${
