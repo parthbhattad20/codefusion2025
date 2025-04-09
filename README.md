@@ -1,6 +1,6 @@
 # 🌐 Vulnuris - Secure Your Digital Future 🔐
 
-**Vulnuris - Secure Your Digital Future**  is the online platform for Vulnuris, a cybersecurity firm dedicated to providing robust and innovative security solutions. This website is engineered for speed, optimized for search engines, and designed to offer a seamless and informative experience for individuals and businesses seeking top-tier cybersecurity services. It serves as the primary point of contact to learn about Vulnuris's offerings and connect with their expert team 👩‍💻.
+**Vulnuris - Secure Your Digital Future**  is the online platform for Vulnuris, a cybersecurity firm dedicated to providing robust and innovative security solutions. This website is engineered for speed, optimized for search engines, and designed to offer a seamless and informative experience for individuals and businesses seeking top-tier cybersecurity services. It serves as the primary point of contact to learn about Vulnuris's offerings and connect with their expert team.👩‍💻
 
 ## 🚀 Features
 
