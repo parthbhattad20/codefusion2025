@@ -71,7 +71,7 @@ Follow these steps to set up and run the Vulnuris Cybersecurity Website locally:
     yarn start
     ```
 
-## Team Members
+## 🤝 Team Members
 
 1.  **Sahil Dahekar** - [Linkedin](https://www.linkedin.com/in/sahil-dahekar/)
 2.  **Abhijit Dhane** - [Linkedin](https://www.linkedin.com/in/abhijeetadhane/)
