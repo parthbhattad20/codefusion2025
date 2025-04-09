@@ -94,9 +94,7 @@ const FloatingNavbar = () => {
                   <li key={item} className="relative group">
                     <Link
                       href={path}
-                      className={`md:px-1 py-2 text-lg md:text-sm font-medium transition-colors ${
-                        isActive ? 'text-primary' : ''
-                      }`}
+                      className="md:px-1 py-2 text-lg md:text-sm font-medium transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item}

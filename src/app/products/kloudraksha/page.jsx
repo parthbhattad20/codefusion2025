@@ -30,7 +30,7 @@ const KloudRaksha = () => {
           </div>
           <div className="bg-gray-200 rounded-lg overflow-hidden shadow-lg aspect-video relative">
             <Image
-                src="/assets/products/KloudRaksha.png"
+                src="/assets/products/kloudraksha.png"
                 alt="KloudRaksha Dashboard"
                 fill
                 className="object-cover"

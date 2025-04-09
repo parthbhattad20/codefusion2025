@@ -8,37 +8,37 @@ const services = [
   {
     title: "Penetration Testing",
     description: "Simulate real-world attacks to identify and exploit vulnerabilities before malicious actors do.",
-    icon: ShieldCheck,
+    icon: <ShieldCheck className="w-10 h-10 text-primary flex-shrink-0" />,
     link: "/services/pentesting"
   },
   {
     title: "Vulnerability Assessment",
     description: "Comprehensive scanning and analysis to uncover weaknesses across your network, applications, and infrastructure.",
-    icon: ScanSearch,
+    icon: <ScanSearch className="w-10 h-10 text-cyan-500 flex-shrink-0" />,
     link: "/services/vulnerability-assessment"
   },
   {
     title: "Cloud Security",
     description: "Secure your cloud environments (AWS, Azure, GCP) with configuration reviews, architecture design, and monitoring.",
-    icon: CloudCog,
+    icon: <CloudCog className="w-10 h-10 text-blue-500 flex-shrink-0" />,
     link: "/services/cloud-security"
   },
   {
     title: "Threat Intelligence",
     description: "Stay ahead of emerging threats with proactive monitoring, analysis, and tailored intelligence reporting.",
-    icon: Target,
+    icon: <Target className="w-10 h-10 text-orange-500 flex-shrink-0" />,
     link: "/services/threat-intelligence"
   },
   {
     title: "Incident Response",
     description: "Rapid response and containment services to minimize damage and recover quickly from security breaches.",
-    icon: AlertTriangle,
+    icon: <AlertTriangle className="w-10 h-10 text-red-500 flex-shrink-0" />,
     link: "/services/incident-response"
   },
   {
     title: "Security Advisory",
     description: "Strategic guidance, policy development, and CISO-as-a-Service to mature your overall security posture.",
-    icon: Users,
+    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
     link: "/services/security-advisory"
   }
 ];
@@ -59,11 +59,10 @@ const ServicesPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
-            const IconComponent = service.icon;
             return (
               <Card key={index} className="flex flex-col h-full shadow-sm hover:shadow-lg hover:border-primary/20 transition-all duration-300">
                 <CardHeader className="flex flex-row items-center space-x-4">
-                  <IconComponent className="w-10 h-10 text-primary flex-shrink-0" />
+                  {service.icon}
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-grow">
