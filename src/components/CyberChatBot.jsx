@@ -42,7 +42,7 @@ export default function CyberChatBot() {
       <div className="h-64 overflow-y-auto border p-3 mb-4 bg-gray-50 rounded-lg">
         {messages.map((msg, idx) => (
           <div key={idx} className={`mb-2 text-sm ${msg.sender === 'user' ? 'text-right' : 'text-left'}`}>
-            <span className={`inline-block px-3 py-2 rounded-lg ${msg.sender === 'user' ? 'bg-blue-100' : 'bg-green-100'}`}>
+            <span className={`inline-block px-3 py-2 rounded-lg ${msg.sender === 'user' ? 'bg-blue-100 dark:text-black' : 'bg-green-100 dark:text-black'}`}>
               {msg.text}
             </span>
           </div>

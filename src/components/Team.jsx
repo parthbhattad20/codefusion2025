@@ -4,10 +4,10 @@ import { Button } from '@/components/ui/button';
 
 export default function OurTeam(){
     const teamMembers = [
-        { name: 'Sahil Dahekar', title: 'Principal Security Researcher', desc: 'Expert in reverse engineering and exploit development.', initials: 'AC', img: '/placeholder-avatar.png', span: 'lg:col-span-2' }, // Make first one larger on lg screens
-        { name: 'Prathamesh Kirad', title: 'Lead Penetration Tester', desc: 'Specializes in network and web application security testing.', initials: 'MG', img: '/placeholder-avatar.png' },
-        { name: 'Abhijit Dhane', title: 'Cloud Security Architect', desc: 'Designs secure and resilient cloud-native solutions.', initials: 'SR', img: '/placeholder-avatar.png' },
-        { name: 'Priya Sharma', title: 'Threat Intelligence Analyst', desc: 'Monitors the threat landscape to provide proactive defense strategies.', initials: 'PS', img: '/placeholder-avatar.png' },
+        { name: 'Sahil Dahekar', title: 'Principal Security Researcher', desc: 'Expert in reverse engineering and exploit development.', initials: 'SD', img: '/avatar1.jpg', span: 'lg:col-span-2' }, // Make first one larger on lg screens
+        { name: 'Prathamesh Kirad', title: 'Lead Penetration Tester', desc: 'Specializes in network and web application security testing.', initials: 'PK', img: '/avatar2.jpeg' },
+        { name: 'Abhijit Dhane', title: 'Cloud Security Architect', desc: 'Designs secure and resilient cloud-native solutions.', initials: 'AD', img: '/avatar3.jpeg' },
+        { name: 'Priya Sharma', title: 'Threat Intelligence Analyst', desc: 'Monitors the threat landscape to provide proactive defense strategies.', initials: 'PS', img: '/avatar4.jpeg' },
          
       ];
     return(
