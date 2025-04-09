@@ -1,69 +1,71 @@
+"use client"
 import { ArrowUpRight, Globe, Network, Smartphone, Users } from "lucide-react";
 import { Button } from "./ui/button";
+import Counter from "./Counter";
 
 export default function Hero() {
   return (
     <div className="font-primary pt-10 grid place-content-center">
-<div className="flex flex-col items-center my-6 pt-14 lg:py-14 relative">
+      <div className="flex flex-col items-center my-6 pt-14 lg:py-14 relative">
 
-<div
-  className="absolute -z-10 inset-0 overflow-hidden pointer-events-none w-full"
-  style={{
-    WebkitMaskImage: 'radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 95%)',
-    maskImage: 'radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 95%)',
-    WebkitMaskRepeat: 'no-repeat',
-    maskRepeat: 'no-repeat',
-    WebkitMaskPosition: 'center',
-    maskPosition: 'center',
-    WebkitMaskSize: 'cover',
-    maskSize: 'cover',
-  }}
-  aria-hidden="true"
->
-  
-  <div
-    className="absolute top-1/2 left-1/2 aspect-square
-               -translate-x-1/2 -translate-y-full h-[100vh]
-               border border-violet-500/30 rounded-full
-               shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
-    style={{
-      width: 'clamp(300px, 100vw, 1200px)',
-      clipPath: 'inset(80% 0 0 0)',
-      background: `
-        linear-gradient(to top,
-          rgba(123, 22, 205, 0.26) 0%,
-          rgba(164, 55, 236, 0) 20%)
-      `,
-    }}
-  />
+      <div
+        className="absolute -z-10 inset-0 overflow-hidden pointer-events-none w-full"
+        style={{
+          WebkitMaskImage: 'radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 95%)',
+          maskImage: 'radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 95%)',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskPosition: 'center',
+          maskPosition: 'center',
+          WebkitMaskSize: 'cover',
+          maskSize: 'cover',
+        }}
+        aria-hidden="true"
+      >
+        
+        <div
+          className="absolute top-1/2 left-1/2 aspect-square
+                    -translate-x-1/2 -translate-y-full h-[100vh]
+                    border border-violet-500/30 rounded-full
+                    shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
+          style={{
+            width: 'clamp(300px, 100vw, 1200px)',
+            clipPath: 'inset(80% 0 0 0)',
+            background: `
+              linear-gradient(to top,
+                rgba(123, 22, 205, 0.26) 0%,
+                rgba(164, 55, 236, 0) 20%)
+            `,
+          }}
+        />
 
-  
-  <div
-    className="absolute bottom-1/2 left-1/2 aspect-square
-               -translate-x-1/2 translate-y-full h-[100vh]
-               border border-violet-500/30 rounded-full
-               shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
-    style={{
-      width: 'clamp(300px, 100vw, 1200px)',
-      clipPath: 'inset(0 0 80% 0)',
-      background: `
-        linear-gradient(to bottom,
-          rgba(123, 22, 205, 0.26) 0%,
-          rgba(164, 55, 236, 0) 20%)
-      `,
-    }}
-  />
+        
+        <div
+          className="absolute bottom-1/2 left-1/2 aspect-square
+                    -translate-x-1/2 translate-y-full h-[100vh]
+                    border border-violet-500/30 rounded-full
+                    shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
+          style={{
+            width: 'clamp(300px, 100vw, 1200px)',
+            clipPath: 'inset(0 0 80% 0)',
+            background: `
+              linear-gradient(to bottom,
+                rgba(123, 22, 205, 0.26) 0%,
+                rgba(164, 55, 236, 0) 20%)
+            `,
+          }}
+        />
 
-  
-  <div
-    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-               h-4 blur-sm rounded-full
-               bg-gradient-to-r from-violet-500/5 via-violet-500/80 to-violet-500/5"
-    style={{
-      width: 'clamp(150px, 50vw, 600px)',
-    }}
-  />
-</div>
+        
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                    h-4 blur-sm rounded-full
+                    bg-gradient-to-r from-violet-500/5 via-violet-500/80 to-violet-500/5"
+          style={{
+            width: 'clamp(150px, 50vw, 600px)',
+          }}
+        />
+      </div>
 
 
 
@@ -201,7 +203,10 @@ export default function Hero() {
                 <Smartphone className="w-8 h-8 text-violet-500" />
               </div>
               <div className="flex items-baseline gap-1">
-                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">80+</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
+                <Counter to={80} suffix="+" />
+
+                </p>
                 <ArrowUpRight className="w-4 h-4 text-violet-500" />
               </div>
               <p className="text-sm text-gray-500 mt-2 font-medium">Mobile Apps Secured</p>
@@ -214,7 +219,9 @@ export default function Hero() {
                 <Network className="w-8 h-8 text-violet-500" />
               </div>
               <div className="flex items-baseline gap-1">
-                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">10.5k+</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
+                <Counter to={11} suffix="k+" />
+                </p>
                 <ArrowUpRight className="w-4 h-4 text-violet-500" />
               </div>
               <p className="text-sm text-gray-500 mt-2 font-medium">IP Addresses Protected</p>
@@ -227,7 +234,9 @@ export default function Hero() {
                 <Globe className="w-8 h-8 text-violet-500" />
               </div>
               <div className="flex items-baseline gap-1">
-                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">220+</p>
+                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
+                <Counter to={220} suffix="+" />
+                </p>
                 <ArrowUpRight className="w-4 h-4 text-violet-500" />
               </div>
               <p className="text-sm text-gray-500 mt-2 font-medium">Web Apps Fortified</p>
