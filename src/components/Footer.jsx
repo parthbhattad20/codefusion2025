@@ -58,9 +58,15 @@ export default function Footer() {
         <div className="flex flex-col gap-3 justify-self-center">
           <h3 className="hidden lg:block font-bold text-lg">Socials</h3>
           <ul className="flex gap-6">
-            <li><Linkedin /></li>
-            <li><Instagram /></li>
-            <li><Facebook /></li>
+            <li><Link href="https://www.linkedin.com/company/vulnuris/" target="_blank" rel="noopener noreferrer">
+              <Linkedin />
+            </Link></li>
+            <li><Link href="https://www.linkedin.com/company/vulnuris/" target="_blank" rel="noopener noreferrer">
+              <Instagram />
+            </Link></li>
+            <li><Link href="https://www.linkedin.com/company/vulnuris/" target="_blank" rel="noopener noreferrer">
+              <Facebook />
+            </Link></li>
           </ul>
         </div>
       </div>
