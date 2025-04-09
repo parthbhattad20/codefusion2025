@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { SelectTheme } from './theme-toggler';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 const FloatingNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,7 +38,7 @@ const FloatingNavbar = () => {
           isScrolled ? 'opacity-0' : 'opacity-100'
         }`}
       >
-        <img className='h-12 w-12' src="./assets/vul_logo.png" alt="vulenris logo" />
+        <Image width="48" height="48" className='h-12 w-12' src="/assets/vul_logo.png" alt="vulenris logo" />
       </Link>
 
       {/* Navigation Menu */}
@@ -53,7 +54,7 @@ const FloatingNavbar = () => {
         }`}>
           {/* Logo - always visible on mobile, conditionally on desktop */}
           <Link href="/" className="md:hidden">
-            <img className='h-8 w-8' src="./assets/vul_logo.png" alt="vulenris logo" />
+            <Image width="32" height="32" className='h-8 w-8' src="/assets/vul_logo.png" alt="vulenris logo" />
           </Link>
           
           <Link 
@@ -62,7 +63,7 @@ const FloatingNavbar = () => {
               isScrolled ? 'opacity-100' : 'opacity-0 invisible'
             }`}
           >
-            <img className='h-8 w-8' src="./assets/vul_logo.png" alt="vulenris logo" />
+            <Image width="32" height="32" className='h-8 w-8' src="/assets/vul_logo.png" alt="vulenris logo" />
           </Link>
 
           {/* Mobile Menu Button */}
@@ -75,10 +76,10 @@ const FloatingNavbar = () => {
           </button>
 
           {/* Navigation Links */}
-          <div className={`fixed inset-0 top-[300px] flex flex-col md:relative md:inset-auto md:flex-row md:items-center ${
+          <div className={`fixed inset-0 top-[330px] flex flex-col md:relative md:inset-auto md:flex-row md:items-center ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'
           } transition-transform duration-300 ease-in-out`}>
-            <ul className="flex flex-col items-center justify-center h-full space-y-8 md:space-y-0 md:flex-row md:items-center gap-8">
+            <ul className="flex flex-col items-center justify-center h-full space-y-8 md:space-y-0 md:flex-row md:items-center gap-4 lg:gap-8">
               {[ 'About', 'Products', 'Services', 'Contact', 'Blogs'].map((item) => (
                 <li key={item} className="relative group">
                   <Link 

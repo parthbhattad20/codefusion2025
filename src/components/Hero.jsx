@@ -1,4 +1,4 @@
-import { Globe, Network, Smartphone, Users } from "lucide-react";
+import { ArrowUpRight, Globe, Network, Smartphone, Users } from "lucide-react";
 import { Button } from "./ui/button";
 
 export default function Hero() {
@@ -165,7 +165,7 @@ export default function Hero() {
           </li>
         </ul>
       </div>
-      <div className="flex flex-col items-center gap-4 mb-8">
+      {/* <div className="flex flex-col items-center gap-4 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
             <Smartphone size={50} />
@@ -184,6 +184,61 @@ export default function Hero() {
           </div>
         </div>
         <p className="text-lg text-gray-400">and counting...</p>
+      </div> */}
+
+      <div className="relative w-full max-w-5xl mx-auto px-4 py-12">
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 to-transparent rounded-xl"></div> */}
+        
+        <h3 className="text-3xl font-bold font-secondary text-center mb-8">
+          Our Security Impact
+          <div className="h-1 w-20 bg-gradient-to-r from-violet-500 to-violet-600 mx-auto mt-2 rounded-full"></div>
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+          <div className="group hover:scale-105 transition-all duration-300">
+            <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
+              <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
+                <Smartphone className="w-8 h-8 text-violet-500" />
+              </div>
+              <div className="flex items-baseline gap-1">
+                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">80+</p>
+                <ArrowUpRight className="w-4 h-4 text-violet-500" />
+              </div>
+              <p className="text-sm text-gray-500 mt-2 font-medium">Mobile Apps Secured</p>
+            </div>
+          </div>
+
+          <div className="group hover:scale-105 transition-all duration-300">
+            <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
+              <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
+                <Network className="w-8 h-8 text-violet-500" />
+              </div>
+              <div className="flex items-baseline gap-1">
+                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">10.5k+</p>
+                <ArrowUpRight className="w-4 h-4 text-violet-500" />
+              </div>
+              <p className="text-sm text-gray-500 mt-2 font-medium">IP Addresses Protected</p>
+            </div>
+          </div>
+
+          <div className="group hover:scale-105 transition-all duration-300">
+            <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
+              <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
+                <Globe className="w-8 h-8 text-violet-500" />
+              </div>
+              <div className="flex items-baseline gap-1">
+                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">220+</p>
+                <ArrowUpRight className="w-4 h-4 text-violet-500" />
+              </div>
+              <p className="text-sm text-gray-500 mt-2 font-medium">Web Apps Fortified</p>
+            </div>
+          </div>
+        </div>
+
+        <p className="text-center text-sm text-gray-500 mt-8">
+          Continuously expanding our security footprint
+          <span className="inline-block w-1.5 h-1.5 bg-violet-500 rounded-full ml-1 animate-pulse"></span>
+        </p>
       </div>
     </div>
   );

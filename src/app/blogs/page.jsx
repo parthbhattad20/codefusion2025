@@ -7,7 +7,7 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 export default function BlogList() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10 mt-20">
+    <div className="max-w-5xl mx-auto px-4 py-10 mt-10 lg:mt-20">
       <h1 className="text-3xl font-bold mb-8 text-foreground">Latest Blog Posts</h1>
       <div className="grid gap-6 sm:grid-cols-2">
         {BlogData.map((post) => (

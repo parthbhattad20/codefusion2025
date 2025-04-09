@@ -45,7 +45,7 @@ const services = [
 
 const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground px-6 py-16 font-primary mt-20">
+    <div className="min-h-screen bg-background text-foreground px-6 py-16 font-primary mt-10 lg:mt-20">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-16">

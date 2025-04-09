@@ -14,7 +14,7 @@ const WorldMap = dynamic(() => import("@/components/ui/world-map"), {
 function WorldMapSkeleton() {
   return (
     <div className="w-full h-[500px] flex items-center justify-center">
-      <div className="w-3/4 h-full bg-neutral-800 rounded-xl animate-pulse" />
+      <div className="w-3/4 h-full bg-background rounded-xl animate-pulse" />
     </div>
   );
 }
@@ -27,7 +27,7 @@ export default function OurPresence() {
   }, []);
 
   return (
-    <section className="py-10 lg:py-40 bg-white dark:bg-black w-full">
+    <section className="py-10 lg:py-20 bg-white dark:bg-background w-full">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="font-bold text-3xl md:text-4xl text-black dark:text-white">
           Our{" "}

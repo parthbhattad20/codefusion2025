@@ -57,7 +57,7 @@ const products = [
 
 const ProductsPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground px-6 py-16 mt-20">
+    <div className="min-h-screen bg-background text-foreground px-6 py-16 mt-10 lg:mt-20">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-20">
@@ -88,8 +88,8 @@ const ProductsPage = () => {
                 </ul>
 
                 <Link href={product.link} passHref legacyBehavior>
-                   <Button size="lg" variant="secondary">
-                       Learn More about {product.name.split(' ')[1]}
+                   <Button size="lg" variant="secondary" className="rounded-full">
+                       Learn More
                    </Button>
                 </Link>
               </div>

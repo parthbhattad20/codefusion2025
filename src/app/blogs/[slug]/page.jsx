@@ -79,7 +79,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <div className="bg-white min-h-screen px-4 md:px-8 py-10">
+    <div className="bg-white min-h-screen px-4 md:px-8 py-10 mt-10 lg:mt-20">
       <div className="max-w-4xl mx-auto">
         <Link href="/blogs" className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black transition mb-6">
           <ArrowLeft className="h-4 w-4" />

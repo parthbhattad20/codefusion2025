@@ -3,18 +3,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ScanSearch, Brain, Layers, LinkIcon } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ScanSearch, Brain, Layers, LinkIcon, ArrowBigLeft } from 'lucide-react';
 
 const InsightPlatformPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground py-16">
+    <div className="min-h-screen bg-background text-foreground py-16 mt-10 lg:mt-20">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="mb-10">
           <Link href="/products" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-2">
-              <path fillRule="evenodd" d="M15.75 2a.75.75 0 01.75.75v2.5a.75.75 0 01-.75.75h-11.5a.75.75 0 01-.75-.75V2.75a.75.75 0 01.75-.75h11.5zm-11.5 1.5h11.5v2.5h-11.5v-2.5zM3 10.75a.75.75 0 01.75-.75h18.5a.75.75 0 01.75.75v8.5a.75.75 0 01-.75-.75H3.75a.75.75 0 01-.75-.75v-8.5zm1.5-.75h18.5v8.5H4.5v-8.5zM5.25 6a.75.75 0 01.75-.75h12.5a.75.75 0 01.75.75v2.5a.75.75 0 01-.75-.75H6a.75.75 0 01-.75-.75V6zm-1.5.75h12.5v2.5H3.75v-2.5z" clipRule="evenodd" />
-            </svg>
+            <ArrowBigLeft/>
             Back to Products
           </Link>
         </div>
