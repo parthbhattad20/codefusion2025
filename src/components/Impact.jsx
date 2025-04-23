@@ -17,7 +17,7 @@ export default function Impact() {
         "A major Indian manufacturer partnered with us for a deep IT asset assessment, revealing critical vulnerabilities. Our long-term engagement introduced regular testing and patch management.",
       result: "Result: Significant improvement in cybersecurity maturity, enabling focus on core business.",
       color: "yellow",
-      image: "/assets/Impact/manufacture.jpg",
+      image: "/assets/Impact/manufacture.png",
     },
     {
       title: "PII & IP Protection for Leading EdTech Company",
@@ -33,7 +33,7 @@ export default function Impact() {
         "An IoT company faced mounting threats. We performed a full security audit and introduced a robust vulnerability management program.",
       result: "Result: Safer products and stronger client confidence through proactive cybersecurity.",
       color: "emerald",
-      image: "/assets/Impact/iot.jpg",
+      image: "/assets/Impact/iot.png",
     },
     {
       title: "Resilience Recovery for Financial Institution",
@@ -57,7 +57,7 @@ export default function Impact() {
             className={`shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-[400px]`}
           >
             <CardHeader className="flex flex-col items-center">
-              <div className="w-50 h-50 rounded-md overflow-hidden bg-white mb-4">
+              <div className="w-50 h-50 rounded-md overflow-hidden mb-4">
                 <Image
                   src={card.image}
                   alt={card.title}
