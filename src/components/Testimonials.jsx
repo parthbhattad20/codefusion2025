@@ -65,7 +65,7 @@ export default function Testimonials() {
             <Quote className={`absolute -bottom-2 right-2 w-24 h-24 opacity-10 rotate-12 text-${t.color}-500`} />
             <p className="text-justify mb-4">{`"${t.text}"`}</p>
             <div className="flex items-center gap-2 mt-auto">
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-${t.color}-500 bg-black/5 dark:bg-white/10 border dark:border-white/20`}>
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-${t.color}-500 bg-black/2 dark:bg-white/10 border dark:border-white/20`}>
                 {t.icon}
                 <span className="text-sm font-medium">{t.industry}</span>
               </span>

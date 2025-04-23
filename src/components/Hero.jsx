@@ -86,7 +86,6 @@ export default function Hero() {
       <CustomerCarasoul/>
 
       <div className="relative w-full max-w-5xl mx-auto px-4 py-12">
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 to-transparent rounded-xl"></div> */}
         
         <h3 className="text-3xl font-bold font-secondary text-center mb-8">
           Our Security Impact

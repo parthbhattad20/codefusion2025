@@ -50,11 +50,11 @@ export default function Impact() {
       <h2 className="text-4xl font-bold mb-12 text-center text-primary">
         Impact Delivered
       </h2>
-      <div className="flex flex-wrap justify-center gap-12">
+      <div className="flex flex-wrap justify-center gap-6">
         {cards.map((card, index) => (
           <Card
             key={index}
-            className={`shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-[300px]`}
+            className={`shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-[400px]`}
           >
             <CardHeader className="flex flex-col items-center">
               <div className="w-50 h-50 rounded-md overflow-hidden bg-white mb-4">

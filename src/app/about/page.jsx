@@ -2,11 +2,9 @@
 
 import React from 'react';
 import Approach from '@/components/OurAppoarch';
-import OurTeam from '@/components/Team';
 import Clients from '@/components/Clients';
 import Partner from '@/components/Partner';
 import Impact from '@/components/Impact';
-import OurValues from '@/components/OurValues';
 import { ChevronRight } from 'lucide-react';
 
 

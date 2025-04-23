@@ -32,11 +32,12 @@ const FloatingNavbar = () => {
       
       <Link 
         href="/" 
-        className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden md:block hover:animate-spin-once ${
+        className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden md:flex gap-2 items-center ${
           isScrolled ? 'opacity-0' : 'opacity-100'
         }`}
       >
         <Image width="48" height="48" className="h-12 w-12" src="/assets/vul_logo.png" alt="vulenris logo" />
+        <h1 className='hidden lg:block text-xl md:text-3xl font-bold font-secondary'>VULNURIS</h1>
       </Link>
 
       {/* Navigation Menu */}

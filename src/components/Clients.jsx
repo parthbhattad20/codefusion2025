@@ -14,10 +14,10 @@ export default function Clients() {
             rely on Vulnuris to safeguard their digital assets.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4 items-center">
-            <Image width="140" height="70" src="/assets/tech/kali.png" alt="Kali-Partner logo" />
+            <Image width="100" height="30" src="/assets/tech/kali.png" alt="Kali-Partner logo" />
             <Image width="140" height="70" src="/assets/tech/nessus.png" alt="Nessus-Partner logo" />
             <Image width="140" height="70" src="/assets/tech/phished.png" alt="Phished-Partner logo" />
-            <Image width="140" height="70"
+            <Image width="150" height="80"
               src="/assets/tech/portswigger.png"
               alt="Port-swigger-Partner logo"
             />

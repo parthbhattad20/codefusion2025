@@ -31,7 +31,7 @@ export default function OurPresence() {
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="font-bold text-3xl md:text-4xl text-black dark:text-white">
           Our{" "}
-          <span className="text-neutral-400">
+          <span className="text-black dark:text-white">
             {"Presence".split("").map((char, idx) => (
               <motion.span
                 key={idx}

@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+'use client'
 import { motion } from "framer-motion";
 
 const logos = [
@@ -16,36 +14,6 @@ const logos = [
 ];
 
 export default function CustomerCarousel() {
-  const trackRef = useRef(null);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    
-    // Calculate the width of a single set of logos
-    const firstSetWidth = track.scrollWidth / 2;
-    let animationFrame;
-    let scrollPos = 0;
-    
-    const scroll = () => {
-      scrollPos += 0.5;
-      
-      // When we've scrolled through the first set, reset to beginning
-      if (scrollPos >= firstSetWidth) {
-        scrollPos = 0;
-      }
-      
-      track.scrollLeft = scrollPos;
-      animationFrame = requestAnimationFrame(scroll);
-    };
-    
-    animationFrame = requestAnimationFrame(scroll);
-    
-    return () => {
-      cancelAnimationFrame(animationFrame);
-    };
-  }, []);
-
   return (
     <div className="font-primary pt-10 w-full">
       <div className="w-full max-w-full">
@@ -58,16 +26,20 @@ export default function CustomerCarousel() {
         </h2>
 
         <div className="w-[70vw] overflow-hidden relative pt-4 pb-2 border-t mt-4 mx-auto">
-          <div
-            ref={trackRef}
-            className="flex gap-8 overflow-x-scroll scrollbar-hide whitespace-nowrap w-full"
-            style={{ 
-              scrollBehavior: "auto",
-              msOverflowStyle: "none",
-              scrollbarWidth: "none"
+          <motion.div
+            className="flex gap-8 whitespace-nowrap"
+            animate={{
+              x: ["0%", "-133%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 50,
+                ease: "linear",
+              },
             }}
           >
-            {/* Double the logos array to create continuous scrolling effect */}
             {[...logos, ...logos].map((logo, index) => (
               <motion.div
                 key={index}
@@ -81,7 +53,7 @@ export default function CustomerCarousel() {
                 />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

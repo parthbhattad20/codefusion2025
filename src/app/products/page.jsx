@@ -80,7 +80,7 @@ const ProductsPage = () => {
                 </ul>
 
                 <Link href={product.link} passHref legacyBehavior>
-                   <Button size="lg" variant="secondary" className="rounded-full">
+                   <Button size="lg" variant="secondary" className="rounded-full font-bold bg-gradient-to-br from-violet-500 to-violet-800 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200">
                        Learn More
                    </Button>
                 </Link>
