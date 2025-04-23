@@ -2,6 +2,7 @@
 import { ArrowUpRight, Globe, Network, Smartphone, Users } from "lucide-react";
 import { Button } from "./ui/button";
 import Counter from "./Counter";
+import CustomerCarasoul from "./CustomerCarasoul";
 
 export default function Hero() {
   return (
@@ -22,12 +23,8 @@ export default function Hero() {
         }}
         aria-hidden="true"
       >
-        
         <div
-          className="absolute top-1/2 left-1/2 aspect-square
-                    -translate-x-1/2 -translate-y-full h-[100vh]
-                    border border-violet-500/30 rounded-full
-                    shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
+          className="absolute top-1/2 left-1/2 aspect-square -translate-x-1/2 -translate-y-full h-[100vh] border border-violet-500/30 rounded-full shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
           style={{
             width: 'clamp(300px, 100vw, 1200px)',
             clipPath: 'inset(80% 0 0 0)',
@@ -41,10 +38,7 @@ export default function Hero() {
 
         
         <div
-          className="absolute bottom-1/2 left-1/2 aspect-square
-                    -translate-x-1/2 translate-y-full h-[100vh]
-                    border border-violet-500/30 rounded-full
-                    shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
+          className="absolute bottom-1/2 left-1/2 aspect-square  -translate-x-1/2 translate-y-full h-[100vh] border border-violet-500/30 rounded-full shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
           style={{
             width: 'clamp(300px, 100vw, 1200px)',
             clipPath: 'inset(0 0 80% 0)',
@@ -56,11 +50,8 @@ export default function Hero() {
           }}
         />
 
-        
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                    h-4 blur-sm rounded-full
-                    bg-gradient-to-r from-violet-500/5 via-violet-500/80 to-violet-500/5"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4 blur-sm rounded-full bg-gradient-to-r from-violet-500/5 via-violet-500/80 to-violet-500/5"
           style={{
             width: 'clamp(150px, 50vw, 600px)',
           }}
@@ -92,101 +83,7 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-      {/* <div className="h-[30vh]"></div> */}
-      <div className="my-8">
-        <h2 className="font-bold text-center lg:text-left text-xl text-gray-700 dark:text-gray-400">
-          Making Security effortess for{" "}
-          <span className="bg-gradient-to-b from-violet-400 to-violet-800 bg-clip-text text-transparent">
-            200+
-          </span>{" "}
-          customers
-        </h2>
-        <ul className="grid grid-cols-3 grid-rows-3 lg:grid-rows-1 lg:grid-cols-9 grid-flow-col-dense gap-6 place-items-center my-6 border-t pt-4 pb-2">
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/kirloskar.png"
-              alt="Kirloskar company logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/kyb.png"
-              alt="KYB company logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/lnt.png"
-              alt="L&T company logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/piaggio.png"
-              alt="Piaggio company logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/revolut.png"
-              alt="Revolut company logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/sndt.png"
-              alt="Sndt org logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/technogen.png"
-              alt="Technogen company logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/theintell.png"
-              alt="theintell company logo"
-            />
-          </li>
-          <li className="flex items-center justify-center h-25 w-25">
-            <img
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
-              src="./assets/clients/vidyan.png"
-              alt="PVG org logo"
-            />
-          </li>
-        </ul>
-      </div>
-      {/* <div className="flex flex-col items-center gap-4 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
-            <Smartphone size={50} />
-            <p className="text-3xl font-bold mt-3">80+</p>
-            <p className="text-sm text-gray-500 mt-2">Mobile Apps</p>
-          </div>
-          <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
-            <Network size={50} />
-            <p className="text-3xl font-bold mt-3">10,500+</p>
-            <p className="text-sm text-gray-500 mt-2">IP Addresses</p>
-          </div>
-          <div className="flex flex-col items-center border py-4 px-6 rounded-lg">
-            <Globe size={50} />
-            <p className="text-3xl font-bold mt-3">220+</p>
-            <p className="text-sm text-gray-500 mt-2">Web Apps</p>
-          </div>
-        </div>
-        <p className="text-lg text-gray-400">and counting...</p>
-      </div> */}
+      <CustomerCarasoul/>
 
       <div className="relative w-full max-w-5xl mx-auto px-4 py-12">
         {/* <div className="absolute inset-0 bg-gradient-to-b from-violet-500/5 to-transparent rounded-xl"></div> */}

@@ -54,8 +54,8 @@ const AboutPage = () => {
         <Approach/>
         <Impact/>
         <Clients/>
-       <OurValues/>
-        <OurTeam/>
+       {/* <OurValues/>
+        <OurTeam/> */}
         <Partner/>
         
 
