@@ -6,11 +6,13 @@ import { SelectTheme } from './theme-toggler';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 const FloatingNavbar = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,8 +38,7 @@ const FloatingNavbar = () => {
           isScrolled ? 'opacity-0' : 'opacity-100'
         }`}
       >
-        <Image width="48" height="48" className="h-12 w-12" src="/assets/vul_logo.png" alt="vulenris logo" />
-        <h1 className='hidden lg:block text-xl md:text-3xl font-bold font-secondary'>VULNURIS</h1>
+        {theme === 'light' ? <Image width="256" height="74" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full1.png" alt="vulenris logo" /> : <Image width="256" height="74" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full2.png" alt="vulenris logo" />}
       </Link>
 
       {/* Navigation Menu */}
@@ -58,7 +59,7 @@ const FloatingNavbar = () => {
           }`}
         >
           {/* Logo - always visible on mobile, conditionally on desktop */}
-          <Link href="/" className="md:hidden hover:animate-spin-once">
+          <Link href="/" className="md:hidden">
             <Image width="32" height="32" className="h-8 w-8" src="/assets/vul_logo.png" alt="vulenris logo" />
           </Link>
 
