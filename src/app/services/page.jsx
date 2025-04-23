@@ -1,68 +1,68 @@
 import Link from 'next/link'; 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ShieldCheck, ScanSearch, CloudCog, Target, AlertTriangle, Users } from 'lucide-react'; 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ShieldCheck, Cloud, Target, BookLock, Binary, Network, FolderSearch, Radar, Fish, Cpu } from 'lucide-react'; 
 
 
 const services = [
   {
     title: "Virtual CISO",
     description: "Expert cybersecurity leadership with customized, cost-effective services to protect your business from cyber threats through our Virtual CISO as a Service.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <ShieldCheck className="w-10 h-10 text-violet-500 flex-shrink-0" />,
     link: "/services/virtual-ciso"
   },
   {
     title: "GRC Advisory and Audit",
     description: "Navigate governance, risk, and compliance with our comprehensive GRC advisory and audit solutions to build resilience and maintain security.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <BookLock className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
     link: "/services/grc-advisory"
   },
   {
     title: "Cloud Security",
     description: "Secure your cloud environments with our expert-designed solutions, continuous monitoring, and compliance-focused cloud security services.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <Cloud className="w-10 h-10 text-blue-500 flex-shrink-0" />,
     link: "/services/cloud-security"
   },
   {
     title: "Application Security",
     description: "Safeguard your applications with proactive security measures, secure coding practices, and rigorous testing to mitigate vulnerabilities.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <Binary className="w-10 h-10 text-green-500 flex-shrink-0" />,
     link: "/services/application-security"
-  },
-  {
-    title: "Cyber Forensics",
-    description: "Investigate and prevent cybercrimes with our cutting-edge Cyber Forensics services that provide actionable insights through evidence analysis.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
-    link: "/services/cyber-forensics"
   },
   {
     title: "Network Security",
     description: "Design and maintain secure network infrastructures with our comprehensive Network Security services to prevent internal and external threats.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <Network className="w-10 h-10 text-cyan-500 flex-shrink-0" />,
     link: "/services/network-security"
+  },
+  {
+    title: "Cyber Forensics",
+    description: "Investigate and prevent cybercrimes with our cutting-edge Cyber Forensics services that provide actionable insights through evidence analysis.",
+    icon: <FolderSearch className="w-10 h-10 text-red-500 flex-shrink-0" />,
+    link: "/services/cyber-forensics"
   },
   {
     title: "Vulnerability Assessment and Penetration Testing",
     description: "Identify and mitigate threats before they escalate with continuous VAPT, threat modeling, and remediation support.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <Radar className="w-10 h-10 text-orange-500 flex-shrink-0" />,
     link: "/services/vapt"
   },
   {
     title: "Red Teaming",
     description: "Simulate real-world attacks to uncover hidden vulnerabilities and enhance your security with our advanced Red Teaming services.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <Target className="w-10 h-10 text-red-500 flex-shrink-0" />,
     link: "/services/red-teaming"
   },
   {
     title: "Phishing Simulation",
     description: "Improve cybersecurity awareness with realistic phishing simulations and insights that reduce click rates and increase organizational readiness.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <Fish className="w-10 h-10 text-yellow-500 flex-shrink-0" />,
     link: "/services/phishing-simulation"
   },
   {
     title: "IoT Security",
     description: "Secure your IoT devices with inter-dependency testing, access management, and a robust IoT Security Framework for data and device protection.",
-    icon: <Users className="w-10 h-10 text-emerald-500 flex-shrink-0" />,
+    icon: <Cpu className="w-10 h-10 text-blue-500 flex-shrink-0" />,
     link: "/services/iot-security"
   }  
 ];

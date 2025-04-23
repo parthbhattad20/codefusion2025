@@ -44,10 +44,10 @@ export default function Page() {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-12 text-center mb-16">
-              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-red-500/10 to-red-600/10 backdrop-blur-sm mb-6">
-                <GlobeLock className="w-16 h-16 text-red-600" />
+              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-cyan-500/10 to-cyan-600/10 backdrop-blur-sm mb-6">
+                <GlobeLock className="w-16 h-16 text-cyan-600" />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-600 mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-cyan-600 mb-6">
                 Network Security
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -56,7 +56,7 @@ export default function Page() {
               <Link href="/contact" passHref legacyBehavior>
                 <Button
                   size="lg"
-                  className="px-8 py-2 rounded-full bg-gradient-to-b from-red-500 to-red-600 text-white focus:ring-2 focus:ring-red-400 hover:shadow-xl dark:hover:shadow-red-900 transition duration-200 text-lg font-bold">
+                  className="px-8 py-2 rounded-full bg-gradient-to-b from-cyan-500 to-cyan-600 text-white focus:ring-2 focus:ring-cyan-400 hover:shadow-xl dark:hover:shadow-cyan-900 transition duration-200 text-lg font-bold">
                   Secure Your Network
                 </Button>
               </Link>
@@ -94,51 +94,51 @@ export default function Page() {
                     'Access Control Enforcement',
                     'Regulatory Compliance'
                   ].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-br from-red-500/5 to-red-600/5 hover:from-red-500/10 hover:to-red-600/10 transition-colors duration-200">
-                      <CheckCircle2 className="w-5 h-5 text-red-600" />
+                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-br from-cyan-500/5 to-cyan-600/5 hover:from-cyan-500/10 hover:to-cyan-600/10 transition-colors duration-200">
+                      <CheckCircle2 className="w-5 h-5 text-cyan-600" />
                       <span>{benefit}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-red-500/5 to-red-600/5 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-cyan-500/5 to-cyan-600/5 rounded-2xl p-8">
                 <h2 className="text-3xl font-bold mb-6">How We Secure Your Network</h2>
                 <div className="space-y-6">
                   <p className="text-muted-foreground mb-6">
-                    Our layered security approach addresses every angle of network protection, from endpoint to edge.
+                    Our layecyan security approach addresses every angle of network protection, from endpoint to edge.
                   </p>
                   <div className="space-y-6">
                     {[
                       {
-                        icon: <ShieldCheck className="w-6 h-6 text-red-600" />, 
+                        icon: <ShieldCheck className="w-6 h-6 text-cyan-600" />, 
                         title: 'Perimeter Hardening', 
                         description: 'Locking down all entry points to your network to deter unauthorized access.'
                       },
                       {
-                        icon: <Server className="w-6 h-6 text-red-600" />, 
+                        icon: <Server className="w-6 h-6 text-cyan-600" />, 
                         title: 'Internal Traffic Monitoring', 
                         description: 'Detecting anomalies and suspicious movements within your network.'
                       },
                       {
-                        icon: <Wifi className="w-6 h-6 text-red-600" />, 
+                        icon: <Wifi className="w-6 h-6 text-cyan-600" />, 
                         title: 'WiFi Penetration Testing', 
                         description: 'Assessing the strength and security posture of your wireless networks.'
                       },
                       {
-                        icon: <AlertTriangle className="w-6 h-6 text-red-600" />, 
+                        icon: <AlertTriangle className="w-6 h-6 text-cyan-600" />, 
                         title: 'Incident Response Planning', 
-                        description: 'Ensuring your team is prepared to respond effectively to potential breaches.'
+                        description: 'Ensuring your team is prepacyan to respond effectively to potential breaches.'
                       }
                     ].map((step, index) => (
                       <div key={index} className="flex items-start space-x-4 group">
-                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors duration-200">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors duration-200">
                           {step.icon}
                         </div>
                         <div className="flex-1">
                           <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
                             {step.title}
-                            <ArrowRight className="w-4 h-4 text-red-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                            <ArrowRight className="w-4 h-4 text-cyan-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                           </h3>
                           <p className="text-muted-foreground">{step.description}</p>
                         </div>
@@ -151,7 +151,7 @@ export default function Page() {
 
             <div className="md:col-span-12 text-center mt-5 mb-20">
               <div className="md:col-span-12 mt-8 rounded-md px-6 pt-12 pb-6 text-center border-t-2">
-                <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-red-600 to-red-950 dark:from-red-300 dark:to-red-700 text-transparent">
+                <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-cyan-600 to-cyan-950 dark:from-cyan-300 dark:to-cyan-700 text-transparent">
                   Lock Down Your Digital Perimeter
                 </h3>
                 <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
@@ -160,7 +160,7 @@ export default function Page() {
                 <Link href="/contact" passHref legacyBehavior>
                   <Button
                     size="lg"
-                    className="px-8 py-2 rounded-full bg-gradient-to-b from-red-500 to-red-600 text-white focus:ring-2 focus:ring-red-400 hover:shadow-xl dark:hover:shadow-red-900 transition duration-200 text-lg font-bold">
+                    className="px-8 py-2 rounded-full bg-gradient-to-b from-cyan-500 to-cyan-600 text-white focus:ring-2 focus:ring-cyan-400 hover:shadow-xl dark:hover:shadow-cyan-900 transition duration-200 text-lg font-bold">
                     Let's Talk Security
                   </Button>
                 </Link>
