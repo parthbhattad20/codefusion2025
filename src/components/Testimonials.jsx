@@ -11,28 +11,28 @@ export default function Testimonials() {
     {
       text: "There's always something more to learn from these youngsters. I have seen them handle projects very efficiently and realized the potential they hold. Age is really just a number for them! Their team spirit, expertise, project delivery, adherence to timelines, professional etiquettes and leadership has left me speechless. All the best leaders of tomorrow!",
       industry: "Manufacturing",
-      icon: Building2,
+      icon: <Building2 className="w-4 h-4 text-violet-500"/>,
       color: "violet",
       span: "md:col-span-2",
     },
     {
       text: "Within two months of delivering our first project audited by Vulenris, we received 4 more projects through the same client. Their apt security consultancy, prompt and accurate IT security service, gave us the confidence to partner with Vulenris. Soon, we connected with Mandar's team on strategic fronts and this helped us immensely in penetrating the Cyber Security market in Middle East.",
       industry: "Consultancy",
-      icon: Briefcase,
+      icon: <Briefcase className="w-4 h-4 text-blue-500"/>,
       color: "blue",
       span: "md:col-span-3 md:place-self-end",
     },
     {
       text: "We are now associated with Vulenris for the last two years for security services. I found them extremely professional and very accommodating. Their understanding and positioning of services in Cyber Security is outstanding. In particular, my wavelength instantly synced with Aishwarya, who stands out in this male-dominated industry with her proficiency in cyber security.",
       industry: "CyberSecurity",
-      icon: Shield,
+      icon: <Shield className="w-4 h-4 text-red-500"/>,
       color: "red",
       span: "md:col-span-3 md:place-self-start",
     },
     {
       text: "Our journey truly began when we got our first HIPAA Audit conducted by Vulenris when our product was in an early stage. We received tremendous support and handholding to define and maintain the security posture of not just our product, but also our entire organization. Vulenris team has been very cooperative and continue to be on our speed dial for all security.",
       industry: "Healthcare",
-      icon: HeartPulse,
+      icon: <HeartPulse className="w-4 h-4 text-cyan-500"/>,
       color: "cyan",
       span: "md:col-span-2",
     },
@@ -60,13 +60,13 @@ export default function Testimonials() {
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className={`rounded-lg p-6 text-white relative overflow-hidden border shadow-xl backdrop-blur-sm bg-gradient-to-br ${colorMap[t.color]} ${t.span}`}
+            className={`rounded-lg p-6 relative overflow-hidden border shadow-xl backdrop-blur-md bg-foreground/5 dark:bg-white/10 ${t.span}`}
           >
-            <Quote className="absolute -bottom-2 right-2 w-24 h-24 opacity-10 rotate-12" />
+            <Quote className={`absolute -bottom-2 right-2 w-24 h-24 opacity-10 rotate-12 text-${t.color}-500`} />
             <p className="text-justify mb-4">{`"${t.text}"`}</p>
             <div className="flex items-center gap-2 mt-auto">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20">
-                <t.icon className="w-4 h-4" />
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-${t.color}-500 bg-black/5 dark:bg-white/10 border dark:border-white/20`}>
+                {t.icon}
                 <span className="text-sm font-medium">{t.industry}</span>
               </span>
             </div>
