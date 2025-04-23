@@ -3,6 +3,9 @@ import { ArrowUpRight, Globe, Network, Smartphone, Users } from "lucide-react";
 import { Button } from "./ui/button";
 import Counter from "./Counter";
 import CustomerCarasoul from "./CustomerCarasoul";
+import Link from "next/link";
+import { TypeAnimation } from 'react-type-animation';
+
 
 export default function Hero() {
   return (
@@ -68,19 +71,19 @@ export default function Hero() {
           confidence, relying on our proven cyber security services
         </p>
         <div className="flex gap-5 justify-center">
-          <Button
+          <a href="mailto:connect@vulnuris.com"><Button
             size="lg"
             className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold"
           >
             Get In Touch
-          </Button>
-          <Button
+          </Button></a>
+          <Link href="/about"><Button
             size="lg"
             variant="outline"
             className="rounded-full font-bold text-lg"
           >
             Learn More
-          </Button>
+          </Button></Link>
         </div>
       </div>
       <CustomerCarasoul/>

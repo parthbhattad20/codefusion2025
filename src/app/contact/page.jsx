@@ -87,9 +87,7 @@ const ContactPage = () => {
                 <div>
                   <h4 className="font-semibold text-foreground">Our Office</h4>
                   <p className="text-muted-foreground">
-                    123 Cyber Street<br />
-                    Secure City, SC 13370<br />
-                    Pune, Maharashtra, India
+                     Anjali Apartment Flat No 2, Ground Floor, SR. NO. 80/18/2, Near Sakal Nagar, Baner Road, Aundh Pune - 411007.
                   </p>
                 </div>
               </div>
@@ -98,10 +96,10 @@ const ContactPage = () => {
                  <div>
                    <h4 className="font-semibold text-foreground">Email Us</h4>
                    <a href="mailto:hello@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors">
-                     hello@vulnuris.com
+                    
                    </a> <br/>
                    <a href="mailto:support@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors">
-                     support@vulnuris.com
+                      connect@vulnuris.com
                    </a>
                  </div>
                </div>
@@ -110,11 +108,9 @@ const ContactPage = () => {
                  <div>
                     <h4 className="font-semibold text-foreground">Call Us</h4>
                     <a href="tel:+91XXXXXXXXXX" className="text-muted-foreground hover:text-primary transition-colors block">
-                      +91 (XXX) XXX-XXXX (Sales)
+                    +91 82083 87709
                     </a>
-                    <a href="tel:+91YYYYYYYYYY" className="text-muted-foreground hover:text-primary transition-colors block">
-                      +91 (YYY) YYY-YYYY (Support)
-                    </a>
+                  
                  </div>
                </div>
             </CardContent>
@@ -129,7 +125,7 @@ const ContactPage = () => {
                 scrolling="no"
                 marginHeight="0"
                 marginWidth="0"
-                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Bhosari%20Rd,%20Sector%20No.%2011,%20Chikhali,%20Pimpri-Chinchwad,%20Maharashtra%20412105+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.5356794382787!2d73.81520277446211!3d18.54987316827994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf84aced01af%3A0x23bc82992e66db06!2sAnjali%20Apartments!5e0!3m2!1sen!2sin!4v1745442896851!5m2!1sen!2sin"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

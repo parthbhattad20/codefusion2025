@@ -38,7 +38,7 @@ const FloatingNavbar = () => {
           isScrolled ? 'opacity-0' : 'opacity-100'
         }`}
       >
-        {theme === 'light' ? <Image width="256" height="74" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full1.png" alt="vulenris logo" /> : <Image width="256" height="74" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full2.png" alt="vulenris logo" />}
+        {theme === 'light' ? <Image width="126" height="48" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full1.png" alt="vulenris logo" /> : <Image width="126" height="48" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full2.png" alt="vulenris logo" />}
       </Link>
 
       {/* Navigation Menu */}

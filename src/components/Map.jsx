@@ -62,7 +62,7 @@ export default function OurPresence() {
             {
               start: { lat: 34.0522, lng: -118.2437 },
               end: { lat: 40.7128, lng: -74.006 },
-              name: "Los Angeles",
+              name: "USA",
             },
             {
               start: { lat: 40.7128, lng: -74.006 },
@@ -82,7 +82,7 @@ export default function OurPresence() {
             {
               start: { lat: -1.9579, lng: 30.1127 },
               end: { lat: 18.651907, lng: 73.797173 },
-              name: "Rwanda",
+              name: "Africa",
             },
           ]}
         />

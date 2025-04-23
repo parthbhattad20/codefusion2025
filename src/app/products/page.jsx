@@ -4,33 +4,33 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react'; 
+import KloudRaksha from './kloudraksha/page';
 
 const products = [
   {
     name: "Kloudraksha",
-    tagline: "Continuous asset discovery, vulnerability scanning, and risk prioritization.",
+    tagline: "Secure , Optimise and Protect your cloud Infrastructure ",
     features: [
-      "Real-time asset inventory",
-      "AI-powered vulnerability detection",
-      "Contextual risk scoring",
-      "Integration with ticketing systems"
+      "Cloud Configuration Audits",
+      "Multi-Cloud Support",
+      "Automated Remediation and Continuous Monitoring",
+      "Customizable Reports"
     ],
     imageSrc: "./assets/products/kloudraksha.png", 
     imageAlt: "Vulnuris Insight Platform dashboard",
-    link: "/products/kloudraksha"
+    link: "https://kloudraksha.com"
   },
   {
-    name: "Vumas",
-    tagline: "Actionable threat intelligence tailored to your industry and infrastructure.",
+    name: "Vaultix",
+    tagline: "Streamline Your IT Service Management",
     features: [
-      "Curated threat feeds",
-      "Dark web monitoring",
-      "IOC tracking and alerting",
-      "Executive threat briefings"
+      "Asset management ",
+      "Software Bill Of Materials",
+      "Ticket Management",
     ],
     imageSrc: "./assets/products/Vumas.png",
     imageAlt: "Vulnuris Threat Intel dashboard",
-    link: "/products/vumas"
+    link: "https://vaultix.in"
   },
   {
     name: "Phishinstinct",
@@ -43,7 +43,7 @@ const products = [
     ],
     imageSrc: "./assets/products/Phishinstinct.png",
     imageAlt: "Vulnuris PhishGuard interface",
-    link: "/products/phishinstinct"
+    link: "https://phishinstinct.com"
   }
 ];
 
@@ -78,6 +78,22 @@ const ProductsPage = () => {
                     </li>
                   ))}
                 </ul>
+                { product.name === "Kloudraksha" &&(
+                <Link href={product.link} passHref legacyBehavior>
+                   <Button size="lg" variant="secondary" className="rounded-full mr-2 font-bold bg-gradient-to-br from-violet-500 to-violet-800 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200">
+                       Coming Soon
+                   </Button>
+                </Link>
+                 )}
+
+                {product.name === "Vaultix" || product.name === "Phishinstinct" ? (
+                <Link href={product.link} passHref legacyBehavior>
+                   <Button size="lg" variant="secondary" className="rounded-full mr-2 font-bold bg-gradient-to-br from-violet-500 to-violet-800 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200">
+                       New Features Coming Soon
+                   </Button>
+                </Link>
+                 ):null}
+
 
                 <Link href={product.link} passHref legacyBehavior>
                    <Button size="lg" variant="secondary" className="rounded-full font-bold bg-gradient-to-br from-violet-500 to-violet-800 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200">
