@@ -117,7 +117,7 @@ const ServicesPage = () => {
              <Button
                size="lg"
                className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
-               Request a Consultation
+               Request a Free Consultation
              </Button>
           </Link>
         </div>

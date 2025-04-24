@@ -11,7 +11,7 @@ export default function Footer() {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 grid-row-2 lg:grid-cols-4 lg:grid-rows-1 gap-6 md:gap-3 max-w-11/12 mx-auto py-6 md:py-12 font-primary">
         <div>
-          <p className="text-sm mb-8 hidden lg:block">Professional cybersecurity solutions protecting your digital assets since 2017.</p>
+          <p className="text-sm mb-8 hidden lg:block">Professional cybersecurity solutions protecting your digital assets since 2017.<br></br>Formarly Known as Newtonsapple Security Solutions LLP</p>
           <h2 className="text-3xl md:text-5xl font-bold font-secondary flex gap-2 items-center">
             {/* <Image width="30" height="30" className="h-7.5 w-7.5 md:h-15 md:w-15" src="/assets/vul_logo.png" alt="vulenris logo" />VULNURIS */}
             {theme === 'light' ? <Image width="256" height="74" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full1.png" alt="vulenris logo" /> : <Image width="256" height="74" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full2.png" alt="vulenris logo" />}

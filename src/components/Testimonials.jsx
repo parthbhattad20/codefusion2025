@@ -16,7 +16,7 @@ export default function Testimonials() {
       span: "md:col-span-2",
     },
     {
-      text: "Within two months of delivering our first project audited by Vulenris, we received 4 more projects through the same client. Their apt security consultancy, prompt and accurate IT security service, gave us the confidence to partner with Vulenris. Soon, we connected with Mandar's team on strategic fronts and this helped us immensely in penetrating the Cyber Security market in Middle East.",
+      text: "Within two months of delivering our first project audited by Vulnuris, we received 4 more projects through the same client. Their apt security consultancy, prompt and accurate IT security service, gave us the confidence to partner with Vulnuris. Soon, we connected with Mandar's team on strategic fronts and this helped us immensely in penetrating the Cyber Security market in Middle East.",
       industry: "Consultancy",
       icon: <Briefcase className="w-4 h-4 text-blue-500"/>,
       color: "blue",
@@ -30,7 +30,7 @@ export default function Testimonials() {
       span: "md:col-span-3 md:place-self-start",
     },
     {
-      text: "Our journey truly began when we got our first HIPAA Audit conducted by Vulenris when our product was in an early stage. We received tremendous support and handholding to define and maintain the security posture of not just our product, but also our entire organization. Vulenris team has been very cooperative and continue to be on our speed dial for all security.",
+      text: "Our journey truly began when we got our first HIPAA Audit conducted by Vulnuris when our product was in an early stage. We received tremendous support and handholding to define and maintain the security posture of not just our product, but also our entire organization. Vulnuris team has been very cooperative and continue to be on our speed dial for all security.",
       industry: "Healthcare",
       icon: <HeartPulse className="w-4 h-4 text-cyan-500"/>,
       color: "cyan",

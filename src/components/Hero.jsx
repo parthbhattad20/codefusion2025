@@ -1,13 +1,31 @@
 "use client"
 import { ArrowUpRight, Globe, Network, Smartphone, Users } from "lucide-react";
+import { useEffect, useState } from 'react';
 import { Button } from "./ui/button";
 import Counter from "./Counter";
 import CustomerCarasoul from "./CustomerCarasoul";
-import Link from "next/link";
-import { TypeAnimation } from 'react-type-animation';
+import { motion, AnimatePresence } from 'framer-motion';
+const flipWords = ["V-Find", "V-Fix", "V-Fortify"];
 
+
+const colorVariants = {
+  "V-Find": "bg-gradient-to-r from-red-600 to-pink-500 text-transparent bg-clip-text",
+  "V-Fix": "bg-gradient-to-r from-blue-500 to-blue-900 text-transparent bg-clip-text",
+  "V-Fortify": "bg-gradient-to-r from-purple-600 to-violet-800 text-transparent bg-clip-text",
+};
 
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+  const currentWord = flipWords[index];
+
+
+   useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % flipWords.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+  
   return (
     <div className="font-primary pt-10 grid place-content-center">
       <div className="flex flex-col items-center my-6 pt-14 lg:py-14 relative">
@@ -62,28 +80,38 @@ export default function Hero() {
       </div>
 
 
-
-        <h1 className="text-5xl md:text-7xl font-bold font-secondary max-w-3xl mx-auto text-center">
-          Securing your Digital World 1 byte at a time
-        </h1>
-        <p className="max-w-2xl text-center py-4 md:text-lg text-gray-400">
+      <div className="h-28 mb-6 perspective">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ rotateX: 90, opacity: 0 }}
+            animate={{ rotateX: 0, opacity: 1 }}
+            exit={{ rotateX: -90, opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`text-6xl md:text-8xl font-extrabold font-secondary ${colorVariants[currentWord]}`}
+          >
+            {currentWord}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+        <p className="max-w-2xl text-center py-4 md:text-lg text-gray-800 dark:text-gray-400">
           Safeguard your organization's sensitive data and digital assets with
           confidence, relying on our proven cyber security services
         </p>
         <div className="flex gap-5 justify-center">
-          <a href="mailto:connect@vulnuris.com"><Button
+          <Button
             size="lg"
             className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold"
           >
             Get In Touch
-          </Button></a>
-          <Link href="/about"><Button
+          </Button>
+          <Button
             size="lg"
             variant="outline"
             className="rounded-full font-bold text-lg"
           >
             Learn More
-          </Button></Link>
+          </Button>
         </div>
       </div>
       <CustomerCarasoul/>
