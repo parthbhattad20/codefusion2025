@@ -8,19 +8,6 @@ import KloudRaksha from './kloudraksha/page';
 
 const products = [
   {
-    name: "Kloudraksha",
-    tagline: "Secure , Optimise and Protect your cloud Infrastructure ",
-    features: [
-      "Cloud Configuration Audits",
-      "Multi-Cloud Support",
-      "Automated Remediation and Continuous Monitoring",
-      "Customizable Reports"
-    ],
-    imageSrc: "./assets/products/kloudraksha.png", 
-    imageAlt: "Vulnuris Insight Platform dashboard",
-    link: "https://kloudraksha.com"
-  },
-  {
     name: "Vaultix",
     tagline: "Streamline Your IT Service Management",
     features: [
@@ -44,7 +31,20 @@ const products = [
     imageSrc: "./assets/products/Phishinstinct.png",
     imageAlt: "Vulnuris PhishGuard interface",
     link: "https://phishinstinct.com"
-  }
+  },
+  {
+    name: "Kloudraksha",
+    tagline: "Secure , Optimise and Protect your cloud Infrastructure ",
+    features: [
+      "Cloud Configuration Audits",
+      "Multi-Cloud Support",
+      "Automated Remediation and Continuous Monitoring",
+      "Customizable Reports"
+    ],
+    imageSrc: "./assets/products/kloudraksha.png", 
+    imageAlt: "Vulnuris Insight Platform dashboard",
+    link: "https://kloudraksha.com"
+  },
 ];
 
 const ProductsPage = () => {
@@ -128,7 +128,7 @@ const ProductsPage = () => {
              <Button
                size="lg"
                className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
-               Request a Demo
+               Request a Free Demo
              </Button>
           </Link>
         </div>
