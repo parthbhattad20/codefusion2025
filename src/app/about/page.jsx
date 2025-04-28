@@ -30,10 +30,10 @@ const AboutPage = () => {
             <h2 className="text-4xl font-bold mb-6 text-primary ">Forging a Secure Digital Future</h2>
             
             <p className="text-lg leading-relaxed mb-4 text-justify lg:text-left">
-              Vulnuris is more than just a cybersecurity company; we are architects of digital resilience. Founded by experts from the front lines of cyber defense, our team comprises elite ethical hackers, innovative engineers, and sharp analysts united by a single mission to empower organizations against the relentless evolution of digital threats.
+              Vulnuris is more than just a cybersecurity company; <span className="text-violet-800">V</span> are architects of digital resilience. Founded by experts from the front lines of cyber defense, our team comprises elite ethical hackers, innovative engineers, and sharp analysts united by a single mission to empower organizations against the relentless evolution of digital threats.
             </p>
             <p className="text-lg leading-relaxed text-justify lg:text-left">
-              We delve deeper than surface-level scans, transforming security from a reactive measure into a proactive, strategic advantage. Our vision is a world where every organization, regardless of size, operates with the confidence that their critical assets are protected, enabling them to focus on growth and innovation.
+            <span className="text-violet-800">V</span> delve deeper than surface-level scans, transforming security from a reactive measure into a proactive, strategic advantage. Our vision is a world where every organization, regardless of size, operates with the confidence that their critical assets are protected, enabling them to focus on growth and innovation.
             </p>
           </div>
           <div className="hidden md:block text-center">

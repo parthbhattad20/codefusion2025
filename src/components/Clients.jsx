@@ -45,27 +45,27 @@ export default function Clients() {
           </h2>
 
           <p className="text-lg text-muted-foreground mb-6">
-            We collaborate with leading technology providers and security
+          <span className="text-violet-800">V</span> collaborate with leading technology providers and security
             innovators to deliver comprehensive solutions.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start gap-4 items-center">
             <Image width="140" height="70"
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              className="opacity-80 filter hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="/assets/partners/alnoorain.png"
               alt="Alnoorain company logo"
             />
             <Image width="140" height="70"
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              className="opacity-80 filter  hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="/assets/partners/dcode.png"
               alt="Dcode company logo"
             />
             <Image width="140" height="70"
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              className="opacity-80 filter hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="/assets/partners/spiere.png"
               alt="Spiere company logo"
             />
             <Image width="140" height="70"
-              className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300"
+              className="opacity-80 filter  hover:grayscale-0 hover:opacity-100 transition duration-300"
               src="/assets/partners/Thinkinfinity.png"
               alt="Thinkinfinity company logo"
             />

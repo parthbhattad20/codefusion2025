@@ -11,7 +11,7 @@ const colorMap = {
 export default function WhatWeDo() {
   return (
     <div className="flex flex-col gap-4 py-10 md:w-2/3 mx-auto border-t">
-      <h2 className="text-4xl font-bold text-center">What We Do?</h2>
+      <h2 className="text-4xl font-bold text-center">What <span className="text-violet-800">V</span> Do?</h2>
       <p className="text-md text-muted-foreground text-center max-w-xl mx-auto">
         At Vulnuris, we help organizations take control of their cybersecurity posture through intelligent products and expert-led services.
       </p>

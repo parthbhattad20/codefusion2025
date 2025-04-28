@@ -99,7 +99,7 @@ export default function Hero() {
           Safeguard your organization's sensitive data and digital assets with
           confidence, relying on our proven cyber security services
         </p>
-        <div className="flex gap-5 justify-center">\
+        <div className="flex gap-5 justify-center">
           <Link href="mailto:connect@vulnuris.com">
           <Button
             size="lg"

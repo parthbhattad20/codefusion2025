@@ -42,7 +42,7 @@ const ContactPage = () => {
           <Card className="lg:row-span-2 order-1">
             <CardHeader>
               <CardTitle className="text-3xl">Send Us a Message</CardTitle>
-              <CardDescription>We'll get back to you as soon as possible.</CardDescription>
+              <CardDescription><span className="text-violet-800">V</span>'ll get back to you as soon as possible.</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">

@@ -30,11 +30,11 @@ export default function OurPresence() {
     <section className="py-10 lg:py-20 bg-white dark:bg-background w-full">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="font-bold text-3xl md:text-4xl text-black dark:text-white">
-        <span>V</span> SERVE GLOBALLY
+        <span className="text-violet-800">V</span> SERVE GLOBALLY
          
         </h2>
         <p className="md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
-          We secure our clients across the globe . Our expertise powers trust, resilience, and protection—wherever you are.
+        <span className="text-violet-800">V</span>secure our clients across the globe . Our expertise powers trust, resilience, and protection—wherever you are.
         </p>
       </div>
 
