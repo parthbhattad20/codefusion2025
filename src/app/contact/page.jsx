@@ -85,9 +85,21 @@ const ContactPage = () => {
               <div className="flex items-start space-x-3">
                 <Building className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold text-foreground">Our Office</h4>
+                  <h4 className="font-semibold text-foreground">India</h4>
                   <p className="text-muted-foreground">
                      Anjali Apartment Flat No 2, Ground Floor, SR. NO. 80/18/2, Near Sakal Nagar, Baner Road, Aundh Pune - 411007.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">Kuwait</h4>
+                  <p className="text-muted-foreground">
+                     5th Floor, Panasonic Tower, Kuwait City
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">USA</h4>
+                  <p className="text-muted-foreground">
+                  12310 Pinecrest Road, Suite #306, Reston, VA 20191
                   </p>
                 </div>
               </div>
