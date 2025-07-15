@@ -80,7 +80,18 @@ export default function Footer() {
       <div className="max-w-11/12 mx-auto h-20 lg:h-10 md:mt-6 pb-8 gap-5 flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm">© 2025 VULNURIS. All rights reserved.</p>
         <div className="flex gap-5">
-       
+       <p>
+      We are listed on{' '}
+      <Link
+        href="https://stafir.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 underline"
+      >
+        B2B Marketplace
+      </Link>{' '}
+      Stafir
+    </p>
         </div>
       </div>
     </>

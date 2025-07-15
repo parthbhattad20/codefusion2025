@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
           <main>
             <FloatingNavbar />
             {children}
-            <ChatBotButton />
+         
             <div className='bg-foreground/5 backdrop-blur-sm dark:bg-white/10'>
               <Footer />
             </div>
