@@ -60,6 +60,11 @@ export default function Footer() {
                 Support Center
               </Link>
             </li>
+              <li>
+              <Link href="/privacy-policy" className="">
+                Privacy Policy
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="flex flex-col gap-3 justify-self-center">
