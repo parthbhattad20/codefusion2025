@@ -11,6 +11,7 @@ const logos = [
   { src: "./assets/clients/technogen.png", alt: "Technogen company logo" },
   { src: "./assets/clients/theintell.png", alt: "theintell company logo" },
   { src: "./assets/clients/vidyan.png", alt: "PVG org logo" },
+  { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bajaj-Finserv-Logo.jpg/640px-Bajaj-Finserv-Logo.jpg", alt: "Bajaj Finserv" },
 ];
 
 export default function CustomerCarousel() {
