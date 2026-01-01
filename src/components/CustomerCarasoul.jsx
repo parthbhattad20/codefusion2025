@@ -12,6 +12,15 @@ const logos = [
   { src: "./assets/clients/theintell.png", alt: "theintell company logo" },
   { src: "./assets/clients/vidyan.png", alt: "PVG org logo" },
   { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bajaj-Finserv-Logo.jpg/640px-Bajaj-Finserv-Logo.jpg", alt: "Bajaj Finserv" },
+  { src: "./assets/clients/tatatech.png", alt: "Tata Technologies" },
+  {src:"./assets/clients/oneam.png", alt:"OneAM" },
+  {src: "./assets/clients/afs.png", alt:"AFS" },
+  {src: "./assets/clients/camlin.png", alt:"Camlin" },
+  {src: "./assets/clients/credimax.jpg", alt:"Credimax" },
+  {src: "./assets/clients/hafeetrail.jpg", alt:"Hafeet Rail" },
+  {src: "./assets/clients/paysii.png", alt:"Paysii" },
+  {src: "./assets/clients/thomas_cook.jpg", alt:"Thomas Cook" },
+
 ];
 
 export default function CustomerCarousel() {

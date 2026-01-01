@@ -77,56 +77,93 @@ const ContactPage = () => {
 
           
 
-          <Card className="lg:row-span-1 order-3">
-            <CardHeader>
-              <CardTitle className="text-2xl">Contact Information</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-5 text-sm">
-              <div className="flex items-start space-x-3">
-                <Building className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-foreground">India</h4>
-                  <p className="text-muted-foreground">
-                     Anjali Apartment Flat No 2, Ground Floor, SR. NO. 80/18/2, Near Sakal Nagar, Baner Road, Aundh Pune - 411007.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">Kuwait</h4>
-                  <p className="text-muted-foreground">
-                     5th Floor, Panasonic Tower, Kuwait City
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground">USA</h4>
-                  <p className="text-muted-foreground">
-                  12310 Pinecrest Road, Suite #306, Reston, VA 20191
-                  </p>
-                </div>
-              </div>
-               <div className="flex items-start space-x-3">
-                 <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                 <div>
-                   <h4 className="font-semibold text-foreground">Email Us</h4>
-                   <a href="mailto:hello@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    
-                   </a> <br/>
-                   <a href="mailto:support@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors">
-                      connect@vulnuris.com
-                   </a>
-                 </div>
-               </div>
-               <div className="flex items-start space-x-3">
-                 <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                 <div>
-                    <h4 className="font-semibold text-foreground">Call Us</h4>
-                    <a href="tel:+91XXXXXXXXXX" className="text-muted-foreground hover:text-primary transition-colors block">
-                    +91 82083 87709
-                    </a>
-                  
-                 </div>
-               </div>
-            </CardContent>
-          </Card>
+         <Card className="lg:row-span-1 order-3">
+  <CardHeader>
+    <CardTitle className="text-2xl">Contact Information</CardTitle>
+  </CardHeader>
+
+  <CardContent className="space-y-6 text-sm">
+
+    {/* Address Section */}
+    <div className="flex items-start space-x-3">
+      <Building className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+      <div className="w-full">
+        <h4 className="font-semibold text-foreground mb-3">Our Offices</h4>
+
+        {/* 1 column mobile, 2 columns tablet & desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <h5 className="font-semibold text-foreground">India</h5>
+            <p className="text-muted-foreground">
+              Anjali Apartment, Flat No. 2, Ground Floor, SR. No. 80/18/2,
+              Near Sakal Nagar, Baner Road, Aundh, Pune – 411007
+            </p>
+          </div>
+
+          <div>
+            <h5 className="font-semibold text-foreground">Kuwait</h5>
+            <p className="text-muted-foreground">
+              5th Floor, Panasonic Tower,<br />
+              Kuwait City, Kuwait
+            </p>
+          </div>
+
+          <div>
+            <h5 className="font-semibold text-foreground">USA</h5>
+            <p className="text-muted-foreground">
+              12310 Pinecrest Road,<br />
+              Suite #306, Reston, VA 20191
+            </p>
+          </div>
+
+          <div>
+            <h5 className="font-semibold text-foreground">UAE</h5>
+            <p className="text-muted-foreground">
+              Vulnuris Security Solutions FZCO,<br />
+              A1, IFZA, Dubai, UAE
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Email Section */}
+    <div className="flex items-start space-x-3">
+      <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+      <div>
+        <h4 className="font-semibold text-foreground">Email Us</h4>
+        <a
+          href="mailto:hello@vulnuris.com"
+          className="text-muted-foreground hover:text-primary transition-colors block"
+        >
+          hello@vulnuris.com
+        </a>
+        <a
+          href="mailto:connect@vulnuris.com"
+          className="text-muted-foreground hover:text-primary transition-colors block"
+        >
+          connect@vulnuris.com
+        </a>
+      </div>
+    </div>
+
+    {/* Phone Section */}
+    <div className="flex items-start space-x-3">
+      <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+      <div>
+        <h4 className="font-semibold text-foreground">Call Us</h4>
+        <a
+          href="tel:+918208387709"
+          className="text-muted-foreground hover:text-primary transition-colors block"
+        >
+          +91 82083 87709
+        </a>
+      </div>
+    </div>
+
+  </CardContent>
+</Card>
+
 
           <Card className="lg:row-span-1 order-2 p-4">
             <div className="w-full h-[200px] rounded-lg overflow-hidden">

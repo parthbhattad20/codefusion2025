@@ -32,14 +32,22 @@ const FloatingNavbar = () => {
   return (
     <>
       
-      <Link 
-        href="/" 
-        className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden lg:flex gap-2 items-center ${
-          isScrolled ? 'opacity-0' : 'opacity-100'
-        }`}
-      >
-        {theme === 'light' ? <Image width="126" height="48" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full1.png" alt="vulenris logo" /> : <Image width="126" height="48" className="h-[74px] w-[256px]" src="/assets/vulnuris_logo_full2.png" alt="vulenris logo" />}
-      </Link>
+<Link
+  href="/"
+  className={`fixed top-4 left-[5%] z-50 transition-opacity duration-300 m-3 hidden lg:flex gap-2 items-center ${
+    isScrolled ? "opacity-0" : "opacity-100"
+  }`}
+>
+  <Image
+    src={theme === "light" ? "/assets/vulnuris_logo_full1.png" : "/assets/vulnuris.png"}
+    alt="Vulnuris logo"
+    width={256}
+    height={74}
+    priority
+    className="object-contain"
+  />
+</Link>
+
 
       {/* Navigation Menu */}
       <nav className="fixed top-0 left-0 w-full z-50 lg:top-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-3/4 xl:w-auto">

@@ -78,13 +78,13 @@ const ProductsPage = () => {
                     </li>
                   ))}
                 </ul>
-                { product.name === "Kloudraksha" &&(
+                {/* { product.name === "Kloudraksha" &&(
                 <Link href={product.link} passHref legacyBehavior>
                    <Button size="lg" variant="secondary" className="rounded-full mr-2 font-bold bg-gradient-to-br from-violet-500 to-violet-800 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200">
                        Launching Soon
                    </Button>
                 </Link>
-                 )}
+                 )} */}
 
                 {/* {product.name === "Vaultix" || product.name === "Phishinstinct" ? (
                 <Link href={product.link} passHref legacyBehavior>

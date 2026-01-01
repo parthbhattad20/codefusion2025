@@ -69,9 +69,14 @@ export default function OurPresence() {
             },
             {
               start: { lat: -1.9579, lng: 30.1127 },
-              end: { lat: 18.651907, lng: 73.797173 },
+              end: { lat: 23.4657, lng: 55.2708 },
               name: "Africa",
             },
+            {
+              start: { lat: 23.4657, lng: 55.17128 },
+              end: { lat: 18.651907, lng: 73.797173 },
+              name: "UAE",
+            }
           ]}
         />
       )}
