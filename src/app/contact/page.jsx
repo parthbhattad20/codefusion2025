@@ -136,7 +136,7 @@ const ContactPage = () => {
           href="mailto:hello@vulnuris.com"
           className="text-muted-foreground hover:text-primary transition-colors block"
         >
-          hello@vulnuris.com
+          hello@vulnuris.com,
         </a>
         <a
           href="mailto:connect@vulnuris.com"
@@ -181,10 +181,6 @@ const ContactPage = () => {
               />
             </div>
           </Card>
-
-
-           
-
         </div>
       </div>
     </div>

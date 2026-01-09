@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2 } from 'lucide-react'; 
 import KloudRaksha from './kloudraksha/page';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
+
 
 const products = [
   {

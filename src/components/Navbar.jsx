@@ -29,6 +29,31 @@ const FloatingNavbar = () => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
   }, [isMenuOpen]);
 
+ 
+
+const productItems = [
+  { name: 'Vaultix', href: '/products/vumas' },
+  { name: 'Phishinstinct', href: '/products/phishinstinct' },
+  { name: 'Kloudraksha', href: '/products/kloudraksha' },
+  { name: 'Vcrypt', href: '/products/vcrypt' },
+];
+
+
+
+const serviceItems = [
+  { name: 'Virtual CISO', href: '/services/virtual-ciso' },
+  { name: 'GRC Advisory and Audit', href: '/services/grc-advisory' },
+  { name: 'Cloud Security', href: '/services/cloud-security' },
+  { name: 'Application Security', href: '/services/application-security' },
+  { name: 'Network Security', href: '/services/network-security' },
+  { name: 'Cyber Forensics', href: '/services/cyber-forensics' },
+  { name: 'VAPT', href: '/services/vapt' },
+  { name: 'Red Teaming', href: '/services/red-teaming' },
+  { name: 'Phishing Simulation', href: '/services/phishing-simulation' },
+  { name: 'IoT Security', href: '/services/iot-security' },
+  { name: 'AI Soc', href: '/services/ai-soc' },
+];
+
   return (
     <>
       
@@ -50,7 +75,7 @@ const FloatingNavbar = () => {
 
 
       {/* Navigation Menu */}
-      <nav className="fixed top-0 left-0 w-full z-50 lg:top-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-3/4 xl:w-auto">
+      <nav className="fixed top-0 left-0 w-full z-50 lg:top-4 lg:left-1/2 lg:-translate-x-1/2 lg:w-3/4 xl:w-[1000px]">
         {/* Mobile Menu Overlay */}
         <div
           className={`fixed inset-0 bg-background/80 backdrop-blur-sm transition-all duration-300 lg:hidden ${
@@ -96,27 +121,120 @@ const FloatingNavbar = () => {
             } transition-transform duration-300 ease-in-out`}
           >
             <ul className="flex flex-col items-center justify-center h-full space-y-8 lg:space-y-0 lg:flex-row lg:items-center gap-4 xl:gap-8">
-              {['About', 'Products', 'Services', 'Contact', 'Blogs'].map((item) => {
-                const path = `/${item.toLowerCase()}`;
-                const isActive = pathname === path;
+             
+{['About', 'Products', 'Services', 'Soc', 'Contact', 'Blogs'].map((item) => {
+  const path = `/${item.toLowerCase()}`;
+  const isActive = pathname === path;
 
-                return (
-                  <li key={item} className="relative group">
-                    <Link
-                      href={path}
-                      className="lg:px-1 py-2 text-lg lg:text-sm font-medium transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item}
-                      <span
-                        className={`absolute left-0 right-0 bottom-0 h-0.5 bg-primary transition-transform duration-300 ${
-                          isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                        }`}
-                      />
-                    </Link>
-                  </li>
-                );
-              })}
+
+//  Products dropdown 
+if (item === 'Products') {
+  return (
+    <li key={item} className="relative group">
+      <Link
+        href="/products"
+        className="lg:px-1 py-2 text-lg lg:text-sm font-medium"
+      >
+        Products
+        <span
+          className={`absolute left-0 right-0 bottom-0 h-0.5 bg-primary transition-transform duration-300 ${
+            pathname.startsWith('/products')
+              ? 'scale-x-100'
+              : 'scale-x-0 group-hover:scale-x-100'
+          }`}
+        />
+      </Link>
+
+      {/* PRODUCTS DROPDOWN */}
+      <div className="absolute left-1/2 top-full z-50 hidden group-hover:block -translate-x-1/2 pt-4">
+        <div className="w-[260px] rounded-2xl bg-background border shadow-xl p-4">
+          <div className="flex flex-col gap-1 items-center">
+            {productItems.map((product) => (
+              <Link
+                key={product.name}
+                href={product.href}
+                // className="block rounded-lg px-4 py-2 text-sm font-medium
+                //            transition-colors hover:bg-primary/10 hover:text-primary  "
+                className="w-full text-center rounded-lg px-4 py-2 text-sm font-medium
+           transition-colors hover:bg-primary/10 hover:text-primary"
+
+              >
+                {product.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </li>
+  );
+}
+
+  //  Services dropdown
+
+  if (item === 'Services') {
+  return (
+    <li key={item} className="relative group">
+      <Link
+        href="/services"
+        className="lg:px-1 py-2 text-lg lg:text-sm font-medium"
+      >
+        Services
+        <span
+          className={`absolute left-0 right-0 bottom-0 h-0.5 bg-primary transition-transform duration-300 ${
+            pathname.startsWith('/services')
+              ? 'scale-x-100'
+              : 'scale-x-0 group-hover:scale-x-100'
+          }`}
+        />
+      </Link>
+
+      {/*  MEGA MENU */}
+      <div className="absolute left-1/2 top-full z-50 hidden group-hover:block -translate-x-1/2 pt-4">
+        <div className="w-[700px] rounded-2xl bg-background border shadow-xl p-6">
+          <div className="grid grid-cols-2 gap-x-10 gap-y-3">
+            
+             {serviceItems.map((service) => (
+  <Link
+    key={service.name}
+    href={service.href}
+    className="w-full text-left rounded-lg px-4 py-2 text-sm font-medium
+           transition-colors hover:bg-primary/10 hover:text-primary"
+
+  >
+    {service.name}
+
+    {/* underline */}
+    <span
+      className="absolute left-0 right-0 -bottom-0.5 h-0.5 bg-primary
+                 scale-x-0 hover:scale-x-100
+                 transition-transform duration-300 origin-left"
+    />
+  </Link>
+))}
+          </div>
+        </div>
+      </div>
+    </li>
+  );
+}
+  //  Normal menu items
+  return (
+    <li key={item} className="relative group">
+      <Link
+        href={path}
+        className="lg:px-1 py-2 text-lg lg:text-sm font-medium transition-colors"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        {item}
+        <span
+          className={`absolute left-0 right-0 bottom-0 h-0.5 bg-primary transition-transform duration-300 ${
+            isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+          }`}
+        />
+      </Link>
+    </li>
+  );
+})}
               {/* Theme Selector - Mobile Only */}
               <li className="lg:hidden">
                 <SelectTheme />
