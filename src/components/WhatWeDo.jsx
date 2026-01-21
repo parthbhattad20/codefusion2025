@@ -1,4 +1,4 @@
-import { Search, Brain, Mail, Target, Cloud, Bell } from "lucide-react";
+import { Search, Brain, Mail, Target, Cloud, Bell, ShieldCheck, Zap, Server} from "lucide-react";
 const colorMap = {
   blue: 'from-blue-500 to-blue-800 dark:to-blue-950',
   violet: 'from-violet-500 to-violet-800 dark:to-violet-950',
@@ -19,6 +19,9 @@ export default function WhatWeDo() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 mx-auto  gap-12 max-w-5xl">
         {[
+          { icon: <ShieldCheck className="w-5 h-5 text-pink-500"/>, title: "Vaultix", desc: "Protect your digital assets and sensitive data with Vaultix's robust encryption and access control platform.", color: "green" },
+          { icon: <Zap className="w-5 h-5 text-teal-500"/>, title: "Phishinstinct", desc: "Detect, simulate, and prevent phishing attacks with Phishinstinct’s advanced AI-driven platform.", color: "cyan" },
+          { icon: <Server className="w-5 h-5 text-indigo-500"/>, title: "Kloudraksha", desc: "Secure your cloud infrastructure with Kloudraksha’s real-time monitoring, threat detection, and compliance tools.", color: "orange" },
           { icon: <Search className="w-5 h-5 text-blue-500"/>, title: "Security Visibility & Risk Prioritization", desc: "Continuously discover assets, detect vulnerabilities with AI, and prioritize risks with context using our Insight Platform.", color: "blue" },
           { icon: <Brain className="w-5 h-5 text-violet-500"/>, title: "Tailored Threat Intelligence", desc: "Get actionable insights with curated threat feeds, dark web monitoring, and executive briefings via Vulnuris Threat Intel.", color: "violet" },
           { icon: <Mail className="w-5 h-5 text-red-500"/>, title: "Phishing Simulation & Awareness", desc: "Empower your team with phishing simulations, automated training, and in-depth reporting through PhishGuard.", color: "red" },

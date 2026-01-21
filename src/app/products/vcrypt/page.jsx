@@ -61,21 +61,23 @@ const VCrypt = () => {
               self-defending link.
             </p>
 
+            <div className="mt-5 flex flex-wrap gap-10 justify-center">
+              {/* Get a Demo Button */}
+              <a href="/contact?subject=V-Crypt%20Demo">
+                <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-10 cursor-pointer">
+                  Get a Demo
+                </Button>
+              </a>
 
-              <Link href="/contact?subject=Vumas%20Demo" passHref>
-            <Button
-              size="lg"
-              className="
-                rounded-full px-10
-                bg-gradient-to-r from-violet-500 to-blue-600
-                shadow-lg shadow-violet-500/20
-                hover:shadow-xl hover:shadow-blue-500/30
-                transition-all duration-300
-              "
-            >
-              Request a Demo
-            </Button>
-            </Link>
+              {/* V-Crypt Document Download Button */}
+              <a
+                href="/docs/V-crypt-Brochure.pdf"
+                download
+                className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-5 inline-flex items-center justify-center"
+              >
+                Download Brochure
+              </a>
+            </div>
           </div>
 
           {/* Hero image with glow */}

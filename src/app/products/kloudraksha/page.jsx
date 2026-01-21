@@ -35,11 +35,23 @@ const KloudRaksha = () => {
               <li>Multi-cloud security visibility</li>
             </ul>
 
-            <Link href="/contact?subject=KloudRaksha%20Demo">
-              <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-md">
-                Request a Demo
-              </Button>
-            </Link>
+           <div className="mt-5 flex flex-wrap gap-10 justify-center">
+             {/* Get a Demo Button */}
+             <a href="/contact?subject=KloudRaksha%20Demo">
+               <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-10 cursor-pointer">
+                 Get a Demo
+               </Button>
+             </a>
+           
+             {/* kloudraksha Document Download Button */}
+             <a
+               href="/docs/KloudRaksha-Brochure.pdf"
+               download
+               className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-5 inline-flex items-center justify-center"
+             >
+               Download Brochure
+             </a>
+           </div>
           </div>
 
        <div className="bg-gray-200 rounded-lg overflow-hidden shadow-lg relative 

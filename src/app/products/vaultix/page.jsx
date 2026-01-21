@@ -47,11 +47,24 @@ const Vaultix = () => {
     complete visibility and operational efficiency.
   </p>
 
-    <Link href="/contact?subject=Vumas%20Demo" passHref>
-            <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-lg shadow-md rounded-full px-10 cursor-pointer">
-              Get a Demo
-            </Button>
-          </Link>
+         <div className="mt-5 flex flex-wrap gap-10 justify-center">
+  {/* Get a Demo Button */}
+  <a href="/contact?subject=Vaultix%20Demo">
+    <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-10 cursor-pointer">
+      Get a Demo
+    </Button>
+  </a>
+
+  {/* Vaultix Document Download Button */}
+  <a
+    href="/docs/Vaultix-Brochure.pdf"
+    download
+    className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-5 inline-flex items-center justify-center"
+  >
+    Download Brochure
+  </a>
+</div>
+
 
 </div>
 

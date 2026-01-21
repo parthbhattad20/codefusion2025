@@ -47,13 +47,25 @@ const PhishInstinct = () => {
               platform designed to transform employee behavior and make people
               your first line of defense against phishing attacks.
             </p>
+         <div className="mt-5 flex flex-wrap gap-10 justify-center">
+  {/* Get a Demo Button */}
+  <Link href="/contact?subject=PhishInstinct%20Demo">
+    <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-10 cursor-pointer">
+      Get a Demo
+    </Button>
+  </Link>
 
-            <Link href="/contact?subject=PhishInstinct%20Demo">
-              <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10">
-                Get a Demo
-              </Button>
-            </Link>
-          </div>
+  {/* PhishInstinct Document Download Button */}
+  <a
+    href="/docs/PhishInstinct-Brochure.pdf"
+    download
+    className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-base shadow-md rounded-full px-5 inline-flex items-center justify-center"
+  >
+    Download Brochure
+  </a>
+</div>
+ </div>
+
 
           <div className="relative w-full h-[350px] lg:h-[400px] bg-card rounded-xl shadow-lg overflow-hidden">
             <Image
