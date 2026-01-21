@@ -34,19 +34,78 @@ const FloatingNavbar = () => {
     { name: 'Vcrypt', href: '/products/vcrypt' },
   ];
 
-  const serviceItems = [
-    { name: 'Virtual CISO', href: '/services/virtual-ciso' },
-    { name: 'GRC Advisory and Audit', href: '/services/grc-advisory' },
-    { name: 'Cloud Security', href: '/services/cloud-security' },
-    { name: 'Application Security', href: '/services/application-security' },
-    { name: 'Network Security', href: '/services/network-security' },
-    { name: 'Cyber Forensics', href: '/services/cyber-forensics' },
-    { name: 'VAPT', href: '/services/vapt' },
-    { name: 'Red Teaming', href: '/services/red-teaming' },
-    { name: 'Phishing Simulation', href: '/services/phishing-simulation' },
-    { name: 'IoT Security', href: '/services/iot-security' },
-    { name: 'AI SOC', href: '/services/ai-soc' },
-  ];
+
+  const servicesMegaMenu = {
+    'Application Security': [
+      'VAPT',
+      'Web Application Penetration Testing',
+      'Mobile App Penetration Testing',
+      'API Penetration Testing',
+      'Secure Source Code Review',
+      'Ecommerce Security',
+      'SaaS Security',
+      'DevSecOps',
+    ],
+    
+    'Cyber Risk Management': [
+      'ISO 27001 Consulting',
+      'ISO 27701 Consulting',
+      'Aramco CCC',
+      'Dora Compliance',
+      'HIPAA Compliance',
+      'PCI DSS Compliance',
+      'Cyber Security Strategic Consulting',
+    ],
+    'Enterprise Security': [
+      'Virtual CISO Services',
+      'Black Box Testing',
+      'Email Security Audit',
+      'Server Hardening',
+      'Microsoft 365 Security',
+      'ERP Security Audit Assessment',
+      'Security Architecture Review',
+    ],
+     'Cloud Security': [
+      'Cloud Security Audit',
+      'Cloud Application Security Assessment',
+      'AWS Server Hardening',
+      'Azure Server Hardening',
+      'GCP Server Hardening',
+      'Container Security',
+    ],
+    'Managed Services': [
+      'Managed SOC',
+      'Managed VAPT',
+      'Managed Threat Hunting',
+    ],
+    'Data Privacy': [
+      'DPO as a Service',
+      'GDPR Compliance',
+      'Data Privacy Consulting',
+      'Personal Data Protection (PDPL)',
+      'DPDPA',
+    ],
+    'Industrial Security': [
+      'IoT Penetration Testing',
+      'OT Security Assessment',
+      'ICS Scada Security Testing',
+    ],
+   
+    'Managed VAPT': [
+      'Managed Threat Hunting',
+      'Pro active threat hunting',
+    ],
+    'Network Security': [
+      'Firewall Assessment',
+      'Network Penetration Testing',
+      'Wireless Security Assessment',
+    ],
+    
+     'Threat simulations': [
+      'Phishing Simulation',
+      'Red Teaming',
+    ],
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md shadow-lg">
@@ -152,18 +211,44 @@ const FloatingNavbar = () => {
                 </button>
 
                 <div className="absolute left-1/2 top-full hidden group-hover:block -translate-x-1/2 pt-4 z-50">
-                  <div className="w-[700px] max-w-[90vw] rounded-2xl bg-background border shadow-xl p-6">
-                    <div className="grid grid-cols-2 gap-3">
-                      {serviceItems.map(s => (
-                        <Link
-                          key={s.name}
-                          href={s.href}
-                          className="px-4 py-2 rounded-lg text-sm hover:bg-primary/10"
-                        >
-                          {s.name}
-                        </Link>
-                      ))}
-                    </div>
+                  {/* <div className="w-[2000px] max-w-[100vw] rounded-2xl bg-background  p-6"> */}
+                   <div
+  className="w-[1100px] max-w-[95vw]
+               rounded-2xl bg-background border shadow-2xl
+               max-h-[90vh] overflow-y-auto p-6
+               [-ms-overflow-style:none]
+               [scrollbar-width:none]
+               [&::-webkit-scrollbar]:hidden"
+>
+{/* <div className="grid grid-cols-5 gap-25 bg-background border rounded-2xl shadow-xl p-6 max-w-[93vw]"> */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+  {Object.keys(servicesMegaMenu).map(category => (
+    <div key={category}>
+      <h3 className="text-primary font-semibold mb-3 border-b pb-1">{category}</h3>
+      <ul className="space-y-3">
+        {servicesMegaMenu[category].map(item => (
+          <li key={item}>
+            <Link
+              href={`/services/${item.toLowerCase().replace(/\s+/g, '-')}`}
+              className="text-sm text-muted-foreground  transition block"
+            >
+              {item}
+             <span
+      className="absolute left-0 -bottom-1 h-0.5 w-full bg-primary
+                 scale-x-0 origin-left transition-transform duration-300
+                 group-hover:scale-x-100"
+    />
+            </Link> 
+         </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+
+</div>
+
+
                   </div>
                 </div>
               </div>
@@ -178,15 +263,16 @@ const FloatingNavbar = () => {
                 </button>
 
                 {openService && (
-                  <ul className="mt-3 space-y-2 text-left">
+                  <ul className="mt-5 space-y-2 text-left">
                     {serviceItems.map(s => (
                       <li key={s.name}>
                         <Link
                           href={s.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block px-4 py-2 text-muted-foreground hover:text-primary"
+                          className="block px-4 py-2  text-muted-foreground hover:text-primary"
                         >
                           {s.name}
+                         
                         </Link>
                       </li>
                     ))}

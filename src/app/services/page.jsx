@@ -122,7 +122,7 @@ const ServicesPage = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             Let's discuss your specific needs and how Vulnuris can tailor a solution for you.
           </p>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact" passHref>
              <Button
                size="lg"
                className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">

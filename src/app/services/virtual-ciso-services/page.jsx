@@ -168,32 +168,7 @@ export default function VCISOPage() {
   ))}
 
 </div>
-
-
-    {/* Bottom Highlight Boxes */}
-    {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-      <div className="bg-blue-300 text-white p-8 rounded-lg text-left">
-        <h3 className="font-semibold mb-3">
-          Dark Web Monitoring
-        </h3>
-        <p className="text-sm leading-relaxed">
-          We monitor the dark web to provide intelligent breach alerts around cyber security threats.
-          The VCISO team will provide a monthly report.
-        </p>
-      </div>
-
-      <div className="bg-blue-300 text-white p-8 rounded-lg text-left">
-        <h3 className="font-semibold mb-3">
-          Governance, Risk & Compliance
-        </h3>
-        <p className="text-sm leading-relaxed">
-          VCISO will align your GRC activities to business performance drivers, using frameworks such as
-          NIST, PCI/DSS, ISO, GDPR, NYDFS, and others with our IT security consulting program.
-        </p>
-      </div>
-
-    </div> */}
+   
   </div>
 </section>
 
@@ -202,7 +177,7 @@ export default function VCISOPage() {
   <div className="max-w-7xl mx-auto">
 
     {/* Heading */}
-    <h2 className="text-center text-2xl md:text-3xl font-bold text-sky-600 dark:text-sky-400 mb-16">
+    <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
       What are our Virtual CISO (VCISO) Services?
     </h2>
 
