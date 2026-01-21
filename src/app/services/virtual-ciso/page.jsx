@@ -1,157 +1,303 @@
+'use client';
+
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, ArrowRight, CheckCircle2, FileSearch2, Target, ScanIcon, FileSearch, ScrollText, Users } from 'lucide-react';
+import { ShieldCheck, Briefcase, ClipboardCheck, AlertTriangle, Users, LineChart, Lock } from 'lucide-react';
 
-const features = [
-  {
-    title: 'Expert Leadership',
-    description: 'Access to seasoned CISOs with real-world experience across various industries.',
-    icon: <Users className="w-6 h-6" />, 
-    borderColor: 'border-violet-500/50',
-    hoverBorderColor: 'group-hover:border-violet-500',
-    iconColor: 'text-violet-500'
-  },
-  {
-    title: 'Customized Security Programs',
-    description: 'Tailored security strategies aligned with your business goals and risk appetite.',
-    icon: <Target className="w-6 h-6" />, 
-    borderColor: 'border-violet-500/50',
-    hoverBorderColor: 'group-hover:border-violet-500',
-    iconColor: 'text-violet-500'
-  },
-  {
-    title: 'Regulatory Compliance',
-    description: 'Stay ahead of compliance requirements with expert guidance on frameworks like ISO, NIST, and GDPR.',
-    icon: <FileSearch className="w-6 h-6" />, 
-    borderColor: 'border-violet-500/50',
-    hoverBorderColor: 'group-hover:border-violet-500',
-    iconColor: 'text-violet-500'
-  }
-];
-
-export default function Page() {
+export default function VCISOPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="pt-20 mt-10 lg:mt-20">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="mb-16">
-            <Link href="/services" className="group inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200">
-              <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
-              Back to Services
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div className="md:col-span-12 text-center mb-16">
-              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-violet-500/10 to-violet-600/10 backdrop-blur-sm mb-6">
-                <Users className="w-16 h-16 text-violet-600" />
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-violet-600 mb-6">
-                Virtual CISO
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                Strategic cybersecurity leadership delivered as a service—flexible, cost-effective, and tailored to your needs.
-              </p>
-              <Link href="/contact" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
-                  Get Started Today
-                </Button>
-              </Link>
-            </div>
+    <main className="w-full bg-gray-50 text-gray-900">
 
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {features.map((feature, index) => (
-                <Card 
-                  key={index} 
-                  className={`group relative overflow-hidden backdrop-blur-sm border-2 ${feature.borderColor} 
-                    hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${feature.hoverBorderColor}`}
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${feature.iconColor} bg-foreground/5`}>
-                        {feature.icon}
-                      </div>
-                      <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+     {/* ================= HERO ================= */}
+<section
+  className="relative h-screen bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: "url('/assets/img.jpg')" }}
+>
+  {/* Lighter overlay for clarity */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
 
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold">Why Choose a Virtual CISO?</h2>
-                <div className="space-y-4">
-                  {["Executive-Level Expertise", "Scalable Security Leadership", "Cost Efficiency", "Proactive Risk Management"].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-br from-violet-500/5 to-violet-600/5 hover:from-violet-500/10 hover:to-violet-600/10 transition-colors duration-200">
-                      <CheckCircle2 className="w-5 h-5 text-violet-600" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-violet-500/5 to-violet-600/5 rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-6">Our Process</h2>
-                <div className="space-y-6">
-                  <p className="text-muted-foreground mb-6">
-                    Our Virtual CISO service follows a structured approach to provide consistent leadership and measurable security maturity.
-                  </p>
-                  {[{
-                    icon: <Target className="w-6 h-6 text-violet-600" />, title: 'Initial Assessment',
-                    description: 'Understand your current security posture, business context, and regulatory requirements.'
-                  }, {
-                    icon: <ScanIcon className="w-6 h-6 text-violet-600" />, title: 'Program Development',
-                    description: 'Design and implement a security roadmap aligned with your business priorities.'
-                  }, {
-                    icon: <FileSearch className="w-6 h-6 text-violet-600" />, title: 'Ongoing Oversight',
-                    description: 'Provide continuous oversight, board-level reporting, and strategic adjustments as needed.'
-                  }, {
-                    icon: <ScrollText className="w-6 h-6 text-violet-600" />, title: 'Maturity Tracking',
-                    description: 'Measure and track improvements in your cybersecurity posture over time.'
-                  }].map((step, index) => (
-                    <div key={index} className="flex items-start space-x-4 group">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-violet-500/10 flex items-center justify-center group-hover:bg-violet-500/20 transition-colors duration-200">
-                        {step.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                          {step.title}
-                          <ArrowRight className="w-4 h-4 text-violet-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                        </h3>
-                        <p className="text-muted-foreground">{step.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+      Virtual CISO Services
+    </h1>
 
-            <div className="md:col-span-12 text-center mt-5 mb-20">
-              <div className="md:col-span-12 mt-8 rounded-md px-6 pt-12 pb-6 text-center border-t-2">
-                <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-violet-600 to-violet-950 dark:from-violet-300 dark:to-violet-700 text-transparent">
-                  Ready for Expert Security Leadership?
-                </h3>
-                <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                  Let our Virtual CISO guide your security strategy—reach out today to get started.
-                </p>
-                <Link href="/contact" passHref legacyBehavior>
-                  <Button
-                    size="lg"
-                    className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
-                    Request a Consultation
-                  </Button>
-                </Link>
-              </div>
-            </div>
+    <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+      Vulnuris Virtual CISO Program services assist executives and security teams in safeguarding information assets while supporting business operations. We provide certified virtual CISOs and dedicated expert support as part of your team, saving you time and money on hiring security talent.
+    </p>
 
-          </div>
-        </div>
-      </div>
+    <Link href="/contact">
+      <button className=" px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+        SPEAK WITH AN EXPERT
+      </button>
+    </Link>
+  </div>
+</section>
+
+
+     {/* ================= VCISO PROGRAM SERVICES ================= */}
+<section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+  <div className="max-w-7xl mx-auto">
+
+    {/* ===== Heading ===== */}
+    <div className="text-center mb-16">
+      <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+        Virtual CISO (VCISO) Program Services
+      </h1>
+
+      <p className="mt-4 text-lg font-semibold text-sky-600 dark:text-sky-400">
+        VCISO Advisory Services: CISO CERTIFIED experts
+      </p>
+
+      <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+        Vulnuris is an award-winning, independent security consulting firm providing organizations that
+        require an experienced CISO, with a Virtual Chief Information Security Officer and a team
+        to drive critical initiatives and oversee an entire security program as well as the technologies
+        required to protect the organization and its customers from modern security threats while meeting
+        regulatory compliance requirements.
+      </p>
     </div>
+
+    {/* ===== Content Grid ===== */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      {/* Left Content */}
+      <div className='ml-10'>
+        <h2 className="text-2xl font-semibold text-primary mb-6">
+          Why Vulnuris Virtual CISO Services
+        </h2>
+
+        <ul className="space-y-4 text-gray-800 dark:text-gray-200">
+          <li className="font-semibold">
+            • Accelerate security program maturity
+          </li>
+
+          <ul className="ml-6 space-y-2 text-gray-700 dark:text-gray-300">
+            <li>○ Program development</li>
+            <li>○ Policy and standards</li>
+            <li>○ Compliance</li>
+            <li>○ Governance</li>
+            <li>○ Security</li>
+          </ul>
+
+          <li>• Access to a team of experts</li>
+          <li>• Improve compliance and avoid penalties</li>
+          <li>• Reduce security risk and business continuity</li>
+          <li>• Decrease the overhead cost of hiring a full-time CISO</li>
+        </ul>
+      </div>
+
+      {/* Right Image */}
+      <div className="flex justify-center md:justify-end mr-20">
+        <img
+          src="/assets/services/vCiso.webp"
+          alt="VCISO Security"
+          className="w-full max-w-md rounded-xl shadow-lg 
+                     dark:shadow-blue-900/30 transition-all"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+      {/* ================= VCISO SERVICES GRID ================= */}
+<section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+  <div className="max-w-7xl mx-auto text-center">
+
+
+    {/* Heading */}
+    <h2 className="text-4xl font-semibold text-primary mb-14">
+      Virtual CISO (VCISO) Program: Protect Your Organization
+    </h2>
+
+    {/* Top 6 Services */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+
+  {[
+    {
+      title: "Virtual CISO/vCISO",
+      desc: "VCISO service: you retain a board-level cyber security consultant, providing strategic leadership, security strategy & corporate security consulting for your business. The VCISO team will provide monthly report.",
+    },
+    {
+      title: "Governance, Risk & Compliance",
+      desc: "VCISO will align your GRC activities to business performance drivers, using frameworks such as NIST, PCI/DSS, ISO, GDPR, NYDFS, and others with our IT security consulting program.",
+    },
+    {
+      title: "IT Security Operations",
+      desc: "The VCISO will provide a strategy for your SOC, CyberSecOp managed SOC is a 24x7 Security Operations Center (SOC) - managed security identifies cyber risks before they cost damage to your organization.",
+    },
+    {
+      title: "Security Awareness Education",
+      desc: "Reveal your organization's employees' strengths and weaknesses, and empower them against cyber criminals.",
+    },
+    {
+      title: "Penetration Testing & Phishing",
+      desc: "Effective security starts with a clear understanding of your vulnerabilities.",
+    },
+    {
+      title: "Third Party Risk Management",
+      desc: "Comprehensive vendor/third-party security assessment services. Your VCISO team manages this.",
+    },
+  ].map((item, i) => (
+    <div
+      key={i}
+      className="
+        bg-white dark:bg-muted
+        border border-gray-200 dark:border-border
+        rounded-2xl p-6
+        shadow-sm hover:shadow-xl
+        transition-all duration-300
+        hover:-translate-y-2
+        group
+      "
+    >
+      <h3 className="
+        font-semibold text-lg mb-3
+        text-blue-600 dark:text-blue-400
+        group-hover:text-violet-600 dark:group-hover:text-violet-400
+        transition-colors
+      ">
+        {item.title}
+      </h3>
+
+      <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
+        {item.desc}
+      </p>
+    </div>
+  ))}
+
+</div>
+
+
+    {/* Bottom Highlight Boxes */}
+    {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <div className="bg-blue-300 text-white p-8 rounded-lg text-left">
+        <h3 className="font-semibold mb-3">
+          Dark Web Monitoring
+        </h3>
+        <p className="text-sm leading-relaxed">
+          We monitor the dark web to provide intelligent breach alerts around cyber security threats.
+          The VCISO team will provide a monthly report.
+        </p>
+      </div>
+
+      <div className="bg-blue-300 text-white p-8 rounded-lg text-left">
+        <h3 className="font-semibold mb-3">
+          Governance, Risk & Compliance
+        </h3>
+        <p className="text-sm leading-relaxed">
+          VCISO will align your GRC activities to business performance drivers, using frameworks such as
+          NIST, PCI/DSS, ISO, GDPR, NYDFS, and others with our IT security consulting program.
+        </p>
+      </div>
+
+    </div> */}
+  </div>
+</section>
+
+      {/* ================= VCISO SERVICES DETAILS ================= */}
+<section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+  <div className="max-w-7xl mx-auto">
+
+    {/* Heading */}
+    <h2 className="text-center text-2xl md:text-3xl font-bold text-sky-600 dark:text-sky-400 mb-16">
+      What are our Virtual CISO (VCISO) Services?
+    </h2>
+
+    {/* Content Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+
+      {/* Left Column */}
+      <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+        <li>
+          • <span className="font-semibold">A Virtual CISO</span> is designed to provide expert security
+          guidance through:
+        </li>
+
+        <li>
+          • Understanding the organization’s strategy and business environment
+        </li>
+
+        <li>
+          • Aligning cybersecurity risk management with enterprise risk management
+        </li>
+
+        <li>
+          • Providing threat analysis and strategy updates in real-time
+        </li>
+
+        <li>
+          • Anticipating future security and compliance challenges
+        </li>
+
+        <li>
+          • Overseeing mid-level and analyst/engineering teams
+        </li>
+
+        <li>
+          • Driving the implementation of all approved administrative, technical and
+          physical controls to achieve reasonable security
+        </li>
+      </ul>
+
+      {/* Right Column */}
+      <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+        <li className="font-semibold">
+          • Ongoing Governance Risk & Compliance Management
+        </li>
+
+        <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
+          <li>○ Ongoing Risk Management</li>
+          <li>○ Ongoing Compliance Management</li>
+          <li>○ Ongoing Vendor Management Program</li>
+          <li>○ Ongoing Managing and directing IT and the security teams</li>
+          <li>○ Ongoing Engaging with executive management</li>
+          <li>○ Ongoing Running risk assessments on operational security</li>
+          <li>○ Ongoing threat intelligence and managing enterprise security</li>
+        </ul>
+
+        <li className="font-semibold ml-5">
+          • Crisis Management
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+
+      {/* ================= CTA ================= */}
+<section className="py-24 px-6 text-center tracking-tight 
+  bg-gray-50 dark:bg-background transition-colors">
+
+  <h2 className="text-3xl md:text-4xl font-bold mb-4
+    text-primary ">
+    Strengthen Your Security Leadership
+  </h2>
+
+  <p className="mb-8 max-w-2xl mx-auto text-lg
+    text-gray-700 dark:text-muted-foreground">
+    Get expert cybersecurity guidance tailored to your organization’s
+    risk profile and compliance needs.
+  </p>
+
+  <Link href="/contact">
+    <button className="
+      px-10 py-3 rounded-full text-lg font-semibold
+      bg-gradient-to-r from-violet-500 to-blue-600
+      text-white dark:text-white
+      shadow-md hover:shadow-lg
+      hover:opacity-90 transition-all duration-300
+    ">
+      Talk to a vCISO Expert
+    </button>
+  </Link>
+
+</section>
+
+
+    </main>
   );
 }

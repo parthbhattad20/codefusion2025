@@ -10,12 +10,14 @@ const colorMap = {
 
 export default function WhatWeDo() {
   return (
-    <div className="flex flex-col gap-4 py-10 md:w-2/3 mx-auto border-t">
+    // <div className="flex flex-col gap-10 py-10 md:w-2/3 mx-40 border-t">
+    <div className="flex flex-col gap-10 py-10 max-w-7xl mx-auto px-6 border-t">
+
       <h2 className="text-4xl font-bold text-center">What <span className="text-violet-800">V</span> Do?</h2>
       <p className="text-md text-muted-foreground text-center max-w-xl mx-auto">
         At Vulnuris, we help organizations take control of their cybersecurity posture through intelligent products and expert-led services.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 mx-auto  gap-12 max-w-5xl">
         {[
           { icon: <Search className="w-5 h-5 text-blue-500"/>, title: "Security Visibility & Risk Prioritization", desc: "Continuously discover assets, detect vulnerabilities with AI, and prioritize risks with context using our Insight Platform.", color: "blue" },
           { icon: <Brain className="w-5 h-5 text-violet-500"/>, title: "Tailored Threat Intelligence", desc: "Get actionable insights with curated threat feeds, dark web monitoring, and executive briefings via Vulnuris Threat Intel.", color: "violet" },
@@ -26,7 +28,7 @@ export default function WhatWeDo() {
         ].map((item, index) => (
           <div
             key={index}
-            className={`border rounded-lg px-6 py-4 bg-foreground/5 backdrop-blur-md dark:bg-white/10 relative overflow-hidden shadow-xl`}
+            className={`border rounded-lg px-8 py-8 bg-foreground/5 backdrop-blur-md dark:bg-white/10 relative overflow-hidden shadow-xl`}
           >
             <span className={`absolute -top-4 -right-2 text-8xl font-bold opacity-10 dark:opacity-15 bg-gradient-to-br ${colorMap[item.color]}-200 bg-clip-text text-transparent`}>
               {`0${index + 1}`}

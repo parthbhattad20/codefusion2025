@@ -127,14 +127,14 @@ export default function Hero() {
         <div className="h-1 w-20 bg-gradient-to-r from-violet-500 to-violet-600 mx-auto mt-2 rounded-full"></div>
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
           <div className="group hover:scale-105 transition-all duration-300">
             <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
               <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
                 <Smartphone className="w-8 h-8 text-violet-500" />
               </div>
               <div className="flex items-baseline gap-1">
-                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
+                <p className="text-4xl  font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
                 <Counter to={80} suffix="+" />
 
                 </p>

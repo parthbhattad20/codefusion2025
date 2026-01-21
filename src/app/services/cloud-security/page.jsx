@@ -1,182 +1,189 @@
+'use client';
+
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, ArrowRight, CheckCircle2, Cloud, Database, Lock, Server, Shield, CloudCog, CloudLightning, CloudRain } from 'lucide-react';
+import Image from 'next/image';
 
-const features = [
-  {
-    title: 'Cloud Infrastructure Security',
-    description: 'Secure your cloud infrastructure with comprehensive security assessments and monitoring.',
-    icon: <CloudCog className="w-6 h-6" />,
-    borderColor: 'border-blue-500/50',
-    hoverBorderColor: 'group-hover:border-blue-500',
-    iconColor: 'text-blue-500'
-  },
-  {
-    title: 'Cloud Access Security',
-    description: 'Implement robust access controls and identity management for cloud resources.',
-    icon: <CloudLightning className="w-6 h-6" />,
-    borderColor: 'border-emerald-500/50',
-    hoverBorderColor: 'group-hover:border-emerald-500',
-    iconColor: 'text-emerald-500'
-  },
-  {
-    title: 'Data Protection',
-    description: 'Ensure your cloud-stored data is encrypted and protected against breaches.',
-    icon: <CloudRain className="w-6 h-6" />,
-    borderColor: 'border-purple-500/50',
-    hoverBorderColor: 'group-hover:border-purple-500',
-    iconColor: 'text-purple-500'
-  }
-];
-
-const CloudSecurityPage = () => {
+export default function CloudSecurityPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="pt-20 mt-10 lg:mt-20">
-        <div className="container max-w-7xl mx-auto px-6">
-          {/* Navigation */}
-          <div className="mb-16">
-            <Link href="/services" className="group inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200">
-              <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
-              Back to Services
-            </Link>
+    <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground">
+
+      {/* ================= HERO ================= */}
+      <section
+        className="relative h-screen bg-cover bg-center bg-no-repeat mt-20"
+        style={{ backgroundImage: "url('/assets/services/cloud.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mt-55">
+            Cloud Security Services
+          </h1>
+
+          <p className="mt-1 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+            Secure your cloud infrastructure, applications, and data with enterprise-grade
+            cloud security consulting. Our experts protect AWS, Azure, and Google Cloud
+            environments against modern cyber threats.
+          </p>
+
+          <Link href="/contact">
+            <button className=" px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+              SPEAK WITH AN EXPERT
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* ================= CLOUD SECURITY OVERVIEW ================= */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            Cloud Security Consulting & Protection
+          </h2>
+
+          <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+            Our Cloud Security Services help organizations securely adopt cloud technologies
+            while maintaining compliance, visibility, and control. We design, implement,
+            and manage secure cloud environments tailored to your business needs.
+          </p>
+
+        </div>
+      </section>
+
+      {/* ================= WHY CLOUD SECURITY ================= */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+          {/* Left Content */}
+          <div className="ml-10">
+            <h2 className="text-2xl font-semibold text-primary mb-6">
+              Why Cloud Security Matters
+            </h2>
+
+            <ul className="space-y-4 text-gray-800 dark:text-gray-200">
+              <li>• Prevent cloud misconfigurations</li>
+              <li>• Protect sensitive data and workloads</li>
+              <li>• Maintain regulatory compliance</li>
+              <li>• Detect threats in real time</li>
+              <li>• Reduce cloud attack surface</li>
+            </ul>
           </div>
 
-          {/* Hero Content */}
-          <div className="md:col-span-12 text-center mb-16">
-            <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-blue-500/10 to-emerald-600/10 backdrop-blur-sm mb-6">
-              <Cloud className="w-16 h-16 text-blue-600" />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-600 mb-6">
-              Cloud Security
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Secure your cloud infrastructure with our comprehensive cloud security solutions.
-            </p>
-            <Link href="/contact" passHref legacyBehavior>
-                <Button
-                    size="lg"
-                    className="px-8 py-2 rounded-full bg-gradient-to-b from-blue-500 to-blue-600 text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl dark:hover:shadow-blue-900 transition duration-200 text-lg font-bold">
-                    Get Started Today
-                </Button>
-            </Link>
+          {/* Right Image */}
+          <div className="flex justify-center md:justify-end mr-20">
+            <img
+              src="/assets/services/cloud_security.webp"
+              alt="Cloud Security"
+              className="w-full max-w-lg rounded-xl shadow-lg dark:shadow-blue-900/30"
+            />
           </div>
 
-          {/* Feature Cards */}
-          <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {features.map((feature, index) => (
-                <Card 
-                key={index} 
-                className={`group relative overflow-hidden backdrop-blur-sm border-2 ${feature.borderColor} 
-                    hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${feature.hoverBorderColor}`}
-                >
-                <CardHeader>
-                    <div className="flex items-center gap-3">
-                    <div className={`p-2 rounded-lg ${feature.iconColor} bg-foreground/5`}>
-                        {/* <feature.icon className="w-6 h-6" /> */}
-                        {feature.icon}
-                    </div>
-                    <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                    </div>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-                </Card>
-            ))}
-            </div>
+        </div>
+      </section>
 
-          {/* Process Section */}
-          <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-                <h2 className="text-3xl font-bold">Why Choose Our Services?</h2>
-                <div className="space-y-4">
-                  {[
-  'Multi-Cloud Expertise',
-  'Continuous Monitoring',
-  'Compliance Management',
-  '24/7 Support'
-].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-br from-blue-500/5 to-blue-600/5 hover:from-blue-500/10 hover:to-blue-600/10 transition-colors duration-200">
-                      <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-            <div className="bg-gradient-to-br from-blue-500/5 to-blue-600/5 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold mb-6">Our Process</h2>
-              <div className="space-y-6">
-                <p className="text-muted-foreground mb-6">
-                  We follow a systematic approach to identify and address security vulnerabilities in your systems.
+      {/* ================= CLOUD SECURITY SERVICES GRID ================= */}
+      <section className="py-24 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+
+          <h2 className="text-4xl font-semibold text-primary mb-14">
+            Our Cloud Security Services
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+
+            {[
+              {
+                title: "Cloud Security Assessment",
+                desc: "Identify risks, misconfigurations, and vulnerabilities across cloud environments."
+              },
+              {
+                title: "Cloud Compliance & Governance",
+                desc: "Ensure compliance with ISO, SOC 2, PCI DSS, HIPAA, and regulatory standards."
+              },
+              {
+                title: "Cloud Identity & Access Management",
+                desc: "Secure user access with least-privilege IAM strategies."
+              },
+              {
+                title: "Cloud Workload Protection",
+                desc: "Protect virtual machines, containers, and serverless workloads."
+              },
+              {
+                title: "Cloud Threat Detection",
+                desc: "Monitor and detect malicious activities in real time."
+              },
+              {
+                title: "Secure Cloud Architecture",
+                desc: "Design secure, scalable cloud architectures from the ground up."
+              }
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6
+                shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  {item.title}
+                </h3>
+                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
+                  {item.desc}
                 </p>
-                
-                <div className="space-y-6">
-                  {[
-                    {
-                        icon: <Cloud className="w-6 h-6 text-blue-600" />,
-                        title: "Cloud Assessment",
-                        description: "Comprehensive evaluation of your cloud infrastructure, configurations, and security controls."
-                      },
-                      {
-                        icon: <Lock className="w-6 h-6 text-blue-600" />,
-                        title: "Security Implementation",
-                        description: "Deploy and configure security controls, access management, and encryption measures."
-                      },
-                      {
-                        icon: <Database className="w-6 h-6 text-blue-600" />,
-                        title: "Data Protection",
-                        description: "Implement data protection strategies including encryption, backup, and disaster recovery."
-                      },
-                      {
-                        icon: <Server className="w-6 h-6 text-blue-600" />,
-                        title: "Monitoring & Maintenance",
-                        description: "Continuous monitoring of cloud resources with automated threat detection and response."
-                      }
-
-                  ].map((step, index) => (
-                    <div key={index} className="flex items-start space-x-4 group">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors duration-200">
-                        {step.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                          {step.title}
-                          <ArrowRight className="w-4 h-4 text-blue-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                        </h3>
-                        <p className="text-muted-foreground">{step.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
               </div>
-            </div>
+            ))}
+
           </div>
+        </div>
+      </section>
 
-          {/* CTA Section */}
-          <div className="md:col-span-12 text-center mt-5 mb-20">
-            <div className="md:col-span-12 mt-8 rounded-md px-6 pt-12 pb-6 text-center border-t-2">
-            <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-blue-600 to-blue-950 dark:from-blue-300 dark:to-blue-700 text-transparent">
-                Ready to Secure Your Cloud Infrastructure?
-            </h3>
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-            Contact us today to discuss how we can help protect your cloud environment and ensure compliance.
-            </p>
-            <Link href="/contact" passHref legacyBehavior>
-                <Button
-                    size="lg"
-                    className="px-8 py-2 rounded-full bg-gradient-to-b from-blue-500 to-blue-600 text-white focus:ring-2 focus:ring-blue-400 hover:shadow-xl dark:hover:shadow-blue-900 transition duration-200 text-lg font-bold">
-                    Request a Consultation
-                </Button>
-            </Link>
-            </div>
+      {/* ================= CLOUD SECURITY DETAILS ================= */}
+      <section className="py-24 px-20">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-center text-2xl md:text-3xl font-bold text-sky-600 dark:text-sky-400 mb-16">
+            What Our Cloud Security Covers
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+
+            <ul className="space-y-6 text-lg text-gray-800 dark:text-gray-200">
+              <li>• Cloud infrastructure security</li>
+              <li>• Secure DevOps & CI/CD pipelines</li>
+              <li>• Data encryption & key management</li>
+              <li>• Logging, monitoring & alerting</li>
+              <li>• Cloud incident response</li>
+            </ul>
+
+            <ul className="space-y-6 ml-20 text-lg text-gray-800 dark:text-gray-200">
+              <li>• AWS, Azure & GCP security</li>
+              <li>• Cloud risk management</li>
+              <li>• Zero Trust cloud architecture</li>
+              <li>• Multi-cloud & hybrid security</li>
+              <li>• Ongoing cloud security monitoring</li>
+            </ul>
+
+          </div>
         </div>
-        </div>
-      </div>
-    </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+          Secure Your Cloud Environment
+        </h2>
+
+        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+          Protect your cloud infrastructure with expert-led cloud security solutions.
+        </p>
+
+        <Link href="/contact">
+          <button className="px-10 py-3 rounded-full text-lg font-semibold
+            bg-gradient-to-r from-violet-500 to-blue-600 text-white
+            shadow-md hover:shadow-lg transition-all duration-300">
+            Talk to a Cloud Security Expert
+          </button>
+        </Link>
+      </section>
+
+    </main>
   );
-};
-
-export default CloudSecurityPage;
+}

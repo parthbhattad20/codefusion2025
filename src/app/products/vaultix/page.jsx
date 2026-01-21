@@ -8,7 +8,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScanSearch, Brain, Layers, LinkIcon, ArrowBigLeft } from 'lucide-react';
 import Image from 'next/image';
 
-const Vumas = () => {
+
+const Vaultix = () => {
+   
   return (
     <div className="min-h-screen bg-background text-foreground py-16 mt-10 lg:mt-20">
       <div className="container max-w-7xl mx-auto px-6">
@@ -24,17 +26,19 @@ const Vumas = () => {
 
 
   <div className="space-y-6">
-  <h1 className="text-xl md:text-6xl font-extrabold leading-tight text-primary tracking-tight">
+  <h1 className="text-3xl md:text-5xl font-extrabold leading-tight text-primary tracking-tight">
    Vaultix - State of Art Next-Gen ITSM Platform
   </h1>
 
-  <p className="text-xl md:text-2xl font-medium text-white">
-    <ul  className="text-lg md:text-2xl font-medium list-disc pl-5 space-y-2">
+ 
+    <div className="text-lg md:text-2xl font-medium text-foreground">
+  <ul className="list-disc pl-5 space-y-2">
+
       <li>Unified asset management,</li>
       <li>SBOM tracking, and</li>
       <li>intelligent ticket resolution for modern enterprises.</li>
     </ul>
-  </p>
+  </div>
 
   {/* Description */}
   <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -43,8 +47,8 @@ const Vumas = () => {
     complete visibility and operational efficiency.
   </p>
 
-    <Link href="/contact?subject=Vumas%20Demo" passHref legacyBehavior>
-            <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-white font-semibold hover:opacity-90 transition duration-300 text-lg shadow-md rounded-full px-10 cursor-pointer">
+    <Link href="/contact?subject=Vumas%20Demo" passHref>
+            <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-lg shadow-md rounded-full px-10 cursor-pointer">
               Get a Demo
             </Button>
           </Link>
@@ -53,12 +57,12 @@ const Vumas = () => {
 
           {/* <div className="bg-gray-200 rounded-lg overflow-hidden shadow-lg aspect-video relative"> */}
           <div className="bg-gray-200 rounded-lg overflow-hidden shadow-lg relative 
-                w-full h-[350px] md:h-[350px] lg:h-[400px] pl-50">
+                w-full h-[350px] md:h-[350px] lg:h-[400px] px-6">
             <Image 
                 src="/assets/products/Vumas.png"
                 alt="Vaultix Dashboard"
                 fill
-                className="object-contain-cover"
+                className="object-contain md:object-cover"
             />
             </div>
             
@@ -67,20 +71,22 @@ const Vumas = () => {
 
 
            {/* ================= WHY VAULTIX ================= */}
-<section className="relative py-24  bg-gray-900 overflow-hidden text-white">
+<section className="relative py-24  bg-muted/40 overflow-hidden text-foreground  border-y border-border"> 
+{/* bg-background */}
   {/* Background */}
   {/* <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-gray-900" />
   <div className="absolute inset-0 bg-gradient-to-tr from-indigo-900/20 via-black to-purple-900/20" /> */}
 
   <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  {/* <div className="bg-card rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700"> */}
 
     {/* LEFT CONTENT */}
     <div>
-      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+      <h2 className="text-3xl md:text-4xl text-primary font-extrabold leading-tight">
         Why Vaultix is Critical <br /> for Modern Enterprises?
       </h2>
 
-      <p className="mt-6 text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl">
+      <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
         As enterprises adopt cloud, DevOps, and SaaS at scale, IT visibility and
         control become increasingly complex. Vaultix provides a unified platform
         to manage assets, risks, and service workflows with automation and
@@ -89,7 +95,8 @@ const Vumas = () => {
     </div>
 
     {/* RIGHT ACCORDION */}
-    <div className="divide-y divide-white/10">
+    <div className="divide-y divide-border
+">
       {[
         {
           title: 'Unrestricted Access & Asset Sprawl',
@@ -121,7 +128,7 @@ const Vumas = () => {
             </span>
           </summary>
 
-          <p className="mt-4 text-gray-400 leading-relaxed max-w-xl">
+          <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
             {item.desc}
           </p>
         </details>
@@ -132,78 +139,62 @@ const Vumas = () => {
 
 
 
-                 {/* key features section */}
-        
-        <section className="mb-24  rounded-lg py-16 px-6 md:px-12">
+               {/* Key Features Section */}
+<section className="py-16 px-6 md:px-12 mb-24  text-foreground">
   <h2 className="text-3xl md:text-4xl font-bold text-center text-primary tracking-tight mb-12">
-    Key Features of Vaultix 🔍
+    Key Features of Vaultix 
   </h2>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-    
-    <Card className="shadow-md border-blue-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <CardHeader>
-        <CardTitle className="flex items-center space-x-3">
-          <Layers className="w-6 h-6 text-blue-500" />
-          <span>Curated Threat Feeds</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Access hand-picked threat data tailored to your industry, updated in real time from trusted sources.
-        </p>
-      </CardContent>
-    </Card>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
 
-    <Card className="shadow-md border-purple-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <CardHeader>
-        <CardTitle className="flex items-center space-x-3">
-          <Brain className="w-6 h-6 text-purple-500" />
-          <span>Dark Web Monitoring</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Monitor underground forums, marketplaces, and leak sites for mentions of your brand, employees, and assets.
-        </p>
-      </CardContent>
-    </Card>
+    {/* Feature Card */}
+    <div className="bg-card rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700">
+      <div className="flex items-center mb-4 mt-4">
+        <Layers className="w-6 h-6 text-muted-foreground mr-3" />
+        <h3 className="text-lg font-semibold">Curated Threat Feeds</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed ">
+        Access hand-picked threat data tailored to your industry, updated in real time from trusted sources.
+      </p>
+    </div>
 
-    <Card className="shadow-md border-green-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <CardHeader>
-        <CardTitle className="flex items-center space-x-3">
-          <ScanSearch className="w-6 h-6 text-green-500" />
-          <span>IOC Tracking & Alerts</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Get real-time alerts on indicators of compromise and track malicious infrastructure targeting your environment.
-        </p>
-      </CardContent>
-    </Card>
+    <div className="bg-card rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700">
+      <div className="flex items-center mb-4 mt-4">
+        <Brain className="w-6 h-6 text-muted-foreground mr-3" />
+        <h3 className="text-lg font-semibold">Dark Web Monitoring</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Monitor underground forums, marketplaces, and leak sites for mentions of your brand, employees, and assets.
+      </p>
+    </div>
 
-    <Card className="shadow-md border-orange-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <CardHeader>
-        <CardTitle className="flex items-center space-x-3">
-          <LinkIcon className="w-6 h-6 text-orange-500" />
-          <span>Executive Threat Briefings</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Weekly reports summarizing threats relevant to your business with action steps for leadership.
-        </p>
-      </CardContent>
-    </Card>
+    <div className="bg-card rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700">
+      <div className="flex items-center mb-4 mt-4">
+        <ScanSearch className="w-6 h-6 text-muted-foreground mr-3" />
+        <h3 className="text-lg font-semibold">IOC Tracking & Alerts</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Get real-time alerts on indicators of compromise and track malicious infrastructure targeting your environment.
+      </p>
+    </div>
+
+    <div className="bg-card rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-700">
+      <div className="flex items-center mb-4 mt-4">
+        <LinkIcon className="w-6 h-6 text-muted-foreground mr-3" />
+        <h3 className="text-lg font-semibold">Executive Threat Briefings</h3>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Weekly reports summarizing threats relevant to your business with action steps for leadership.
+      </p>
+    </div>
 
   </div>
 </section>
 
 
-
             {/* ================= VAULTIX CHALLENGES ================= */}
-<section className="relative py-24 mb-20  bg-gray-900 overflow-hidden text-white">
+<section className="relative py-24 mb-20   bg-muted/40
+ overflow-hidden text-foreground border-y border-border">
   {/* Background */}
   {/* <div className="absolute inset-0 bg-black" />
   <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-gray-900 opacity-90" /> */}
@@ -211,11 +202,11 @@ const Vumas = () => {
   <div className="relative max-w-7xl mx-auto px-6 text-center">
 
     {/* Heading */}
-    <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-primary tracking-tight">
+    <h2 className="text-2xl md:text-4xl font-extrabold mb-4 text-primary tracking-tight">
       Common ITSM & Asset Management Challenges
     </h2>
 
-    <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-20">
+    <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-20">
       Addressing core IT visibility, workflow, and compliance challenges is
       critical to maintaining operational efficiency and reducing enterprise
       risk.
@@ -230,7 +221,7 @@ const Vumas = () => {
           <span className="text-red-500 text-3xl font-bold">!</span>
         </div>
         <h3 className="text-2xl font-semibold">Tool Sprawl & Alert Noise</h3>
-        <p className="text-gray-400 leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed">
           Multiple disconnected tools generate excessive alerts without
           context, causing teams to miss critical asset and security issues.
         </p>
@@ -242,7 +233,7 @@ const Vumas = () => {
           <span className="text-blue-400 text-3xl font-bold">⏱</span>
         </div>
         <h3 className="text-2xl font-semibold">Delayed Incident Resolution</h3>
-        <p className="text-gray-400 leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed">
           Manual ticket creation and unclear ownership slow down response
           times, impacting SLAs and business continuity.
         </p>
@@ -254,7 +245,7 @@ const Vumas = () => {
           <span className="text-purple-400 text-3xl font-bold">⚠</span>
         </div>
         <h3 className="text-2xl font-semibold">Compliance & Audit Gaps</h3>
-        <p className="text-gray-400 leading-relaxed">
+        <p className="text-muted-foreground leading-relaxed">
           Lack of real-time asset inventory and SBOM visibility leads to audit
           failures, licensing risks, and regulatory non-compliance.
         </p>
@@ -267,20 +258,27 @@ const Vumas = () => {
 
 
 
-           {/* ================= VAULTIX COVERAGE ================= */}
-<section className="relative py-20 overflow-hidden text-white">
-  {/* Background */}
-  {/* <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-black" /> */}
-  {/* <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/10 via-black to-blue-900/10" /> */}
+          {/* ================= VAULTIX COVERAGE ================= */}
+<section className="relative py-20 overflow-hidden text-foreground">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <Image
+      src="/assets/products/background.jpg" // Use any professional IT/cybersecurity image
+      alt="Enterprise IT Assets Background"
+      fill
+      className="object-cover object-center opacity-10"
+      priority
+    />
+  </div>
 
   <div className="relative max-w-7xl mx-auto px-6">
 
     {/* Heading */}
     <div className="text-center mb-20">
-      <h2 className="text-3xl md:text-5xl font-extrabold text-primary tracking-tight">
+      <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">
         Comprehensive Coverage of Enterprise IT Assets
       </h2>
-      <p className="mt-4 text-lg md:text-xl text-gray-400 max-w-4xl mx-auto">
+      <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
         With Vaultix, organizations gain unified visibility and control across
         critical IT, cloud, and security ecosystems.
       </p>
@@ -291,35 +289,33 @@ const Vumas = () => {
 
       {/* LEFT – 2x2 Cards */}
       <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-
-        {/* Card */}
-        <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-2xl p-8 shadow-lg border border-white/10">
+        <div className="bg-card/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-border">
           <h3 className="text-2xl font-bold mb-4">IT Assets</h3>
-          <p className="text-gray-400 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Gain full visibility into hardware, network devices, and endpoints
             across on-prem and hybrid environments.
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-2xl p-8 shadow-lg border border-white/10">
+        <div className="bg-card/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-border">
           <h3 className="text-2xl font-bold mb-4">Software & SBOM</h3>
-          <p className="text-gray-400 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Track installed software, dependencies, and SBOM data to identify
             vulnerabilities, license risks, and supply-chain exposure.
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-2xl p-8 shadow-lg border border-white/10">
+        <div className="bg-card/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-border">
           <h3 className="text-2xl font-bold mb-4">Cloud & Virtual Assets</h3>
-          <p className="text-gray-400 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Automatically discover and monitor VMs, containers, and cloud
             resources across AWS, Azure, and GCP.
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-2xl p-8 shadow-lg border border-white/10">
+        <div className="bg-card/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-border">
           <h3 className="text-2xl font-bold mb-4">ITSM Workflows</h3>
-          <p className="text-gray-400 leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed">
             Integrate asset intelligence with intelligent ticketing, SLA
             tracking, and automated remediation workflows.
           </p>
@@ -327,12 +323,12 @@ const Vumas = () => {
       </div>
 
       {/* RIGHT – Tall Card */}
-      <div className="bg-gradient-to-br from-gray-900/95 to-gray-800/95 rounded-2xl p-8 shadow-xl border border-white/10 flex flex-col justify-between">
+      <div className="bg-card/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-border flex flex-col justify-between">
         <div>
           <h3 className="text-2xl font-bold mb-6">
             Other Supported Integrations
           </h3>
-          <p className="text-gray-400 leading-relaxed mb-8">
+          <p className="text-muted-foreground leading-relaxed mb-8">
             Vaultix integrates seamlessly with leading security, cloud, and IT
             operations tools—ensuring no asset, alert, or workflow operates in
             isolation.
@@ -340,9 +336,9 @@ const Vumas = () => {
         </div>
 
         {/* Mock Integration Preview */}
-        <div className="bg-black/40 rounded-xl p-6 border border-white/10">
-          <p className="text-sm text-gray-300 mb-2">Integrated Platforms</p>
-          <ul className="space-y-2 text-gray-400 text-sm">
+        <div className="bg-black/5 rounded-xl p-6 border border-border">
+          <p className="text-sm text-muted-foreground mb-2">Integrated Platforms</p>
+          <ul className="space-y-2 text-muted-foreground text-sm">
             <li>• SIEM & SOAR platforms</li>
             <li>• EDR / XDR solutions</li>
             <li>• Cloud providers</li>
@@ -356,35 +352,60 @@ const Vumas = () => {
 </section>
 
 
-         {/* Intelligent Ticket Management for Faster Response */}
 
-       <section className="py-24 bg-gray-900 text-white">
+{/* Intelligent Ticket Management for Faster Response */}
+<section className="py-24 bg-muted/40 text-foreground border-y border-border">
   <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+    <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-6">
       Intelligent Ticket Management for Faster Response
     </h2>
-    <p className="text-center text-lg text-gray-400 mb-16">
+
+    <p className="text-center text-lg text-muted-foreground mb-16 max-w-3xl mx-auto">
       Integrated automation, SLA tracking, and audit-ready workflows
     </p>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {[
-        { number: 1, title: 'Scan', desc: 'Continuous vulnerability and asset scanning to detect issues', color: 'bg-blue-900' },
-        { number: 2, title: 'Auto-ticket', desc: 'Automatically create tickets from scan findings with context and severity', color: 'bg-blue-500' },
-        { number: 3, title: 'Prioritize', desc: 'Risk-based prioritization using business impact and exposure', color: 'bg-teal-300' },
-        { number: 4, title: 'Assign', desc: 'Ownership assignment to teams or individuals aligned with ITSM', color: 'bg-pink-200' },
-        { number: 5, title: 'SLA timers', desc: 'Track SLAs per ticket aligned to business risk and compliance', color: 'bg-red-500' },
-        { number: 6, title: 'Escalate', desc: 'Automated escalation on SLA breaches with audit trail preserved', color: 'bg-blue-900' },
+        { number: 1, title: 'Scan', desc: 'Continuous vulnerability and asset scanning to detect issues' },
+        { number: 2, title: 'Auto-ticket', desc: 'Automatically create tickets from scan findings with context and severity' },
+        { number: 3, title: 'Prioritize', desc: 'Risk-based prioritization using business impact and exposure' },
+        { number: 4, title: 'Assign', desc: 'Ownership assignment to teams or individuals aligned with ITSM' },
+        { number: 5, title: 'SLA Timers', desc: 'Track SLAs per ticket aligned to business risk and compliance' },
+        { number: 6, title: 'Escalate', desc: 'Automated escalation on SLA breaches with audit trail preserved' },
       ].map((step) => (
-        <div key={step.number} className="flex items-start gap-4 bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-1">
-          {/* Number circle */}
-          <div className={`flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-white ${step.color}`}>
+        <div
+          key={step.number}
+          className="
+            group flex items-start gap-5 
+            bg-card rounded-2xl p-6
+            border-2 border-border
+            shadow-sm hover:shadow-lg
+            transition-all duration-300
+            hover:-translate-y-1
+          "
+        >
+          {/* Number Badge */}
+          <div
+            className="
+              flex-shrink-0 w-11 h-11 rounded-full
+              flex items-center justify-center
+              bg-primary/10 text-primary
+              font-semibold text-lg
+              group-hover:bg-primary group-hover:text-primary-foreground
+              transition-colors
+            "
+          >
             {step.number}
           </div>
+
           {/* Content */}
           <div>
-            <h3 className="text-xl font-semibold text-primary mb-1">{step.title}</h3>
-            <p className="text-gray-300">{step.desc}</p>
+            <h3 className="text-xl font-semibold text-foreground mb-1">
+              {step.title}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              {step.desc}
+            </p>
           </div>
         </div>
       ))}
@@ -393,33 +414,11 @@ const Vumas = () => {
 </section>
 
 
-
-      {/* ================= CTA ================= */}
-      <section className="border-t py-20">
-        <div className="max-w-3xl mx-auto px-6 text-center space-y-6">
-          <h2 className="text-3xl font-bold text-primary tracking-tight">
-            Simplify IT Operations with Vaultix
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Gain full visibility, reduce risk, and automate workflows with a
-            unified ITSM and asset management platform.
-          </p>
-          <Button size="lg" className="rounded-full px-10">
-            Talk to an Expert
-          </Button>
-        </div>
-        </section>
-
-
-
-
-
-
-                 {/* why vumas stand out */}
+                 {/* why vaultix stand out */}
         
-        <section className="bg-muted rounded-lg py-16 px-6 md:px-12 mb-24">
-          <h2 className="text-3xl font-bold text-center text-primary tracking-tight mb-12">
-            Why Vaultix Stands Out 🧠
+        <section className=" rounded-lg py-16 px-6 md:px-12 mb-24">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary tracking-tight mb-12">
+            Why Vaultix Stands Out 
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div className="text-center">
@@ -448,13 +447,13 @@ const Vumas = () => {
 
 
        {/* ================= VAULTIX FAQ ================= */}
-<section className="relative py-24  bg-gray-900 text-white overflow-hidden">
+<section className="relative py-24  bg-muted/40 text-foreground overflow-hidden border-y border-border">
   {/* Background */}
   {/* <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-black" /> */}
 
   <div className="relative max-w-5xl mx-auto px-6">
     {/* Heading */}
-    <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-16 text-primary tracking-tight">
+    <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-16 text-primary tracking-tight">
       Frequently Asked Questions
     </h2>
 
@@ -471,7 +470,7 @@ const Vumas = () => {
             <Minus className="hidden group-open:block w-6 h-6" />
           </span>
         </summary>
-        <p className="mt-4 text-gray-400 leading-relaxed text-base md:text-lg">
+        <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
           Vaultix is a unified ITSM and asset visibility platform that helps
           organizations discover, manage, and secure IT, cloud, and software
           assets. It is critical for modern enterprises because it eliminates
@@ -491,7 +490,7 @@ const Vumas = () => {
             <Minus className="hidden group-open:block w-6 h-6" />
           </span>
         </summary>
-        <p className="mt-4 text-gray-400 leading-relaxed text-base md:text-lg">
+        <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
           Vaultix continuously discovers hardware, installed software, SBOMs,
           cloud resources, virtual machines, containers, and unmanaged assets.
           The platform maintains a real-time inventory that automatically
@@ -510,7 +509,7 @@ const Vumas = () => {
             <Minus className="hidden group-open:block w-6 h-6" />
           </span>
         </summary>
-        <p className="mt-4 text-gray-400 leading-relaxed text-base md:text-lg">
+        <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
           Vaultix correlates asset intelligence, SBOM data, and exposure context
           to prioritize vulnerabilities based on business impact. This allows
           teams to remediate the most critical risks faster and more effectively.
@@ -528,7 +527,7 @@ const Vumas = () => {
             <Minus className="hidden group-open:block w-6 h-6" />
           </span>
         </summary>
-        <p className="mt-4 text-gray-400 leading-relaxed text-base md:text-lg">
+        <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
           Vaultix provides continuous monitoring, audit-ready reports, historical
           asset tracking, and policy enforcement. This simplifies regulatory
           compliance, internal audits, and security assessments.
@@ -546,7 +545,7 @@ const Vumas = () => {
             <Minus className="hidden group-open:block w-6 h-6" />
           </span>
         </summary>
-        <p className="mt-4 text-gray-400 leading-relaxed text-base md:text-lg">
+        <p className="mt-4 text-muted-foreground leading-relaxed text-base md:text-lg">
           Yes. Vaultix integrates with ITSM platforms, SIEM/SOAR tools, cloud
           providers, identity systems, and ticketing solutions to enable seamless
           automation and cross-team collaboration.
@@ -564,10 +563,10 @@ const Vumas = () => {
             Empower Your Threat Intelligence Today
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Learn how Vumas can elevate your security strategy with deeper, contextual threat intelligence.
+            Learn how Vaultix can elevate your security strategy with deeper, contextual threat intelligence.
           </p>
-          <Link href="/contact?subject=Vumas%20Demo" passHref legacyBehavior>
-            <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-white font-semibold hover:opacity-90 transition duration-300 text-lg shadow-md rounded-full px-8">
+          <Link href="/contact?subject=Vumas%20Demo" passHref>
+            <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold hover:opacity-90 transition duration-300 text-lg shadow-md rounded-full px-8">
               Request a Vaultix Demo
             </Button>
           </Link>
@@ -577,4 +576,4 @@ const Vumas = () => {
   );
 };
 
-export default Vumas;
+export default Vaultix;

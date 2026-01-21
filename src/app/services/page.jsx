@@ -64,7 +64,16 @@ const services = [
     description: "Secure your IoT devices with inter-dependency testing, access management, and a robust IoT Security Framework for data and device protection.",
     icon: <Cpu className="w-10 h-10 text-blue-500 flex-shrink-0" />,
     link: "/services/iot-security"
-  }  
+  },
+  {
+  title: "AI SOC",
+  description:
+    "Autonomous AI-driven Security Operations Center providing real-time threat detection, intelligent correlation, and automated incident response across your entire infrastructure.",
+  icon: <ShieldCheck className="w-10 h-10 text-indigo-500 flex-shrink-0" />,
+  link: "/services/ai-soc"
+}
+
+ 
 ];
 
 const ServicesPage = () => {
@@ -95,7 +104,7 @@ const ServicesPage = () => {
                   </p>
                 </CardContent>
                 <div className="px-6">
-                  <Link href={service.link} passHref legacyBehavior>
+                  <Link href={service.link} passHref >
                     <Button variant="outline" size="sm" className="w-full">
                       Learn More
                     </Button>

@@ -35,7 +35,7 @@ export default function CustomerCarousel() {
           customers
         </h2>
 
-        <div className="w-[70vw] overflow-hidden relative pt-4 pb-2 border-t mt-4 mx-auto">
+        <div className="w-[80vw] overflow-hidden relative pt-4 pb-2 border-t mt-4 mx-auto">
           <motion.div
             className="flex gap-8 whitespace-nowrap"
             animate={{

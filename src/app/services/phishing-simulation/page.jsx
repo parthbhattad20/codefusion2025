@@ -1,175 +1,161 @@
+'use client';
+
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, ArrowRight, CheckCircle2, ShieldAlert, MailWarning, UserCheck, GlobeLock, AlertTriangle } from 'lucide-react';
+import { ShieldAlert, MailWarning, Users, LineChart, Lock, Radar } from 'lucide-react';
 
-const features = [
-  {
-    title: 'Simulated Phishing Campaigns',
-    description: 'Realistic mock phishing emails tailored to your organization to test employee awareness.',
-    icon: <MailWarning className="w-6 h-6" />, 
-    borderColor: 'border-yellow-500/50',
-    hoverBorderColor: 'group-hover:border-yellow-500',
-    iconColor: 'text-yellow-500'
-  },
-  {
-    title: 'Phishing Awareness Training',
-    description: 'Educate employees with engaging training on how to detect and report phishing attempts.',
-    icon: <ShieldAlert className="w-6 h-6" />, 
-    borderColor: 'border-orange-500/50',
-    hoverBorderColor: 'group-hover:border-orange-500',
-    iconColor: 'text-orange-500'
-  },
-  {
-    title: 'Response Readiness Evaluation',
-    description: 'Test how quickly and effectively your team responds to a suspected phishing incident.',
-    icon: <UserCheck className="w-6 h-6" />, 
-    borderColor: 'border-red-500/50',
-    hoverBorderColor: 'group-hover:border-red-500',
-    iconColor: 'text-red-500'
-  }
-];
-
-export default function Page() {
+export default function PhishingSimulationPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="pt-20 mt-10 lg:mt-20">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="mb-16">
-            <Link href="/services" className="group inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200">
-              <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
-              Back to Services
-            </Link>
+    <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground transition-colors">
+
+      {/* ================= HERO ================= */}
+      <section
+        className="relative h-screen bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/services/phishing.webp')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+            Phishing Simulation & Awareness Training
+          </h1>
+
+          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl">
+            Reduce human cyber risk with realistic phishing simulations and security awareness training.
+            Test, train, and protect your employees from modern social‑engineering attacks.
+          </p>
+
+          <Link href="/contact">
+            <button className="mt-8 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition">
+              START PHISHING SIMULATION
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* ================= WHY PHISHING SIMULATION ================= */}
+      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+          <div className="ml-6">
+            <h2 className="text-2xl font-semibold text-primary mb-6">
+              Why Phishing Simulation Matters
+            </h2>
+
+            <ul className="space-y-4 text-gray-800 dark:text-gray-200">
+              <li>• Identify employees vulnerable to phishing attacks</li>
+              <li>• Reduce ransomware & credential theft risk</li>
+              <li>• Improve security awareness culture</li>
+              <li>• Meet compliance & audit requirements</li>
+              <li>• Continuous employee security training</li>
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div className="md:col-span-12 text-center mb-16">
-              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm mb-6">
-                <MailWarning className="w-16 h-16 text-yellow-600" />
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-600 to-orange-600 mb-6">
-                Phishing Simulation
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                Prepare your team for real threats with tailored phishing simulations and actionable training.
-              </p>
-              <Link href="/contact" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  className="px-8 py-2 rounded-full bg-gradient-to-b from-yellow-500 to-orange-500 text-white focus:ring-2 focus:ring-yellow-400 hover:shadow-xl dark:hover:shadow-yellow-900 transition duration-200 text-lg font-bold">
-                  Start Simulation
-                </Button>
-              </Link>
-            </div>
-
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {features.map((feature, index) => (
-                <Card
-                  key={index}
-                  className={`group relative overflow-hidden backdrop-blur-sm border-2 ${feature.borderColor} 
-                    hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${feature.hoverBorderColor}`}
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${feature.iconColor} bg-foreground/5`}>
-                        {feature.icon}
-                      </div>
-                      <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold">Why Phishing Simulations Matter</h2>
-                <div className="space-y-4">
-                  {[
-                    'Improve Employee Awareness',
-                    'Measure Organizational Risk',
-                    'Strengthen Response Capabilities',
-                    'Mitigate Real-World Attacks'
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-br from-yellow-500/5 to-orange-500/5 hover:from-yellow-500/10 hover:to-orange-500/10 transition-colors duration-200">
-                      <CheckCircle2 className="w-5 h-5 text-yellow-600" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-yellow-500/5 to-orange-500/5 rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-6">How Our Simulation Works</h2>
-                <div className="space-y-6">
-                  <p className="text-muted-foreground mb-6">
-                    We deliver realistic phishing campaigns to assess employee vigilance and follow-up with targeted learning.
-                  </p>
-                  <div className="space-y-6">
-                    {[
-                      {
-                        icon: <MailWarning className="w-6 h-6 text-yellow-600" />, 
-                        title: 'Custom Email Campaigns', 
-                        description: 'We create mock phishing emails that mimic real threats employees might face.'
-                      },
-                      {
-                        icon: <ShieldAlert className="w-6 h-6 text-yellow-600" />, 
-                        title: 'Engagement Tracking', 
-                        description: 'Track click-through rates and identify high-risk users for further training.'
-                      },
-                      {
-                        icon: <UserCheck className="w-6 h-6 text-yellow-600" />, 
-                        title: 'Targeted Feedback & Learning', 
-                        description: 'Provide just-in-time education and reinforcement after the test.'
-                      },
-                      {
-                        icon: <AlertTriangle className="w-6 h-6 text-yellow-600" />, 
-                        title: 'Reporting & Insights', 
-                        description: 'Detailed metrics to help shape your future security awareness strategy.'
-                      }
-                    ].map((step, index) => (
-                      <div key={index} className="flex items-start space-x-4 group">
-                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors duration-200">
-                          {step.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                            {step.title}
-                            <ArrowRight className="w-4 h-4 text-yellow-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                          </h3>
-                          <p className="text-muted-foreground">{step.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="md:col-span-12 text-center mt-5 mb-20">
-              <div className="md:col-span-12 mt-8 rounded-md px-6 pt-12 pb-6 text-center border-t-2">
-                <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-yellow-600 to-orange-600 text-transparent">
-                  Ready to Test Your Defenses?
-                </h3>
-                <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                  Empower your employees and reduce risk with hands-on phishing simulations tailored to your needs.
-                </p>
-                <Link href="/contact" passHref legacyBehavior>
-                  <Button
-                    size="lg"
-                    className="px-8 py-2 rounded-full bg-gradient-to-b from-yellow-500 to-orange-500 text-white focus:ring-2 focus:ring-yellow-400 hover:shadow-xl dark:hover:shadow-yellow-900 transition duration-200 text-lg font-bold">
-                    Get Started
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
+          <div className="flex justify-center md:justify-end mr-10">
+            <img
+              src="/assets/services/phishing.webp"
+              alt="Phishing Simulation"
+              className="w-full max-w-md rounded-xl shadow-lg dark:shadow-blue-900/30"
+            />
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* ================= SERVICES GRID ================= */}
+      <section className="py-20 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-4xl font-semibold text-primary mb-14">
+            Phishing Simulation Capabilities
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            {[{
+              title: 'Realistic Phishing Emails',
+              desc: 'Simulate real‑world phishing emails including credential theft, malware, and ransomware lures.'
+            },{
+              title: 'Employee Risk Scoring',
+              desc: 'Measure employee susceptibility with clear metrics and improvement tracking.'
+            },{
+              title: 'Automated Campaigns',
+              desc: 'Run recurring phishing simulations without manual effort.'
+            },{
+              title: 'Instant Training',
+              desc: 'Employees receive immediate training when they fall for a phishing email.'
+            },{
+              title: 'Compliance Reporting',
+              desc: 'Generate reports for ISO, SOC 2, PCI‑DSS, and internal audits.'
+            },{
+              title: 'Executive Dashboards',
+              desc: 'Visual dashboards for management and security leadership.'
+            }].map((item, i) => (
+              <div key={i} className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2">
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  {item.title}
+                </h3>
+                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-blue-600 text-white p-8 rounded-lg text-left">
+              <h3 className="font-semibold mb-3">Phishing Trend Analysis</h3>
+              <p className="text-sm">
+                Track attack trends and employee improvement across campaigns.
+              </p>
+            </div>
+
+            <div className="bg-blue-600 text-white p-8 rounded-lg text-left">
+              <h3 className="font-semibold mb-3">Human Risk Reduction</h3>
+              <p className="text-sm">
+                Turn employees from the weakest link into a strong security defense.
+              </p>
+            </div>
+          </div> */}
+        </div>
+      </section>
+
+      {/* ================= DETAILS ================= */}
+      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-center text-3xl font-bold text-sky-600 dark:text-sky-400 mb-16">
+            How Our Phishing Simulation Works
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
+            <ul className="space-y-6 text-gray-800 dark:text-gray-200">
+              <li>• Design realistic phishing scenarios</li>
+              <li>• Launch simulated attacks to employees</li>
+              <li>• Track clicks, submissions, and reports</li>
+              <li>• Deliver instant awareness training</li>
+            </ul>
+
+            <ul className="space-y-6 text-gray-800 dark:text-gray-200">
+              <li>• Measure improvement over time</li>
+              <li>• Identify high‑risk users</li>
+              <li>• Provide executive‑ready reports</li>
+              <li>• Continuously reduce human risk</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+          Stop Phishing Before It Starts
+        </h2>
+        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+          Strengthen your human firewall with phishing simulation and awareness training.
+        </p>
+        <Link href="/contact">
+          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition">
+            Talk to a Security Expert
+          </button>
+        </Link>
+      </section>
+
+    </main>
   );
 }

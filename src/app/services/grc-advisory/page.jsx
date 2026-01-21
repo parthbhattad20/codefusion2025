@@ -1,178 +1,217 @@
+'use client';
+
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, ArrowRight, CheckCircle2, FileSearch2, FileSearch, ScrollText, ShieldCheck } from 'lucide-react';
+import {
+  ShieldCheck,
+  ClipboardCheck,
+  AlertTriangle,
+  Users,
+  LineChart,
+  Lock,
+} from 'lucide-react';
 
-const features = [
-  {
-    title: 'Governance Frameworks',
-    description: 'Establish and optimize security governance aligned with business goals.',
-    icon: <ShieldCheck className="w-6 h-6" />,
-    borderColor: 'border-emerald-500/50',
-    hoverBorderColor: 'group-hover:border-emerald-500',
-    iconColor: 'text-emerald-500'
-  },
-  {
-    title: 'Risk Management',
-    description: 'Identify, assess, and mitigate cybersecurity risks effectively.',
-    icon: <FileSearch2 className="w-6 h-6" />,
-    borderColor: 'border-orange-500/50',
-    hoverBorderColor: 'group-hover:border-orange-500',
-    iconColor: 'text-orange-500'
-  },
-  {
-    title: 'Compliance Readiness',
-    description: 'Achieve and maintain compliance with industry and regulatory standards.',
-    icon: <ScrollText className="w-6 h-6" />,
-    borderColor: 'border-blue-500/50',
-    hoverBorderColor: 'group-hover:border-blue-500',
-    iconColor: 'text-blue-500'
-  }
-];
-
-export default function Page() {
+export default function GRCPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground transition-colors">
 
-      <div className="pt-20 mt-10 lg:mt-20">
-        <div className="container max-w-7xl mx-auto px-6">
+      {/* ================= HERO ================= */}
+      <section
+        className="relative h-screen bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/services/grc.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
 
-          <div className="mb-16">
-            <Link href="/services" className="group inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200">
-              <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
-              Back to Services
-            </Link>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mt-70">
+            GRC Advisory & Audit Services
+          </h1>
+
+          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+            Vulnuris GRC Advisory and Audit services help organizations establish strong governance,
+            manage cybersecurity risks, and achieve regulatory compliance.
+          </p>
+
+          <Link href="/contact">
+            <button className="mt-8 px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition">
+              SPEAK WITH AN EXPERT
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* ================= GRC OVERVIEW ================= */}
+      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto">
+
+          <div className="text-center mb-16">
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+              GRC Advisory & Audit Services
+            </h1>
+
+            <p className="mt-4 text-lg font-semibold text-sky-600 dark:text-sky-400">
+              Governance • Risk • Compliance
+            </p>
+
+            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Vulnuris provides end-to-end GRC advisory services to help organizations
+              meet regulatory obligations, reduce operational risk, and demonstrate trust.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div className="md:col-span-12 text-center mb-16">
-              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 backdrop-blur-sm mb-6">
-                <ShieldCheck className="w-16 h-16 text-emerald-600" />
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-emerald-600 mb-6">
-                GRC Advisory and Audit
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                Helping your organization navigate governance, risk, and compliance challenges with expert guidance.
-              </p>
-              <Link href="/contact" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  className="px-8 py-2 rounded-full bg-gradient-to-b from-emerald-500 to-emerald-600 text-white focus:ring-2 focus:ring-emerald-400 hover:shadow-xl dark:hover:shadow-emerald-900 transition duration-200 text-lg font-bold">
-                  Get Started Today
-                </Button>
-              </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            {/* Left */}
+            <div className="ml-10">
+              <h2 className="text-2xl font-semibold text-primary mb-6">
+                Why Vulnuris GRC Advisory
+              </h2>
+
+              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
+                <li className="font-semibold">• Strengthen governance and accountability</li>
+
+                <ul className="ml-6 space-y-2 text-gray-700 dark:text-gray-300">
+                  <li>○ Policy and framework development</li>
+                  <li>○ Risk identification and assessment</li>
+                  <li>○ Compliance mapping</li>
+                  <li>○ Control design and implementation</li>
+                  <li>○ Audit readiness</li>
+                </ul>
+
+                <li>• Reduce regulatory and operational risk</li>
+                <li>• Improve audit outcomes</li>
+                <li>• Align security controls with business goals</li>
+                <li>• Ongoing compliance monitoring</li>
+              </ul>
             </div>
 
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {features.map((feature, index) => (
-                <Card 
-                  key={index} 
-                  className={`group relative overflow-hidden backdrop-blur-sm border-2 ${feature.borderColor} 
-                    hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${feature.hoverBorderColor}`}
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${feature.iconColor} bg-foreground/5`}>
-                        {feature.icon}
-                      </div>
-                      <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            {/* Right Image */}
+            <div className="flex justify-center md:justify-end mr-20">
+              <img
+                src="/assets/services/grc.jpg"
+                alt="GRC Advisory"
+                className="w-full max-w-md rounded-xl shadow-lg dark:shadow-blue-900/30 transition-all"
+              />
             </div>
 
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold">Why GRC Matters?</h2>
-                <div className="space-y-4">
-                  {[
-                    'Improved Security Governance',
-                    'Risk-aware Decision Making',
-                    'Audit-ready Compliance',
-                    'Operational Resilience'
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-br from-emerald-500/5 to-emerald-600/5 hover:from-emerald-500/10 hover:to-emerald-600/10 transition-colors duration-200">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="bg-gradient-to-br from-emerald-500/5 to-emerald-600/5 rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-6">Our GRC Process</h2>
-                <div className="space-y-6">
-                  <p className="text-muted-foreground mb-6">
-                    Our comprehensive GRC services are designed to help businesses embed risk management into their culture and comply with relevant standards.
-                  </p>
+      {/* ================= SERVICES GRID ================= */}
+      <section className="py-20 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto text-center">
 
-                  <div className="space-y-6">
-                    {[
-                      {
-                        icon: <ShieldCheck className="w-6 h-6 text-emerald-600" />,
-                        title: "Governance Review",
-                        description: "Evaluate your existing governance structures and align them with industry best practices."
-                      },
-                      {
-                        icon: <FileSearch className="w-6 h-6 text-emerald-600" />,
-                        title: "Risk Assessment",
-                        description: "Identify and assess key risks across your business functions and infrastructure."
-                      },
-                      {
-                        icon: <ScrollText className="w-6 h-6 text-emerald-600" />,
-                        title: "Compliance Mapping",
-                        description: "Map current practices to standards like ISO 27001, NIST, HIPAA, and GDPR."
-                      },
-                      {
-                        icon: <ArrowRight className="w-6 h-6 text-emerald-600" />,
-                        title: "Audit & Reporting",
-                        description: "Prepare your business for audits with documented controls and clear remediation guidance."
-                      }
-                    ].map((step, index) => (
-                      <div key={index} className="flex items-start space-x-4 group">
-                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors duration-200">
-                          {step.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                            {step.title}
-                            <ArrowRight className="w-4 h-4 text-emerald-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                          </h3>
-                          <p className="text-muted-foreground">{step.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          <h2 className="text-4xl font-semibold text-primary mb-14">
+            GRC Advisory & Audit Capabilities
+          </h2>
 
-            <div className="md:col-span-12 text-center mt-5 mb-20">
-              <div className="md:col-span-12 mt-8 rounded-md px-6 pt-12 pb-6 text-center border-t-2">
-                <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-emerald-600 to-emerald-950 dark:from-emerald-300 dark:to-emerald-700 text-transparent">
-                  Ready to Strengthen Your Governance?
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            {[
+              {
+                title: "Governance Frameworks",
+                desc: "ISO 27001, NIST, COBIT aligned governance frameworks."
+              },
+              {
+                title: "Risk Assessment & Management",
+                desc: "Identify and prioritize cybersecurity and operational risks."
+              },
+              {
+                title: "Compliance Advisory",
+                desc: "ISO, SOC 2, PCI DSS, GDPR, HIPAA, RBI compliance."
+              },
+              {
+                title: "Internal & External Audits",
+                desc: "Audit planning, evidence collection, remediation."
+              },
+              {
+                title: "Third-Party Risk Management",
+                desc: "Vendor risk assessment and monitoring."
+              },
+              {
+                title: "Continuous Compliance",
+                desc: "Always audit-ready with ongoing control testing."
+              }
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2"
+              >
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  {item.title}
                 </h3>
-                <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                  Connect with us to evaluate and enhance your GRC posture with expert-led advisory and audits.
+                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
+                  {item.desc}
                 </p>
-                <Link href="/contact" passHref legacyBehavior>
-                  <Button
-                    size="lg"
-                    className="px-8 py-2 rounded-full bg-gradient-to-b from-emerald-500 to-emerald-600 text-white focus:ring-2 focus:ring-emerald-400 hover:shadow-xl dark:hover:shadow-emerald-900 transition duration-200 text-lg font-bold">
-                    Schedule a Consultation
-                  </Button>
-                </Link>
               </div>
-            </div>
+            ))}
           </div>
+
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-blue-600 text-white p-8 rounded-lg text-left">
+              <h3 className="font-semibold mb-3">Audit Readiness</h3>
+              <p className="text-sm">
+                Prepare confidently for internal and external audits.
+              </p>
+            </div>
+
+            <div className="bg-blue-600 text-white p-8 rounded-lg text-left">
+              <h3 className="font-semibold mb-3">Regulatory Compliance</h3>
+              <p className="text-sm">
+                Meet global and industry-specific regulatory requirements.
+              </p>
+            </div>
+          </div> */}
 
         </div>
-      </div>
-    </div>
-  )
+      </section>
+
+      {/* ================= DETAILS ================= */}
+      <section className="py-10 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-center text-3xl font-bold text-sky-600 dark:text-sky-400 mb-16">
+            What are GRC Advisory & Audit Services?
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
+
+            <ul className="space-y-6 text-gray-800 dark:text-gray-200">
+              <li>• Establish governance and accountability</li>
+              <li>• Manage cybersecurity and operational risks</li>
+              <li>• Map controls to regulations</li>
+              <li>• Prepare for audits and certifications</li>
+              <li>• Improve transparency and reporting</li>
+            </ul>
+
+            <ul className="space-y-6 text-gray-800 dark:text-gray-200">
+              <li className="font-semibold">• Ongoing GRC Management</li>
+              <li>• Continuous risk assessments</li>
+              <li>• Policy updates & control testing</li>
+              <li>• Vendor risk oversight</li>
+              <li>• Executive & board reporting</li>
+            </ul>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+          Build Trust Through Strong Governance
+        </h2>
+
+        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+          Strengthen governance, reduce risk, and achieve compliance with Vulnuris GRC services.
+        </p>
+
+        <Link href="/contact">
+          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition">
+            Talk to a GRC Expert
+          </button>
+        </Link>
+      </section>
+
+    </main>
+  );
 }

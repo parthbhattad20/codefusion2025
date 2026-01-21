@@ -1,175 +1,183 @@
+'use client';
+
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowLeft, ArrowRight, CheckCircle2, FileSearch2, Target, ScanIcon, ShieldAlert, ScrollText } from 'lucide-react';
+import { ShieldAlert, Crosshair, Bug, Users, AlertTriangle, Lock, LineChart } from 'lucide-react';
 
-const features = [
-  {
-    title: 'Real-World Attack Simulations',
-    description: 'Simulate sophisticated, multi-stage attacks to uncover unknown vulnerabilities.',
-    icon: <ShieldAlert className="w-6 h-6" />,
-    borderColor: 'border-red-500/50',
-    hoverBorderColor: 'group-hover:border-red-500',
-    iconColor: 'text-red-500'
-  },
-  {
-    title: 'Breach and Attack Simulation',
-    description: 'Continuous testing and validation of your security stack effectiveness.',
-    icon: <ScanIcon className="w-6 h-6" />,
-    borderColor: 'border-orange-500/50',
-    hoverBorderColor: 'group-hover:border-orange-500',
-    iconColor: 'text-orange-500'
-  },
-  {
-    title: 'Tailored Threat Scenarios',
-    description: 'Customized attack scenarios aligned with your business and threat model.',
-    icon: <Target className="w-6 h-6" />,
-    borderColor: 'border-yellow-500/50',
-    hoverBorderColor: 'group-hover:border-yellow-500',
-    iconColor: 'text-yellow-500'
-  }
-];
-
-export default function Page() {
+export default function RedTeamingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="pt-20 mt-10 lg:mt-20">
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="mb-16">
-            <Link href="/services" className="group inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200">
-              <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
-              Back to Services
-            </Link>
+    <main className="w-full bg-gray-50 text-gray-900">
+
+      {/* ================= HERO ================= */}
+      <section
+        className="relative h-screen bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/services/red.webp')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+            Red Teaming Services
+          </h1>
+
+          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+            Vulnuris Red Teaming services simulate real-world cyber attacks to test your organization’s people,
+            processes, and technology. We help you understand how attackers think, move, and breach defenses.
+          </p>
+
+          <Link href="/contact">
+            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+              SPEAK WITH AN EXPERT
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      {/* ================= RED TEAMING OVERVIEW ================= */}
+      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto">
+
+          <div className="text-center mb-16">
+            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+              Red Teaming Assessments
+            </h1>
+
+            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Red Teaming goes beyond traditional penetration testing by emulating advanced threat actors
+              using stealthy attack techniques across networks, applications, cloud, and human targets.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div className="md:col-span-12 text-center mb-16">
-              <div className="inline-block p-4 rounded-2xl bg-gradient-to-br from-red-500/10 to-yellow-600/10 backdrop-blur-sm mb-6">
-                <ShieldAlert className="w-16 h-16 text-red-600" />
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-yellow-600 mb-6">
-                Red Teaming
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-                Simulated cyber attacks that mirror real-world adversaries to test your organization's defense capabilities and response effectiveness.
-              </p>
-              <Link href="/contact" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  className="px-8 py-2 rounded-full bg-gradient-to-b from-red-500 to-yellow-600 text-white focus:ring-2 focus:ring-red-400 hover:shadow-xl dark:hover:shadow-red-900 transition duration-200 text-lg font-bold">
-                  Start Your Simulation
-                </Button>
-              </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            <div className="ml-10">
+              <h2 className="text-2xl font-semibold text-primary mb-6">
+                Why Red Teaming Matters
+              </h2>
+
+              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
+                <li>• Identify real-world attack paths and blind spots</li>
+                <li>• Measure effectiveness of detection and response</li>
+                <li>• Test people, process, and technology together</li>
+                <li>• Improve incident response readiness</li>
+                <li>• Validate security investments and controls</li>
+              </ul>
             </div>
 
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {features.map((feature, index) => (
-                <Card
-                  key={index}
-                  className={`group relative overflow-hidden backdrop-blur-sm border-2 ${feature.borderColor} 
-                    hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 ${feature.hoverBorderColor}`}
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${feature.iconColor} bg-foreground/5`}>
-                        {feature.icon}
-                      </div>
-                      <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold">Why Red Teaming?</h2>
-                <div className="space-y-4">
-                  {[
-                    'Simulate Real-World Threats',
-                    'Identify Blind Spots',
-                    'Test Incident Response',
-                    'Continuous Improvement'
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-4 rounded-lg bg-gradient-to-br from-red-500/5 to-yellow-600/5 hover:from-red-500/10 hover:to-yellow-600/10 transition-colors duration-200">
-                      <CheckCircle2 className="w-5 h-5 text-red-600" />
-                      <span>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-red-500/5 to-yellow-600/5 rounded-2xl p-8">
-                <h2 className="text-3xl font-bold mb-6">Our Approach</h2>
-                <div className="space-y-6">
-                  <p className="text-muted-foreground mb-6">
-                    Our red team engagements are designed to rigorously test your security controls by simulating the tactics, techniques, and procedures used by advanced threat actors.
-                  </p>
-                  <div className="space-y-6">
-                    {[
-                      {
-                        icon: <Target className="w-6 h-6 text-red-600" />,
-                        title: "Recon & Planning",
-                        description: "Understand your environment, identify targets, and design realistic attack scenarios."
-                      },
-                      {
-                        icon: <ScanIcon className="w-6 h-6 text-red-600" />,
-                        title: "Execution Phase",
-                        description: "Launch simulated attacks that mimic real-world adversaries to exploit vulnerabilities."
-                      },
-                      {
-                        icon: <FileSearch2 className="w-6 h-6 text-red-600" />,
-                        title: "Post-Exploitation",
-                        description: "Evaluate persistence mechanisms, lateral movement, and data exfiltration techniques."
-                      },
-                      {
-                        icon: <ScrollText className="w-6 h-6 text-red-600" />,
-                        title: "Reporting & Recommendations",
-                        description: "Deliver in-depth findings with actionable recommendations to fortify your defenses."
-                      }
-                    ].map((step, index) => (
-                      <div key={index} className="flex items-start space-x-4 group">
-                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center group-hover:bg-red-500/20 transition-colors duration-200">
-                          {step.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                            {step.title}
-                            <ArrowRight className="w-4 h-4 text-red-500 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                          </h3>
-                          <p className="text-muted-foreground">{step.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="md:col-span-12 text-center mt-5 mb-20">
-              <div className="md:col-span-12 mt-8 rounded-md px-6 pt-12 pb-6 text-center border-t-2">
-                <h3 className="text-3xl font-semibold mb-4 bg-clip-text bg-gradient-to-br from-red-600 to-yellow-600 text-transparent">
-                  Ready to Simulate Real Threats?
-                </h3>
-                <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-                  Contact us today to run a red teaming engagement and elevate your cyber defense strategies.
-                </p>
-                <Link href="/contact" passHref legacyBehavior>
-                  <Button
-                    size="lg"
-                    className="px-8 py-2 rounded-full bg-gradient-to-b from-red-500 to-yellow-600 text-white focus:ring-2 focus:ring-red-400 hover:shadow-xl dark:hover:shadow-red-900 transition duration-200 text-lg font-bold">
-                    Schedule a Red Team
-                  </Button>
-                </Link>
-              </div>
+            <div className="flex justify-center md:justify-end mr-20">
+              <img
+                src="/assets/services/red-t.jpg"
+                alt="Red Teaming"
+                className="w-full max-w-md rounded-xl shadow-lg"
+              />
             </div>
 
           </div>
         </div>
-      </div>
-    </div>
-  )
+      </section>
+
+      {/* ================= RED TEAMING SERVICES GRID ================= */}
+      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto text-center">
+
+          <h2 className="text-4xl font-semibold text-primary mb-14">
+            Our Red Teaming Capabilities
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+
+            {[ 
+              {
+                title: 'External Red Teaming',
+                desc: 'Simulate attacks from outside the organization to test perimeter and exposure risks.',
+              },
+              {
+                title: 'Internal Red Teaming',
+                desc: 'Assess insider threat scenarios and post-compromise lateral movement.',
+              },
+              {
+                title: 'Social Engineering',
+                desc: 'Phishing, vishing, and physical intrusion to test human defenses.',
+              },
+              {
+                title: 'Cloud & Identity Attacks',
+                desc: 'Evaluate identity abuse, misconfigurations, and privilege escalation in cloud environments.',
+              },
+              {
+                title: 'Adversary Simulation',
+                desc: 'Emulate APT groups using MITRE ATT&CK techniques.',
+              },
+              {
+                title: 'Purple Team Collaboration',
+                desc: 'Collaborative exercises to improve detection and response with blue teams.',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+              >
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= RED TEAMING DETAILS ================= */}
+      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-center text-2xl md:text-3xl font-bold text-sky-600 dark:text-sky-400 mb-16">
+            How Our Red Team Engagement Works
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+
+            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+              <li>• Define scope, objectives, and rules of engagement</li>
+              <li>• Perform reconnaissance and threat modeling</li>
+              <li>• Execute stealthy attack simulations</li>
+              <li>• Evade detection and bypass controls where possible</li>
+              <li>• Document attack paths and business impact</li>
+            </ul>
+
+            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+              <li className="font-semibold">• Continuous Security Improvement</li>
+              <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
+                <li>○ MITRE ATT&CK–mapped reporting</li>
+                <li>○ Detection & response gap analysis</li>
+                <li>○ Executive-level risk reporting</li>
+                <li>○ Blue team training support</li>
+                <li>○ Remediation validation</li>
+              </ul>
+              <li className="font-semibold ml-5">• Crisis & Breach Readiness</li>
+            </ul>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+          Think Like an Attacker. Defend Like a Pro.
+        </h2>
+
+        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+          Validate your defenses with real-world Red Teaming by Vulnuris experts.
+        </p>
+
+        <Link href="/contact">
+          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
+            Talk to a Red Team Expert
+          </button>
+        </Link>
+      </section>
+
+    </main>
+  );
 }
