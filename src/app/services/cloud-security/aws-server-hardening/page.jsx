@@ -1,38 +1,77 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -60 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 60 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.12 } },
+};
 
 export default function AwsServerHardeningPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
 
       {/* ================= HERO ================= */}
-      <section
+      <motion.section
+        initial="hidden"
+        animate="show"
+        variants={fadeUp}
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/services/aws-hardening.webp')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-black/60"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-24">
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          >
             AWS Server Hardening Services
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+          >
             Strengthen your AWS cloud fortress toward a better security posture in the UAE
             with expert AWS Server Hardening services.
-          </p>
+          </motion.p>
 
           <Link href="/contact">
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <motion.button
+              whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(59,130,246,0.6)' }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-semibold transition"
+            >
               TALK TO OUR CLOUD EXPERT
-            </button>
+            </motion.button>
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={fadeUp}
+        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">
@@ -57,7 +96,7 @@ export default function AwsServerHardeningPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <div className="ml-10">
+            <motion.div variants={fadeLeft} className="ml-10">
               <h2 className="text-2xl font-semibold text-primary mb-6">
                 Benefits of AWS Server Hardening
               </h2>
@@ -69,29 +108,39 @@ export default function AwsServerHardeningPage() {
                 <li>• Ensure end-to-end data protection</li>
                 <li>• Optimize technical and cost resources</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center md:justify-end mr-20">
+            <motion.div
+              variants={fadeRight}
+              whileHover={{ scale: 1.05 }}
+              className="flex justify-center md:justify-end mr-20"
+            >
               <img
                 src="/assets/services/aws-hardening.jpg"
                 alt="AWS Server Hardening"
-                className="w-full max-w-md rounded-xl shadow-lg"
+                className="w-full max-w-md rounded-xl shadow-lg transition"
               />
-            </div>
+            </motion.div>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= SERVICES GRID ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={stagger}
+        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-4xl font-semibold text-primary mb-14">
+          <motion.h2 variants={fadeUp} className="text-4xl font-semibold text-primary mb-14">
             Our AWS Server Hardening Approach
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
 
             {[
               {
@@ -119,24 +168,34 @@ export default function AwsServerHardeningPage() {
                 desc: 'Reduce attack surface through continuous monitoring and security optimization.',
               },
             ].map((item, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                variants={fadeUp}
+                whileHover={{ y: -10, scale: 1.04 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 16 }}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-2xl group"
               >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-cyan-500 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={fadeUp}
+        className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
@@ -167,10 +226,16 @@ export default function AwsServerHardeningPage() {
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+      >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Your AWS Environment with Confidence
         </h2>
@@ -181,11 +246,15 @@ export default function AwsServerHardeningPage() {
         </p>
 
         <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
+          <motion.button
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-xl transition-all duration-300"
+          >
             Talk to an AWS Security Expert
-          </button>
+          </motion.button>
         </Link>
-      </section>
+      </motion.section>
 
     </main>
   );

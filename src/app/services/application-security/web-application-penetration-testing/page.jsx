@@ -9,39 +9,70 @@ import {
   ClipboardCheck,
   Users,
 } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.12 } },
+};
 
 export default function WebAppPentestPage() {
   return (
-    <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground">
+    <motion.main
+      initial="hidden"
+      animate="show"
+      variants={stagger}
+      className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground"
+    >
 
       {/* ================= HERO ================= */}
-      <section
+      <motion.section
+        variants={fadeUp}
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/services/wapt.webp')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          >
             Web Application Penetration Testing
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl">
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl"
+          >
             In-depth security assessment of your web applications to identify
             vulnerabilities, business logic flaws, and compliance gaps using
             real-world attacker simulation.
-          </p>
+          </motion.p>
 
           <Link href="/contact">
-            <button className="mt-8 px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-8 px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
               GET STARTED
-            </button>
+            </motion.button>
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background">
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-50 dark:bg-background"
+      >
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary">
             What We Do
@@ -60,47 +91,39 @@ export default function WebAppPentestPage() {
             up to one-month mitigation support.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= KEY BENEFITS ================= */}
-      <section className="py-20 px-6 bg-gray-50 dark:bg-background">
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-20 px-6 bg-gray-50 dark:bg-background"
+      >
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-center text-3xl font-bold text-primary mb-14">
             Business Benefits
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
+          <motion.div
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-10"
+          >
             {[
-              {
-                title: 'Simulated Real-World Attacks',
-                desc: 'Evaluate your real security posture using hacker-like techniques.',
-              },
-              {
-                title: 'Faster Secure Development',
-                desc: 'Improve developer speed and code quality with secure coding insights.',
-              },
-              {
-                title: 'Lower Testing & Compliance Cost',
-                desc: 'Reduce testing and compliance costs without compromising security.',
-              },
-              {
-                title: 'Early Vulnerability Detection',
-                desc: 'Identify and fix issues early in the SDLC.',
-              },
-              {
-                title: 'Continuous Security Visibility',
-                desc: 'Dashboards to monitor your web application security posture.',
-              },
-              {
-                title: 'Release Without Delay',
-                desc: 'Prevent security testing from delaying application releases.',
-              },
+              { title: 'Simulated Real-World Attacks', desc: 'Evaluate your real security posture using hacker-like techniques.' },
+              { title: 'Faster Secure Development', desc: 'Improve developer speed and code quality with secure coding insights.' },
+              { title: 'Lower Testing & Compliance Cost', desc: 'Reduce testing and compliance costs without compromising security.' },
+              { title: 'Early Vulnerability Detection', desc: 'Identify and fix issues early in the SDLC.' },
+              { title: 'Continuous Security Visibility', desc: 'Dashboards to monitor your web application security posture.' },
+              { title: 'Release Without Delay', desc: 'Prevent security testing from delaying application releases.' },
             ].map((item, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all hover:-translate-y-2"
+                variants={fadeUp}
+                whileHover={{ y: -10, scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                className="bg-white dark:bg-muted border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all"
               >
                 <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
                   {item.title}
@@ -108,15 +131,20 @@ export default function WebAppPentestPage() {
                 <p className="text-gray-700 dark:text-muted-foreground text-sm">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
+          </motion.div>
 
-          </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= METHODOLOGY ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background">
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-50 dark:bg-background"
+      >
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-center text-3xl font-bold text-primary mb-16">
@@ -125,38 +153,45 @@ export default function WebAppPentestPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
 
-            <ul className="space-y-4">
+            <motion.ul variants={fadeUp} className="space-y-4">
               <li>• Information Gathering</li>
               <li>• Threat Modelling</li>
               <li>• Application Mapping</li>
               <li>• Vulnerability Detection</li>
               <li>• Manual Exploitation</li>
               <li>• Privilege Escalation</li>
-            </ul>
+            </motion.ul>
 
-            <ul className="space-y-4">
+            <motion.ul variants={fadeUp} className="space-y-4">
               <li>• Result Analysis</li>
               <li>• Developer-Friendly Reporting</li>
               <li>• Security Briefing Workshop</li>
               <li>• Mitigation Support</li>
               <li>• Complimentary Retesting</li>
               <li>• Summary Report</li>
-            </ul>
+            </motion.ul>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= WHAT WE TEST ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background">
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-50 dark:bg-background"
+      >
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-center text-3xl font-bold text-primary mb-16">
             What Do We Test?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
-
+          <motion.div
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm"
+          >
             {[
               'OWASP Top 10 & SANS Top 25',
               'Broken Access Control & IDOR',
@@ -168,20 +203,27 @@ export default function WebAppPentestPage() {
               'Updates, CVEs & Misconfigurations',
               'PII & Sensitive Data Exposure',
             ].map((item, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border rounded-xl p-5 shadow-sm"
+                variants={fadeUp}
+                whileHover={{ y: -6 }}
+                className="bg-white dark:bg-muted border rounded-xl p-5 shadow-sm hover:shadow-lg transition-all"
               >
                 {item}
-              </div>
+              </motion.div>
             ))}
+          </motion.div>
 
-          </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= DELIVERABLES ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background">
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+      >
 
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
           Web App Pen Test Deliverables
@@ -193,13 +235,17 @@ export default function WebAppPentestPage() {
         </p>
 
         <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition">
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition"
+          >
             Talk to a Security Expert
-          </button>
+          </motion.button>
         </Link>
 
-      </section>
+      </motion.section>
 
-    </main>
+    </motion.main>
   );
 }
