@@ -11,9 +11,9 @@ import Link from "next/link";
 const flipWords = ["V-Find", "V-Fix", "V-Fortify"];
 
 const colorVariants = {
-  "V-Find": "bg-gradient-to-r from-red-600 to-pink-500 text-transparent bg-clip-text",
-  "V-Fix": "bg-gradient-to-r from-blue-500 to-blue-900 text-transparent bg-clip-text",
-  "V-Fortify": "bg-gradient-to-r from-purple-600 to-violet-800 text-transparent bg-clip-text",
+  "V-Find": "from-rose-500 via-pink-500 to-fuchsia-500",
+  "V-Fix": "from-cyan-400 via-blue-500 to-indigo-600",
+  "V-Fortify": "from-violet-500 via-purple-600 to-indigo-700",
 };
 
 export default function Hero() {
@@ -21,124 +21,118 @@ export default function Hero() {
   const [mounted, setMounted] = useState(false);
   const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!mounted) return;
-
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % flipWords.length);
-    }, 2000);
-
+      setIndex((p) => (p + 1) % flipWords.length);
+    }, 2200);
     return () => clearInterval(interval);
   }, [mounted]);
 
-  if (!mounted) {
-    // Optional skeleton placeholder to avoid layout shift
-    return <div className="h-[600px] w-full" />;
-  }
+  if (!mounted) return <div className="h-[700px] w-full" />;
 
   const wordTransition = reduceMotion
     ? { duration: 0 }
     : { type: "spring", stiffness: 120, damping: 18 };
 
   return (
-    <div className="font-primary pt-10 grid place-content-center">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center my-6 pt-14 lg:py-14 relative"
-      >
-        {/* Background Glow */}
-        <div
-          className="absolute -z-10 inset-0 overflow-hidden pointer-events-none w-full"
-          style={{
-            WebkitMaskImage:
-              "radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 95%)",
-            maskImage:
-              "radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 95%)",
-            WebkitMaskRepeat: "no-repeat",
-            maskRepeat: "no-repeat",
-            WebkitMaskPosition: "center",
-            maskPosition: "center",
-            WebkitMaskSize: "cover",
-            maskSize: "cover",
+    <div className="relative overflow-hidden pt-16">
+
+      {/* === Animated gradient mesh background === */}
+      <div className="absolute inset-0 -z-30">
+        <motion.div
+          animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 bg-[length:300%_300%]
+            bg-[linear-gradient(120deg,#7c3aed,#06b6d4,#ec4899,#7c3aed)] opacity-20"
+        />
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-3xl" />
+      </div>
+
+      {/* === Floating neon orbs === */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          animate={{
+            x: [0, 80, 0],
+            y: [0, -60, 0],
           }}
-          aria-hidden="true"
-        >
-          {[1, 2].map((i) => (
-            <div
-              key={i}
-              className={`absolute ${
-                i === 1
-                  ? "top-1/2 -translate-y-full"
-                  : "bottom-1/2 translate-y-full"
-              } left-1/2 aspect-square -translate-x-1/2 h-[100vh] border border-violet-500/30 rounded-full shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]`}
-              style={{
-                width: "clamp(300px, 100vw, 1200px)",
-                clipPath: i === 1 ? "inset(80% 0 0 0)" : "inset(0 0 80% 0)",
-                background:
-                  i === 1
-                    ? "linear-gradient(to top, rgba(123,22,205,0.26), rgba(164,55,236,0))"
-                    : "linear-gradient(to bottom, rgba(123,22,205,0.26), rgba(164,55,236,0))",
-                transform: "translateZ(0)",
-                willChange: "transform, opacity",
-              }}
-            />
-          ))}
+          transition={{
+            duration: 14 + i * 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -z-20 w-[300px] h-[300px] rounded-full blur-[120px]"
+          style={{
+            top: `${20 + i * 12}%`,
+            left: `${10 + i * 15}%`,
+            background:
+              i % 2
+                ? "rgba(139,92,246,0.35)"
+                : "rgba(6,182,212,0.35)",
+          }}
+        />
+      ))}
 
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4 blur-sm rounded-full bg-gradient-to-r from-violet-500/5 via-violet-500/80 to-violet-500/5"
-            style={{
-              width: "clamp(150px, 50vw, 600px)",
-              transform: "translateZ(0)",
-              willChange: "transform, opacity",
-            }}
-          />
-        </div>
+      {/* === Cyber grid floor === */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[300px] -z-10 opacity-30"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(139,92,246,.3) 1px, transparent 1px), linear-gradient(to top, rgba(139,92,246,.3) 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+          transform: "perspective(600px) rotateX(65deg)",
+          transformOrigin: "bottom",
+        }}
+      />
 
-        {/* Flipping Text */}
-        <div className="h-28 mb-6 perspective">
+      {/* === Content === */}
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto"
+      >
+        {/* Flipping neon title */}
+        <div className="h-32 mb-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -30, scale: 0.96 }}
+              exit={{ opacity: 0, y: -40, scale: 0.9 }}
               transition={wordTransition}
-              className={`text-6xl md:text-8xl font-extrabold font-secondary ${colorVariants[flipWords[index]]}`}
+              className={`text-6xl md:text-8xl font-extrabold tracking-tight bg-gradient-to-r ${
+                colorVariants[flipWords[index]]
+              } bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(139,92,246,0.7)]`}
             >
               {flipWords[index]}
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <p className="max-w-2xl text-center py-4 md:text-lg text-gray-800 dark:text-gray-400">
+        <p className="max-w-2xl text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10">
           Safeguard your organization's sensitive data and digital assets with
-          confidence, relying on our proven cyber security services
+          confidence, relying on our next-generation cyber defense platform.
         </p>
 
-        <div className="flex gap-5 justify-center">
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+        {/* Magnetic buttons */}
+        <div className="flex gap-6 mb-16">
+          <motion.div whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
             <Link href="mailto:connect@vulnuris.com">
-              <Button
-                size="lg"
-                className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition-transform duration-200 text-lg font-bold"
-              >
+              <Button className="px-10 py-6 text-lg rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 text-white shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:shadow-[0_0_60px_rgba(6,182,212,0.8)]">
                 Get In Touch
               </Button>
             </Link>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+          <motion.div whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
             <Link href="/about">
               <Button
-                size="lg"
                 variant="outline"
-                className="rounded-full font-bold text-lg"
+                className="px-10 py-6 text-lg rounded-full border-2 border-violet-500/50 backdrop-blur-md bg-white/10"
               >
                 Learn More
               </Button>
@@ -149,22 +143,18 @@ export default function Hero() {
 
       <CustomerCarasoul />
 
-      {/* Stats Section */}
-      <div className="relative w-full max-w-5xl mx-auto px-4 py-12">
-        <h3 className="text-3xl font-bold font-secondary text-center mb-8">
+      {/* === Stats === */}
+      <div className="relative max-w-6xl mx-auto px-6 py-24">
+        <h3 className="text-4xl font-extrabold text-center mb-16 bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
           Our Security Impact
-          <div className="h-1 w-20 bg-gradient-to-r from-violet-500 to-violet-600 mx-auto mt-2 rounded-full" />
         </h3>
 
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.15 } },
-          }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 relative"
+          variants={{ show: { transition: { staggerChildren: 0.2 } } }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12"
         >
           {[
             { icon: Smartphone, value: 80, label: "Mobile Apps Secured", suffix: "+" },
@@ -174,39 +164,33 @@ export default function Hero() {
             <motion.div
               key={idx}
               variants={{
-                hidden: { opacity: 0, y: 40 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { type: "spring", stiffness: 120, damping: 20 },
-                },
+                hidden: { opacity: 0, y: 60 },
+                show: { opacity: 1, y: 0 },
               }}
-              className="group hover:scale-105 transition-all duration-300"
+              className="group"
             >
-              <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
-                <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
-                  <item.icon className="w-8 h-8 text-violet-500" />
-                </div>
+              <div className="relative p-10 rounded-3xl border border-violet-500/30 bg-white/10 dark:bg-black/20 backdrop-blur-xl shadow-[0_0_50px_rgba(139,92,246,0.25)] hover:shadow-[0_0_80px_rgba(139,92,246,0.45)] transition-all">
 
-                <div className="flex items-baseline gap-1">
-                  <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
-                    <Counter to={item.value} suffix={item.suffix} />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition" />
+
+                <div className="relative flex flex-col items-center">
+                  <item.icon className="w-10 h-10 text-violet-400 mb-4" />
+
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-5xl font-black bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                      <Counter to={item.value} suffix={item.suffix} />
+                    </span>
+                    <ArrowUpRight className="text-violet-400" />
+                  </div>
+
+                  <p className="mt-3 text-gray-600 dark:text-gray-400 font-medium">
+                    {item.label}
                   </p>
-                  <ArrowUpRight className="w-4 h-4 text-violet-500" />
                 </div>
-
-                <p className="text-sm text-gray-500 mt-2 font-medium">
-                  {item.label}
-                </p>
               </div>
             </motion.div>
           ))}
         </motion.div>
-
-        <p className="text-center text-sm text-gray-500 mt-8">
-          Continuously expanding our security footprint
-          <span className="inline-block w-1.5 h-1.5 bg-violet-500 rounded-full ml-1 animate-pulse"></span>
-        </p>
       </div>
     </div>
   );

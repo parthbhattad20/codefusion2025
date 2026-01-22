@@ -34,7 +34,6 @@ const KloudRaksha = () => {
         initial="hidden"
         animate="show"
       >
-        
         <motion.div variants={fadeUp} className="mb-10">
           <Link
             href="/products"
@@ -44,7 +43,6 @@ const KloudRaksha = () => {
           </Link>
         </motion.div>
 
-        
         <motion.section
           variants={fadeUp}
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-24"
@@ -85,25 +83,38 @@ const KloudRaksha = () => {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            whileHover={{ scale: 1.03 }}
-            className="relative bg-gray-200 rounded-xl overflow-hidden shadow-xl w-full h-[350px] lg:h-[400px]"
-          >
-            <Image
-              src="/assets/products/kloudraksha.png"
-              alt="KloudRaksha Dashboard"
-              fill
-              className="object-contain md:object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
-          </motion.div>
+          {/* 3D Animated Image Container */}
+          <div style={{ perspective: 1200 }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              animate={{
+                rotateY: [0, 12, 0, -12, 0],
+                rotateX: [0, -8, 0, 8, 0],
+                y: [0, -12, 0, 12, 0],
+              }}
+              transition={{
+                opacity: { duration: 0.8, ease: "easeOut" },
+                scale: { duration: 0.8, ease: "easeOut" },
+                y: { duration: 14, ease: "easeInOut", repeat: Infinity },
+                rotateX: { duration: 14, ease: "easeInOut", repeat: Infinity },
+                rotateY: { duration: 14, ease: "easeInOut", repeat: Infinity },
+              }}
+              whileHover={{ scale: 1.05 }}
+              className="relative bg-gray-200 rounded-xl overflow-hidden shadow-xl w-full h-[350px] lg:h-[400px] will-change-transform"
+            >
+              <Image
+                src="/assets/products/kloudraksha.png"
+                alt="KloudRaksha Dashboard"
+                fill
+                className="object-contain md:object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
+            </motion.div>
+          </div>
         </motion.section>
 
-        
         <motion.section
           variants={fadeUp}
           whileInView="show"
@@ -119,8 +130,8 @@ const KloudRaksha = () => {
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
                   Manual audits are slow and inconsistent. KloudRaksha automates
-                  assessments, maps findings to standards, and delivers actionable
-                  remediation.
+                  assessments, maps findings to standards, and delivers
+                  actionable remediation.
                 </p>
               </div>
 
@@ -168,7 +179,6 @@ const KloudRaksha = () => {
           </div>
         </motion.section>
 
-        
         <motion.section variants={fadeUp} className="py-20 mb-24">
           <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-16">
             Key Features
@@ -182,10 +192,26 @@ const KloudRaksha = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
             {[
-              { icon: Cloud, title: "Multi-Cloud Support", desc: "AWS, Azure, GCP audits." },
-              { icon: FileCheck, title: "Compliance Mapping", desc: "CIS, ISO, GDPR, HIPAA." },
-              { icon: ShieldCheck, title: "Risk Prioritization", desc: "Fix what matters most." },
-              { icon: Brain, title: "GenAI Insights", desc: "AI recommendations (coming soon)." },
+              {
+                icon: Cloud,
+                title: "Multi-Cloud Support",
+                desc: "AWS, Azure, GCP audits.",
+              },
+              {
+                icon: FileCheck,
+                title: "Compliance Mapping",
+                desc: "CIS, ISO, GDPR, HIPAA.",
+              },
+              {
+                icon: ShieldCheck,
+                title: "Risk Prioritization",
+                desc: "Fix what matters most.",
+              },
+              {
+                icon: Brain,
+                title: "GenAI Insights",
+                desc: "AI recommendations (coming soon).",
+              },
             ].map((f, i) => (
               <motion.div
                 key={i}
@@ -202,7 +228,6 @@ const KloudRaksha = () => {
           </motion.div>
         </motion.section>
 
-        
         <motion.section
           variants={fadeUp}
           className="py-20 bg-muted/40 border-y border-border mb-24"
@@ -244,7 +269,6 @@ const KloudRaksha = () => {
           </motion.div>
         </motion.section>
 
-        
         <motion.section variants={fadeUp} className="py-20">
           <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-16">
             Frequently Asked Questions
@@ -252,7 +276,10 @@ const KloudRaksha = () => {
 
           <div className="max-w-4xl mx-auto divide-y divide-border">
             {[
-              ["What is KloudRaksha?", "Automated cloud security configuration audit platform."],
+              [
+                "What is KloudRaksha?",
+                "Automated cloud security configuration audit platform.",
+              ],
               ["Which clouds?", "AWS, Azure, GCP supported."],
               ["Compliance standards?", "CIS, ISO 27001, GDPR, HIPAA."],
             ].map(([q, a], i) => (
@@ -273,7 +300,6 @@ const KloudRaksha = () => {
           </div>
         </motion.section>
 
-        
         <motion.section variants={fadeUp} className="text-center py-20">
           <h2 className="text-3xl font-bold text-primary mb-6">
             Secure Your Cloud with Confidence

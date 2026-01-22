@@ -91,22 +91,36 @@ const PhishInstinct = () => {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 30 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            whileHover={{ scale: 1.03 }}
-            className="relative w-full h-[350px] lg:h-[400px] bg-card rounded-xl shadow-xl overflow-hidden"
-          >
-            <Image
-              src="/assets/products/phishinstinct.png"
-              alt="PhishInstinct Dashboard"
-              fill
-              className="object-contain"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10" />
-          </motion.div>
+          {/* 3D Animated Image */}
+          <div style={{ perspective: 1200 }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              animate={{
+                rotateY: [0, 12, 0, -12, 0],
+                rotateX: [0, -8, 0, 8, 0],
+                y: [0, -12, 0, 12, 0],
+              }}
+              transition={{
+                opacity: { duration: 0.8, ease: "easeOut" },
+                scale: { duration: 0.8, ease: "easeOut" },
+                y: { duration: 14, ease: "easeInOut", repeat: Infinity },
+                rotateX: { duration: 14, ease: "easeInOut", repeat: Infinity },
+                rotateY: { duration: 14, ease: "easeInOut", repeat: Infinity },
+              }}
+              whileHover={{ scale: 1.05 }}
+              className="relative w-full h-[350px] lg:h-[400px] bg-card rounded-xl shadow-xl overflow-hidden will-change-transform"
+            >
+              <Image
+                src="/assets/products/phishinstinct.png"
+                alt="PhishInstinct Dashboard"
+                fill
+                className="object-contain"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10" />
+            </motion.div>
+          </div>
         </motion.section>
 
         
