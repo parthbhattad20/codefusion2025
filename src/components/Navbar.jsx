@@ -44,7 +44,6 @@ const FloatingNavbar = () => {
       'Secure Source Code Review',
       'Ecommerce Security',
       'SaaS Security',
-      'DevSecOps',
     ],
     
     'Cyber Risk Management': [
@@ -73,32 +72,30 @@ const FloatingNavbar = () => {
       'GCP Server Hardening',
       'Container Security',
     ],
-    'Managed Services': [
-      'Managed SOC',
-      'Managed VAPT',
-      'Managed Threat Hunting',
-    ],
     'Data Privacy': [
       'DPO as a Service',
       'GDPR Compliance',
       'Data Privacy Consulting',
-      'Personal Data Protection (PDPL)',
       'DPDPA',
+    ],
+     'Managed Services': [
+      'Managed Security Services',
+      'Security Operations Centre',
+      'Annual Security Program',
     ],
     'Industrial Security': [
       'IoT Penetration Testing',
       'OT Security Assessment',
       'ICS Scada Security Testing',
     ],
-   
-    'Managed VAPT': [
-      'Managed Threat Hunting',
-      'Pro active threat hunting',
-    ],
     'Network Security': [
       'Firewall Assessment',
       'Network Penetration Testing',
       'Wireless Security Assessment',
+    ],
+    'Managed VAPT': [
+      'Managed Threat Hunting',
+      'Pro active threat hunting',
     ],
     
      'Threat simulations': [
@@ -107,8 +104,33 @@ const FloatingNavbar = () => {
     ],
   };
 
+  const slugify = (text) =>
+  text
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+
+    
+    
+
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md shadow-lg">
+    // <nav className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md shadow-lg">
+    <nav
+  className="
+    fixed top-0 left-0 w-full z-50
+    bg-background/70
+    backdrop-blur-xl
+    shadow-lg
+    border-b border-white/10
+    before:absolute before:inset-0
+    before:bg-gradient-to-b before:from-white/20 before:to-transparent
+    before:opacity-40
+    before:pointer-events-none
+  "
+>
+
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* LOGO */}
@@ -230,8 +252,10 @@ const FloatingNavbar = () => {
         {servicesMegaMenu[category].map(item => (
           <li key={item}>
             <Link
-              href={`/services/${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-sm text-muted-foreground  transition block"
+             
+              href={`/services/${slugify(category)}/${slugify(item)}`}
+             className="text-sm text-muted-foreground  transition block"
+              
             >
               {item}
              <span
@@ -296,7 +320,7 @@ const FloatingNavbar = () => {
 
         {/* DESKTOP THEME */}
         <div className="hidden lg:flex items-center gap-4">
-          <div className={`h-5 w-px ${isScrolled ? 'bg-gray-300 dark:bg-gray-700' : 'opacity-0'}`} />
+          <div className={`h-5 w-px ${isScrolled ? 'bg-background/80 shadow-xl' : 'bg-background/60'}`} />
           <SelectTheme />
         </div>
 
