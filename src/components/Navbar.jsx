@@ -1,12 +1,13 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { SelectTheme } from './theme-toggler';
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { SelectTheme } from "./theme-toggler";
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingNavbar = () => {
   const pathname = usePathname();
@@ -19,312 +20,501 @@ const FloatingNavbar = () => {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
+    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
   const productItems = [
-    { name: 'Vaultix', href: '/products/vaultix' },
-    { name: 'Phishinstinct', href: '/products/phishinstinct' },
-    { name: 'Kloudraksha', href: '/products/kloudraksha' },
-    { name: 'Vcrypt', href: '/products/vcrypt' },
+    { name: "Vaultix", href: "/products/vaultix" },
+    { name: "Phishinstinct", href: "/products/phishinstinct" },
+    { name: "Kloudraksha", href: "/products/kloudraksha" },
+    { name: "Vcrypt", href: "/products/vcrypt" },
   ];
 
-
   const servicesMegaMenu = {
-    'Application Security': [
-      'VAPT',
-      'Web Application Penetration Testing',
-      'Mobile App Penetration Testing',
-      'API Penetration Testing',
-      'Secure Source Code Review',
-      'Ecommerce Security',
-      'SaaS Security',
-      'DevSecOps',
+    "Application Security": [
+      "VAPT",
+      "Web Application Penetration Testing",
+      "Mobile App Penetration Testing",
+      "API Penetration Testing",
+      "Secure Source Code Review",
+      "Ecommerce Security",
+      "SaaS Security",
+      "DevSecOps",
     ],
-    
-    'Cyber Risk Management': [
-      'ISO 27001 Consulting',
-      'ISO 27701 Consulting',
-      'Aramco CCC',
-      'Dora Compliance',
-      'HIPAA Compliance',
-      'PCI DSS Compliance',
-      'Cyber Security Strategic Consulting',
+
+    "Cyber Risk Management": [
+      "ISO 27001 Consulting",
+      "ISO 27701 Consulting",
+      "Aramco CCC",
+      "Dora Compliance",
+      "HIPAA Compliance",
+      "PCI DSS Compliance",
+      "Cyber Security Strategic Consulting",
     ],
-    'Enterprise Security': [
-      'Virtual CISO Services',
-      'Black Box Testing',
-      'Email Security Audit',
-      'Server Hardening',
-      'Microsoft 365 Security',
-      'ERP Security Audit Assessment',
-      'Security Architecture Review',
+    "Enterprise Security": [
+      "Virtual CISO Services",
+      "Black Box Testing",
+      "Email Security Audit",
+      "Server Hardening",
+      "Microsoft 365 Security",
+      "ERP Security Audit Assessment",
+      "Security Architecture Review",
     ],
-     'Cloud Security': [
-      'Cloud Security Audit',
-      'Cloud Application Security Assessment',
-      'AWS Server Hardening',
-      'Azure Server Hardening',
-      'GCP Server Hardening',
-      'Container Security',
+    "Cloud Security": [
+      "Cloud Security Audit",
+      "Cloud Application Security Assessment",
+      "AWS Server Hardening",
+      "Azure Server Hardening",
+      "GCP Server Hardening",
+      "Container Security",
     ],
-    'Managed Services': [
-      'Managed SOC',
-      'Managed VAPT',
-      'Managed Threat Hunting',
+    "Managed Services": [
+      "Managed SOC",
+      "Managed VAPT",
+      "Managed Threat Hunting",
     ],
-    'Data Privacy': [
-      'DPO as a Service',
-      'GDPR Compliance',
-      'Data Privacy Consulting',
-      'Personal Data Protection (PDPL)',
-      'DPDPA',
+    "Data Privacy": [
+      "DPO as a Service",
+      "GDPR Compliance",
+      "Data Privacy Consulting",
+      "Personal Data Protection (PDPL)",
+      "DPDPA",
     ],
-    'Industrial Security': [
-      'IoT Penetration Testing',
-      'OT Security Assessment',
-      'ICS Scada Security Testing',
+    "Industrial Security": [
+      "IoT Penetration Testing",
+      "OT Security Assessment",
+      "ICS Scada Security Testing",
     ],
-   
-    'Managed VAPT': [
-      'Managed Threat Hunting',
-      'Pro active threat hunting',
+
+    "Managed VAPT": ["Managed Threat Hunting", "Pro active threat hunting"],
+    "Network Security": [
+      "Firewall Assessment",
+      "Network Penetration Testing",
+      "Wireless Security Assessment",
     ],
-    'Network Security': [
-      'Firewall Assessment',
-      'Network Penetration Testing',
-      'Wireless Security Assessment',
-    ],
-    
-     'Threat simulations': [
-      'Phishing Simulation',
-      'Red Teaming',
-    ],
+
+    "Threat simulations": ["Phishing Simulation", "Red Teaming"],
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md shadow-lg">
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <motion.nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/40"
+          : "bg-background/90 backdrop-blur-md shadow-md"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.div
+        className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isScrolled ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
+      />
 
-        {/* LOGO */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src={theme === 'light'
-              ? '/assets/vulnuris_logo_full1.png'
-              : '/assets/vulnuris.png'}
-            alt="Vulnuris logo"
-            width={180}
-            height={50}
-            priority
-            className="object-contain"
-          />
+      <motion.div
+        className="max-w-7xl mx-auto px-6 flex items-center justify-between relative"
+        animate={{
+          paddingTop: isScrolled ? "0.75rem" : "1rem",
+          paddingBottom: isScrolled ? "0.75rem" : "1rem",
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <Link href="/" className="flex items-center relative z-10">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            className="relative"
+          >
+            <motion.div
+              className="absolute -inset-2 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 rounded-lg blur-lg opacity-0"
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <Image
+              src={
+                theme === "light"
+                  ? "/assets/vulnuris_logo_full1.png"
+                  : "/assets/vulnuris.png"
+              }
+              alt="Vulnuris logo"
+              width={180}
+              height={50}
+              priority
+              className="object-contain relative"
+            />
+          </motion.div>
         </Link>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
+        <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden z-50"
+          className="lg:hidden z-50 p-2 rounded-lg hover:bg-primary/10 transition-colors"
           aria-label="Toggle menu"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
-          {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={isMenuOpen ? "close" : "menu"}
+              initial={{ rotate: -180, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 180, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </motion.div>
+          </AnimatePresence>
+        </motion.button>
 
-        {/* NAV LINKS */}
-        <div
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm lg:hidden z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMenuOpen(false)}
+            />
+          )}
+        </AnimatePresence>
+
+        <motion.div
           className={`fixed top-[80px] right-0 h-[calc(100vh-80px)] w-[85%] max-w-[360px]
-          bg-background/95 transition-transform duration-300
-          ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-          lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0 lg:bg-transparent`}
+          bg-background/98 backdrop-blur-xl border-l border-border/40 shadow-2xl
+          transition-transform duration-300
+          ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
+          lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0 lg:bg-transparent lg:border-none lg:shadow-none`}
+          initial={false}
         >
-          <ul className="flex flex-col items-start justify-start h-full px-6 pt-6 space-y-6
-            lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:gap-8 lg:px-0 lg:pt-0">
+          <ul
+            className="flex flex-col items-start justify-start h-full px-6 pt-6 space-y-6
+            lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:gap-8 lg:px-0 lg:pt-0"
+          >
+            <NavItem
+              label="About"
+              href="/about"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
 
-            {/* ABOUT */}
-            <NavItem label="About" href="/about" pathname={pathname} close={() => setIsMenuOpen(false)} />
-
-            {/* PRODUCTS */}
             <li className="relative w-full lg:w-auto text-left lg:text-left">
-
-              {/* Desktop */}
               <div className="hidden lg:block group relative">
-                <button className="text-sm font-medium relative">
-                  Products
-                  <Underline active={pathname.startsWith('/products')} />
-                </button>
-
-                <div className="absolute left-1/2 top-full hidden group-hover:block -translate-x-1/2 pt-4 z-50">
-                  <div className="w-[260px] rounded-2xl bg-background border shadow-xl p-4">
-                    {productItems.map(p => (
-                      <Link
-                        key={p.name}
-                        href={p.href}
-                        className="block px-4 py-2 rounded-lg text-sm hover:bg-primary/10"
-                      >
-                        {p.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile */}
-              <div className="lg:hidden w-full">
-                <button
-                  onClick={() => setOpenProduct(!openProduct)}
-                  className="text-lg font-medium w-full text-left"
+                <motion.button
+                  className="text-sm font-medium relative flex items-center gap-1 py-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400 }}
                 >
                   Products
-                </button>
+                  <motion.span
+                    animate={{ rotate: 0 }}
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={16} className="opacity-60" />
+                  </motion.span>
+                  <Underline active={pathname.startsWith("/products")} />
+                </motion.button>
 
-                {openProduct && (
-                  <ul className="mt-3 space-y-2 text-left">
-                    {productItems.map(p => (
-                      <li key={p.name}>
+                <div className="absolute left-1/2 top-full hidden group-hover:block -translate-x-1/2 pt-4 z-50">
+                  <motion.div
+                    className="w-[280px] rounded-2xl bg-background/95 backdrop-blur-xl border border-border/40 shadow-2xl p-2 overflow-hidden"
+                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <motion.div
+                      className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-cyan-500"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.4, delay: 0.1 }}
+                    />
+                    {productItems.map((p, i) => (
+                      <motion.div
+                        key={p.name}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.2, delay: i * 0.05 }}
+                      >
                         <Link
                           href={p.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block px-4 py-2 text-muted-foreground hover:text-primary"
+                          className="block px-4 py-3 rounded-lg text-sm hover:bg-primary/10 transition-all group/item relative overflow-hidden"
                         >
-                          {p.name}
+                          <motion.div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-cyan-500/5 opacity-0 group-hover/item:opacity-100 transition-opacity" />
+                          <span className="relative z-10">{p.name}</span>
                         </Link>
-                      </li>
+                      </motion.div>
                     ))}
-                  </ul>
-                )}
-              </div>
-
-            </li>
-
-            {/* SERVICES */}
-            <li className="relative w-full lg:w-auto text-left lg:text-left">
-
-              {/* Desktop */}
-              <div className="hidden lg:block group relative">
-                <button className="text-sm font-medium relative">
-                  Services
-                  <Underline active={pathname.startsWith('/services')} />
-                </button>
-
-                <div className="absolute left-1/2 top-full hidden group-hover:block -translate-x-1/2 pt-4 z-50">
-                  {/* <div className="w-[2000px] max-w-[100vw] rounded-2xl bg-background  p-6"> */}
-                   <div
-  className="w-[1100px] max-w-[95vw]
-               rounded-2xl bg-background border shadow-2xl
-               max-h-[90vh] overflow-y-auto p-6
-               [-ms-overflow-style:none]
-               [scrollbar-width:none]
-               [&::-webkit-scrollbar]:hidden"
->
-{/* <div className="grid grid-cols-5 gap-25 bg-background border rounded-2xl shadow-xl p-6 max-w-[93vw]"> */}
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-  {Object.keys(servicesMegaMenu).map(category => (
-    <div key={category}>
-      <h3 className="text-primary font-semibold mb-3 border-b pb-1">{category}</h3>
-      <ul className="space-y-3">
-        {servicesMegaMenu[category].map(item => (
-          <li key={item}>
-            <Link
-              href={`/services/${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-sm text-muted-foreground  transition block"
-            >
-              {item}
-             <span
-      className="absolute left-0 -bottom-1 h-0.5 w-full bg-primary
-                 scale-x-0 origin-left transition-transform duration-300
-                 group-hover:scale-x-100"
-    />
-            </Link> 
-         </li>
-        ))}
-      </ul>
-    </div>
-  ))}
-
-</div>
-
-
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
-              {/* Mobile */}
               <div className="lg:hidden w-full">
-                <button
-                  onClick={() => setOpenService(!openService)}
-                  className="text-lg font-medium w-full text-left"
+                <motion.button
+                  onClick={() => setOpenProduct(!openProduct)}
+                  className="text-lg font-medium w-full text-left flex items-center justify-between py-2"
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Products
+                  <motion.span
+                    animate={{ rotate: openProduct ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={20} />
+                  </motion.span>
+                </motion.button>
+
+                <AnimatePresence>
+                  {openProduct && (
+                    <motion.ul
+                      className="mt-2 space-y-1 text-left overflow-hidden"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {productItems.map((p, i) => (
+                        <motion.li
+                          key={p.name}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.2, delay: i * 0.05 }}
+                        >
+                          <Link
+                            href={p.href}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="block px-4 py-2 text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all"
+                          >
+                            {p.name}
+                          </Link>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            </li>
+
+            <li className="relative w-full lg:w-auto text-left lg:text-left">
+              <div className="hidden lg:block group relative">
+                <motion.button
+                  className="text-sm font-medium relative flex items-center gap-1 py-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400 }}
                 >
                   Services
-                </button>
+                  <motion.span
+                    animate={{ rotate: 0 }}
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={16} className="opacity-60" />
+                  </motion.span>
+                  <Underline active={pathname.startsWith("/services")} />
+                </motion.button>
 
-                {openService && (
-                  <ul className="mt-5 space-y-2 text-left">
-                    {serviceItems.map(s => (
-                      <li key={s.name}>
-                        <Link
-                          href={s.href}
-                          onClick={() => setIsMenuOpen(false)}
-                          className="block px-4 py-2  text-muted-foreground hover:text-primary"
-                        >
-                          {s.name}
-                         
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <div className="absolute left-1/2 top-full hidden group-hover:block -translate-x-1/2 pt-4 z-50">
+                  <motion.div
+                    className="w-[1100px] max-w-[95vw]
+                               rounded-2xl bg-background/95 backdrop-blur-xl border border-border/40 shadow-2xl
+                               max-h-[90vh] overflow-y-auto p-8
+                               [-ms-overflow-style:none]
+                               [scrollbar-width:none]
+                               [&::-webkit-scrollbar]:hidden"
+                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.div
+                      className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 via-cyan-500 to-violet-500"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                      {Object.keys(servicesMegaMenu).map(
+                        (category, catIndex) => (
+                          <motion.div
+                            key={category}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                              duration: 0.3,
+                              delay: catIndex * 0.05,
+                            }}
+                            className="space-y-3"
+                          >
+                            <h3 className="text-primary font-semibold mb-4 pb-2 border-b border-border/60 flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
+                              {category}
+                            </h3>
+                            <ul className="space-y-2">
+                              {servicesMegaMenu[category].map(
+                                (item, itemIndex) => (
+                                  <motion.li
+                                    key={item}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                      duration: 0.2,
+                                      delay: catIndex * 0.05 + itemIndex * 0.02,
+                                    }}
+                                    whileHover={{ x: 4 }}
+                                  >
+                                    <Link
+                                      href={`/services/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                                      className="text-sm text-muted-foreground hover:text-primary transition-all block relative group/item py-1.5 px-2 rounded-md hover:bg-primary/5"
+                                    >
+                                      <motion.span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-violet-500 rounded-full group-hover/item:h-4 transition-all duration-300" />
+                                      <span className="relative z-10 pl-2">
+                                        {item}
+                                      </span>
+                                    </Link>
+                                  </motion.li>
+                                ),
+                              )}
+                            </ul>
+                          </motion.div>
+                        ),
+                      )}
+                    </div>
+                  </motion.div>
+                </div>
               </div>
 
+              <div className="lg:hidden w-full">
+                <motion.button
+                  onClick={() => setOpenService(!openService)}
+                  className="text-lg font-medium w-full text-left flex items-center justify-between py-2"
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Services
+                  <motion.span
+                    animate={{ rotate: openService ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={20} />
+                  </motion.span>
+                </motion.button>
+
+                <AnimatePresence>
+                  {openService && (
+                    <motion.ul
+                      className="mt-3 space-y-3 text-left overflow-hidden"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {Object.keys(servicesMegaMenu).map((category, i) => (
+                        <motion.li
+                          key={category}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.2, delay: i * 0.03 }}
+                        >
+                          <div className="px-3 py-2 rounded-lg bg-primary/5">
+                            <h4 className="font-semibold text-primary mb-2 text-sm">
+                              {category}
+                            </h4>
+                            <div className="space-y-1">
+                              {servicesMegaMenu[category].map((item) => (
+                                <Link
+                                  key={item}
+                                  href={`/services/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                                  onClick={() => setIsMenuOpen(false)}
+                                  className="block py-1.5 px-2 text-sm text-muted-foreground hover:text-primary hover:bg-primary/10 rounded transition-all"
+                                >
+                                  {item}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
             </li>
 
-            <NavItem label="SOC" href="/soc" pathname={pathname} close={() => setIsMenuOpen(false)} />
-            <NavItem label="Contact" href="/contact" pathname={pathname} close={() => setIsMenuOpen(false)} />
-            <NavItem label="Blogs" href="/blogs" pathname={pathname} close={() => setIsMenuOpen(false)} />
+            <NavItem
+              label="SOC"
+              href="/soc"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
+            <NavItem
+              label="Contact"
+              href="/contact"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
+            <NavItem
+              label="Blogs"
+              href="/blogs"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
 
-            {/* MOBILE THEME */}
-            <li className="lg:hidden w-full flex justify-start pt-4">
+            <motion.li
+              className="lg:hidden w-full flex justify-start pt-4 border-t border-border/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
               <SelectTheme />
-            </li>
-
+            </motion.li>
           </ul>
-        </div>
+        </motion.div>
 
-        {/* DESKTOP THEME */}
         <div className="hidden lg:flex items-center gap-4">
-          <div className={`h-5 w-px ${isScrolled ? 'bg-gray-300 dark:bg-gray-700' : 'opacity-0'}`} />
+          <motion.div
+            className="h-5 w-px bg-gradient-to-b from-transparent via-border to-transparent"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: isScrolled ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          />
           <SelectTheme />
         </div>
-
-      </div>
-    </nav>
+      </motion.div>
+    </motion.nav>
   );
 };
 
 export default FloatingNavbar;
 
-/* ================= HELPERS ================= */
-
 const NavItem = ({ label, href, pathname, close }) => (
-  <li className="relative group">
+  <motion.li
+    className="relative group"
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 400 }}
+  >
     <Link
       href={href}
       onClick={close}
-      className="text-lg lg:text-sm font-medium"
+      className="text-lg lg:text-sm font-medium py-2 block relative"
     >
+      <motion.span className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
       {label}
       <Underline active={pathname === href} />
     </Link>
-  </li>
+  </motion.li>
 );
 
 const Underline = ({ active }) => (
-  <span
-    className={`absolute left-0 right-0 bottom-0 h-0.5 bg-primary transition-transform duration-300
-      ${active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}
+  <motion.span
+    className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500"
+    initial={{ scaleX: 0 }}
+    animate={{ scaleX: active ? 1 : 0 }}
+    transition={{ duration: 0.3 }}
+    style={{ transformOrigin: "left" }}
   />
 );
