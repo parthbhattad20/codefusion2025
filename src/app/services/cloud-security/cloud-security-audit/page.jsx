@@ -2,6 +2,27 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -70 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 70 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+};
+
+const cardAnim = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+};
 
 export default function CloudSecurityPage() {
   return (
@@ -12,50 +33,78 @@ export default function CloudSecurityPage() {
         className="relative h-screen bg-cover bg-center bg-no-repeat mt-20"
         style={{ backgroundImage: "url('/assets/services/cloud.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/55 to-black/80"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mt-55">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
+        >
+          <motion.h1
+            initial={{ y: 60, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mt-32"
+          >
             Cloud Security Services
-          </h1>
+          </motion.h1>
 
-          <p className="mt-1 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
-            Secure your cloud infrastructure, applications, and data with enterprise-grade
-            cloud security consulting. Our experts protect AWS, Azure, and Google Cloud
-            environments against modern cyber threats.
-          </p>
+          <motion.p
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-3 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+          >
+            Secure your cloud infrastructure, applications, and data with enterprise-grade cloud security consulting.
+            Our experts protect AWS, Azure, and Google Cloud environments.
+          </motion.p>
 
           <Link href="/contact">
-            <button className=" px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                boxShadow: '0 0 30px rgba(59,130,246,0.7)',
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg font-semibold"
+            >
               SPEAK WITH AN EXPERT
-            </button>
+            </motion.button>
           </Link>
-        </div>
+        </motion.div>
       </section>
 
-      {/* ================= CLOUD SECURITY OVERVIEW ================= */}
-      <section className="py-24 px-6">
+      {/* ================= OVERVIEW ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6"
+      >
         <div className="max-w-7xl mx-auto text-center">
-
           <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
             Cloud Security Consulting & Protection
           </h2>
 
           <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
             Our Cloud Security Services help organizations securely adopt cloud technologies
-            while maintaining compliance, visibility, and control. We design, implement,
-            and manage secure cloud environments tailored to your business needs.
+            while maintaining compliance, visibility, and control.
           </p>
-
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= WHY CLOUD SECURITY ================= */}
-      <section className="py-24 px-6">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6"
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          {/* Left Content */}
-          <div className="ml-10">
+          <motion.div variants={fadeLeft} className="ml-10">
             <h2 className="text-2xl font-semibold text-primary mb-6">
               Why Cloud Security Matters
             </h2>
@@ -67,76 +116,75 @@ export default function CloudSecurityPage() {
               <li>• Detect threats in real time</li>
               <li>• Reduce cloud attack surface</li>
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Right Image */}
-          <div className="flex justify-center md:justify-end mr-20">
+          <motion.div
+            variants={fadeRight}
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 6, repeat: Infinity }}
+            className="flex justify-center md:justify-end mr-20"
+          >
             <img
               src="/assets/services/cloud_security.webp"
               alt="Cloud Security"
               className="w-full max-w-lg rounded-xl shadow-lg dark:shadow-blue-900/30"
             />
-          </div>
+          </motion.div>
 
         </div>
-      </section>
+      </motion.section>
 
-      {/* ================= CLOUD SECURITY SERVICES GRID ================= */}
-      <section className="py-24 px-6">
+      {/* ================= SERVICES GRID ================= */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6"
+      >
         <div className="max-w-7xl mx-auto text-center">
-
           <h2 className="text-4xl font-semibold text-primary mb-14">
             Our Cloud Security Services
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              {
-                title: "Cloud Security Assessment",
-                desc: "Identify risks, misconfigurations, and vulnerabilities across cloud environments."
-              },
-              {
-                title: "Cloud Compliance & Governance",
-                desc: "Ensure compliance with ISO, SOC 2, PCI DSS, HIPAA, and regulatory standards."
-              },
-              {
-                title: "Cloud Identity & Access Management",
-                desc: "Secure user access with least-privilege IAM strategies."
-              },
-              {
-                title: "Cloud Workload Protection",
-                desc: "Protect virtual machines, containers, and serverless workloads."
-              },
-              {
-                title: "Cloud Threat Detection",
-                desc: "Monitor and detect malicious activities in real time."
-              },
-              {
-                title: "Secure Cloud Architecture",
-                desc: "Design secure, scalable cloud architectures from the ground up."
-              }
-            ].map((item, i) => (
-              <div
+              ['Cloud Security Assessment', 'Identify risks and misconfigurations.'],
+              ['Cloud Compliance & Governance', 'Ensure regulatory compliance.'],
+              ['Cloud Identity & Access Management', 'Least privilege IAM strategies.'],
+              ['Cloud Workload Protection', 'Secure VMs, containers & serverless.'],
+              ['Cloud Threat Detection', 'Real-time monitoring & detection.'],
+              ['Secure Cloud Architecture', 'Design secure scalable architectures.'],
+            ].map(([title, desc], i) => (
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6
-                shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                variants={cardAnim}
+                whileHover={{
+                  y: -12,
+                  scale: 1.05,
+                  boxShadow: '0 25px 50px rgba(99,102,241,0.25)',
+                }}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-md transition"
               >
                 <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
-                  {item.title}
+                  {title}
                 </h3>
-                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
-                  {item.desc}
+                <p className="text-gray-700 dark:text-muted-foreground text-sm">
+                  {desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
-
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ================= CLOUD SECURITY DETAILS ================= */}
-      <section className="py-24 px-20">
+      {/* ================= DETAILS ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-20"
+      >
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-center text-2xl md:text-3xl font-bold text-sky-600 dark:text-sky-400 mb-16">
@@ -163,10 +211,16 @@ export default function CloudSecurityPage() {
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 text-center"
+      >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Your Cloud Environment
         </h2>
@@ -176,13 +230,18 @@ export default function CloudSecurityPage() {
         </p>
 
         <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold
-            bg-gradient-to-r from-violet-500 to-blue-600 text-white
-            shadow-md hover:shadow-lg transition-all duration-300">
+          <motion.button
+            whileHover={{
+              scale: 1.12,
+              boxShadow: '0 0 35px rgba(139,92,246,0.6)',
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md"
+          >
             Talk to a Cloud Security Expert
-          </button>
+          </motion.button>
         </Link>
-      </section>
+      </motion.section>
 
     </main>
   );

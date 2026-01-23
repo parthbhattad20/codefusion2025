@@ -1,6 +1,14 @@
 "use client";
 
-import { ArrowUpRight, Globe, Network, Smartphone } from "lucide-react";
+import {
+  ArrowUpRight,
+  Globe,
+  Network,
+  Smartphone,
+  Shield,
+  Lock,
+  Zap,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Counter from "./Counter";
@@ -10,28 +18,41 @@ import Link from "next/link";
 
 const flipWords = ["V-Find", "V-Fix", "V-Fortify"];
 
-const colorVariants = {
-  "V-Find": "from-rose-500 via-pink-500 to-fuchsia-500",
-  "V-Fix": "from-cyan-400 via-blue-500 to-indigo-600",
-  "V-Fortify": "from-violet-500 via-purple-600 to-indigo-700",
-};
-
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const reduceMotion = useReducedMotion();
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!mounted) return;
+
     const interval = setInterval(() => {
-      setIndex((p) => (p + 1) % flipWords.length);
+      setIndex((prev) => (prev + 1) % flipWords.length);
     }, 2200);
+
     return () => clearInterval(interval);
   }, [mounted]);
 
-  if (!mounted) return <div className="h-[700px] w-full" />;
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-[700px] w-full" />;
+  }
 
   const wordTransition = reduceMotion
     ? { duration: 0 }
@@ -40,157 +61,188 @@ export default function Hero() {
   return (
     <div className="relative overflow-hidden pt-16">
 
-      {/* === Animated gradient mesh background === */}
-      <div className="absolute inset-0 -z-30">
+      {/* Background */}
+      <div className="absolute inset-0 -z-30 bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100/40 via-transparent to-transparent dark:from-indigo-950/30" />
+
         <motion.div
-          animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+          animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 bg-[length:300%_300%]
-            bg-[linear-gradient(120deg,#7c3aed,#06b6d4,#ec4899,#7c3aed)] opacity-20"
+          className="absolute inset-0 opacity-30 dark:opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 20% 50%, rgba(99,102,241,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(139,92,246,0.12) 0%, transparent 50%)",
+            backgroundSize: "200% 200%",
+          }}
         />
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-3xl" />
       </div>
 
-      {/* === Floating neon orbs === */}
-      {[...Array(5)].map((_, i) => (
+      {/* Floating Orbs */}
+      {[...Array(4)].map((_, i) => {
+        const size = 300 + i * 120;
+
+        return (
+          <motion.div
+            key={i}
+            animate={{
+              x: [0, 60, 0],
+              y: [0, -40, 0],
+              scale: [1, 1.1, 1],
+              opacity: [0.35, 0.55, 0.35],
+            }}
+            transition={{
+              duration: 18 + i * 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 2,
+            }}
+            style={{
+              width: size,
+              height: size,
+              top: `${10 + i * 18}%`,
+              left: `${5 + i * 18}%`,
+              translateX: mousePosition.x * (0.02 + i * 0.01),
+              translateY: mousePosition.y * (0.02 + i * 0.01),
+              background:
+                i === 0
+                  ? "radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)"
+                  : i === 1
+                  ? "radial-gradient(circle, rgba(139,92,246,0.16) 0%, transparent 70%)"
+                  : i === 2
+                  ? "radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%)"
+                  : "radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%)",
+            }}
+            className="absolute -z-20 rounded-full blur-[120px]"
+          />
+        );
+      })}
+
+      {/* Floating Icons */}
+      {[Shield, Lock, Zap].map((Icon, i) => (
         <motion.div
           key={i}
           animate={{
-            x: [0, 80, 0],
-            y: [0, -60, 0],
+            y: [0, -20, 0],
+            rotate: [0, 6, 0],
+            opacity: [0.08, 0.18, 0.08],
           }}
           transition={{
-            duration: 14 + i * 3,
+            duration: 7 + i * 2,
             repeat: Infinity,
             ease: "easeInOut",
+            delay: i * 1.5,
           }}
-          className="absolute -z-20 w-[300px] h-[300px] rounded-full blur-[120px]"
+          className="absolute -z-10 text-indigo-600 dark:text-indigo-400"
           style={{
-            top: `${20 + i * 12}%`,
-            left: `${10 + i * 15}%`,
-            background:
-              i % 2
-                ? "rgba(139,92,246,0.35)"
-                : "rgba(6,182,212,0.35)",
+            top: `${25 + i * 15}%`,
+            right: `${10 + i * 10}%`,
           }}
-        />
+        >
+          <Icon className="w-16 h-16 md:w-24 md:h-24" strokeWidth={0.5} />
+        </motion.div>
       ))}
 
-      {/* === Cyber grid floor === */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-[300px] -z-10 opacity-30"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(139,92,246,.3) 1px, transparent 1px), linear-gradient(to top, rgba(139,92,246,.3) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-          transform: "perspective(600px) rotateX(65deg)",
-          transformOrigin: "bottom",
-        }}
-      />
-
-      {/* === Content === */}
+      {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto"
+        className="relative z-10 flex flex-col items-center text-center max-w-6xl mx-auto px-6"
       >
-        {/* Flipping neon title */}
-        <div className="h-32 mb-6">
+
+        <div className="mb-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-indigo-200/50 dark:border-indigo-900/50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow">
+          <span className="text-sm font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Enterprise-Grade Security Solutions
+          </span>
+        </div>
+
+        <div className="h-28 mb-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -40, scale: 0.9 }}
+              initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -30, filter: "blur(10px)" }}
               transition={wordTransition}
-              className={`text-6xl md:text-8xl font-extrabold tracking-tight bg-gradient-to-r ${
-                colorVariants[flipWords[index]]
-              } bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(139,92,246,0.7)]`}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight"
             >
-              {flipWords[index]}
+              <span className="bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 dark:from-white dark:via-indigo-200 dark:to-white bg-clip-text text-transparent">
+                {flipWords[index]}
+              </span>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <p className="max-w-2xl text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-10">
+        <motion.h2
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="max-w-3xl text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-12 font-light leading-relaxed"
+        >
           Safeguard your organization's sensitive data and digital assets with
-          confidence, relying on our next-generation cyber defense platform.
-        </p>
+          confidence using next-generation cyber defense.
+        </motion.h2>
 
-        {/* Magnetic buttons */}
-        <div className="flex gap-6 mb-16">
-          <motion.div whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 mb-20"
+        >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link href="mailto:connect@vulnuris.com">
-              <Button className="px-10 py-6 text-lg rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 text-white shadow-[0_0_40px_rgba(139,92,246,0.6)] hover:shadow-[0_0_60px_rgba(6,182,212,0.8)]">
+              <Button className="px-8 py-6 text-base font-medium rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white shadow-md hover:shadow-lg transition">
                 Get In Touch
+                <ArrowUpRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.12 }} whileTap={{ scale: 0.95 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
             <Link href="/about">
-              <Button
-                variant="outline"
-                className="px-10 py-6 text-lg rounded-full border-2 border-violet-500/50 backdrop-blur-md bg-white/10"
-              >
+              <Button variant="outline" className="px-8 py-6 text-base font-medium rounded-lg border-2">
                 Learn More
               </Button>
             </Link>
           </motion.div>
-        </div>
+        </motion.div>
       </motion.div>
 
       <CustomerCarasoul />
 
-      {/* === Stats === */}
-      <div className="relative max-w-6xl mx-auto px-6 py-24">
-        <h3 className="text-4xl font-extrabold text-center mb-16 bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent">
-          Our Security Impact
-        </h3>
-
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          variants={{ show: { transition: { staggerChildren: 0.2 } } }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12"
-        >
+      {/* Stats */}
+      <div className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { icon: Smartphone, value: 80, label: "Mobile Apps Secured", suffix: "+" },
-            { icon: Network, value: 11, label: "IP Addresses Protected", suffix: "k+" },
-            { icon: Globe, value: 220, label: "Web Apps Fortified", suffix: "+" },
+            { icon: Smartphone, value: 80, suffix: "+", label: "Mobile Apps Secured" },
+            { icon: Network, value: 11, suffix: "k+", label: "IP Addresses Protected" },
+            { icon: Globe, value: 220, suffix: "+", label: "Web Apps Fortified" },
           ].map((item, idx) => (
             <motion.div
               key={idx}
-              variants={{
-                hidden: { opacity: 0, y: 60 },
-                show: { opacity: 1, y: 0 },
-              }}
-              className="group"
+              initial={{ opacity: 0, y: 25, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15 }}
+              whileHover={{ y: -8 }}
+              className="p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur shadow-md hover:shadow-xl transition"
             >
-              <div className="relative p-10 rounded-3xl border border-violet-500/30 bg-white/10 dark:bg-black/20 backdrop-blur-xl shadow-[0_0_50px_rgba(139,92,246,0.25)] hover:shadow-[0_0_80px_rgba(139,92,246,0.45)] transition-all">
-
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition" />
-
-                <div className="relative flex flex-col items-center">
-                  <item.icon className="w-10 h-10 text-violet-400 mb-4" />
-
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-5xl font-black bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                      <Counter to={item.value} suffix={item.suffix} />
-                    </span>
-                    <ArrowUpRight className="text-violet-400" />
-                  </div>
-
-                  <p className="mt-3 text-gray-600 dark:text-gray-400 font-medium">
-                    {item.label}
-                  </p>
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-6 p-4 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                  <item.icon className="w-8 h-8" />
                 </div>
+
+                <div className="text-4xl md:text-5xl font-bold mb-3">
+                  <Counter to={item.value} suffix={item.suffix} />
+                </div>
+
+                <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 font-medium">
+                  {item.label}
+                </p>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
