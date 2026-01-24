@@ -13,9 +13,6 @@ const FloatingNavbar = () => {
   const pathname = usePathname();
   const { theme, resolvedTheme } = useTheme();
   
-  // Use resolvedTheme to handle system theme properly
-  const currentTheme = resolvedTheme || theme;
-
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openProduct, setOpenProduct] = useState(false);
@@ -120,20 +117,11 @@ const FloatingNavbar = () => {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)+/g, '');
 
+  // Prevent hydration mismatch - don't render theme-dependent logo until mounted
+  const currentTheme = mounted ? (resolvedTheme || theme) : 'light';
+
   return (
-    <nav
-      className="
-        fixed top-0 left-0 w-full z-50
-        bg-background/70
-        backdrop-blur-xl
-        shadow-lg
-        border-b border-white/10
-        before:absolute before:inset-0
-        before:bg-gradient-to-b before:from-white/20 before:to-transparent 'bg-foreground/5 backdrop-blur-md dark:bg-white/10 lg:border lg:border-white/10 lg:shadow-lg
-        before:opacity-40
-        before:pointer-events-none
-      "
-    >
+    <nav className="fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur-xl shadow-lg border-b border-white/10 before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-40 before:pointer-events-none">
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* LOGO */}
@@ -150,15 +138,8 @@ const FloatingNavbar = () => {
               className="object-contain"
             />
           ) : (
-            // Server-side placeholder - use light theme logo by default
-            <Image
-              src="/assets/vulnuris_logo_full1.png"
-              alt="Vulnuris logo"
-              width={180}
-              height={50}
-              priority
-              className="object-contain"
-            />
+            // Server-side placeholder with consistent dimensions
+            <div className="w-[180px] h-[50px]" />
           )}
         </Link>
 
@@ -197,24 +178,23 @@ const FloatingNavbar = () => {
         </AnimatePresence>
 
         {/* MENU */}
-        <motion.div
-          className={`fixed top-[80px] right-0 h-[calc(100vh-80px)] w-[85%] max-w-[360px]
-              border-l border-border/40 shadow-2xl
-            transition-transform duration-300
-            ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
-            lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0  lg:border-none lg:shadow-none`}
-          initial={false}
+        <div
+          className={`fixed top-[80px] right-0 h-[calc(100vh-80px)] w-[85%] max-w-[360px] bg-background/95 dark:bg-slate-950/95 backdrop-blur-2xl border-l border-border/40 shadow-2xl transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"} lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0 lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none`}
         >
-          <ul
-            className="flex flex-col items-start justify-start h-full px-6 pt-6 space-y-6
-              lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:gap-8 lg:px-0 lg:pt-0"
-          >
+          <ul className="flex flex-col items-start justify-start h-full px-6 pt-6 space-y-6 lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:gap-8 lg:px-0 lg:pt-0">
+             <NavItem
+              label="Home"
+              href="/"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
             <NavItem
               label="About"
               href="/about"
               pathname={pathname}
               close={() => setIsMenuOpen(false)}
             />
+           
 
             {/* Products Dropdown */}
             <li className="relative w-full lg:w-auto text-left lg:text-left">
@@ -437,7 +417,7 @@ const FloatingNavbar = () => {
               <SelectTheme />
             </motion.li>
           </ul>
-        </motion.div>
+        </div>
 
         <div className="hidden lg:flex items-center gap-4">
           <div className={`h-5 w-px ${isScrolled ? 'bg-background/80 shadow-xl' : 'bg-background/60'}`} />
@@ -459,9 +439,11 @@ const NavItem = ({ label, href, pathname, close }) => (
     <Link
       href={href}
       onClick={close}
-      className="text-lg lg:text-sm font-medium py-2 block relative"
+      className="text-lg lg:text-sm font-medium py-2 px-4 lg:px-3 block relative rounded-lg"
     >
-      <motion.span className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+      <motion.span 
+        className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" 
+      />
       {label}
       <Underline active={pathname === href} />
     </Link>
@@ -470,7 +452,7 @@ const NavItem = ({ label, href, pathname, close }) => (
 
 const Underline = ({ active }) => (
   <motion.span
-    className="absolute left-0 right-0 bottom-0 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500"
+    className="absolute left-3 right-3 lg:left-3 lg:right-3 bottom-0 h-0.5 bg-gradient-to-r from-violet-500 to-cyan-500"
     initial={{ scaleX: 0 }}
     animate={{ scaleX: active ? 1 : 0 }}
     transition={{ duration: 0.3 }}
