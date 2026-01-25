@@ -22,10 +22,7 @@ const FloatingNavbar = () => {
   const [openService, setOpenService] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Only show theme-dependent content after mounting
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
@@ -36,6 +33,8 @@ const FloatingNavbar = () => {
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
+
+  const currentTheme = mounted ? (resolvedTheme || theme) : "light";
 
   const productItems = [
     { name: "Vaultix", href: "/products/vaultix" },
@@ -54,7 +53,6 @@ const FloatingNavbar = () => {
       "Ecommerce Security",
       "SaaS Security",
     ],
-
     "Cyber Risk Management": [
       "ISO 27001 Consulting",
       "ISO 27701 Consulting",
@@ -168,22 +166,10 @@ const FloatingNavbar = () => {
         {/* MOBILE MENU BUTTON */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden z-50 p-2 rounded-lg hover:bg-primary/10 transition-colors"
-          aria-label="Toggle menu"
-          whileHover={{ scale: 1.1 }}
+          className="lg:hidden z-50 p-2 rounded-lg hover:bg-primary/10"
           whileTap={{ scale: 0.9 }}
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={isMenuOpen ? "close" : "menu"}
-              initial={{ rotate: -180, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 180, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
-            </motion.div>
-          </AnimatePresence>
+          {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </motion.button>
 
         {/* BACKDROP */}
@@ -307,7 +293,7 @@ const FloatingNavbar = () => {
                         </Link>
                       </motion.div>
                     ))}
-                  </motion.div>
+                  </div>
                 </div>
               </div>
 
@@ -330,8 +316,7 @@ const FloatingNavbar = () => {
               <div className="lg:hidden w-full">
                 <motion.button
                   onClick={() => setOpenProduct(!openProduct)}
-                  className="text-lg font-medium w-full text-left flex items-center justify-between py-2"
-                  whileTap={{ scale: 0.98 }}
+                  className="w-full flex justify-between py-2 font-medium"
                 >
                   Products
                   <motion.span
@@ -445,9 +430,9 @@ const FloatingNavbar = () => {
                 </div>
               </div>
 
-              {/* Mobile Services */}
-              <div className="lg:hidden w-full">
-                <motion.button
+              {/* MOBILE SERVICES */}
+              <div className="lg:hidden">
+                <button
                   onClick={() => setOpenService(!openService)}
                   className="text-base font-medium sm:text-lg w-full text-left flex items-center justify-between py-2"
                   whileTap={{ scale: 0.98 }}
@@ -504,14 +489,9 @@ const FloatingNavbar = () => {
               close={() => setIsMenuOpen(false)}
             />
 
-            <motion.li
-              className="lg:hidden w-full flex justify-start pt-4 border-t border-border/40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
+            <li className="lg:hidden pt-4 border-t w-full">
               <SelectTheme />
-            </motion.li>
+            </li>
           </ul>
         </motion.div>
             <motion.li
@@ -525,12 +505,14 @@ const FloatingNavbar = () => {
           </ul>
         </motion.div>
 
+        {/* DESKTOP RIGHT */}
         <div className="hidden lg:flex items-center gap-4">
           <div
             className={`h-5 w-px ${isScrolled ? "bg-background/80 shadow-xl" : "bg-background/60"}`}
           />
           <SelectTheme />
         </div>
+
       </div>
     </nav>
   );
@@ -538,12 +520,10 @@ const FloatingNavbar = () => {
 
 export default FloatingNavbar;
 
+/* ---------------- COMPONENTS ---------------- */
+
 const NavItem = ({ label, href, pathname, close }) => (
-  <motion.li
-    className="relative group"
-    whileHover={{ scale: 1.05 }}
-    transition={{ type: "spring", stiffness: 400 }}
-  >
+  <li>
     <Link
       href={href}
       onClick={close}
@@ -551,9 +531,8 @@ const NavItem = ({ label, href, pathname, close }) => (
     >
       <motion.span className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
       {label}
-      <Underline active={pathname === href} />
     </Link>
-  </motion.li>
+  </li>
 );
 
 const CategoryDropdown = ({ category, items, slugify, closeMenu }) => {
