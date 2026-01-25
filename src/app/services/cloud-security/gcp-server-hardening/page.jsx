@@ -1,187 +1,215 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -60 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 60 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
 
 export default function GCPServerHardeningPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-gray-100">
 
       {/* ================= HERO ================= */}
       <section
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
+        className="relative h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/services/gcp-hardening.webp')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+        <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
+        >
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white">
             GCP Server Hardening Services
           </h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+          <p className="mt-6 max-w-4xl text-lg text-gray-200">
             Keep your Google Cloud Platform secure with expert server hardening strategies for UAE businesses.
           </p>
 
           <Link href="/contact">
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg font-semibold shadow-lg"
+            >
               TALK TO OUR CLOUD EXPERT
-            </button>
+            </motion.button>
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       {/* ================= OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
-        <div className="max-w-7xl mx-auto">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-100px' }}
+        className="py-24 px-6"
+      >
+        <div className="max-w-7xl mx-auto text-center">
 
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
-              What Is Cloud Server Hardening for GCP?
-            </h1>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            What Is Cloud Server Hardening for GCP?
+          </h2>
 
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Google Cloud Platform (GCP) provides powerful cloud infrastructure, but securing
-              your assets remains the responsibility of your business. Server hardening for GCP
-              ensures access control, audit readiness, and adherence to best practices from the
-              Center for Internet Security (CIS).
-            </p>
+          <p className="mt-6 max-w-4xl mx-auto text-lg text-gray-700 dark:text-gray-300">
+            Google Cloud Platform (GCP) provides powerful cloud infrastructure, but securing your assets remains the responsibility of your business. Server hardening ensures access control, audit readiness, and adherence to CIS benchmarks.
+          </p>
 
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Proper hardening protects sensitive information, ensures confidentiality and integrity,
-              supports compliance, optimizes costs, and enhances incident response capabilities.
-            </p>
-          </div>
+          <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-700 dark:text-gray-300">
+            Proper hardening protects sensitive information, ensures confidentiality and integrity, supports compliance, optimizes costs, and enhances incident response capabilities.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
 
-            <div className="ml-10">
-              <h2 className="text-2xl font-semibold text-primary mb-6">
+            <motion.div variants={fadeLeft} className="text-left">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                 Benefits of GCP Server Hardening
-              </h2>
+              </h3>
 
-              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300">
                 <li>• Safeguard data with robust encryption and access controls</li>
                 <li>• Ensure service continuity and effective backups</li>
                 <li>• Optimize operational costs and cloud resource usage</li>
                 <li>• Strengthen incident response and threat mitigation</li>
                 <li>• Demonstrate compliance and organizational resilience</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center md:justify-end mr-20">
+            <motion.div variants={fadeRight} className="flex justify-center">
               <img
                 src="/assets/services/gcp-hardening.jpg"
                 alt="GCP Server Hardening"
-                className="w-full max-w-md rounded-xl shadow-lg"
+                className="w-full max-w-md rounded-xl shadow-xl"
               />
-            </div>
+            </motion.div>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= SERVICES GRID ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-100px' }}
+        className="py-20 px-6"
+      >
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-4xl font-semibold text-primary mb-14">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-14">
             Our GCP Server Hardening Capabilities
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
             {[
-              {
-                title: 'Discovery & Mapping',
-                desc: 'Identify and categorize all cloud assets based on type and criticality.',
-              },
-              {
-                title: 'Vulnerability Assessment',
-                desc: 'Detect vulnerabilities using advanced tools and industry best practices.',
-              },
-              {
-                title: 'Penetration Testing',
-                desc: 'Validate vulnerabilities to determine real-world impact and risk.',
-              },
-              {
-                title: 'Access & Identity Management',
-                desc: 'Enforce least privilege and monitor user roles to prevent unauthorized access.',
-              },
-              {
-                title: 'Reporting & Remediation',
-                desc: 'Deliver detailed reports with actionable steps to secure your GCP environment.',
-              },
-              {
-                title: 'Continuous Monitoring',
-                desc: 'Maintain real-time oversight to detect threats and respond efficiently.',
-              },
-            ].map((item, i) => (
-              <div
+              ['Discovery & Mapping', 'Identify and categorize all cloud assets based on type and criticality.'],
+              ['Vulnerability Assessment', 'Detect vulnerabilities using advanced tools and best practices.'],
+              ['Penetration Testing', 'Validate vulnerabilities to determine real-world risk.'],
+              ['Access & Identity Management', 'Enforce least privilege and monitor user roles.'],
+              ['Reporting & Remediation', 'Deliver actionable security improvement plans.'],
+              ['Continuous Monitoring', 'Detect threats in real time and respond efficiently.'],
+            ].map(([title, desc], i) => (
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                whileHover={{ y: -10, scale: 1.04 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-xl p-6 shadow-md"
               >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
-                  {item.title}
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
+                  {title}
                 </h3>
-                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
-                  {item.desc}
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  {desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
+
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-100px' }}
+        className="py-24 px-6"
+      >
         <div className="max-w-7xl mx-auto">
 
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
+          <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white mb-16">
             How Our GCP Server Hardening Engagement Works
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
 
-            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+            <ul className="space-y-5 text-gray-700 dark:text-gray-300">
               <li>• Discover and map all cloud assets</li>
               <li>• Perform vulnerability assessments</li>
-              <li>• Conduct penetration testing for real-world validation</li>
-              <li>• Apply access controls and secure configurations</li>
+              <li>• Conduct penetration testing</li>
+              <li>• Apply secure configurations</li>
               <li>• Monitor and remediate continuously</li>
             </ul>
 
-            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li className="font-semibold">• Secure Cloud Operations</li>
-              <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
-                <li>○ CIS benchmark alignment</li>
-                <li>○ Threat detection & mitigation</li>
-                <li>○ Backup and disaster recovery readiness</li>
-                <li>○ Cost-efficient resource utilization</li>
-                <li>○ Enhanced incident response</li>
-              </ul>
-              <li className="font-semibold ml-5">• Compliance & Organizational Resilience</li>
+            <ul className="space-y-5 text-gray-700 dark:text-gray-300">
+              <li className="font-semibold text-gray-900 dark:text-white">• Secure Cloud Operations</li>
+              <li>○ CIS benchmark alignment</li>
+              <li>○ Threat detection & mitigation</li>
+              <li>○ Backup & disaster recovery</li>
+              <li>○ Cost optimization</li>
+              <li>○ Enhanced incident response</li>
             </ul>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 text-center"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
           Protect Your GCP Cloud Infrastructure Today
         </h2>
 
-        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-gray-300">
           Ensure your Google Cloud environment is hardened, compliant, and secure with our expert services.
         </p>
 
         <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-lg"
+          >
             Talk to a GCP Security Expert
-          </button>
+          </motion.button>
         </Link>
-      </section>
+      </motion.section>
 
     </main>
   );

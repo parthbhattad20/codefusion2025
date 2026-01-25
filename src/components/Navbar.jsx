@@ -11,12 +11,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingNavbar = () => {
   const pathname = usePathname();
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+  
+  // Use resolvedTheme to handle system theme properly
+  const currentTheme = resolvedTheme || theme;
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openProduct, setOpenProduct] = useState(false);
   const [openService, setOpenService] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Only show theme-dependent content after mounting
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
@@ -156,6 +165,26 @@ const FloatingNavbar = () => {
             </motion.div>
           </AnimatePresence>
         </motion.button>
+        {/* MOBILE MENU BUTTON */}
+        <motion.button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden z-50 p-2 rounded-lg hover:bg-primary/10 transition-colors"
+          aria-label="Toggle menu"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={isMenuOpen ? "close" : "menu"}
+              initial={{ rotate: -180, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 180, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </motion.div>
+          </AnimatePresence>
+        </motion.button>
 
         {/* BACKDROP */}
         <AnimatePresence>
@@ -199,6 +228,24 @@ const FloatingNavbar = () => {
               close={() => setIsMenuOpen(false)}
             />
 
+            {/* Products Dropdown */}
+            <li className="relative w-full lg:w-auto text-left lg:text-left">
+              <div className="hidden lg:block group relative">
+                <motion.button
+                  className="text-sm font-medium relative flex items-center gap-1 py-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 400 }}
+                >
+                  Products
+                  <motion.span
+                    animate={{ rotate: 0 }}
+                    whileHover={{ rotate: 180 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={16} className="opacity-60" />
+                  </motion.span>
+                  <Underline active={pathname.startsWith("/products")} />
+                </motion.button>
             {/* Products Dropdown */}
             <li className="relative w-full lg:w-auto text-left lg:text-left">
               <div className="hidden lg:block group relative">
@@ -264,6 +311,21 @@ const FloatingNavbar = () => {
                 </div>
               </div>
 
+              {/* Mobile Products */}
+              <div className="lg:hidden w-full">
+                <motion.button
+                  onClick={() => setOpenProduct(!openProduct)}
+                  className="text-lg font-medium w-full text-left flex items-center justify-between py-2"
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Products
+                  <motion.span
+                    animate={{ rotate: openProduct ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown size={20} />
+                  </motion.span>
+                </motion.button>
               {/* Mobile Products */}
               <div className="lg:hidden w-full">
                 <motion.button
@@ -442,6 +504,16 @@ const FloatingNavbar = () => {
               close={() => setIsMenuOpen(false)}
             />
 
+            <motion.li
+              className="lg:hidden w-full flex justify-start pt-4 border-t border-border/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <SelectTheme />
+            </motion.li>
+          </ul>
+        </motion.div>
             <motion.li
               className="lg:hidden w-full flex justify-start pt-4 border-t border-border/40"
               initial={{ opacity: 0 }}

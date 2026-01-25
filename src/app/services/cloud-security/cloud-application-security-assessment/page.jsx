@@ -1,193 +1,225 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -70 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 70 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7 } },
+};
+
+const zoomCard = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+};
 
 export default function CloudApplicationSecurityAssessmentPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
 
       {/* ================= HERO ================= */}
       <section
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/services/cloud-app-security.webp')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/55 to-black/80"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-24"
+        >
+          <motion.h1
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          >
             Cloud Application Security Assessment
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
-            Expert and hassle-free Cloud Application Security Assessment (CASA)
-            services to identify misconfigurations, security gaps, and threats
-            across cloud applications and infrastructure in the UAE.
-          </p>
+          <motion.p
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+          >
+            Expert and hassle-free CASA services to identify misconfigurations, security gaps, and threats across cloud applications in the UAE.
+          </motion.p>
 
           <Link href="/contact">
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <motion.button
+              whileHover={{
+                scale: 1.08,
+                boxShadow: '0 0 30px rgba(59,130,246,0.6)',
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-700 text-white rounded-lg font-semibold transition"
+            >
               CONNECT WITH OUR EXPERTS
-            </button>
+            </motion.button>
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       {/* ================= CASA OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
-        <div className="max-w-7xl mx-auto">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        className="py-24 px-6 bg-gray-50 dark:bg-background"
+      >
+        <div className="max-w-7xl mx-auto text-center mb-16">
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            What Is Cloud Application Security Assessment (CASA)?
+          </h1>
 
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
-              What Is Cloud Application Security Assessment (CASA)?
-            </h1>
+          <p className="mt-6 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+            CASA is a framework introduced by Google to standardize cloud security and identify configuration weaknesses before they become critical incidents.
+          </p>
 
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Cloud Application Security Assessment (CASA) is a framework
-              introduced by Google to help organizations standardize security
-              for cloud applications and infrastructure in the UAE. It evaluates
-              configuration weaknesses and potential threats that could lead
-              to serious security incidents if left undetected.
-            </p>
-
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              The CASA framework includes defined processes, controls, and
-              policies to protect cloud applications and sensitive data,
-              ensuring a secure and compliant cloud environment.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-            <div className="ml-10">
-              <h2 className="text-2xl font-semibold text-primary mb-6">
-                Why CASA Is Important in the UAE
-              </h2>
-
-              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
-                <li>• Identify configuration weaknesses in cloud environments</li>
-                <li>• Reduce risk of unauthorized access and data breaches</li>
-                <li>• Improve compliance with UAE data security regulations</li>
-                <li>• Strengthen customer trust in cloud-based services</li>
-                <li>• Secure cloud-to-cloud integrations</li>
-              </ul>
-            </div>
-
-            <div className="flex justify-center md:justify-end mr-20">
-              <img
-                src="/assets/services/cloud-app-security.jpg"
-                alt="Cloud Application Security Assessment"
-                className="w-full max-w-md rounded-xl shadow-lg"
-              />
-            </div>
-
-          </div>
+          <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+            It ensures strong controls, policies, and processes for cloud application security.
+          </p>
         </div>
-      </section>
+
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <motion.div variants={fadeLeft}>
+            <h2 className="text-2xl font-semibold text-primary mb-6">
+              Why CASA Is Important in the UAE
+            </h2>
+
+            <ul className="space-y-4 text-gray-800 dark:text-gray-200">
+              <li>• Identify configuration weaknesses</li>
+              <li>• Reduce breach risks</li>
+              <li>• Improve regulatory compliance</li>
+              <li>• Strengthen customer trust</li>
+              <li>• Secure cloud integrations</li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            variants={fadeRight}
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 6, repeat: Infinity }}
+          >
+            <img
+              src="/assets/services/cloud-app-security.jpg"
+              alt="CASA"
+              className="rounded-xl shadow-xl max-w-md mx-auto"
+            />
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* ================= CASA SERVICES GRID ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-16 px-6 bg-gray-50 dark:bg-background"
+      >
         <div className="max-w-7xl mx-auto text-center">
-
           <h2 className="text-4xl font-semibold text-primary mb-14">
             Our CASA Assessment Approach
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              {
-                title: 'Policy Review',
-                desc: 'Review security policies and procedures to ensure alignment with organizational and certification requirements.',
-              },
-              {
-                title: 'Configuration Analysis',
-                desc: 'Assess firewall rules, access controls, permissions, and cloud configurations to prevent misconfigurations.',
-              },
-              {
-                title: 'Penetration Testing',
-                desc: 'Identify vulnerabilities and potential attack vectors impacting cloud applications and infrastructure.',
-              },
-              {
-                title: 'Threat Identification',
-                desc: 'Evaluate potential threats that could exploit cloud weaknesses and lead to security incidents.',
-              },
-              {
-                title: 'Risk Reduction',
-                desc: 'Reduce common cloud security risks while improving the overall security posture.',
-              },
-              {
-                title: 'Compliance Alignment',
-                desc: 'Ensure CASA assessments support compliance with UAE data protection and security regulations.',
-              },
-            ].map((item, i) => (
-              <div
+              'Policy Review',
+              'Configuration Analysis',
+              'Penetration Testing',
+              'Threat Identification',
+              'Risk Reduction',
+              'Compliance Alignment',
+            ].map((title, i) => (
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                variants={zoomCard}
+                whileHover={{
+                  y: -12,
+                  scale: 1.05,
+                  boxShadow: '0 25px 50px rgba(99,102,241,0.25)',
+                }}
+                className="bg-white dark:bg-muted border rounded-2xl p-6 shadow-md transition"
               >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
-                  {item.title}
+                <h3 className="font-semibold text-lg text-blue-600 dark:text-blue-400">
+                  {title}
                 </h3>
-                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CASA DETAILS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
-        <div className="max-w-7xl mx-auto">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-50 dark:bg-background"
+      >
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 text-left">
+          <ul className="space-y-6 text-lg text-gray-800 dark:text-gray-200">
+            <li>• Understand cloud architecture</li>
+            <li>• Review policies and controls</li>
+            <li>• Analyze access management</li>
+            <li>• Perform penetration testing</li>
+            <li>• Prioritize remediation</li>
+          </ul>
 
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
-            How Our CASA Engagement Works
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-
-            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li>• Understand cloud architecture and application scope</li>
-              <li>• Review policies, processes, and security controls</li>
-              <li>• Analyze cloud configuration and access management</li>
-              <li>• Perform penetration testing on cloud applications</li>
-              <li>• Identify risks and prioritize remediation actions</li>
-            </ul>
-
-            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li className="font-semibold">• Detailed Reporting</li>
-              <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
-                <li>○ Comprehensive findings and observations</li>
-                <li>○ Risk severity and impact analysis</li>
-                <li>○ CASA-aligned methodology</li>
-                <li>○ Actionable remediation roadmap</li>
-                <li>○ Compliance-focused recommendations</li>
-              </ul>
-              <li className="font-semibold ml-5">• Secure Cloud Enablement</li>
-            </ul>
-
-          </div>
+          <ul className="space-y-6 text-lg text-gray-800 dark:text-gray-200">
+            <li className="font-semibold">• Detailed Reporting</li>
+            <li>• Risk severity analysis</li>
+            <li>• CASA-aligned methodology</li>
+            <li>• Remediation roadmap</li>
+            <li>• Compliance recommendations</li>
+          </ul>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+      >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Your Cloud Applications with CASA
         </h2>
 
         <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Identify security gaps, reduce risks, and strengthen trust with
-          expert Cloud Application Security Assessment services in the UAE.
+          Identify security gaps, reduce risks, and strengthen trust with expert CASA services.
         </p>
 
         <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
+          <motion.button
+            whileHover={{
+              scale: 1.12,
+              boxShadow: '0 0 35px rgba(139,92,246,0.6)',
+            }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md"
+          >
             Talk to a Cloud Security Expert
-          </button>
+          </motion.button>
         </Link>
-      </section>
-
+      </motion.section>
     </main>
   );
 }

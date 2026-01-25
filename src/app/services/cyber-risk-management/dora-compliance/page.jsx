@@ -1,190 +1,217 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ShieldAlert, Crosshair, Bug, Users, AlertTriangle, Lock, LineChart } from 'lucide-react';
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+const reveal = {
+  hidden: { opacity: 0, y: 30, z: -40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    z: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+};
+
+const floating3D = {
+  animate: {
+    rotateX: [0, 8, 0, -8, 0],
+    rotateY: [0, -10, 0, 10, 0],
+    y: [0, -10, 0, 10, 0],
+  },
+  transition: {
+    duration: 10,
+    repeat: Infinity,
+    ease: "easeInOut",
+  },
+};
 
 export default function DoraCompliancePage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
-
+    <main className="w-full bg-white text-gray-900 dark:bg-background dark:text-foreground">
       {/* ================= HERO ================= */}
-     <section className="relative h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden">
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/assets/videos/iso27001.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
 
-  {/* VIDEO BACKGROUND */}
-  <video
-    className="absolute top-0 left-0 w-full h-full object-cover"
-    src="/assets/videos/iso27001.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
-  />
-
-  {/* OVERLAY */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
-
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/70"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          >
             DORA Compliance Consulting
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
-            Keep your financial business safe from threats and achieve robust digital operational resilience with Wattlecorp experts.
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+          >
+            Keep your financial business safe from threats and achieve robust
+            digital operational resilience with Wattlecorp experts.
+          </motion.p>
 
-          <Link href="/contact">
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition mt-6">
-              Request a DORA Assessment
-            </button>
-          </Link>
+          <motion.div whileHover={{ scale: 1.06 }}>
+            <Link href="/contact">
+              <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
+                Request a DORA Assessment
+              </button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* ================= DORA OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+      {/* ================= OVERVIEW ================= */}
+      <motion.section
+        className="py-24 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-120px" }}
+      >
         <div className="max-w-7xl mx-auto">
-
-          <div className="text-center mb-16">
+          <motion.div variants={reveal} className="text-center mb-16">
             <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
               What is DORA Compliance?
             </h1>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              The Digital Operational Resilience Act (DORA) is an EU regulation designed to ensure cybersecurity resilience in the financial sector. It provides a comprehensive risk management framework for information and communication technology (ICT). Even in its draft form, early adoption is recommended for financial organizations to remediate vulnerabilities—including low and medium-rated ones—proactively.
+              The Digital Operational Resilience Act (DORA) is an EU regulation
+              designed to ensure cybersecurity resilience in the financial
+              sector.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-            <div className="ml-10">
-              <h2 className="text-2xl font-semibold text-primary mb-6">
+            <motion.div variants={reveal} className="ml-10">
+              <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-foreground">
                 Why DORA Compliance Matters
               </h2>
 
-              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
-                <li>• Secure your financial services organization from all types of vulnerabilities</li>
-                <li>• Implement safe and sound risk management processes</li>
-                <li>• Identify and remediate vulnerabilities at every level</li>
-                <li>• Monitor continuously to prevent emerging threats</li>
-                <li>• Build trust with customers and regulatory bodies</li>
+              <ul className="space-y-4 text-gray-800 dark:text-muted-foreground">
+                <li>• Secure financial services infrastructure</li>
+                <li>• Implement strong risk management</li>
+                <li>• Remediate vulnerabilities</li>
+                <li>• Continuous threat monitoring</li>
+                <li>• Regulatory trust</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center md:justify-end mr-20">
-              <img
+            {/* 3D Floating Image */}
+            <motion.div
+              variants={reveal}
+              className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
+            >
+              <motion.img
                 src="/assets/services/dora.jpg"
                 alt="DORA Compliance"
-                className="w-full max-w-md rounded-xl shadow-lg"
+                className="w-full max-w-md rounded-xl shadow-xl"
+                animate={floating3D.animate}
+                transition={floating3D.transition}
+                style={{ transformStyle: "preserve-3d" }}
               />
-            </div>
-
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ================= DORA SERVICES GRID ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      {/* ================= SERVICES ================= */}
+      <motion.section
+        className="py-20 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto text-center">
-
-          <h2 className="text-4xl font-semibold text-primary mb-14">
+          <motion.h2
+            variants={reveal}
+            className="text-4xl font-semibold mb-14 text-gray-900 dark:text-foreground"
+          >
             Our DORA Compliance Services
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
             {[
-              {
-                title: 'Assessment',
-                desc: 'We evaluate your security posture and identify vulnerabilities, even at the root level.'
-              },
-              {
-                title: 'Reporting',
-                desc: 'Curate comprehensive vulnerability reports to help you understand and remediate risks.'
-              },
-              {
-                title: 'Monitoring',
-                desc: 'Proactively monitor for new vulnerabilities to maintain continuous compliance.'
-              },
-              {
-                title: 'Compliance Guidance',
-                desc: 'Assist financial organizations in meeting all DORA prerequisites and regulations.'
-              },
-              {
-                title: 'Risk Management',
-                desc: 'Implement safe and sound risk management processes to mitigate operational threats.'
-              },
-              {
-                title: 'Advisory Support',
-                desc: 'Expert support from cybersecurity professionals to guide you through DORA compliance.'
-              },
-            ].map((item, i) => (
-              <div
+              "Assessment",
+              "Reporting",
+              "Monitoring",
+              "Compliance Guidance",
+              "Risk Management",
+              "Advisory Support",
+            ].map((title, i) => (
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                variants={reveal}
+                whileHover={{
+                  rotateX: 6,
+                  rotateY: -6,
+                  scale: 1.03,
+                }}
+                transition={{ type: "spring", stiffness: 120, damping: 14 }}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-md cursor-pointer"
+                style={{ transformStyle: "preserve-3d" }}
               >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
-                  {item.title}
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  {title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
-                  {item.desc}
+                  Enterprise-grade cybersecurity consulting tailored for
+                  financial institutions.
                 </p>
-              </div>
+              </motion.div>
             ))}
-
           </div>
         </div>
-      </section>
-
-      {/* ================= HOW DORA COMPLIANCE WORKS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
-        <div className="max-w-7xl mx-auto">
-
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
-            How Our DORA Compliance Consulting Works
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-
-            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li>• Assess your organization’s cybersecurity posture to identify vulnerabilities</li>
-              <li>• Curate detailed reports highlighting risks and remediation steps</li>
-              <li>• Implement continuous monitoring to detect new threats</li>
-              <li>• Ensure adherence to DORA requirements for financial institutions</li>
-              <li>• Provide expert guidance to maintain operational resilience</li>
-            </ul>
-
-            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li className="font-semibold">• Professional Insight & Support</li>
-              <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
-                <li>○ Listen to clients and guide organizations in compliance</li>
-                <li>○ Fix vulnerabilities proactively to meet regulatory standards</li>
-                <li>○ Work closely with development teams to secure sensitive data</li>
-                <li>○ Provide continuous evaluation and updates for evolving risks</li>
-              </ul>
-            </ul>
-
-          </div>
-        </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+      <motion.section
+        className="py-24 px-6 text-center"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <motion.h2
+          variants={reveal}
+          className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-foreground"
+        >
           Achieve Digital Operational Resilience
-        </h2>
+        </motion.h2>
 
-        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Protect your financial business and ensure compliance with DORA standards with Wattlecorp’s expert consulting services.
-        </p>
+        <motion.p
+          variants={reveal}
+          className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground"
+        >
+          Protect your financial business and ensure compliance with DORA
+          standards.
+        </motion.p>
 
-        <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
-            Request a DORA Assessment
-          </button>
-        </Link>
-      </section>
-
+        <motion.div variants={reveal} whileHover={{ scale: 1.08 }}>
+          <Link href="/contact">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-xl">
+              Request a DORA Assessment
+            </button>
+          </Link>
+        </motion.div>
+      </motion.section>
     </main>
   );
 }

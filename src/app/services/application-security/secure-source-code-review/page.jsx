@@ -1,39 +1,63 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Code, ShieldAlert, Bug, FileSearch, LineChart, Lock } from 'lucide-react';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.12 } },
+};
 
 export default function SourceCodeReviewPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
 
       {/* ================= HERO ================= */}
-      <section
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/services/wapt.webp')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
+          <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
             Secure Source Code Review Services
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+          <motion.p variants={fadeUp} className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
             Deep testing of source code to identify weaknesses before hackers exploit them.
             Secure your applications at the atomic level of software security.
-          </p>
+          </motion.p>
 
           <Link href="/contact">
-            <button className="px-8 py-3 mt-6 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 mt-6 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
               Schedule Code Review
-            </button>
+            </motion.button>
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={fadeUp}
+        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">
@@ -50,7 +74,7 @@ export default function SourceCodeReviewPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <div className="ml-10">
+            <motion.div variants={fadeUp} className="ml-10">
               <h2 className="text-2xl font-semibold text-primary mb-6">
                 Vulnerabilities We Identify
               </h2>
@@ -63,29 +87,39 @@ export default function SourceCodeReviewPage() {
                 <li>• Insecure Authentication & Authorization</li>
                 <li>• Logic & Data Validation Flaws</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center md:justify-end mr-20">
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ scale: 1.05 }}
+              className="flex justify-center md:justify-end mr-20"
+            >
               <img
                 src="/assets/services/wapt.webp"
                 alt="Source Code Review"
-                className="w-full max-w-md rounded-xl shadow-lg"
+                className="w-full max-w-md rounded-xl shadow-lg transition"
               />
-            </div>
+            </motion.div>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= WHY YOU NEED IT ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={stagger}
+        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-4xl font-semibold text-primary mb-14">
+          <motion.h2 variants={fadeUp} className="text-4xl font-semibold text-primary mb-14">
             Why Do You Need a Source Code Review?
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
 
             {[
               {
@@ -113,9 +147,12 @@ export default function SourceCodeReviewPage() {
                 desc: 'Fix issues early to avoid costly security incidents later.',
               },
             ].map((item, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                variants={fadeUp}
+                whileHover={{ y: -8, scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all group"
               >
                 <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
                   {item.title}
@@ -123,14 +160,21 @@ export default function SourceCodeReviewPage() {
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= ENGAGEMENT PROCESS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={fadeUp}
+        className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
@@ -164,10 +208,16 @@ export default function SourceCodeReviewPage() {
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+      >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Code. Secure Applications.
         </h2>
@@ -178,11 +228,15 @@ export default function SourceCodeReviewPage() {
         </p>
 
         <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
+          <motion.button
+            whileHover={{ scale: 1.12 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-xl transition-all duration-300"
+          >
             Talk to a Security Expert
-          </button>
+          </motion.button>
         </Link>
-      </section>
+      </motion.section>
 
     </main>
   );

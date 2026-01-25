@@ -1,277 +1,286 @@
 'use client';
 
 import Link from 'next/link';
-import { ShieldCheck, Briefcase, ClipboardCheck, AlertTriangle, Users, LineChart, Lock } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const sectionReveal = {
+  hidden: { opacity: 0, y: 50, filter: 'blur(8px)' },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const cardReveal = {
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const floating3D = {
+  animate: {
+    rotateX: [0, 6, 0, -6, 0],
+    rotateY: [0, -8, 0, 8, 0],
+    y: [0, -10, 0, 10, 0],
+  },
+  transition: { duration: 12, repeat: Infinity, ease: 'easeInOut' },
+};
 
 export default function VCISOPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-white text-gray-900 dark:bg-background dark:text-foreground">
 
-     {/* ================= HERO ================= */}
-<section
-  className="relative h-screen bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('/assets/img.jpg')" }}
->
-  {/* Lighter overlay for clarity */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+      {/* ================= HERO ================= */}
+      <section className="relative h-screen overflow-hidden">
 
-  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
-      Virtual CISO Services
-    </h1>
-
-    <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
-      Vulnuris Virtual CISO Program services assist executives and security teams in safeguarding information assets while supporting business operations. We provide certified virtual CISOs and dedicated expert support as part of your team, saving you time and money on hiring security talent.
-    </p>
-
-    <Link href="/contact">
-      <button className=" px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-        SPEAK WITH AN EXPERT
-      </button>
-    </Link>
-  </div>
-</section>
-
-
-     {/* ================= VCISO PROGRAM SERVICES ================= */}
-<section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
-  <div className="max-w-7xl mx-auto">
-
-    {/* ===== Heading ===== */}
-    <div className="text-center mb-16">
-      <h1 className="text-3xl md:text-4xl font-bold text-primary">
-        Virtual CISO (VCISO) Program Services
-      </h1>
-
-      <p className="mt-4 text-lg font-semibold text-sky-800 dark:text-sky-200">
-        VCISO Advisory Services: CISO CERTIFIED experts
-      </p>
-
-      <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-        Vulnuris is an award-winning, independent security consulting firm providing organizations that
-        require an experienced CISO, with a Virtual Chief Information Security Officer and a team
-        to drive critical initiatives and oversee an entire security program as well as the technologies
-        required to protect the organization and its customers from modern security threats while meeting
-        regulatory compliance requirements.
-      </p>
-    </div>
-
-    {/* ===== Content Grid ===== */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-      {/* Left Content */}
-      <div className='ml-10'>
-        <h2 className="text-2xl font-semibold text-primary mb-6">
-          Why Vulnuris Virtual CISO Services
-        </h2>
-
-        <ul className="space-y-4 text-gray-800 dark:text-gray-200">
-          <li className="font-semibold">
-            • Accelerate security program maturity
-          </li>
-
-          <ul className="ml-6 space-y-2 text-gray-700 dark:text-gray-300">
-            <li>○ Program development</li>
-            <li>○ Policy and standards</li>
-            <li>○ Compliance</li>
-            <li>○ Governance</li>
-            <li>○ Security</li>
-          </ul>
-
-          <li>• Access to a team of experts</li>
-          <li>• Improve compliance and avoid penalties</li>
-          <li>• Reduce security risk and business continuity</li>
-          <li>• Decrease the overhead cost of hiring a full-time CISO</li>
-        </ul>
-      </div>
-
-      {/* Right Image */}
-      <div className="flex justify-center md:justify-end mr-20">
-        <img
-          src="/assets/services/vCiso.webp"
-          alt="VCISO Security"
-          className="w-full max-w-md rounded-xl shadow-lg 
-                     dark:shadow-blue-900/30 transition-all"
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/assets/img.jpg')" }}
         />
-      </div>
 
-    </div>
-  </div>
-</section>
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/85"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        />
 
+        <div className="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#ffffff1a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff1a_1px,transparent_1px)] bg-[size:70px_70px]" />
 
+        <motion.div
+          className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-12"
+          animate={{ x: ['-30%', '30%'] }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+        />
+
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-32">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm text-white tracking-wide"
+          >
+            Executive Cybersecurity Leadership
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight"
+          >
+            Virtual CISO Services
+          </motion.h1>
+
+          <motion.div
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full my-6"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          />
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="text-sm md:text-xl text-gray-200 max-w-4xl text-center"
+          >
+            Vulnuris Virtual CISO Program services assist executives and security teams in safeguarding information assets while supporting business operations. We provide certified virtual CISOs and dedicated expert support as part of your team, saving you time and money on hiring security talent.
+          </motion.p>
+
+          <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.96 }} className="mt-10">
+            <Link href="/contact">
+              <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition">
+                Speak With an Expert
+              </button>
+            </Link>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ================= VCISO PROGRAM SERVICES ================= */}
+      <motion.section
+        className="py-24 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+      >
+        <div className="max-w-7xl mx-auto">
+
+          <motion.div variants={sectionReveal} className="text-center mb-16">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary">
+              Virtual CISO (VCISO) Program Services
+            </h1>
+
+            <p className="mt-4 text-lg font-semibold text-sky-800 dark:text-sky-200">
+              VCISO Advisory Services: CISO CERTIFIED experts
+            </p>
+
+            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Vulnuris is an award-winning, independent security consulting firm providing organizations that
+              require an experienced CISO, with a Virtual Chief Information Security Officer and a team
+              to drive critical initiatives and oversee an entire security program as well as the technologies
+              required to protect the organization and its customers from modern security threats while meeting
+              regulatory compliance requirements.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            <motion.div variants={sectionReveal} className="ml-10">
+              <h2 className="text-2xl font-semibold mb-6">
+                Why Vulnuris Virtual CISO Services
+              </h2>
+
+              <ul className="space-y-4 text-gray-800 dark:text-muted-foreground">
+                <li className="font-semibold">• Accelerate security program maturity</li>
+                <li className="ml-6">○ Program development</li>
+                <li className="ml-6">○ Policy and standards</li>
+                <li className="ml-6">○ Compliance</li>
+                <li className="ml-6">○ Governance</li>
+                <li className="ml-6">○ Security</li>
+                <li>• Access to a team of experts</li>
+                <li>• Improve compliance and avoid penalties</li>
+                <li>• Reduce security risk and business continuity</li>
+                <li>• Decrease overhead cost of hiring a full-time CISO</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              variants={sectionReveal}
+              className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
+            >
+              <motion.img
+                src="/assets/services/vCiso.webp"
+                alt="VCISO Security"
+                className="w-full max-w-md rounded-xl shadow-xl"
+                animate={floating3D.animate}
+                transition={floating3D.transition}
+                style={{ transformStyle: 'preserve-3d' }}
+              />
+            </motion.div>
+
+          </div>
+        </div>
+      </motion.section>
 
       {/* ================= VCISO SERVICES GRID ================= */}
-<section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
-  <div className="max-w-7xl mx-auto text-center">
+      <motion.section
+        className="py-20 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto text-center">
 
+          <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
+            Virtual CISO (VCISO) Program: Protect Your Organization
+          </motion.h2>
 
-    {/* Heading */}
-    <h2 className="text-4xl font-semibold text-primary mb-14">
-      Virtual CISO (VCISO) Program: Protect Your Organization
-    </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
 
-    {/* Top 6 Services */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            {[
+              ['Virtual CISO/vCISO', 'Board-level cyber security leadership, strategy and monthly reporting.'],
+              ['Governance, Risk & Compliance', 'Align GRC using NIST, PCI/DSS, ISO, GDPR and others.'],
+              ['IT Security Operations', 'SOC strategy and 24x7 cyber risk monitoring.'],
+              ['Security Awareness Education', 'Empower employees against cyber threats.'],
+              ['Penetration Testing & Phishing', 'Understand vulnerabilities clearly.'],
+              ['Third Party Risk Management', 'Vendor security assessments managed by VCISO team.'],
+            ].map(([title, desc], i) => (
+              <motion.div
+                key={i}
+                variants={cardReveal}
+                whileHover={{
+                  y: -8,
+                  boxShadow: '0 18px 40px rgba(0,0,0,0.08)',
+                }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm cursor-pointer"
+              >
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  {title}
+                </h3>
+                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
+                  {desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
-  {[
-    {
-      title: "Virtual CISO/vCISO",
-      desc: "VCISO service: you retain a board-level cyber security consultant, providing strategic leadership, security strategy & corporate security consulting for your business. The VCISO team will provide monthly report.",
-    },
-    {
-      title: "Governance, Risk & Compliance",
-      desc: "VCISO will align your GRC activities to business performance drivers, using frameworks such as NIST, PCI/DSS, ISO, GDPR, NYDFS, and others with our IT security consulting program.",
-    },
-    {
-      title: "IT Security Operations",
-      desc: "The VCISO will provide a strategy for your SOC, CyberSecOp managed SOC is a 24x7 Security Operations Center (SOC) - managed security identifies cyber risks before they cost damage to your organization.",
-    },
-    {
-      title: "Security Awareness Education",
-      desc: "Reveal your organization's employees' strengths and weaknesses, and empower them against cyber criminals.",
-    },
-    {
-      title: "Penetration Testing & Phishing",
-      desc: "Effective security starts with a clear understanding of your vulnerabilities.",
-    },
-    {
-      title: "Third Party Risk Management",
-      desc: "Comprehensive vendor/third-party security assessment services. Your VCISO team manages this.",
-    },
-  ].map((item, i) => (
-    <div
-      key={i}
-      className="
-        bg-white dark:bg-muted
-        border border-gray-200 dark:border-border
-        rounded-2xl p-6
-        shadow-sm hover:shadow-xl
-        transition-all duration-300
-        hover:-translate-y-2
-        group
-      "
-    >
-      <h3 className="
-        font-semibold text-lg mb-3
-        text-blue-600 dark:text-blue-400
-        group-hover:text-violet-600 dark:group-hover:text-violet-400
-        transition-colors
-      ">
-        {item.title}
-      </h3>
+      {/* ================= VCISO DETAILS ================= */}
+      <motion.section
+        className="py-24 px-20"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
 
-      <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
-        {item.desc}
-      </p>
-    </div>
-  ))}
+          <motion.h2 variants={sectionReveal} className="text-center text-2xl md:text-3xl font-bold mb-16">
+            What are our Virtual CISO (VCISO) Services?
+          </motion.h2>
 
-</div>
-   
-  </div>
-</section>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
 
-      {/* ================= VCISO SERVICES DETAILS ================= */}
-<section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
-  <div className="max-w-7xl mx-auto">
+            <motion.ul variants={sectionReveal} className="space-y-6 text-gray-800 dark:text-muted-foreground text-lg">
+              <li>• Virtual CISO provides expert security guidance</li>
+              <li>• Align cybersecurity with business strategy</li>
+              <li>• Enterprise risk management integration</li>
+              <li>• Threat analysis and updates</li>
+              <li>• Compliance anticipation</li>
+              <li>• Team leadership and control implementation</li>
+            </motion.ul>
 
-    {/* Heading */}
-    <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
-      What are our Virtual CISO (VCISO) Services?
-    </h2>
+            <motion.ul variants={sectionReveal} className="space-y-6 ml-20 text-gray-800 dark:text-muted-foreground text-lg">
+              <li className="font-semibold">• Ongoing GRC Management</li>
+              <li>○ Risk & compliance management</li>
+              <li>○ Vendor programs</li>
+              <li>○ Executive engagement</li>
+              <li>○ Threat intelligence</li>
+              <li className="font-semibold mt-4">• Crisis Management</li>
+            </motion.ul>
 
-    {/* Content Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-
-      {/* Left Column */}
-      <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-        <li>
-          • <span className="font-semibold">A Virtual CISO</span> is designed to provide expert security
-          guidance through:
-        </li>
-
-        <li>
-          • Understanding the organization’s strategy and business environment
-        </li>
-
-        <li>
-          • Aligning cybersecurity risk management with enterprise risk management
-        </li>
-
-        <li>
-          • Providing threat analysis and strategy updates in real-time
-        </li>
-
-        <li>
-          • Anticipating future security and compliance challenges
-        </li>
-
-        <li>
-          • Overseeing mid-level and analyst/engineering teams
-        </li>
-
-        <li>
-          • Driving the implementation of all approved administrative, technical and
-          physical controls to achieve reasonable security
-        </li>
-      </ul>
-
-      {/* Right Column */}
-      <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-        <li className="font-semibold">
-          • Ongoing Governance Risk & Compliance Management
-        </li>
-
-        <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
-          <li>○ Ongoing Risk Management</li>
-          <li>○ Ongoing Compliance Management</li>
-          <li>○ Ongoing Vendor Management Program</li>
-          <li>○ Ongoing Managing and directing IT and the security teams</li>
-          <li>○ Ongoing Engaging with executive management</li>
-          <li>○ Ongoing Running risk assessments on operational security</li>
-          <li>○ Ongoing threat intelligence and managing enterprise security</li>
-        </ul>
-
-        <li className="font-semibold ml-5">
-          • Crisis Management
-        </li>
-      </ul>
-
-    </div>
-  </div>
-</section>
-
+          </div>
+        </div>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-<section className="py-24 px-6 text-center tracking-tight 
-  bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        className="py-24 px-6 text-center"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <motion.h2 variants={sectionReveal} className="text-3xl md:text-4xl font-bold mb-4">
+          Strengthen Your Security Leadership
+        </motion.h2>
 
-  <h2 className="text-3xl md:text-4xl font-bold mb-4
-    text-primary ">
-    Strengthen Your Security Leadership
-  </h2>
+        <motion.p variants={sectionReveal} className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+          Get expert cybersecurity guidance tailored to your organization’s risk profile and compliance needs.
+        </motion.p>
 
-  <p className="mb-8 max-w-2xl mx-auto text-lg
-    text-gray-700 dark:text-muted-foreground">
-    Get expert cybersecurity guidance tailored to your organization’s
-    risk profile and compliance needs.
-  </p>
-
-  <Link href="/contact">
-    <button className="
-      px-10 py-3 rounded-full text-lg font-semibold
-      bg-gradient-to-r from-violet-500 to-blue-600
-      text-white dark:text-white
-      shadow-md hover:shadow-lg
-      hover:opacity-90 transition-all duration-300
-    ">
-      Talk to a vCISO Expert
-    </button>
-  </Link>
-
-</section>
-
+        <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
+          <Link href="/contact">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-xl">
+              Talk to a vCISO Expert
+            </button>
+          </Link>
+        </motion.div>
+      </motion.section>
 
     </main>
   );

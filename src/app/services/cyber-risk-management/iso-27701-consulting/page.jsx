@@ -1,191 +1,252 @@
 'use client';
 
 import Link from 'next/link';
-import { ShieldAlert, Crosshair, Bug, Users, AlertTriangle, Lock, LineChart } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+
+
+const reveal = {
+  hidden: { opacity: 0, y: 30, z: -40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    z: 0,
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+};
+
+const floating3D = {
+  animate: {
+    rotateX: [0, 8, 0, -8, 0],
+    rotateY: [0, -10, 0, 10, 0],
+    y: [0, -10, 0, 10, 0],
+  },
+  transition: {
+    duration: 10,
+    repeat: Infinity,
+    ease: 'easeInOut',
+  },
+};
 
 export default function ISO27701Page() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-white text-gray-900 dark:bg-background dark:text-foreground">
 
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden">
 
-  {/* VIDEO BACKGROUND */}
-  <video
-    className="absolute top-0 left-0 w-full h-full object-cover"
-    src="/assets/videos/iso27001.mp4"
-    autoPlay
-    loop
-    muted
-    playsInline
-  />
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/assets/videos/iso27001.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
 
-  {/* OVERLAY */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/70"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          >
             ISO 27701 Privacy Consulting
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
-            Achieve compliance with ISO 27701, the international standard for Privacy Information Management Systems (PIMS). Protect personal data and enhance trust with clients and regulators.
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+          >
+            Achieve compliance with ISO 27701, the international standard for Privacy Information Management Systems (PIMS).
+          </motion.p>
 
-          <Link href="/contact">
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition mt-6">
-              Speak with a Privacy Expert
-            </button>
-          </Link>
+          <motion.div whileHover={{ scale: 1.06 }}>
+            <Link href="/contact">
+              <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
+                Speak with a Privacy Expert
+              </button>
+            </Link>
+          </motion.div>
+
         </div>
       </section>
 
-      {/* ================= ISO 27701 OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+      {/* ================= OVERVIEW ================= */}
+      <motion.section
+        className="py-24 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+      >
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-16">
+          <motion.div variants={reveal} className="text-center mb-16">
             <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
               What is ISO 27701?
             </h1>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              ISO 27701 is an extension to ISO 27001, focusing on privacy management. It helps organizations manage personal data responsibly, meet regulatory requirements like GDPR, and build trust with customers.
+              ISO 27701 is an extension to ISO 27001 that focuses on privacy management and responsible handling of personal data.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <div className="ml-10">
-              <h2 className="text-2xl font-semibold text-primary mb-6">
+            <motion.div variants={reveal} className="ml-10">
+              <h2 className="text-2xl font-semibold mb-6">
                 Why ISO 27701 Matters
               </h2>
 
-              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
-                <li>• Protect personal and sensitive data across processes</li>
-                <li>• Ensure compliance with privacy regulations (GDPR, UAE PDPL, etc.)</li>
-                <li>• Improve customer trust and business reputation</li>
-                <li>• Integrate privacy management with existing ISO 27001 controls</li>
-                <li>• Minimize privacy risks and regulatory penalties</li>
+              <ul className="space-y-4 text-gray-800 dark:text-muted-foreground">
+                <li>• Protect sensitive personal data</li>
+                <li>• Comply with GDPR & UAE PDPL</li>
+                <li>• Improve customer trust</li>
+                <li>• Integrate with ISO 27001</li>
+                <li>• Reduce privacy risks</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center md:justify-end mr-20">
-              <img
+            {/* 3D Floating Image */}
+            <motion.div
+              variants={reveal}
+              className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
+            >
+              <motion.img
                 src="/assets/services/iso-27001.webp"
                 alt="ISO 27701 Consulting"
-                className="w-full max-w-md rounded-xl shadow-lg"
+                className="w-full max-w-md rounded-xl shadow-xl"
+                animate={floating3D.animate}
+                transition={floating3D.transition}
+                style={{ transformStyle: 'preserve-3d' }}
               />
-            </div>
+            </motion.div>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ================= ISO 27701 SERVICES GRID ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      {/* ================= SERVICES ================= */}
+      <motion.section
+        className="py-20 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-4xl font-semibold text-primary mb-14">
+          <motion.h2 variants={reveal} className="text-4xl font-semibold mb-14">
             Our ISO 27701 Consulting Services
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
 
             {[
-              {
-                title: 'Privacy Gap Analysis',
-                desc: 'Evaluate your current privacy management processes against ISO 27701 requirements.'
-              },
-              {
-                title: 'PIMS Risk Assessment',
-                desc: 'Identify personal data risks and implement appropriate mitigation measures.'
-              },
-              {
-                title: 'Policy & Procedure Development',
-                desc: 'Create privacy policies and procedures aligned with ISO 27701 and relevant laws.'
-              },
-              {
-                title: 'Staff Awareness Training',
-                desc: 'Educate employees on privacy best practices and responsibilities for data protection.'
-              },
-              {
-                title: 'Internal Audits',
-                desc: 'Perform privacy internal audits to prepare for certification and ensure continuous compliance.'
-              },
-              {
-                title: 'Certification Support',
-                desc: 'Assist throughout ISO 27701 certification audits and maintain ongoing compliance.'
-              }
-            ].map((item, i) => (
-              <div
+              ['Privacy Gap Analysis', 'Evaluate privacy processes vs ISO 27701.'],
+              ['PIMS Risk Assessment', 'Identify personal data risks.'],
+              ['Policy & Procedure Development', 'Create privacy policies aligned with regulations.'],
+              ['Staff Awareness Training', 'Educate employees on privacy best practices.'],
+              ['Internal Audits', 'Prepare for certification readiness.'],
+              ['Certification Support', 'End-to-end audit guidance.'],
+            ].map(([title, desc], i) => (
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                variants={reveal}
+                whileHover={{
+                  rotateX: 8,
+                  rotateY: -8,
+                  scale: 1.05,
+                  boxShadow: '0 30px 60px rgba(0,0,0,0.18)',
+                }}
+                transition={{ type: 'spring', stiffness: 120, damping: 14 }}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-md cursor-pointer"
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
-                  {item.title}
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                  {title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
-                  {item.desc}
+                  {desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= HOW IT WORKS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        className="py-24 px-20"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto">
 
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
+          <motion.h2 variants={reveal} className="text-center text-2xl md:text-3xl font-bold mb-16">
             How Our ISO 27701 Engagement Works
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
 
-            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li>• Define scope, objectives, and PIMS requirements</li>
-              <li>• Perform privacy GAP analysis and risk assessment</li>
-              <li>• Implement privacy controls and procedures</li>
-              <li>• Conduct internal audits and staff training</li>
-              <li>• Support throughout certification audits</li>
-            </ul>
+            <motion.ul variants={reveal} className="space-y-6 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
+              <li>• Define PIMS scope</li>
+              <li>• Conduct gap analysis</li>
+              <li>• Implement privacy controls</li>
+              <li>• Perform audits & training</li>
+              <li>• Support certification</li>
+            </motion.ul>
 
-            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+            <motion.ul variants={reveal} className="space-y-6 ml-20 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
               <li className="font-semibold">• Continuous Privacy Improvement</li>
-              <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
-                <li>○ Maintain compliance with privacy regulations</li>
-                <li>○ Monitor and improve PIMS controls</li>
-                <li>○ Post-certification audits & reporting</li>
-                <li>○ Staff awareness & privacy culture</li>
-              </ul>
-              <li className="font-semibold ml-5">• Trust & Regulatory Assurance</li>
-            </ul>
+              <li>○ Compliance monitoring</li>
+              <li>○ Control optimization</li>
+              <li>○ Post-cert audits</li>
+              <li>○ Privacy culture development</li>
+            </motion.ul>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+      <motion.section
+        className="py-24 px-6 text-center"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <motion.h2 variants={reveal} className="text-3xl md:text-4xl font-bold mb-4">
           Achieve ISO 27701 Certification Confidently
-        </h2>
+        </motion.h2>
 
-        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Protect personal data, meet privacy regulations, and build trust with clients. Let our experts guide you to full ISO 27701 compliance.
-        </p>
+        <motion.p variants={reveal} className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+          Protect personal data, meet privacy regulations, and build client trust with expert guidance.
+        </motion.p>
 
-        <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
-            Speak With a Privacy Expert
-          </button>
-        </Link>
-      </section>
+        <motion.div variants={reveal} whileHover={{ scale: 1.08 }}>
+          <Link href="/contact">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-xl">
+              Speak With a Privacy Expert
+            </button>
+          </Link>
+        </motion.div>
+      </motion.section>
 
     </main>
   );

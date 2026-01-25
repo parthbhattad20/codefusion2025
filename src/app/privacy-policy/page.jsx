@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const sections = [
 	{
@@ -45,29 +46,76 @@ const sections = [
 	},
 ];
 
-const PrivacyPolicyPage = () => {
-	return (
-		<div className='mt-20 max-w-3xl mx-auto py-12 px-4 md:px-8 font-paragraph text-foreground'>
-			<h1 className='text-4xl md:text-5xl font-bold mb-2 text-center bg-gradient-to-r from-blue-700 via-purple-700 to-pink-600 text-transparent bg-clip-text'>
-				Privacy Policy for Vulnuris Security Solutions LLP
-			</h1>
-			<p className='text-center text-base mb-8 text-muted-foreground'>
-				Last Updated: July 28, 2025
-			</p>
-			<div className='space-y-8'>
-				{sections.map((section, idx) => (
-					<section key={idx}>
-						<h2 className='text-2xl font-semibold mb-2 text-blue-700 dark:text-purple-400'>
-							{section.title}
-						</h2>
-						<p className='whitespace-pre-line text-base leading-relaxed text-foreground dark:text-white/80'>
-							{section.content}
-						</p>
-					</section>
-				))}
-			</div>
-		</div>
-	);
+
+const container = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12 },
+  },
 };
 
-export default PrivacyPolicyPage;
+const sectionAnim = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
+
+const titleAnim = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+export default function PrivacyPolicyPage() {
+  return (
+    <main className="min-h-screen bg-background text-foreground">
+
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={container}
+        className="mt-20 max-w-3xl mx-auto py-12 px-4 md:px-8 font-paragraph"
+      >
+        {/* Title */}
+        <motion.h1
+          variants={titleAnim}
+          className="text-4xl md:text-5xl font-bold mb-2 text-center
+          bg-gradient-to-r from-blue-700 via-purple-700 to-pink-600
+          text-transparent bg-clip-text"
+        >
+          Privacy Policy for Vulnuris Security Solutions LLP
+        </motion.h1>
+
+        <motion.p
+          variants={titleAnim}
+          className="text-center text-base mb-12 text-muted-foreground"
+        >
+          Last Updated: July 28, 2025
+        </motion.p>
+
+        {/* Sections */}
+        <div className="space-y-10">
+          {sections.map((section, idx) => (
+            <motion.section
+              key={idx}
+              variants={sectionAnim}
+              whileHover={{ scale: 1.01 }}
+              className="p-6 rounded-xl border border-border bg-card
+                         shadow-sm hover:shadow-md transition"
+            >
+              <h2 className="text-2xl font-semibold mb-3 text-blue-700 dark:text-purple-400">
+                {section.title}
+              </h2>
+
+              <p className="whitespace-pre-line text-base leading-relaxed text-foreground/90 dark:text-white/80">
+                {section.content}
+              </p>
+            </motion.section>
+          ))}
+        </div>
+      </motion.div>
+    </main>
+  );
+}

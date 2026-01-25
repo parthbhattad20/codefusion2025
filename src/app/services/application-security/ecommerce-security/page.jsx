@@ -2,39 +2,66 @@
 
 import Link from 'next/link';
 import { ShieldAlert, Lock, Bug, LineChart, Users, AlertTriangle } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
+
+const stagger = {
+  show: { transition: { staggerChildren: 0.12 } },
+};
 
 export default function EcommerceSecurityPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground">
 
       {/* ================= HERO ================= */}
-      <section
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
         className="relative h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/services/wapt.webp')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/30 to-black/45"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
+          <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
             E-commerce Security Services
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+          >
             Secure your webshop from cyber risks in the UAE.
             Protect customer data, payment systems, and business reputation
             with enterprise-grade e-commerce security solutions.
-          </p>
+          </motion.p>
 
           <Link href="/contact">
-            <button className="px-8 py-3 mt-6 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 mt-6 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
               Protect Your Ecommerce Now
-            </button>
+            </motion.button>
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={fadeUp}
+        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">
@@ -52,7 +79,7 @@ export default function EcommerceSecurityPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <div className="ml-10">
+            <motion.div variants={fadeUp} className="ml-10">
               <h2 className="text-2xl font-semibold text-primary mb-6">
                 What We Protect
               </h2>
@@ -64,59 +91,54 @@ export default function EcommerceSecurityPage() {
                 <li>• Transaction integrity and privacy</li>
                 <li>• Backend systems and integrations</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center md:justify-end mr-20">
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ scale: 1.03 }}
+              className="flex justify-center md:justify-end mr-20"
+            >
               <img
                 src="/assets/services/wapt.webp"
                 alt="Ecommerce Security"
                 className="w-full max-w-md rounded-xl shadow-lg"
               />
-            </div>
+            </motion.div>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= WHY SECURITY MATTERS ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={stagger}
+        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-4xl font-semibold text-primary mb-14">
+          <motion.h2 variants={fadeUp} className="text-4xl font-semibold text-primary mb-14">
             Why Secure Your E-commerce in the UAE?
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
 
-            {[ 
-              {
-                title: 'Rising Cyber Threats',
-                desc: 'Over 33 billion user accounts are expected to be breached, and the number is rising rapidly.',
-              },
-              {
-                title: 'Growing Online Shoppers',
-                desc: 'The UAE e-commerce market is expanding fast, making it a prime target for attackers.',
-              },
-              {
-                title: 'Protect Customer Trust',
-                desc: 'Security breaches damage trust, brand reputation, and customer loyalty.',
-              },
-              {
-                title: 'Prevent Financial Loss',
-                desc: 'Stop fraud, data theft, and downtime that impact revenue.',
-              },
-              {
-                title: 'Regulatory & Compliance Needs',
-                desc: 'Meet security and data protection requirements in the UAE.',
-              },
-              {
-                title: 'Business Continuity',
-                desc: 'Ensure uninterrupted and secure online operations.',
-              },
+            {[
+              { title: 'Rising Cyber Threats', desc: 'Over 33 billion user accounts are expected to be breached, and the number is rising rapidly.' },
+              { title: 'Growing Online Shoppers', desc: 'The UAE e-commerce market is expanding fast, making it a prime target for attackers.' },
+              { title: 'Protect Customer Trust', desc: 'Security breaches damage trust, brand reputation, and customer loyalty.' },
+              { title: 'Prevent Financial Loss', desc: 'Stop fraud, data theft, and downtime that impact revenue.' },
+              { title: 'Regulatory & Compliance Needs', desc: 'Meet security and data protection requirements in the UAE.' },
+              { title: 'Business Continuity', desc: 'Ensure uninterrupted and secure online operations.' },
             ].map((item, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                variants={fadeUp}
+                whileHover={{ y: -10, scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
                 <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
                   {item.title}
@@ -124,14 +146,21 @@ export default function EcommerceSecurityPage() {
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= SECURITY PROCESS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={fadeUp}
+        className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
@@ -140,15 +169,15 @@ export default function EcommerceSecurityPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
 
-            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+            <motion.ul variants={fadeUp} className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
               <li>• Scan your e-commerce web or mobile application</li>
               <li>• Identify vulnerabilities and security gaps</li>
               <li>• Conduct comprehensive penetration testing</li>
               <li>• Analyze attack impact and exploitability</li>
               <li>• Validate real-world threat scenarios</li>
-            </ul>
+            </motion.ul>
 
-            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+            <motion.ul variants={fadeUp} className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
               <li className="font-semibold">• Report</li>
               <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
                 <li>○ Clear and actionable vulnerability reports</li>
@@ -157,21 +186,27 @@ export default function EcommerceSecurityPage() {
                 <li>○ Timely security insights</li>
               </ul>
               <li className="font-semibold ml-5">• Continuous Protection</li>
-            </ul>
+            </motion.ul>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= TESTIMONIALS ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-120px' }}
+        variants={stagger}
+        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+      >
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16">
+          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-primary mb-16">
             Trusted by UAE Businesses
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
 
             {[
               {
@@ -195,21 +230,32 @@ export default function EcommerceSecurityPage() {
                 company: 'HRMS Company, UAE',
               },
             ].map((item, i) => (
-              <div key={i} className="bg-white dark:bg-muted p-6 rounded-xl shadow-md">
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                whileHover={{ y: -6 }}
+                className="bg-white dark:bg-muted p-6 rounded-xl shadow-md hover:shadow-xl transition-all"
+              >
                 <p className="text-gray-700 dark:text-muted-foreground mb-4">
                   “{item.quote}”
                 </p>
                 <p className="font-semibold text-sm">{item.role}</p>
                 <p className="text-sm text-gray-500">{item.company}</p>
-              </div>
+              </motion.div>
             ))}
 
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+      >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Your Online Store Before Attackers Do
         </h2>
@@ -220,11 +266,15 @@ export default function EcommerceSecurityPage() {
         </p>
 
         <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-xl transition-all duration-300"
+          >
             Speak with a Security Expert
-          </button>
+          </motion.button>
         </Link>
-      </section>
+      </motion.section>
 
     </main>
   );

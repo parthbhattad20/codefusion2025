@@ -1,179 +1,288 @@
 'use client';
 
 import Link from 'next/link';
-import { ShieldAlert, Crosshair, Bug, Users, AlertTriangle, Lock, LineChart } from 'lucide-react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const sectionReveal = {
+  hidden: { opacity: 0, y: 40, filter: 'blur(6px)' },
+  show: { opacity: 1, y: 0, filter: 'blur(0)', transition: { duration: 0.8 } },
+};
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const cardReveal = {
+  hidden: { opacity: 0, y: 25 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 
 export default function ManagedSecurityPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900">
+    <main className="w-full bg-background text-foreground overflow-x-hidden">
 
       {/* ================= HERO ================= */}
-      <section
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/managed-security.webp')" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/25 to-black/40"></div>
+      <section className="relative h-screen overflow-hidden bg-[#05080f]">
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
-            Managed Security Services
-          </h1>
+        {/* animated grid */}
+        <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#22d3ee22_1px,transparent_1px),linear-gradient(to_bottom,#22d3ee22_1px,transparent_1px)] bg-[size:90px_90px]" />
 
-          <p className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
-            From security operations to on-site management, Wattlecorp provides comprehensive managed security services in the UAE to protect your business and digital assets.
-          </p>
+        {/* background image */}
+        <Image
+          src="/assets/services/managed-security.webp"
+          alt="Managed Security"
+          fill
+          priority
+          className="object-cover opacity-25"
+        />
 
-          <Link href="/contact">
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-              Start Your Security Journey
-            </button>
-          </Link>
+        {/* glow blobs */}
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />
+
+        <div className="relative z-10 h-full flex items-center justify-center px-6">
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+            className="max-w-4xl text-center"
+          >
+            <motion.div
+              variants={sectionReveal}
+              className="inline-block mb-6 px-4 py-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 text-sm tracking-widest"
+            >
+              MANAGED CYBER DEFENSE
+            </motion.div>
+
+            <motion.h1
+              variants={sectionReveal}
+              className="text-4xl md:text-6xl font-extrabold text-white leading-tight"
+            >
+              Managed Security Services
+            </motion.h1>
+
+            <motion.p
+              variants={sectionReveal}
+              className="mt-6 text-lg md:text-xl text-gray-300"
+            >
+              From security operations to on-site management, we provide continuous,
+              enterprise-grade protection for your digital assets across the UAE.
+            </motion.p>
+
+            <motion.div
+              variants={sectionReveal}
+              className="mt-10 flex justify-center gap-4"
+            >
+              <Link
+                href="/contact"
+                className="rounded-full bg-cyan-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
+              >
+                Start Your Security Journey
+              </Link>
+
+              <Link
+                href="/services"
+                className="rounded-full border border-white/40 px-8 py-3 text-white font-medium hover:bg-white/10 transition"
+              >
+                View Services
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* ================= OVERVIEW ================= */}
-      <section className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        className="py-24 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto">
 
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+          <motion.div variants={sectionReveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">
               Securing Your Business End-to-End
-            </h1>
+            </h2>
 
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Modern technology has exponentially increased the attack surface. Wattlecorp’s Managed Security Services (MSS) help UAE businesses detect vulnerabilities, prevent cyberattacks, and maintain compliance, letting you focus on operations while we handle your security.
+            <p className="mt-6 max-w-4xl mx-auto text-lg text-muted-foreground leading-relaxed">
+              Modern technology has exponentially increased the attack surface.
+              Our Managed Security Services detect vulnerabilities, prevent cyberattacks,
+              and ensure regulatory compliance — allowing you to focus on operations
+              while we handle your security.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <div className="ml-10">
-              <h2 className="text-2xl font-semibold text-primary mb-6">
+            <motion.div variants={sectionReveal} className="ml-10">
+              <h3 className="text-2xl font-semibold text-primary mb-6">
                 Why Choose Managed Security Services
-              </h2>
+              </h3>
 
-              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
-                <li>• End-to-end security coverage from SOC to on-site management</li>
-                <li>• Continuous monitoring and proactive threat detection</li>
-                <li>• Incident response and vulnerability mitigation</li>
-                <li>• Compliance with UAE regulations and international standards</li>
-                <li>• Tailored solutions for your business needs and industry</li>
+              <ul className="space-y-4 text-muted-foreground">
+                <li>• End-to-end SOC & on-site coverage</li>
+                <li>• Continuous threat monitoring</li>
+                <li>• Incident response & mitigation</li>
+                <li>• Regulatory compliance support</li>
+                <li>• Industry-specific protection models</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center md:justify-end mr-20">
+            <motion.div
+              variants={sectionReveal}
+              className="flex justify-center md:justify-end mr-20"
+            >
               <img
                 src="/assets/services/managed-security-t.jpg"
-                alt="Managed Security Services"
+                alt="Managed Security"
                 className="w-full max-w-md rounded-xl shadow-lg"
               />
-            </div>
+            </motion.div>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= SERVICES GRID ================= */}
-      <section className="py-15 px-6 bg-gray-50 dark:bg-background transition-colors">
+      <motion.section
+        className="py-24 px-6 bg-muted/30"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto text-center">
 
-          <h2 className="text-4xl font-semibold text-primary mb-14">
+          <motion.h2
+            variants={sectionReveal}
+            className="text-3xl md:text-4xl font-semibold text-primary mb-14"
+          >
             Our Managed Security Capabilities
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
             {[
-              {
-                title: 'Security Operations & Monitoring',
-                desc: '24/7 monitoring of network, digital assets, and traffic logs for rapid detection and response.',
-              },
-              {
-                title: 'Cyber Vulnerability Management',
-                desc: 'Identify, assess, and mitigate vulnerabilities across systems and applications.',
-              },
-              {
-                title: 'Managed Detection & Response (MDR)',
-                desc: 'Advanced threat mitigation to support your in-house security team.',
-              },
-              {
-                title: 'Cyber Threat Intelligence',
-                desc: 'Data-driven insights to proactively detect and prevent adversary attacks.',
-              },
-              {
-                title: 'Compliance & Risk Consulting',
-                desc: 'Ensure adherence to UAE cybersecurity regulations while strengthening security posture.',
-              },
-              {
-                title: 'End-to-End Managed Services',
-                desc: 'Tailored security solutions covering operations, on-site support, and continuous improvement.',
-              },
+              { title: 'Security Operations & Monitoring', desc: '24/7 monitoring of networks, assets and logs.' },
+              { title: 'Cyber Vulnerability Management', desc: 'Continuous identification and remediation of weaknesses.' },
+              { title: 'Managed Detection & Response (MDR)', desc: 'Advanced threat containment & response workflows.' },
+              { title: 'Cyber Threat Intelligence', desc: 'Data-driven adversary tracking & forecasting.' },
+              { title: 'Compliance & Risk Consulting', desc: 'Regulatory alignment & security posture optimization.' },
+              { title: 'End-to-End Managed Services', desc: 'SOC, tooling, processes & on-site support combined.' },
             ].map((item, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
+                variants={cardReveal}
+                whileHover={{
+                  y: -10,
+                  boxShadow: '0 30px 60px rgba(0,0,0,0.18)',
+                }}
+                className="relative group bg-background border border-border rounded-2xl p-6 transition-all overflow-hidden"
               >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
+                {/* shimmer border */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.12),transparent)]" />
+
+                {/* subtle glow line */}
+                <div className="absolute left-0 top-0 h-full w-[2px] bg-cyan-500/40 scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-500" />
+
+                <h3 className="font-semibold text-lg mb-3 text-primary">
                   {item.title}
                 </h3>
-                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ================= DETAILS ================= */}
-      <section className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors">
+      {/* ================= PROCESS ================= */}
+      <motion.section
+        className="py-24 px-20"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
         <div className="max-w-7xl mx-auto">
 
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
+          <motion.h2
+            variants={sectionReveal}
+            className="text-center text-2xl md:text-3xl font-bold text-primary mb-16"
+          >
             How Our Managed Security Services Work
-          </h2>
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li>• Discovery & Service Planning: Analyze IT environment, incidents, and business goals.</li>
-              <li>• SLA Creation: Define obligations, commitments, and responsibilities between MSP and client.</li>
-              <li>• Knowledge Transition: Document IT assets, configurations, policies, and processes.</li>
-              <li>• Service Delivery: Provide managed services with detailed reporting and visibility.</li>
-            </ul>
+            <motion.ul
+              variants={sectionReveal}
+              className="space-y-6 text-muted-foreground text-lg"
+            >
+              <li>• Discovery & service planning</li>
+              <li>• SLA definition</li>
+              <li>• Knowledge transition</li>
+              <li>• Continuous service delivery & reporting</li>
+            </motion.ul>
 
-            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li className="font-semibold">• Comprehensive Security Coverage</li>
-              <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
-                <li>○ Security Infrastructure & Event Management (SIEM)</li>
-                <li>○ Cyber Vulnerability Management</li>
-                <li>○ Managed Detection & Response (MDR)</li>
-                <li>○ Cyber Threat Intelligence</li>
-                <li>○ Compliance & Risk Reporting</li>
+            <motion.ul
+              variants={sectionReveal}
+              className="space-y-6 ml-20 text-muted-foreground text-lg"
+            >
+              <li className="font-semibold text-primary">• Comprehensive Coverage</li>
+              <ul className="ml-8 space-y-3">
+                <li>○ SIEM & SOC</li>
+                <li>○ Vulnerability management</li>
+                <li>○ MDR</li>
+                <li>○ Threat intelligence</li>
+                <li>○ Compliance reporting</li>
               </ul>
-              <li className="font-semibold ml-5">• Tailored & Professional Services</li>
-            </ul>
+              <li className="font-semibold text-primary mt-4">
+                • Tailored Professional Services
+              </li>
+            </motion.ul>
 
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+      <motion.section
+        className="py-28 px-6 text-center border-t border-border"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <motion.h2
+          variants={sectionReveal}
+          className="text-3xl md:text-4xl font-bold text-primary mb-4"
+        >
           Protect Your Business with Expert Managed Security
-        </h2>
+        </motion.h2>
 
-        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Hand over your security to Wattlecorp and focus on your core business while we proactively monitor, detect, and mitigate threats for your UAE operations.
-        </p>
+        <motion.p
+          variants={sectionReveal}
+          className="mb-8 max-w-2xl mx-auto text-lg text-muted-foreground"
+        >
+          Focus on your core operations while we continuously protect,
+          monitor, and defend your infrastructure.
+        </motion.p>
 
-        <Link href="/contact">
-          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition-all duration-300">
+        <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
+          <Link
+            href="/contact"
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-primary text-primary-foreground shadow-md"
+          >
             Start Your Security Journey
-          </button>
-        </Link>
-      </section>
+          </Link>
+        </motion.div>
+      </motion.section>
 
     </main>
   );
