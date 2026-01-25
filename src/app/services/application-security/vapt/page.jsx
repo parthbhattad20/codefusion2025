@@ -25,9 +25,18 @@ export default function VAPTPage() {
       <motion.section
         variants={fadeUp}
         className="relative h-screen bg-contain bg-center bg-no-repeat mt-20 bg-black"
-        style={{ backgroundImage: "url('/assets/services/vapt.jpg')" }}
+        // style={{ backgroundImage: "url('/assets/services/vapt.jpg')" }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+         <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/assets/videos/main.mp4" 
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+       
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/70"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <motion.h1

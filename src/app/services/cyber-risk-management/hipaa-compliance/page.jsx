@@ -38,7 +38,7 @@ export default function HIPAACompliancePage() {
       <section className="relative h-screen overflow-hidden">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/assets/videos/iso27001.mp4"
+          src="/assets/videos/main.mp4"
           autoPlay
           loop
           muted
@@ -119,7 +119,7 @@ export default function HIPAACompliancePage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/hipaa-overview.jpg"
+                src="/assets/services/hippa.jpg"
                 alt="HIPAA Compliance"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

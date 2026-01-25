@@ -36,10 +36,15 @@ export default function RedTeamingPage() {
         />
 
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url('/assets/services/red.webp')" }}
-        />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         {/* Scan beam */}
         <motion.div

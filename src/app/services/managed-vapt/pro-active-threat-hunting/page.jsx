@@ -38,10 +38,15 @@ export default function ProactiveThreatHuntingPage() {
         <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#6366f122_1px,transparent_1px),linear-gradient(to_bottom,#6366f122_1px,transparent_1px)] bg-[size:90px_90px]" />
 
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-35"
-          style={{ backgroundImage: "url('/assets/services/threat-hunting.webp')" }}
-        />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         {/* Scan beam */}
         <motion.div

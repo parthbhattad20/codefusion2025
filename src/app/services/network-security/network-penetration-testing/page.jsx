@@ -38,10 +38,15 @@ export default function NetworkSecurityPage() {
         <div className="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#3b82f622_1px,transparent_1px),linear-gradient(to_bottom,#3b82f622_1px,transparent_1px)] bg-[size:80px_80px]" />
 
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url('/assets/services/n-security.jpg')" }}
-        />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         {/* Data scan beam */}
         <motion.div

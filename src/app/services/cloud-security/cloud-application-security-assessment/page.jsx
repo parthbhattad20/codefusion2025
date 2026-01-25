@@ -29,9 +29,17 @@ export default function CloudApplicationSecurityAssessmentPage() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/cloud-app-security.webp')" }}
+        className="relative h-screen overflow-hidden"
       >
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/55 to-black/80"></div>
 
         <motion.div
@@ -116,7 +124,7 @@ export default function CloudApplicationSecurityAssessmentPage() {
             transition={{ duration: 6, repeat: Infinity }}
           >
             <img
-              src="/assets/services/cloud-app-security.jpg"
+              src="/assets/services/application.png"
               alt="CASA"
               className="rounded-xl shadow-xl max-w-md mx-auto"
             />

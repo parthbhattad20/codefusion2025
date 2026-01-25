@@ -40,7 +40,7 @@ export default function CyberSecurityConsultingPage() {
 
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/assets/videos/iso27001.mp4"
+          src="/assets/videos/main.mp4"
           autoPlay
           loop
           muted

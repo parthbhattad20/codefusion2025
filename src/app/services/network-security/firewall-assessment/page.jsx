@@ -38,10 +38,15 @@ export default function FirewallAuditPage() {
         <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#ff450022_1px,transparent_1px),linear-gradient(to_bottom,#ff450022_1px,transparent_1px)] bg-[size:90px_90px]" />
 
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-35"
-          style={{ backgroundImage: "url('/assets/services/firewall.webp')" }}
-        />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         {/* Breach scan beam */}
         <motion.div
@@ -136,7 +141,7 @@ export default function FirewallAuditPage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/firewall-t.jpg"
+                src="/assets/services/cyber_f.jpg"
                 alt="Firewall Security Audit"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

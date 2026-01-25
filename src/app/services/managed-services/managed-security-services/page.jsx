@@ -30,12 +30,13 @@ export default function ManagedSecurityPage() {
         <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#22d3ee22_1px,transparent_1px),linear-gradient(to_bottom,#22d3ee22_1px,transparent_1px)] bg-[size:90px_90px]" />
 
         {/* background image */}
-        <Image
-          src="/assets/services/managed-security.webp"
-          alt="Managed Security"
-          fill
-          priority
-          className="object-cover opacity-25"
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/assets/videos/main.mp4" 
+          autoPlay
+          loop
+          muted
+          playsInline
         />
 
         {/* glow blobs */}
@@ -137,7 +138,7 @@ export default function ManagedSecurityPage() {
               className="flex justify-center md:justify-end mr-20"
             >
               <img
-                src="/assets/services/managed-security-t.jpg"
+                src="/assets/services/vapt.jpg"
                 alt="Managed Security"
                 className="w-full max-w-md rounded-xl shadow-lg"
               />

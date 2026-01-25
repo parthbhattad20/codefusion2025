@@ -50,9 +50,18 @@ export default function DataPrivacyPage() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/data-privacy.webp')" }}
+        className="relative h-screen overflow-hidden"
+        
       >
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/70"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
@@ -131,7 +140,7 @@ export default function DataPrivacyPage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/data-privacy-t.jpg"
+                src="/assets/services/cyber.jpg"
                 alt="Data Privacy Consulting"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

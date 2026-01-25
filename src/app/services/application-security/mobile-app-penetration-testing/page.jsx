@@ -22,10 +22,21 @@ export default function MobileAppSecurityTestingPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/wapt.webp')" }}
+        className="relative h-screen overflow-hidden"
+       
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+
+<video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">

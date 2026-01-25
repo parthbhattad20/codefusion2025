@@ -38,14 +38,16 @@ export default function IoTSecurityPage() {
         <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#38bdf822_1px,transparent_1px),linear-gradient(to_bottom,#38bdf822_1px,transparent_1px)] bg-[size:90px_90px]" />
 
         {/* background image */}
-        <Image
-          src="/assets/services/IoT.jpg"
-          alt="IoT Security"
-          fill
-          priority
-          className="object-cover opacity-30"
-        />
-
+       
+<video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
         {/* glow layer */}
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-600/10" />
 

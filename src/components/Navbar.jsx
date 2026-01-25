@@ -11,18 +11,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingNavbar = () => {
   const pathname = usePathname();
-  const { theme, resolvedTheme } = useTheme();
-  
-  // Use resolvedTheme to handle system theme properly
-  const currentTheme = resolvedTheme || theme;
+  const { theme } = useTheme();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openProduct, setOpenProduct] = useState(false);
   const [openService, setOpenService] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
@@ -33,8 +27,6 @@ const FloatingNavbar = () => {
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
-
-  const currentTheme = mounted ? (resolvedTheme || theme) : "light";
 
   const productItems = [
     { name: "Vaultix", href: "/products/vaultix" },
@@ -53,6 +45,7 @@ const FloatingNavbar = () => {
       "Ecommerce Security",
       "SaaS Security",
     ],
+
     "Cyber Risk Management": [
       "ISO 27001 Consulting",
       "ISO 27701 Consulting",
@@ -163,14 +156,6 @@ const FloatingNavbar = () => {
             </motion.div>
           </AnimatePresence>
         </motion.button>
-        {/* MOBILE MENU BUTTON */}
-        <motion.button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden z-50 p-2 rounded-lg hover:bg-primary/10"
-          whileTap={{ scale: 0.9 }}
-        >
-          {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
-        </motion.button>
 
         {/* BACKDROP */}
         <AnimatePresence>
@@ -232,24 +217,6 @@ const FloatingNavbar = () => {
                   </motion.span>
                   <Underline active={pathname.startsWith("/products")} />
                 </motion.button>
-            {/* Products Dropdown */}
-            <li className="relative w-full lg:w-auto text-left lg:text-left">
-              <div className="hidden lg:block group relative">
-                <motion.button
-                  className="text-sm font-medium relative flex items-center gap-1 py-2"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  Products
-                  <motion.span
-                    animate={{ rotate: 0 }}
-                    whileHover={{ rotate: 180 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown size={16} className="opacity-60" />
-                  </motion.span>
-                  <Underline active={pathname.startsWith("/products")} />
-                </motion.button>
 
                 <div className="absolute left-1/2 top-full hidden group-hover:block -translate-x-1/2 pt-4 z-50">
                   <motion.div
@@ -293,7 +260,7 @@ const FloatingNavbar = () => {
                         </Link>
                       </motion.div>
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
@@ -303,20 +270,6 @@ const FloatingNavbar = () => {
                   onClick={() => setOpenProduct(!openProduct)}
                   className="text-lg font-medium w-full text-left flex items-center justify-between py-2"
                   whileTap={{ scale: 0.98 }}
-                >
-                  Products
-                  <motion.span
-                    animate={{ rotate: openProduct ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown size={20} />
-                  </motion.span>
-                </motion.button>
-              {/* Mobile Products */}
-              <div className="lg:hidden w-full">
-                <motion.button
-                  onClick={() => setOpenProduct(!openProduct)}
-                  className="w-full flex justify-between py-2 font-medium"
                 >
                   Products
                   <motion.span
@@ -430,9 +383,9 @@ const FloatingNavbar = () => {
                 </div>
               </div>
 
-              {/* MOBILE SERVICES */}
-              <div className="lg:hidden">
-                <button
+              {/* Mobile Services */}
+              <div className="lg:hidden w-full">
+                <motion.button
                   onClick={() => setOpenService(!openService)}
                   className="text-base font-medium sm:text-lg w-full text-left flex items-center justify-between py-2"
                   whileTap={{ scale: 0.98 }}
@@ -489,11 +442,6 @@ const FloatingNavbar = () => {
               close={() => setIsMenuOpen(false)}
             />
 
-            <li className="lg:hidden pt-4 border-t w-full">
-              <SelectTheme />
-            </li>
-          </ul>
-        </motion.div>
             <motion.li
               className="lg:hidden w-full flex justify-start pt-4 border-t border-border/40"
               initial={{ opacity: 0 }}
@@ -505,14 +453,12 @@ const FloatingNavbar = () => {
           </ul>
         </motion.div>
 
-        {/* DESKTOP RIGHT */}
         <div className="hidden lg:flex items-center gap-4">
           <div
             className={`h-5 w-px ${isScrolled ? "bg-background/80 shadow-xl" : "bg-background/60"}`}
           />
           <SelectTheme />
         </div>
-
       </div>
     </nav>
   );
@@ -520,10 +466,12 @@ const FloatingNavbar = () => {
 
 export default FloatingNavbar;
 
-/* ---------------- COMPONENTS ---------------- */
-
 const NavItem = ({ label, href, pathname, close }) => (
-  <li>
+  <motion.li
+    className="relative group"
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 400 }}
+  >
     <Link
       href={href}
       onClick={close}
@@ -531,8 +479,9 @@ const NavItem = ({ label, href, pathname, close }) => (
     >
       <motion.span className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
       {label}
+      <Underline active={pathname === href} />
     </Link>
-  </li>
+  </motion.li>
 );
 
 const CategoryDropdown = ({ category, items, slugify, closeMenu }) => {

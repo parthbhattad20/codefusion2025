@@ -38,10 +38,15 @@ export default function ManagedThreatHuntingPage() {
         <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#7c3aed22_1px,transparent_1px),linear-gradient(to_bottom,#7c3aed22_1px,transparent_1px)] bg-[size:90px_90px]" />
 
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-35"
-          style={{ backgroundImage: "url('/assets/services/threat-hunting.webp')" }}
-        />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         {/* Scan beam */}
         <motion.div
@@ -129,7 +134,7 @@ export default function ManagedThreatHuntingPage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/threat-hunting-t.jpg"
+                src="/assets/services/cyber.jpg"
                 alt="Managed Threat Hunting"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

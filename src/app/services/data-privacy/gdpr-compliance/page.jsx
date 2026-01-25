@@ -41,8 +41,16 @@ export default function GDPRCompliancePage() {
 
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/services/gdpr.webp')" }}
         />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/80"
@@ -155,7 +163,7 @@ export default function GDPRCompliancePage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/gdpr-t.jpg"
+                src="/assets/services/gdpr.webp"
                 alt="GDPR Compliance"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

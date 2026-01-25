@@ -42,7 +42,7 @@ export default function PCIDSSPage() {
 
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/assets/videos/iso27001.mp4"
+          src="/assets/videos/main.mp4"
           autoPlay
           loop
           muted
@@ -124,7 +124,7 @@ export default function PCIDSSPage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/pci-overview.jpg"
+                src="/assets/services/cyber.jpg"
                 alt="PCI DSS Compliance"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

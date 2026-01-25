@@ -28,7 +28,7 @@ export default function AramcoCCCPage() {
         {/* VIDEO BACKGROUND */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/assets/videos/iso27001.mp4"
+          src="/assets/videos/main.mp4"
           autoPlay
           loop
           muted
@@ -105,7 +105,7 @@ export default function AramcoCCCPage() {
 
             <motion.div variants={fadeRight} className="flex justify-center">
               <img
-                src="/assets/services/aramco-ccc-audit.jpg"
+                src="/assets/services/cyber_f.jpg"
                 alt="ARAMCO CCC Consulting"
                 className="w-full max-w-md rounded-xl shadow-xl"
               />

@@ -39,10 +39,16 @@ export default function Microsoft365SecurityPage() {
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden">
 
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/services/microsoft-365.webp')" }}
-        />
+      <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover"
+>
+  <source src="/assets/videos/main.mp4" type="video/mp4" />
+</video>
+
 
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/85"
@@ -150,7 +156,7 @@ export default function Microsoft365SecurityPage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/microsoft-365-security.jpg"
+                src="/assets/services/nt.jpg"
                 alt="Microsoft 365 Security"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

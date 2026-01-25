@@ -28,13 +28,15 @@ export default function OTSecurityPage() {
 
         <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#22d3ee22_1px,transparent_1px),linear-gradient(to_bottom,#22d3ee22_1px,transparent_1px)] bg-[size:90px_90px]" />
 
-        <Image
-          src="/assets/services/ot-security.webp"
-          alt="OT Security"
-          fill
-          priority
-          className="object-cover opacity-30"
-        />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-600/10" />
 
@@ -131,7 +133,7 @@ export default function OTSecurityPage() {
               className="flex justify-center md:justify-end mr-20"
             >
               <img
-                src="/assets/services/ot-security-t.jpg"
+                src="/assets/services/n-security.jpg"
                 alt="OT Security Assessment"
                 className="w-full max-w-md rounded-xl shadow-lg"
               />

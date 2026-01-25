@@ -42,10 +42,16 @@ export default function DPDPACompliancePage() {
       <section className="relative h-screen overflow-hidden">
 
        
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/services/dpdpa.webp')" }}
-        />
+       
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         
         <motion.div
@@ -169,7 +175,7 @@ export default function DPDPACompliancePage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/dpdpa-t.jpg"
+                src="/assets/services/dpdpa.avif"
                 alt="DPDPA Compliance"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

@@ -31,12 +31,21 @@ export default function AwsServerHardeningPage() {
         initial="hidden"
         animate="show"
         variants={fadeUp}
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/aws-hardening.webp')" }}
+         className="relative h-screen overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-black/60"></div>
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <motion.h1
             variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
@@ -116,7 +125,7 @@ export default function AwsServerHardeningPage() {
               className="flex justify-center md:justify-end mr-20"
             >
               <img
-                src="/assets/services/aws-hardening.jpg"
+                src="/assets/services/aws.jpg"
                 alt="AWS Server Hardening"
                 className="w-full max-w-md rounded-xl shadow-lg transition"
               />

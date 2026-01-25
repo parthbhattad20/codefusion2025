@@ -24,9 +24,18 @@ export default function AzureServerHardeningPage() {
 
       {/* HERO */}
       <section
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/azure-hardening.webp')" }}
+        className="relative h-screen overflow-hidden"
+       
       >
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/45 to-black/70" />
 
         <motion.div
@@ -105,7 +114,7 @@ export default function AzureServerHardeningPage() {
             transition={{ duration: 6, repeat: Infinity }}
           >
             <img
-              src="/assets/services/azure-hardening.jpg"
+              src="/assets/services/phishing.webp"
               className="rounded-xl shadow-xl max-w-md mx-auto"
               alt="Azure"
             />

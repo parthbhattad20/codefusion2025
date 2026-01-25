@@ -40,8 +40,18 @@ export default function ICS_SCADA_SecurityPage() {
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url('/assets/services/ics-scada.webp')" }}
+          
+          
         />
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
 
         {/* Scan beam */}
         <motion.div
@@ -132,7 +142,7 @@ export default function ICS_SCADA_SecurityPage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/ics-scada-t.jpg"
+                src="/assets/services/wapt.webp"
                 alt="ICS SCADA Security"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

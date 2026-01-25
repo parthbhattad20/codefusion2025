@@ -30,9 +30,18 @@ export default function CloudSecurityPage() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative h-screen bg-cover bg-center bg-no-repeat mt-20"
-        style={{ backgroundImage: "url('/assets/services/cloud.jpg')" }}
+        className="relative h-screen overflow-hidden mt-20"
+       
       >
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/55 to-black/80"></div>
 
         <motion.div

@@ -30,12 +30,21 @@ export default function WebAppPentestPage() {
     >
 
       {/* ================= HERO ================= */}
+     
       <motion.section
-        variants={fadeUp}
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/wapt.webp')" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+  variants={fadeUp}
+  className="relative h-screen overflow-hidden"
+>
+  <video
+    className="absolute top-0 left-0 w-full h-full object-cover"
+    src="/assets/videos/main.mp4" 
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+<div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
           <motion.h1

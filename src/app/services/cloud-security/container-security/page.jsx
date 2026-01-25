@@ -24,9 +24,18 @@ export default function ContainerSecurityPage() {
 
       {/* HERO */}
       <section
-        className="relative h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/assets/services/container-security.webp')" }}
+        className="relative h-screen overflow-hidden"
+       
       >
+        <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
         <div className="absolute inset-0 bg-black/70" />
 
         <motion.div
@@ -88,7 +97,7 @@ export default function ContainerSecurityPage() {
 
           <motion.div variants={fadeRight} className="flex justify-center">
             <img
-              src="/assets/services/container-security.jpg"
+              src="/assets/services/cloud_security.webp"
               className="rounded-xl shadow-xl max-w-md"
               alt="Container security"
             />

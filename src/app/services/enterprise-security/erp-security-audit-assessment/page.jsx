@@ -39,10 +39,16 @@ export default function ERPSecurityAuditPage() {
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden">
 
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/services/erp-security.webp')" }}
-        />
+      <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover"
+>
+  <source src="/assets/videos/main.mp4" type="video/mp4" />
+</video>
+
 
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/85"
@@ -151,7 +157,7 @@ export default function ERPSecurityAuditPage() {
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
             >
               <motion.img
-                src="/assets/services/erp-security.jpg"
+                src="/assets/services/erp.jpg"
                 alt="ERP Security Audit"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}

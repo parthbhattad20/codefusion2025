@@ -38,7 +38,7 @@ export default function DoraCompliancePage() {
       <section className="relative h-screen overflow-hidden">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/assets/videos/iso27001.mp4"
+          src="/assets/videos/main.mp4"
           autoPlay
           loop
           muted

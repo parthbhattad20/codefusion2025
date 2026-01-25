@@ -23,17 +23,28 @@ export default function SaaSSecurityPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="relative h-screen bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/services/wapt.webp')" }}
+        className="relative h-screen overflow-hidden"
+       
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/30 to-black/45"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
+<video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/assets/videos/main.mp4" type="video/mp4" />
+  </video>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
           <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
             Secure Your SaaS Better
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
+          <motion.p variants={fadeUp} className="mt-6 max-w-4xl text-lg md:text-xl text-gray-200">
             Ensure not even a single vulnerability is left in your SaaS application.
             Protect your cloud-based platform, users, and data from evolving cyber threats.
           </motion.p>
@@ -96,7 +107,7 @@ export default function SaaSSecurityPage() {
               className="flex justify-center md:justify-end mr-20"
             >
               <img
-                src="/assets/services/saas-2.webp"
+                src="/assets/services/saas.jpg"
                 alt="SaaS Security"
                 className="w-full max-w-md rounded-xl shadow-lg transition"
               />
