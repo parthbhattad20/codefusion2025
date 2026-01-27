@@ -20,8 +20,8 @@ const cardReveal = {
 
 const floating3D = {
   animate: {
-    rotateX: [0, 6, 0, -6, 0],
-    rotateY: [0, -8, 0, 8, 0],
+    rotateX: ["0deg", "6deg", "0deg", "-6deg", "0deg"],
+    rotateY: ["0deg", "-8deg", "0deg", "8deg", "0deg"],
     y: [0, -10, 0, 10, 0],
   },
   transition: { duration: 14, repeat: Infinity, ease: 'easeInOut' },
@@ -37,16 +37,16 @@ export default function FirewallAuditPage() {
         {/* Firewall grid */}
         <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#ff450022_1px,transparent_1px),linear-gradient(to_bottom,#ff450022_1px,transparent_1px)] bg-[size:90px_90px]" />
 
-        {/* Background image */}
+        {/* Background video */}
         <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         {/* Breach scan beam */}
         <motion.div
@@ -183,8 +183,8 @@ export default function FirewallAuditPage() {
                 variants={cardReveal}
                 whileHover={{
                   y: -6,
-                  rotateX: 6,
-                  rotateY: -6,
+                  rotateX: "6deg",
+                  rotateY: "-6deg",
                   boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
                 }}
                 className="relative group bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm overflow-hidden transition-all duration-300"

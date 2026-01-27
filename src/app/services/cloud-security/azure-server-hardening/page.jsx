@@ -22,20 +22,19 @@ export default function AzureServerHardeningPage() {
   return (
     <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
 
-      {/* HERO */}
-      <section
-        className="relative h-screen overflow-hidden"
-       
-      >
+      {/* ================= HERO ================= */}
+      <section className="relative h-screen overflow-hidden">
+
         <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
+
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/45 to-black/70" />
 
         <motion.div
@@ -57,19 +56,16 @@ export default function AzureServerHardeningPage() {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl"
           >
-            Hardening your Azure cloud server in the UAE with a comprehensive cybersecurity strategy.
+            Hardening your Azure cloud server with enterprise-grade cybersecurity protection.
           </motion.p>
 
           <Link href="/contact">
             <motion.button
-              whileHover={{
-                scale: 1.1,
-                boxShadow: '0 0 30px rgba(56,189,248,0.6)',
-              }}
+              whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(56,189,248,0.6)' }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-700 text-white rounded-lg font-semibold transition"
+              className="mt-8 px-10 py-3 bg-gradient-to-r from-sky-500 to-blue-700 text-white rounded-full font-semibold transition"
             >
               TALK TO OUR CLOUD EXPERT
             </motion.button>
@@ -77,24 +73,26 @@ export default function AzureServerHardeningPage() {
         </motion.div>
       </section>
 
-      {/* OVERVIEW */}
+      {/* ================= OVERVIEW ================= */}
       <motion.section
         variants={zoomFade}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: '-120px' }}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center mb-16">
           <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
             What Is Azure Cloud Server Hardening?
           </h1>
           <p className="mt-6 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-            Azure environments are powerful but vulnerable. Server hardening minimizes attack surfaces.
+            Azure environments are powerful but vulnerable. Server hardening minimizes attack surfaces and prevents misconfigurations.
           </p>
         </div>
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+          {/* Text */}
           <motion.div variants={fadeDiagonalLeft}>
             <h2 className="text-2xl font-semibold text-primary mb-6">
               Benefits of Azure Server Hardening
@@ -108,26 +106,35 @@ export default function AzureServerHardeningPage() {
             </ul>
           </motion.div>
 
+          {/* Image */}
           <motion.div
             variants={fadeDiagonalRight}
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            className="flex justify-center"
           >
-            <img
-              src="/assets/services/phishing.webp"
-              className="rounded-xl shadow-xl max-w-md mx-auto"
-              alt="Azure"
-            />
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur">
+              <img
+                src="/assets/services/azure.jpg"
+                alt="Azure Server Hardening"
+                loading="lazy"
+                className="w-[420px] max-w-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = '/assets/services/fallback.jpg';
+                }}
+              />
+            </div>
           </motion.div>
+
         </div>
       </motion.section>
 
-      {/* SERVICES GRID */}
+      {/* ================= SERVICES GRID ================= */}
       <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="py-16 px-6 bg-gray-50 dark:bg-background"
+        className="py-16 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-semibold text-primary mb-14">
@@ -162,13 +169,13 @@ export default function AzureServerHardeningPage() {
         </div>
       </motion.section>
 
-      {/* CTA */}
+      {/* ================= CTA ================= */}
       <motion.section
         variants={zoomFade}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+        className="py-24 px-6 text-center"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Your Azure Cloud Today
@@ -180,10 +187,7 @@ export default function AzureServerHardeningPage() {
 
         <Link href="/contact">
           <motion.button
-            whileHover={{
-              scale: 1.15,
-              boxShadow: '0 0 35px rgba(139,92,246,0.6)',
-            }}
+            whileHover={{ scale: 1.15, boxShadow: '0 0 35px rgba(139,92,246,0.6)' }}
             whileTap={{ scale: 0.95 }}
             className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md"
           >
@@ -191,6 +195,7 @@ export default function AzureServerHardeningPage() {
           </motion.button>
         </Link>
       </motion.section>
+
     </main>
   );
 }

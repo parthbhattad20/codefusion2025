@@ -15,10 +15,14 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
+/* ===========================
+   Animation Variants (Shared)
+   =========================== */
+
 const container = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
   },
 };
 
@@ -40,7 +44,7 @@ const PhishInstinct = () => {
         initial="hidden"
         animate="show"
       >
-        
+        {/* Back */}
         <motion.div variants={fadeUp} className="mb-10">
           <Link
             href="/products"
@@ -50,7 +54,7 @@ const PhishInstinct = () => {
           </Link>
         </motion.div>
 
-        
+        {/* Hero Section */}
         <motion.section
           variants={fadeUp}
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-24"
@@ -75,18 +79,19 @@ const PhishInstinct = () => {
               <Link href="/contact?subject=PhishInstinct%20Demo">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:scale-105"
                 >
                   Get a Demo
                 </Button>
               </Link>
 
-              <a
-                href="/docs/PhishInstinct-Brochure.pdf"
-                download
-                className="bg-gradient-to-r from-violet-500 to-blue-600 text-white font-semibold shadow-lg rounded-full px-6 py-3 inline-flex items-center"
-              >
-                Download Brochure
+              <a href="/docs/PhishInstinct-Brochure.pdf" download>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:scale-105"
+                >
+                  Download Brochure
+                </Button>
               </a>
             </div>
           </div>
@@ -110,24 +115,24 @@ const PhishInstinct = () => {
                 rotateY: { duration: 14, ease: "easeInOut", repeat: Infinity },
               }}
               whileHover={{ scale: 1.05 }}
-              className="relative w-full h-[350px] lg:h-[400px] bg-card rounded-xl shadow-xl overflow-hidden will-change-transform"
+              className="relative bg-gray-200 rounded-xl overflow-hidden shadow-xl w-full h-[350px] lg:h-[400px] will-change-transform"
             >
               <Image
                 src="/assets/products/phishinstinct.png"
                 alt="PhishInstinct Dashboard"
                 fill
-                className="object-contain"
+                className="object-contain md:object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
             </motion.div>
           </div>
         </motion.section>
 
-        
+        {/* Why Section */}
         <motion.section
           variants={fadeUp}
-          initial="hidden"
           whileInView="show"
+          initial="hidden"
           viewport={{ once: true }}
           className="py-24 bg-muted/40 border-y border-border mb-24"
         >
@@ -188,7 +193,7 @@ const PhishInstinct = () => {
           </div>
         </motion.section>
 
-        
+        {/* Features */}
         <motion.section variants={fadeUp} className="py-16 mb-24">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
             Key Features
@@ -202,72 +207,55 @@ const PhishInstinct = () => {
             className="grid grid-cols-1 sm:grid-cols-2 gap-8"
           >
             {[
-              { icon: MailWarning, title: "Realistic Simulations", desc: "Mirror real-world attacks." },
-              { icon: Brain, title: "Behavior Analytics", desc: "Track risky actions." },
-              { icon: Layers, title: "Custom Templates", desc: "Tailored campaigns." },
-              { icon: Gamepad2, title: "Gamified Learning", desc: "Interactive training." },
+              {
+                icon: MailWarning,
+                title: "Realistic Simulations",
+                desc: "Mirror real-world attacks.",
+              },
+              {
+                icon: Brain,
+                title: "Behavior Analytics",
+                desc: "Track risky actions.",
+              },
+              {
+                icon: Layers,
+                title: "Custom Templates",
+                desc: "Tailored campaigns.",
+              },
+              {
+                icon: Gamepad2,
+                title: "Gamified Learning",
+                desc: "Interactive training.",
+              },
             ].map((f, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
                 whileHover={{ y: -8, scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-xl"
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                className="bg-card p-6 rounded-2xl border border-border shadow-sm hover:shadow-xl"
               >
-                <f.icon className="text-primary mb-4" />
-                <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
-                <p className="text-muted-foreground text-sm">{f.desc}</p>
+                <f.icon className="w-6 h-6 text-muted-foreground mb-4" />
+                <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
+                <p className="text-muted-foreground">{f.desc}</p>
               </motion.div>
             ))}
           </motion.div>
         </motion.section>
 
-        
-        <motion.section variants={fadeUp} className="py-20 mb-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
-            Comprehensive Coverage
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {["Employees", "Email & Attachments", "Compliance & Audits", "Risk Scoring"].map((t, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  whileHover={{ y: -6 }}
-                  className="bg-card p-6 rounded-xl border border-border shadow-sm hover:shadow-lg"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{t}</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Enterprise grade monitoring and insights.
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              variants={fadeUp}
-              className="bg-card/80 p-8 rounded-2xl border border-border shadow-lg"
-            >
-              <h3 className="text-2xl font-bold mb-6">Supported Integrations</h3>
-              <ul className="space-y-2 text-muted-foreground text-sm">
-                <li>Email gateways</li>
-                <li>IAM platforms</li>
-                <li>SIEM / SOAR</li>
-                <li>Compliance systems</li>
-              </ul>
-            </motion.div>
-          </div>
-        </motion.section>
-
-       
+        {/* How It Works */}
         <motion.section
           variants={fadeUp}
-          className="py-24 bg-muted/40 border-y border-border mb-24"
+          className="py-20 bg-muted/40 border-y border-border mb-24"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-6">
             How PhishInstinct Works
           </h2>
+
+          <p className="text-center text-lg text-muted-foreground mb-16 max-w-3xl mx-auto">
+            Continuous phishing simulations with automated measurement and
+            training cycles.
+          </p>
 
           <motion.div
             variants={container}
@@ -281,55 +269,67 @@ const PhishInstinct = () => {
                 key={n}
                 variants={fadeUp}
                 whileHover={{ y: -6 }}
-                className="bg-card p-6 rounded-xl border border-border shadow-sm hover:shadow-lg"
+                transition={{ type: "spring", stiffness: 200 }}
+                className="group flex items-start gap-5 bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg"
               >
-                <span className="text-primary font-semibold">Step {n}</span>
-                <h3 className="text-lg font-semibold mt-2">
-                  Automated workflow stage
-                </h3>
-                <p className="text-muted-foreground mt-2 text-sm">
-                  Simulate, measure, train, and report continuously.
-                </p>
+                <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center font-semibold group-hover:bg-primary group-hover:text-white transition">
+                  {n}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-1">Step {n}</h3>
+                  <p className="text-muted-foreground">
+                    Simulate, measure, train, and report continuously.
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </motion.section>
 
-       
-        <motion.section
-          variants={fadeUp}
-          className="py-24 bg-muted/40 border-y border-border mb-24"
-        >
-          <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-12">
-            FAQs
+        {/* FAQ */}
+        <motion.section variants={fadeUp} className="py-20 mb-24">
+          <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-16">
+            Frequently Asked Questions
           </h2>
 
           <div className="max-w-4xl mx-auto divide-y divide-border">
             {[
-              ["What is PhishInstinct?", "Phishing simulation & awareness platform."],
-              ["Does it support compliance?", "Yes, audit-ready reporting included."],
-              ["Automation supported?", "Yes, campaigns can be scheduled."],
+              [
+                "What is PhishInstinct?",
+                "Phishing simulation and security awareness platform.",
+              ],
+              [
+                "Does it support compliance?",
+                "Yes, audit-ready reporting is included.",
+              ],
+              [
+                "Is automation supported?",
+                "Yes, campaigns and training cycles can be scheduled.",
+              ],
             ].map(([q, a], i) => (
-              <details key={i} className="group py-6">
-                <summary className="flex justify-between cursor-pointer">
-                  <span className="font-semibold">{q}</span>
-                  <span>
-                    <Plus className="group-open:hidden" />
-                    <Minus className="hidden group-open:block" />
-                  </span>
+              <motion.details
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="py-6"
+              >
+                <summary className="cursor-pointer font-semibold text-lg flex justify-between">
+                  {q}
+                  <span>+</span>
                 </summary>
-                <p className="mt-3 text-muted-foreground">{a}</p>
-              </details>
+                <p className="mt-4 text-muted-foreground">{a}</p>
+              </motion.details>
             ))}
           </div>
         </motion.section>
 
-        
+        {/* CTA */}
         <motion.section variants={fadeUp} className="text-center py-20">
-          <h2 className="text-3xl font-bold text-primary mb-4">
+          <h2 className="text-3xl font-bold text-primary mb-6">
             Turn Employees Into Your Strongest Defense
           </h2>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8">
             Reduce phishing risk with instinct-driven security awareness.
           </p>
 

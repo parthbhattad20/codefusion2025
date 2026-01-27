@@ -67,18 +67,19 @@ const KloudRaksha = () => {
               <Link href="/contact?subject=KloudRaksha%20Demo">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-md"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-12 shadow-md transition hover:scale-105"
                 >
                   Get a Demo
                 </Button>
               </Link>
 
-              <a
-                href="/docs/KloudRaksha-Brochure.pdf"
-                download
-                className="bg-gradient-to-r from-violet-500 to-blue-600 text-white font-semibold transition hover:opacity-90 shadow-md rounded-full px-6 py-3 inline-flex items-center"
-              >
-                Download Brochure
+              <a href="/docs/KloudRaksha-Brochure.pdf" download>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-12 shadow-md hover:scale-105"
+                >
+                  Download Brochure
+                </Button>
               </a>
             </div>
           </div>

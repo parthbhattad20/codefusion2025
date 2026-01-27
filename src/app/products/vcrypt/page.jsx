@@ -12,22 +12,27 @@ import {
   Eye,
   Lock,
   Network,
-  Plus,
-  Minus,
-  Cpu,
-  Gauge,
-  Layers,
 } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+
+/* ===========================
+   Shared Animation System
+   =========================== */
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  show: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+  },
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
 };
 
 const cardHover = {
@@ -42,11 +47,9 @@ const glowHover = {
 };
 
 const VCrypt = () => {
-  const { scrollYProgress } = useScroll();
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-
   return (
     <div className="relative min-h-screen bg-background text-foreground py-16 mt-10 lg:mt-20 overflow-hidden">
+      {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-[-20%] left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-violet-500/10 to-blue-500/10 blur-3xl" />
       </div>
@@ -59,13 +62,19 @@ const VCrypt = () => {
       >
         {/* Back */}
         <motion.div variants={fadeUp} className="mb-10">
-          <Link href="/products" className="inline-flex items-center text-muted-foreground hover:text-foreground transition">
+          <Link
+            href="/products"
+            className="inline-flex items-center text-muted-foreground hover:text-foreground transition"
+          >
             <ArrowBigLeft className="mr-2" /> Back to Products
           </Link>
         </motion.div>
 
         {/* Hero */}
-        <motion.section variants={fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-28">
+        <motion.section
+          variants={fadeUp}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-28"
+        >
           <div className="space-y-6">
             <h1 className="text-3xl md:text-5xl font-extrabold text-primary tracking-tight">
               V-Crypt – Smart SFP Edge Encryption
@@ -86,76 +95,115 @@ const VCrypt = () => {
 
             <div className="mt-5 flex flex-wrap gap-10 justify-center">
               <a href="/contact?subject=V-Crypt%20Demo">
-                <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
+                >
                   Get a Demo
                 </Button>
               </a>
 
-              <a
-                href="/docs/V-crypt-Brochure.pdf"
-                download
-                className="bg-gradient-to-r from-violet-500 to-blue-600 text-foreground font-semibold rounded-full px-5 py-3 inline-flex shadow-lg hover:shadow-violet-500/40 transition-all"
-              >
-                Download Brochure
+              <a href="/docs/V-crypt-Brochure.pdf" download>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
+                >
+                  Download Brochure
+                </Button>
               </a>
             </div>
           </div>
 
-          <motion.div
-            style={{ y: heroY }}
-            initial={{ opacity: 0, scale: 0.95, y: 50 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            whileHover={{ scale: 1.05 }}
-            className="relative w-full h-[360px] rounded-2xl overflow-hidden bg-card border border-border shadow-xl"
-          >
-            <Image src="/assets/products/about.jpg" alt="V-Crypt Smart SFP" fill className="object-contain" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/15 to-blue-500/15" />
-          </motion.div>
+          {/* 3D Floating Image */}
+          <div style={{ perspective: 1200 }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              animate={{
+                rotateY: [0, 12, 0, -12, 0],
+                rotateX: [0, -8, 0, 8, 0],
+                y: [0, -12, 0, 12, 0],
+              }}
+              transition={{
+                opacity: { duration: 0.8, ease: "easeOut" },
+                scale: { duration: 0.8, ease: "easeOut" },
+                y: { duration: 14, ease: "easeInOut", repeat: Infinity },
+                rotateX: { duration: 14, ease: "easeInOut", repeat: Infinity },
+                rotateY: { duration: 14, ease: "easeInOut", repeat: Infinity },
+              }}
+              whileHover={{ scale: 1.05 }}
+              className="relative w-full h-[360px] rounded-2xl overflow-hidden bg-card border border-border shadow-xl will-change-transform"
+            >
+              <Image
+                src="/assets/products/about.jpg"
+                alt="V-Crypt Smart SFP"
+                fill
+                className="object-contain"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/15 to-blue-500/15 pointer-events-none" />
+            </motion.div>
+          </div>
         </motion.section>
 
-        {/* Why V-Crypt */}
+        {/* Why Section */}
         <motion.section
           className="py-24 mb-28"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-120px" }}
+          viewport={{ once: true }}
           variants={container}
         >
           <div className="relative bg-gradient-to-br from-violet-500/10 via-background to-blue-500/10 border border-border rounded-3xl p-10 lg:p-14 overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.15),transparent_40%)]" />
-
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16">
               <motion.div variants={fadeUp} className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-primary">Why V-Crypt?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary">
+                  Why V-Crypt?
+                </h2>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
-                  Traditional encryption appliances are expensive, slow to deploy, and complex to manage.
-                  <strong> V-Crypt delivers AES-256 hardware-based encryption directly at the network edge,</strong>
-                  ensuring secure, real-time telemetry, tamper alerts, and simplified deployment.
+                  Traditional encryption appliances are expensive, slow to
+                  deploy, and complex to manage.{" "}
+                  <strong>
+                    V-Crypt delivers AES-256 hardware-based encryption directly
+                    at the network edge,
+                  </strong>{" "}
+                  ensuring secure telemetry and simplified deployment.
                 </p>
               </motion.div>
 
               <div className="space-y-5">
                 {[
-                  ["Zero-touch Encryption", "Enable encryption instantly at the device port without additional racks, appliances, or configuration."],
-                  ["Real-time Link Intelligence", "Continuous monitoring, tamper alerts, and secure key management for all network ports."],
-                  ["Inline Data Protection", "AES-256 encryption for data-in-motion across WAN, LAN, and critical infrastructure without latency."],
-                  ["Vendor-Neutral Deployment", "Compatible with Cisco, Juniper, MikroTik, and other network devices for flexible integration."],
-                ].map((item, index) => (
+                  [
+                    "Zero-touch Encryption",
+                    "Enable encryption instantly at the device port without additional hardware.",
+                  ],
+                  [
+                    "Real-time Link Intelligence",
+                    "Continuous monitoring, tamper alerts, and secure key management.",
+                  ],
+                  [
+                    "Inline Data Protection",
+                    "AES-256 encryption for WAN and LAN without latency.",
+                  ],
+                  [
+                    "Vendor-Neutral Deployment",
+                    "Compatible with Cisco, Juniper, MikroTik, and more.",
+                  ],
+                ].map(([title, desc], i) => (
                   <motion.details
-                    key={index}
+                    key={i}
                     variants={fadeUp}
-                    open={index === 0}
                     className="group bg-background/70 border border-border rounded-xl p-6 backdrop-blur"
                     {...cardHover}
                     {...glowHover}
                   >
                     <summary className="flex justify-between items-center cursor-pointer font-semibold text-lg list-none">
-                      {item[0]}
-                      <span className="text-xl transition-transform group-open:rotate-180">+</span>
+                      {title}
+                      <span className="text-xl transition-transform group-open:rotate-180">
+                        +
+                      </span>
                     </summary>
-                    <p className="mt-3 text-muted-foreground">{item[1]}</p>
+                    <p className="mt-3 text-muted-foreground">{desc}</p>
                   </motion.details>
                 ))}
               </div>
@@ -164,88 +212,72 @@ const VCrypt = () => {
         </motion.section>
 
         {/* Core Capabilities */}
-        <motion.section variants={fadeUp} className="py-24 relative">
-          <div className="absolute inset-0 opacity-10">
-            <Image src="/assets/products/bg1.webp" alt="" fill className="object-cover" />
-          </div>
+        <motion.section variants={fadeUp} className="py-24">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-16">
+            Core Capabilities
+          </h2>
 
-          <div className="relative max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-16">Core Capabilities</h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { icon: Lock, title: "AES-256 Encryption", desc: "Inline, hardware-based encryption with IPsec ESP support." },
-                { icon: Plug, title: "Plug-and-Play SFP", desc: "Installs like a standard SFP with no network changes." },
-                { icon: Zap, title: "Line-Rate Performance", desc: "100 Mbps / 1 GbE encryption with zero latency impact." },
-                { icon: Eye, title: "Traffic Visibility", desc: "Real-time telemetry and anomaly detection." },
-                { icon: Network, title: "Vendor Neutral", desc: "Compatible with Cisco, Juniper, Mikrotik, and more." },
-                { icon: ShieldCheck, title: "Secure Key Vault", desc: "Cryptographic keys stored securely inside the module." },
-              ].map((f, i) => (
-                <motion.div key={i} variants={fadeUp} {...cardHover} {...glowHover} className="bg-card p-6 rounded-2xl border border-border shadow-sm">
-                  <f.icon className="w-6 h-6 text-primary mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
-                  <p className="text-muted-foreground text-sm">{f.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Comparison */}
-        <motion.section
-          className="py-24 bg-muted/40 border-y border-border"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={container}
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-center text-primary mb-16">
-            V-Crypt vs Traditional Encryption Appliances
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {[
-              { metric: "Deployment Time", traditional: "Days to weeks", vcrypt: "Minutes", icon: "⏱" },
-              { metric: "Encryption Start Point", traditional: "Mid-network", vcrypt: "At the device port", icon: "🔒" },
-              { metric: "Power Consumption", traditional: "High", vcrypt: "< 2.5W", icon: "⚡" },
-              { metric: "Scalability", traditional: "Limited", vcrypt: "Every port secured", icon: "📈" },
-            ].map((row, i) => (
+              [
+                Lock,
+                "AES-256 Encryption",
+                "Inline hardware encryption with IPsec ESP.",
+              ],
+              [
+                Plug,
+                "Plug-and-Play SFP",
+                "Installs like a standard transceiver.",
+              ],
+              [Zap, "Line-Rate Performance", "Zero latency impact."],
+              [Eye, "Traffic Visibility", "Real-time telemetry and anomalies."],
+              [
+                Network,
+                "Vendor Neutral",
+                "Works across major network vendors.",
+              ],
+              [
+                ShieldCheck,
+                "Secure Key Vault",
+                "Keys stored securely inside module.",
+              ],
+            ].map(([Icon, title, desc], i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
                 {...cardHover}
                 {...glowHover}
-                className="relative bg-card rounded-2xl p-6 border border-border shadow-md overflow-hidden"
+                className="bg-card p-6 rounded-2xl border border-border shadow-sm"
               >
-                <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-violet-500 to-blue-500" />
-                <div className="text-3xl mb-4">{row.icon}</div>
-                <h3 className="font-semibold mb-4">{row.metric}</h3>
-
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between text-muted-foreground">
-                    <span>Traditional</span>
-                    <span>{row.traditional}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">V-Crypt</span>
-                    <span className="text-primary font-semibold">{row.vcrypt}</span>
-                  </div>
-                </div>
+                <Icon className="w-6 h-6 text-primary mb-4" />
+                <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                <p className="text-muted-foreground text-sm">{desc}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.section>
 
         {/* CTA */}
         <motion.section variants={fadeUp} className="text-center py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">You Plug It. V-Crypt Secures It.</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+            You Plug It. V-Crypt Secures It.
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Secure every fiber connection with Smart SFP-based edge encryption.
           </p>
 
           <motion.div whileHover={{ scale: 1.12, y: -6 }}>
             <Link href="/contact?subject=Vumas%20Demo">
-              <Button size="lg" className="rounded-full px-12 bg-gradient-to-r from-violet-500 to-blue-600 shadow-xl hover:shadow-blue-500/40 transition-all">
+              <Button
+                size="lg"
+                className="rounded-full px-12 bg-gradient-to-r from-violet-500 to-blue-600 shadow-xl hover:shadow-blue-500/40 transition-all"
+              >
                 Speak with Our Experts
               </Button>
             </Link>
