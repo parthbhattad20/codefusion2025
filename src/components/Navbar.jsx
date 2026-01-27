@@ -34,6 +34,14 @@ const FloatingNavbar = () => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    // close everything when route changes
+    setIsMenuOpen(false);
+    setOpenService(false);
+    setOpenProduct(false);
+  }, [pathname]);
+  
+
   const productItems = [
     { name: "Vaultix", href: "/products/vaultix" },
     { name: "Phishinstinct", href: "/products/phishinstinct" },
@@ -117,11 +125,14 @@ const FloatingNavbar = () => {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)+/g, '');
 
+    
+
   // Prevent hydration mismatch - don't render theme-dependent logo until mounted
   const currentTheme = mounted ? (resolvedTheme || theme) : 'light';
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur-xl shadow-lg border-b border-white/10 before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-40 before:pointer-events-none">
+    < nav 
+    key={pathname} className="fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur-xl shadow-lg border-b border-white/10 before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-40 before:pointer-events-none">
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
 
         {/* LOGO */}
@@ -331,6 +342,7 @@ const FloatingNavbar = () => {
                               <li key={item}>
                                 <Link
                                   href={`/services/${slugify(category)}/${slugify(item)}`}
+                                 
                                   className="text-sm text-muted-foreground hover:text-primary transition block"
                                 >
                                   {item}
