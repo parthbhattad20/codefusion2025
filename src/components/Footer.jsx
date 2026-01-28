@@ -133,10 +133,10 @@ export default function Footer() {
             Professional cybersecurity solutions protecting your digital assets
             since 2017.
             <br />
-            Formarly Known as Newtonsapple Security Solutions LLP
+            Formerly known as Newtons Apple Security Solutions LLP
           </p>
 
-          <Link href="/" className="relative w-28 h-14 md:w-36 md:h-18 lg:w-48 lg:h-24 block">
+          <Link href="/" className="relative w-36 h-14 md:w-36 md:h-18 lg:w-48 lg:h-24 block">
             <Image
               src={
                 theme === "light"
