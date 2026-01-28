@@ -1,185 +1,181 @@
-"use client"
-import { ArrowUpRight, Globe, Network, Smartphone, Users } from "lucide-react";
-import { useEffect, useState } from 'react';
+"use client";
+
+import { ArrowUpRight, Globe, Network, Smartphone } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Counter from "./Counter";
 import CustomerCarasoul from "./CustomerCarasoul";
-import { motion, AnimatePresence } from 'framer-motion';
-const flipWords = ["V-Find", "V-Fix", "V-Fortify"];
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
+const flipWords = ["V-Find", "V-Fix", "V-Fortify"];
 
 const colorVariants = {
-  "V-Find": "bg-gradient-to-r from-red-600 to-pink-500 text-transparent bg-clip-text",
-  "V-Fix": "bg-gradient-to-r from-blue-500 to-blue-900 text-transparent bg-clip-text",
-  "V-Fortify": "bg-gradient-to-r from-purple-600 to-violet-800 text-transparent bg-clip-text",
+  "V-Find":
+    "bg-gradient-to-r from-rose-600 to-pink-600 dark:from-rose-400 dark:to-pink-400 text-transparent bg-clip-text",
+  "V-Fix":
+    "bg-gradient-to-r from-sky-600 to-indigo-700 dark:from-sky-400 dark:to-indigo-400 text-transparent bg-clip-text",
+  "V-Fortify":
+    "bg-gradient-to-r from-violet-700 to-fuchsia-700 dark:from-violet-400 dark:to-fuchsia-400 text-transparent bg-clip-text",
 };
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const currentWord = flipWords[index];
 
-
-   useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % flipWords.length);
-    }, 2000);
+    }, 2200);
     return () => clearInterval(interval);
   }, []);
-  
+
   return (
-    <div className="font-primary pt-10 grid place-content-center">
-      <div className="flex flex-col items-center my-6 pt-14 lg:py-14 relative">
-
-      <div
-        className="absolute -z-10 inset-0 overflow-hidden pointer-events-none w-full"
-        style={{
-          WebkitMaskImage: 'radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 95%)',
-          maskImage: 'radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0, 0, 0, 0) 95%)',
-          WebkitMaskRepeat: 'no-repeat',
-          maskRepeat: 'no-repeat',
-          WebkitMaskPosition: 'center',
-          maskPosition: 'center',
-          WebkitMaskSize: 'cover',
-          maskSize: 'cover',
-        }}
-        aria-hidden="true"
+    <div className="relative overflow-hidden pt-16">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="font-primary grid place-content-center"
       >
-        <div
-          className="absolute top-1/2 left-1/2 aspect-square -translate-x-1/2 -translate-y-full h-[100vh] border border-violet-500/30 rounded-full shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
-          style={{
-            width: 'clamp(300px, 100vw, 1200px)',
-            clipPath: 'inset(80% 0 0 0)',
-            background: `
-              linear-gradient(to top,
-                rgba(123, 22, 205, 0.26) 0%,
-                rgba(164, 55, 236, 0) 20%)
-            `,
-          }}
-        />
+        <div className="flex flex-col items-center my-6 pt-16 lg:py-20 relative">
 
-        
-        <div
-          className="absolute bottom-1/2 left-1/2 aspect-square  -translate-x-1/2 translate-y-full h-[100vh] border border-violet-500/30 rounded-full shadow-[0_0_30px_10px_rgba(139,92,246,0.5)]"
-          style={{
-            width: 'clamp(300px, 100vw, 1200px)',
-            clipPath: 'inset(0 0 80% 0)',
-            background: `
-              linear-gradient(to bottom,
-                rgba(123, 22, 205, 0.26) 0%,
-                rgba(164, 55, 236, 0) 20%)
-            `,
-          }}
-        />
+         
+          <div className="absolute inset-0 -z-10 pointer-events-none">
+            {[1, 2].map((i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  scale: [1, 1.04, 1],
+                  opacity: [0.25, 0.5, 0.25],
+                }}
+                transition={{
+                  duration: 10 + i * 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className={`absolute ${
+                  i === 1
+                    ? "top-1/2 -translate-y-full"
+                    : "bottom-1/2 translate-y-full"
+                } left-1/2 -translate-x-1/2 aspect-square h-[95vh] rounded-full border`}
+                style={{
+                  width: "clamp(320px, 90vw, 1100px)",
+                  clipPath:
+                    i === 1 ? "inset(78% 0 0 0)" : "inset(0 0 78% 0)",
+                  borderColor: "rgba(139,92,246,0.35)",
+                  boxShadow:
+                    "0 0 80px rgba(139,92,246,0.35), inset 0 0 60px rgba(139,92,246,0.15)",
+                }}
+              />
+            ))}
 
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-4 blur-sm rounded-full bg-gradient-to-r from-violet-500/5 via-violet-500/80 to-violet-500/5"
-          style={{
-            width: 'clamp(150px, 50vw, 600px)',
-          }}
-        />
-      </div>
+            <motion.div
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[3px] rounded-full bg-gradient-to-r from-transparent via-violet-500/80 to-transparent"
+              style={{ width: "clamp(200px, 50vw, 700px)" }}
+            />
+          </div>
 
+          
+          <div className="h-28 mb-8 perspective">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ rotateX: 90, opacity: 0, filter: "blur(8px)" }}
+                animate={{ rotateX: 0, opacity: 1, filter: "blur(0px)" }}
+                exit={{ rotateX: -90, opacity: 0, filter: "blur(8px)" }}
+                transition={{ type: "spring", stiffness: 130, damping: 20 }}
+                className={`text-6xl md:text-8xl font-extrabold tracking-tight ${colorVariants[currentWord]}`}
+              >
+                {currentWord}
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-      <div className="h-28 mb-6 perspective">
-        <AnimatePresence mode="wait">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="max-w-2xl text-center py-4 md:text-lg text-slate-700 dark:text-slate-400"
+          >
+            Safeguard your organization's sensitive data and digital assets with
+            confidence, relying on our proven cyber security services
+          </motion.p>
+
           <motion.div
-            key={index}
-            initial={{ rotateX: 90, opacity: 0 }}
-            animate={{ rotateX: 0, opacity: 1 }}
-            exit={{ rotateX: -90, opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className={`text-6xl md:text-8xl font-extrabold font-secondary ${colorVariants[currentWord]}`}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+            className="flex gap-5 justify-center mt-4"
           >
-            {currentWord}
+            <Link href="mailto:connect@vulnuris.com">
+              <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.96 }}>
+                <Button className="px-8 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg hover:shadow-violet-500/50 text-lg font-bold">
+                  Get In Touch
+                </Button>
+              </motion.div>
+            </Link>
+
+            <Link href="/about">
+              <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.96 }}>
+                <Button
+                  variant="outline"
+                  className="rounded-full font-bold text-lg bg-white/70 dark:bg-slate-900/50 backdrop-blur"
+                >
+                  Learn More
+                </Button>
+              </motion.div>
+            </Link>
           </motion.div>
-        </AnimatePresence>
-      </div>
-        <p className="max-w-2xl text-center py-4 md:text-lg text-gray-800 dark:text-gray-400">
-          Safeguard your organization's sensitive data and digital assets with
-          confidence, relying on our proven cyber security services
-        </p>
-        <div className="flex gap-5 justify-center">
-          <Link href="mailto:connect@vulnuris.com">
-          <Button
-            size="lg"
-            className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold"
-          >
-            Get In Touch
-          </Button></Link>
-          <Link href="/about">
-          <Button
-            size="lg"
-            variant="outline"
-            className="rounded-full font-bold text-lg"
-          >
-            Learn More
-          </Button>
-          </Link>
-        </div>
-      </div>
-      <CustomerCarasoul/>
-
-      <div className="relative w-full max-w-5xl mx-auto px-4 py-12">
-        
-        <h3 className="text-3xl font-bold font-secondary text-center mb-8">
-          Our Security Impact
-        <div className="h-1 w-20 bg-gradient-to-r from-violet-500 to-violet-600 mx-auto mt-2 rounded-full"></div>
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-          <div className="group hover:scale-105 transition-all duration-300">
-            <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
-              <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
-                <Smartphone className="w-8 h-8 text-violet-500" />
-              </div>
-              <div className="flex items-baseline gap-1">
-                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
-                <Counter to={80} suffix="+" />
-
-                </p>
-                <ArrowUpRight className="w-4 h-4 text-violet-500" />
-              </div>
-              <p className="text-sm text-gray-500 mt-2 font-medium">Mobile Apps Secured</p>
-            </div>
-          </div>
-
-          <div className="group hover:scale-105 transition-all duration-300">
-            <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
-              <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
-                <Network className="w-8 h-8 text-violet-500" />
-              </div>
-              <div className="flex items-baseline gap-1">
-                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
-                <Counter to={11} suffix="k+" />
-                </p>
-                <ArrowUpRight className="w-4 h-4 text-violet-500" />
-              </div>
-              <p className="text-sm text-gray-500 mt-2 font-medium">IP Addresses Protected</p>
-            </div>
-          </div>
-
-          <div className="group hover:scale-105 transition-all duration-300">
-            <div className="flex flex-col items-center p-6 rounded-xl border border-violet-500/20 bg-foreground/5 backdrop-blur-sm hover:border-violet-500/40 transition-all">
-              <div className="p-3 rounded-full bg-violet-500/10 mb-4 group-hover:bg-violet-500/20 transition-all">
-                <Globe className="w-8 h-8 text-violet-500" />
-              </div>
-              <div className="flex items-baseline gap-1">
-                <p className="text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-700 bg-clip-text text-transparent">
-                <Counter to={220} suffix="+" />
-                </p>
-                <ArrowUpRight className="w-4 h-4 text-violet-500" />
-              </div>
-              <p className="text-sm text-gray-500 mt-2 font-medium">Web Apps Fortified</p>
-            </div>
-          </div>
         </div>
 
-        <p className="text-center text-sm text-gray-500 mt-8">
-          Continuously expanding our security footprint
-          <span className="inline-block w-1.5 h-1.5 bg-violet-500 rounded-full ml-1 animate-pulse"></span>
-        </p>
-      </div>
+        <CustomerCarasoul />
+
+       
+        <div className="relative w-full max-w-5xl mx-auto px-4 py-16">
+          <h3 className="text-3xl font-bold text-center mb-10">
+            Our Security Impact
+            <div className="h-1 w-24 bg-gradient-to-r from-violet-500 to-indigo-500 mx-auto mt-3 rounded-full" />
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: Smartphone, value: 100, suffix: "+", label: "Mobile Apps Secured" },
+              { icon: Network, value: 15, suffix: "k+", label: "IP Addresses Protected" },
+              { icon: Globe, value: 300, suffix: "+", label: "Web Apps Fortified" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10, scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                className="flex flex-col items-center p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
+              >
+                <div className="p-4 rounded-xl bg-violet-500/10 mb-4">
+                  <item.icon className="w-8 h-8 text-violet-600 dark:text-violet-400" />
+                </div>
+
+                <div className="flex items-baseline gap-1">
+                  <p className="text-4xl font-extrabold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+                    <Counter to={item.value} suffix={item.suffix} />
+                  </p>
+                  <ArrowUpRight className="w-4 h-4 text-violet-500" />
+                </div>
+
+                <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 font-medium">
+                  {item.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-slate-500 mt-10">
+            Continuously expanding our security footprint
+            <span className="inline-block w-1.5 h-1.5 bg-violet-500 rounded-full ml-1 animate-pulse" />
+          </p>
+        </div>
+      </motion.div>
     </div>
   );
 }

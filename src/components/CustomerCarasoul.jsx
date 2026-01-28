@@ -12,6 +12,14 @@ const logos = [
   { src: "./assets/clients/theintell.png", alt: "theintell company logo" },
   { src: "./assets/clients/vidyan.png", alt: "PVG org logo" },
   { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bajaj-Finserv-Logo.jpg/640px-Bajaj-Finserv-Logo.jpg", alt: "Bajaj Finserv" },
+  { src: "./assets/clients/tatatech.png", alt: "Tata Technologies" },
+  { src: "./assets/clients/oneam.png", alt: "OneAM" },
+  { src: "./assets/clients/afs.png", alt: "AFS" },
+  { src: "./assets/clients/camlin.png", alt: "Camlin" },
+  { src: "./assets/clients/credimax.jpg", alt: "Credimax" },
+  { src: "./assets/clients/hafeetrail.jpg", alt: "Hafeet Rail" },
+  { src: "./assets/clients/paysii.png", alt: "Paysii" },
+  { src: "./assets/clients/thomas_cook.jpg", alt: "Thomas Cook" },
 ];
 
 export default function CustomerCarousel() {
@@ -26,31 +34,58 @@ export default function CustomerCarousel() {
           customers
         </h2>
 
-        <div className="w-[70vw] overflow-hidden relative pt-4 pb-2 border-t mt-4 mx-auto">
+        <div className="w-[80vw] overflow-hidden relative pt-4 pb-2 border-t mt-4 mx-auto">
           <motion.div
-            className="flex gap-8 whitespace-nowrap"
-            animate={{
-              x: ["0%", "-133%"],
-            }}
+            className="flex gap-6 sm:gap-8 whitespace-nowrap"
+            animate={{ x: ["0%", "-133%"] }}
             transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 50,
-                ease: "linear",
-              },
+              x: { repeat: Infinity, repeatType: "loop", duration: 50, ease: "linear" },
             }}
           >
             {[...logos, ...logos].map((logo, index) => (
               <motion.div
                 key={index}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.06 }}
+                className="
+                  flex-shrink-0
+                  w-30 sm:w-40
+                  h-16
+                  flex items-center justify-center
+                  rounded-xl
+
+                  /* Professional tiles on BOTH themes */
+                  bg-white
+                  dark:bg-slate-50
+
+                  border border-gray-200/70
+                  dark:border-white/10
+
+                  shadow-sm
+                  dark:shadow-[0_6px_20px_rgba(0,0,0,0.35)]
+                  transition-all duration-300
+                  px-4
+                "
               >
                 <img
-                  className="opacity-80 filter grayscale hover:grayscale-0 hover:opacity-100 transition duration-300 max-h-full max-w-full object-contain"
                   src={logo.src}
                   alt={logo.alt}
+                  loading="lazy"
+                  className="
+                    w-full h-full object-contain
+
+                    /* enforce consistent perceived logo size */
+                    max-h-10
+                    sm:max-h-11
+
+                    opacity-85 hover:opacity-100
+                    transition-all duration-300
+
+                    /* Works well on a light tile in both themes */
+                    mix-blend-multiply
+                    grayscale hover:grayscale-0
+
+                    hover:drop-shadow-[0_2px_10px_rgba(0,0,0,0.18)]
+                  "
                 />
               </motion.div>
             ))}

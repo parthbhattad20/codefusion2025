@@ -64,7 +64,16 @@ const services = [
     description: "Secure your IoT devices with inter-dependency testing, access management, and a robust IoT Security Framework for data and device protection.",
     icon: <Cpu className="w-10 h-10 text-blue-500 flex-shrink-0" />,
     link: "/services/iot-security"
-  }  
+  },
+  {
+  title: "AI SOC",
+  description:
+    "Autonomous AI-driven Security Operations Center providing real-time threat detection, intelligent correlation, and automated incident response across your entire infrastructure.",
+  icon: <ShieldCheck className="w-10 h-10 text-indigo-500 flex-shrink-0" />,
+  link: "/services/ai-soc"
+}
+
+ 
 ];
 
 const ServicesPage = () => {
@@ -95,7 +104,7 @@ const ServicesPage = () => {
                   </p>
                 </CardContent>
                 <div className="px-6">
-                  <Link href={service.link} passHref legacyBehavior>
+                  <Link href={service.link} passHref >
                     <Button variant="outline" size="sm" className="w-full">
                       Learn More
                     </Button>
@@ -113,7 +122,7 @@ const ServicesPage = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             Let's discuss your specific needs and how Vulnuris can tailor a solution for you.
           </p>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact" passHref>
              <Button
                size="lg"
                className="px-8 py-2 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-xl dark:hover:shadow-violet-900 transition duration-200 text-lg font-bold">
