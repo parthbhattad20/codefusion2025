@@ -80,8 +80,6 @@ export default function ManagedSecurityPage() {
               >
                 Start Your Security Journey
               </Link>
-
-              
             </motion.div>
           </motion.div>
         </div>
@@ -133,6 +131,123 @@ export default function ManagedSecurityPage() {
                 alt="Managed Security"
                 className="w-full max-w-md rounded-xl shadow-lg"
               />
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+      {/* ================= SERVICE DEEP DIVE ================= */}
+      <motion.section
+        className="py-28 px-6 relative overflow-hidden"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {/* background accents */}
+        <div className="absolute -top-40 right-0 w-[420px] h-[420px] bg-cyan-500/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-indigo-500/10 rounded-full blur-[120px]" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-primary">
+              What You Get With Our Managed Security Services
+            </h2>
+
+            <p className="mt-5 max-w-3xl mx-auto text-lg text-muted-foreground">
+              A complete security operations ecosystem — technology, people, and
+              processes — engineered to defend modern enterprises against
+              evolving cyber threats.
+            </p>
+          </motion.div>
+
+          {/* Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            {/* LEFT – Key Metrics / Trust */}
+            <motion.div
+              variants={sectionReveal}
+              className="lg:col-span-1 space-y-6"
+            >
+              {[
+                { label: "Threat Monitoring", value: "24 / 7 / 365" },
+                { label: "Average Response Time", value: "< 15 min" },
+                { label: "Incidents Mitigated", value: "99.9%" },
+                { label: "Compliance Frameworks", value: "ISO, SOC2, GDPR" },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="p-6 rounded-2xl border border-border bg-background/70 backdrop-blur-md shadow-sm"
+                >
+                  <p className="text-sm text-muted-foreground">{item.label}</p>
+                  <p className="mt-2 text-2xl font-bold text-primary">
+                    {item.value}
+                  </p>
+                </div>
+              ))}
+
+              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-lg">
+                <h4 className="text-lg font-semibold mb-2">
+                  Enterprise-grade Security Operations
+                </h4>
+                <p className="text-sm text-white/90 leading-relaxed">
+                  Our SOC engineers, analysts, and incident responders operate
+                  as an extension of your internal IT team.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* RIGHT – Detailed Services */}
+            <motion.div
+              variants={stagger}
+              className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
+              {[
+                {
+                  title: "Security Operations Center (SOC)",
+                  desc: "Centralized monitoring of logs, endpoints, networks, and cloud infrastructure using SIEM and SOAR platforms to detect and respond to threats in real time.",
+                },
+                {
+                  title: "Vulnerability & Patch Management",
+                  desc: "Continuous scanning, risk scoring, remediation planning, and patch validation to reduce your exploitable attack surface.",
+                },
+                {
+                  title: "Managed Detection & Response (MDR)",
+                  desc: "Advanced behavioral analytics and human-led threat hunting to contain sophisticated attacks before business impact.",
+                },
+                {
+                  title: "Threat Intelligence & Hunting",
+                  desc: "Correlation of global threat feeds, dark-web intelligence, and internal telemetry to proactively identify adversaries.",
+                },
+                {
+                  title: "Compliance & Risk Management",
+                  desc: "Gap assessments, audit support, documentation, and continuous control validation for regulatory frameworks.",
+                },
+                {
+                  title: "On-Site Security Engineering",
+                  desc: "Dedicated security engineers for architecture hardening, tool deployment, incident recovery, and security maturity uplift.",
+                },
+              ].map((service, i) => (
+                <motion.div
+                  key={i}
+                  variants={cardReveal}
+                  whileHover={{
+                    y: -8,
+                    boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
+                  }}
+                  className="group relative p-7 rounded-2xl border border-border bg-background transition-all overflow-hidden"
+                >
+                  {/* hover glow */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_60%)]" />
+
+                  <h3 className="text-lg font-semibold text-primary mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {service.desc}
+                  </p>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>

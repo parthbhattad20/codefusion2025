@@ -174,6 +174,128 @@ export default function ManagedThreatHuntingPage() {
           </div>
         </div>
       </motion.section>
+      {/* ================= THREAT HUNTING OPERATIONS CONSOLE (LIGHT) ================= */}
+      <motion.section
+        className="py-28 px-6 bg-gradient-to-b from-white to-violet-50 dark:from-background dark:to-background"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-violet-600 dark:text-violet-400">
+              Threat Hunting Operations Model
+            </h2>
+
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-muted-foreground">
+              A structured framework used by security teams to uncover stealthy
+              threats that bypass traditional automated detection.
+            </p>
+          </motion.div>
+
+          {/* Main Panel */}
+          <motion.div
+            variants={sectionReveal}
+            className="relative rounded-3xl border border-violet-200 dark:border-violet-500/20
+                 bg-white/70 dark:bg-muted/40
+                 backdrop-blur-xl p-10 shadow-[0_30px_80px_rgba(139,92,246,0.15)]"
+          >
+            {/* soft glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.08),transparent_60%)] pointer-events-none" />
+
+            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10">
+              {/* Data Sources */}
+              <div>
+                <h3 className="text-sm tracking-widest uppercase text-violet-500 mb-4">
+                  Data Sources
+                </h3>
+
+                {[
+                  "Endpoint telemetry",
+                  "Network traffic metadata",
+                  "Authentication logs",
+                  "Cloud & SaaS activity logs",
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={cardReveal}
+                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
+                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                  >
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Techniques */}
+              <div>
+                <h3 className="text-sm tracking-widest uppercase text-violet-500 mb-4">
+                  Hunting Techniques
+                </h3>
+
+                {[
+                  "Behavioral anomaly analysis",
+                  "MITRE ATT&CK mapping",
+                  "Privilege escalation detection",
+                  "Lateral movement tracking",
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={cardReveal}
+                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
+                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                  >
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Outcomes */}
+              <div>
+                <h3 className="text-sm tracking-widest uppercase text-violet-500 mb-4">
+                  Outcomes
+                </h3>
+
+                {[
+                  "Confirmed threat identification",
+                  "Root-cause analysis",
+                  "Containment recommendations",
+                  "Detection rule improvements",
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={cardReveal}
+                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
+                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                  >
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Footer strip */}
+            <div
+              className="mt-10 rounded-xl bg-violet-100 dark:bg-violet-600/10
+                      border border-violet-200 dark:border-violet-500/20
+                      p-5 text-center"
+            >
+              <p className="text-sm text-violet-700 dark:text-violet-300">
+                Integrates with SIEM, EDR, NDR, identity platforms, and cloud
+                security tooling
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* ================= SERVICES GRID ================= */}
       <motion.section

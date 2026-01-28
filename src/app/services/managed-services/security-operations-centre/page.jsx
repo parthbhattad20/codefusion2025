@@ -149,6 +149,138 @@ export default function SOCPage() {
         </div>
       </motion.section>
 
+      {/* ================= SOC SERVICE DEEP DIVE ================= */}
+      <motion.section
+        className="py-28 px-6 relative overflow-hidden bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {/* background accents */}
+        <div className="absolute -top-40 right-0 w-[420px] h-[420px] bg-cyan-500/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-indigo-500/10 rounded-full blur-[120px]" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+              Inside Our Security Operations Centre
+            </h2>
+
+            <p className="mt-5 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+              A fully operational, intelligence-driven SOC delivering continuous
+              monitoring, rapid incident response, and proactive cyber defense.
+            </p>
+
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-cyan-500 to-indigo-500" />
+          </motion.div>
+
+          {/* Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            {/* LEFT – Trust & Quality Indicators */}
+            <motion.div variants={sectionReveal} className="space-y-6">
+              {[
+                {
+                  label: "Operational Performance",
+                  value: "High success rate",
+                },
+                { label: "Incident Handling", value: "Rapid response" },
+                {
+                  label: "Security Standards",
+                  value: "Industry security standards",
+                },
+                {
+                  label: "Service Availability",
+                  value: "Continuous monitoring",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="p-6 rounded-2xl border border-gray-200 dark:border-slate-800
+                       bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-md"
+                >
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {item.label}
+                  </p>
+                  <p className="mt-2 text-xl font-semibold text-cyan-600 dark:text-cyan-400">
+                    {item.value}
+                  </p>
+                </div>
+              ))}
+
+              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-cyan-600 to-indigo-600 text-white shadow-xl">
+                <h4 className="text-lg font-semibold mb-2">
+                  Enterprise-grade SOC Operations
+                </h4>
+                <p className="text-sm text-white/90 leading-relaxed">
+                  Our analysts, incident responders, and threat hunters operate
+                  as an extension of your internal security team.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* RIGHT – Detailed Capabilities */}
+            <motion.div
+              variants={stagger}
+              className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8"
+            >
+              {[
+                {
+                  title: "Real-Time Security Monitoring",
+                  desc: "Continuous monitoring of network traffic, endpoints, servers, cloud platforms, and applications using advanced SIEM tooling.",
+                },
+                {
+                  title: "Incident Detection & Response",
+                  desc: "Automated alerting combined with human-led investigation to rapidly contain malware, intrusions, and data exfiltration attempts.",
+                },
+                {
+                  title: "Threat Hunting",
+                  desc: "Proactive identification of hidden attackers using behavioral analytics and adversary simulation techniques.",
+                },
+                {
+                  title: "Log Management & Forensics",
+                  desc: "Centralized log correlation, evidence collection, and forensic analysis for compliance and post-incident reporting.",
+                },
+                {
+                  title: "Vulnerability Coordination",
+                  desc: "Direct collaboration with your IT teams to remediate discovered vulnerabilities and reduce future risk exposure.",
+                },
+                {
+                  title: "Executive Security Reporting",
+                  desc: "Clear dashboards and periodic reports detailing incidents, trends, and overall security posture.",
+                },
+              ].map((service, i) => (
+                <motion.div
+                  key={i}
+                  variants={cardReveal}
+                  whileHover={{
+                    y: -8,
+                    boxShadow: "0 25px 60px rgba(0,0,0,0.15)",
+                  }}
+                  className="group relative p-7 rounded-2xl border border-gray-200 dark:border-slate-800
+                       bg-white/90 dark:bg-slate-900/70 backdrop-blur-xl transition-all"
+                >
+                  {/* hover glow */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500
+                         bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.15),transparent_60%)]"
+                  />
+
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {service.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
       {/* ================= WATTLECORP SOC ================= */}
       <motion.section
         className="py-24 px-6 bg-muted/30"
