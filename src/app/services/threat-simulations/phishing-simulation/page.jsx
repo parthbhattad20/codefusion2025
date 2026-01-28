@@ -138,6 +138,113 @@ export default function PhishingSimulationPage() {
           </motion.div>
         </div>
       </motion.section>
+      {/* ================= IN-DEPTH INFO ================= */}
+      <motion.section
+        className="relative py-28 px-6 overflow-hidden
+             bg-white dark:bg-[#070b14]
+             text-gray-900 dark:text-white"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {/* grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.06]
+               bg-[linear-gradient(to_right,#38bdf822_1px,transparent_1px),
+                   linear-gradient(to_bottom,#38bdf822_1px,transparent_1px)]
+               bg-[size:70px_70px]"
+        />
+
+        {/* scan beam */}
+        <motion.div
+          className="absolute inset-y-0 w-[30%]
+               bg-gradient-to-r from-transparent via-sky-400/10 to-transparent"
+          animate={{ x: ["-40%", "140%"] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT CONTENT */}
+          <motion.div variants={sectionReveal}>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+              Inside Our Phishing Simulation Platform
+            </h2>
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+              Our phishing simulation platform replicates real attacker behavior
+              using controlled, safe campaigns that mirror modern threat
+              techniques such as brand impersonation, credential harvesting,
+              malicious attachments, and urgency-based social engineering.
+            </p>
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+              This allows security teams to measure true human risk across the
+              organization and continuously strengthen the human layer of
+              defense — the most exploited attack surface in modern breaches.
+            </p>
+
+            <div className="space-y-4 text-gray-800 dark:text-gray-200">
+              <div className="flex gap-3">
+                <span className="text-sky-500 font-bold">▸</span>
+                Simulates real-world attacker infrastructure and email
+                techniques
+              </div>
+              <div className="flex gap-3">
+                <span className="text-sky-500 font-bold">▸</span>
+                Delivers zero real malware or system impact
+              </div>
+              <div className="flex gap-3">
+                <span className="text-sky-500 font-bold">▸</span>
+                Fully auditable, compliant, and privacy-safe by design
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT PANEL */}
+          <motion.div
+            variants={sectionReveal}
+            whileHover={{ y: -8 }}
+            transition={{ type: "spring", stiffness: 160, damping: 20 }}
+            className="relative rounded-2xl p-10
+                 bg-white/70 dark:bg-white/5
+                 backdrop-blur-xl
+                 border border-gray-200 dark:border-sky-400/20
+                 shadow-lg dark:shadow-[0_0_40px_rgba(56,189,248,0.12)]"
+          >
+            <h3 className="text-2xl font-semibold mb-8">
+              Security Metrics We Analyze
+            </h3>
+
+            <div className="space-y-5 text-gray-700 dark:text-gray-300 text-lg">
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Email open rate</span>
+                <span className="text-sky-500">Engagement vector</span>
+              </div>
+
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Malicious link clicks</span>
+                <span className="text-amber-500">Threat exposure</span>
+              </div>
+
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Credential submission</span>
+                <span className="text-red-500">Critical vulnerability</span>
+              </div>
+
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Phish reporting rate</span>
+                <span className="text-emerald-600">User maturity</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>Departmental risk mapping</span>
+                <span className="text-indigo-500">Attack surface model</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* ================= SERVICES GRID ================= */}
       <motion.section

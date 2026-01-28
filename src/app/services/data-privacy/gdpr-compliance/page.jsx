@@ -130,7 +130,8 @@ export default function GDPRCompliancePage() {
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
               GDPR (General Data Protection Regulation) protects personal data
               of individuals in the EU & EEA. Organizations that handle EU/EEA
-              personal data must comply to avoid penalties and build customer trust.
+              personal data must comply to avoid penalties and build customer
+              trust.
             </p>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
@@ -147,10 +148,16 @@ export default function GDPRCompliancePage() {
 
               <ul className="space-y-4 text-gray-800 dark:text-muted-foreground">
                 <li>• Protect personal data from breaches and cyber threats</li>
-                <li>• Avoid hefty fines up to 20M EUR or 4% of annual turnover</li>
+                <li>
+                  • Avoid hefty fines up to 20M EUR or 4% of annual turnover
+                </li>
                 <li>• Gain trust and credibility with customers</li>
-                <li>• Ensure accountability and transparency in data processing</li>
-                <li>• Strengthen organizational security and privacy culture</li>
+                <li>
+                  • Ensure accountability and transparency in data processing
+                </li>
+                <li>
+                  • Strengthen organizational security and privacy culture
+                </li>
               </ul>
             </motion.div>
 
@@ -168,6 +175,90 @@ export default function GDPRCompliancePage() {
               />
             </motion.div>
           </div>
+        </div>
+      </motion.section>
+
+      {/* ================= GDPR COMPLIANCE SNAPSHOT ================= */}
+      <motion.section
+        className="py-24 px-6 bg-white dark:bg-black border-t border-b border-gray-200 dark:border-gray-800"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white">
+              GDPR Compliance Delivery Framework
+            </h2>
+
+            <p className="mt-4 max-w-3xl mx-auto text-gray-700 dark:text-gray-300 text-lg">
+              A structured governance-first approach to ensure lawful data
+              processing, regulatory accountability, and continuous privacy
+              protection.
+            </p>
+          </motion.div>
+
+          {/* Lifecycle */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-16">
+            {[
+              ["Identify", "Data sources & processing activities"],
+              ["Assess", "Privacy risks & compliance gaps"],
+              ["Define", "Policies & lawful processing model"],
+              ["Implement", "Controls & documentation"],
+              ["Maintain", "Audits & authority readiness"],
+            ].map(([title, desc], i) => (
+              <motion.div
+                key={i}
+                variants={cardReveal}
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 160, damping: 16 }}
+                className="rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black p-6 shadow-sm hover:shadow-md transition"
+              >
+                <div className="mb-2 text-xs font-semibold tracking-wide text-gray-600 dark:text-gray-400">
+                  Phase {i + 1}
+                </div>
+
+                <h3 className="text-lg font-bold text-black dark:text-white mb-2">
+                  {title}
+                </h3>
+
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  {desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Deliverables */}
+          <motion.div variants={sectionReveal}>
+            <div className="rounded-3xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black p-10 shadow-lg">
+              <h3 className="text-2xl font-semibold text-black dark:text-white mb-6">
+                Key GDPR Deliverables
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  "Records of Processing Activities (RoPA)",
+                  "Data Protection Impact Assessment (DPIA)",
+                  "GDPR compliance gap analysis",
+                  "Privacy policy & consent framework",
+                  "Breach response & notification procedures",
+                  "Controller–processor agreements",
+                  "Data subject rights management process",
+                  "Supervisory authority readiness kit",
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-gray-300 dark:border-gray-700 px-4 py-3 text-sm bg-gray-50 dark:bg-neutral-900 text-gray-800 dark:text-gray-200"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 

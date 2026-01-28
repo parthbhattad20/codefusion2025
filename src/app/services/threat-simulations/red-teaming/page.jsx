@@ -153,6 +153,125 @@ export default function RedTeamingPage() {
         </div>
       </motion.section>
 
+      {/* ================= IN-DEPTH INFO ================= */}
+      <motion.section
+        className="relative py-28 px-6 overflow-hidden
+             bg-white dark:bg-[#060001]
+             text-gray-900 dark:text-white"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {/* red cyber grid */}
+        <div
+          className="absolute inset-0 opacity-[0.07]
+               bg-[linear-gradient(to_right,#ff000033_1px,transparent_1px),
+                   linear-gradient(to_bottom,#ff000033_1px,transparent_1px)]
+               bg-[size:70px_70px]"
+        />
+
+        {/* scan beam */}
+        <motion.div
+          className="absolute inset-y-0 w-[35%]
+               bg-gradient-to-r from-transparent via-red-600/15 to-transparent"
+          animate={{ x: ["-40%", "140%"] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT CONTENT */}
+          <motion.div variants={sectionReveal}>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+              Inside a Real Red Team Operation
+            </h2>
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+              Red Teaming is a full-scope adversary simulation that emulates the
+              tactics, techniques, and procedures (TTPs) used by modern threat
+              actors to compromise organizations, remain undetected, and achieve
+              real business-impact objectives.
+            </p>
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+              Unlike traditional penetration testing, red team engagements focus
+              on stealth, lateral movement, persistence, and bypassing detection
+              to evaluate how effectively your security operations can identify
+              and respond to advanced attacks.
+            </p>
+
+            <div className="space-y-4 text-gray-800 dark:text-gray-200">
+              <div className="flex gap-3">
+                <span className="text-red-600 dark:text-red-500 font-bold">
+                  ▸
+                </span>
+                Uses real attacker tradecraft mapped to MITRE ATT&CK
+              </div>
+              <div className="flex gap-3">
+                <span className="text-red-600 dark:text-red-500 font-bold">
+                  ▸
+                </span>
+                Includes network, cloud, identity, application & human attack
+                paths
+              </div>
+              <div className="flex gap-3">
+                <span className="text-red-600 dark:text-red-500 font-bold">
+                  ▸
+                </span>
+                Conducted under strict legal authorization & rules of engagement
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT PANEL */}
+          <motion.div
+            variants={sectionReveal}
+            whileHover={{ y: -8 }}
+            transition={{ type: "spring", stiffness: 160, damping: 20 }}
+            className="relative rounded-2xl p-10
+                 bg-white/75 dark:bg-white/5
+                 backdrop-blur-xl
+                 border border-gray-200 dark:border-red-500/25
+                 shadow-lg dark:shadow-[0_0_45px_rgba(255,0,0,0.18)]"
+          >
+            <h3 className="text-2xl font-semibold mb-8">
+              What We Measure & Validate
+            </h3>
+
+            <div className="space-y-5 text-gray-700 dark:text-gray-300 text-lg">
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Initial compromise time</span>
+                <span className="text-red-600 dark:text-red-400">
+                  Attack speed
+                </span>
+              </div>
+
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Detection latency</span>
+                <span className="text-amber-500">SOC visibility</span>
+              </div>
+
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Lateral movement success</span>
+                <span className="text-orange-500">Containment gaps</span>
+              </div>
+
+              <div className="flex justify-between border-b border-gray-200 dark:border-white/10 pb-2">
+                <span>Privilege escalation paths</span>
+                <span className="text-rose-500">Identity exposure</span>
+              </div>
+
+              <div className="flex justify-between">
+                <span>Business impact potential</span>
+                <span className="text-red-700 dark:text-red-400">
+                  Risk severity
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
       {/* ================= SERVICES GRID ================= */}
       <motion.section
         className="py-20 px-6 bg-gray-100 dark:bg-muted/30"

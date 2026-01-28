@@ -78,8 +78,6 @@ export default function OTSecurityPage() {
               >
                 Request Security Check
               </Link>
-
-              
             </motion.div>
           </motion.div>
         </div>
@@ -130,6 +128,131 @@ export default function OTSecurityPage() {
                 alt="OT Security Assessment"
                 className="w-full max-w-md rounded-xl shadow-lg"
               />
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+      {/* ================= OT SECURITY DEEP DIVE ================= */}
+      <motion.section
+        className="py-28 px-6 relative overflow-hidden bg-gradient-to-b from-white to-slate-50 dark:from-background dark:to-background"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {/* ambient glow */}
+        <div className="absolute -top-32 right-0 w-[420px] h-[420px] bg-cyan-500/10 rounded-full blur-[140px]" />
+        <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-blue-500/10 rounded-full blur-[140px]" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-primary">
+              OT-Focused Cybersecurity Architecture
+            </h2>
+
+            <p className="mt-5 max-w-3xl mx-auto text-lg text-muted-foreground">
+              Operational Technology environments require security strategies
+              that prioritize safety, uptime, and system stability while
+              reducing cyber risk across industrial processes and control
+              systems.
+            </p>
+
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-600" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* LEFT – Security model */}
+            <motion.div variants={sectionReveal} className="space-y-8">
+              <div className="p-8 rounded-2xl border border-border bg-background/80 backdrop-blur-md shadow-sm">
+                <h3 className="text-xl font-semibold text-primary mb-4">
+                  OT Security Model
+                </h3>
+
+                <ul className="space-y-3 text-muted-foreground">
+                  <li>
+                    • Asset discovery of controllers, sensors, HMIs, and field
+                    devices
+                  </li>
+                  <li>
+                    • Network zoning and segmentation between IT and OT systems
+                  </li>
+                  <li>• Secure remote access for operators and vendors</li>
+                  <li>
+                    • Monitoring of industrial protocols and command traffic
+                  </li>
+                  <li>
+                    • Configuration and change tracking for critical systems
+                  </li>
+                  <li>
+                    • Incident handling designed to avoid operational disruption
+                  </li>
+                </ul>
+              </div>
+
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-lg">
+                <h3 className="text-lg font-semibold mb-3">
+                  Designed for safety-critical operations
+                </h3>
+                <p className="text-white/90 leading-relaxed text-sm">
+                  All assessments and controls are implemented with strict
+                  safeguards to protect human safety, equipment integrity, and
+                  production continuity.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* RIGHT – Capabilities */}
+            <motion.div
+              variants={stagger}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-8"
+            >
+              {[
+                {
+                  title: "Industrial Asset Visibility",
+                  desc: "Identification and classification of OT devices, control systems, and communication paths across facilities.",
+                },
+                {
+                  title: "Secure Architecture Review",
+                  desc: "Evaluation of network segmentation, firewall placement, and access design in industrial environments.",
+                },
+                {
+                  title: "Protocol & Traffic Analysis",
+                  desc: "Inspection of OT communication patterns to detect unsafe commands and abnormal behavior.",
+                },
+                {
+                  title: "Controlled Vulnerability Testing",
+                  desc: "Carefully scoped testing to identify weaknesses without impacting live operations.",
+                },
+                {
+                  title: "Incident Readiness Planning",
+                  desc: "Preparation of response procedures aligned with operational and safety requirements.",
+                },
+                {
+                  title: "Long-Term Risk Reduction",
+                  desc: "Security hardening recommendations aligned with industrial best practices and lifecycle management.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  variants={cardReveal}
+                  whileHover={{
+                    y: -8,
+                    boxShadow: "0 25px 55px rgba(0,0,0,0.15)",
+                  }}
+                  className="relative p-7 rounded-2xl border border-border bg-background transition-all overflow-hidden"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_60%)]" />
+
+                  <h4 className="text-lg font-semibold text-primary mb-3">
+                    {item.title}
+                  </h4>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>

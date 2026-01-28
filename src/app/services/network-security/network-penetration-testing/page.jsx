@@ -1,11 +1,16 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const sectionReveal = {
-  hidden: { opacity: 0, y: 50, filter: 'blur(8px)' },
-  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9 } },
+  hidden: { opacity: 0, y: 50, filter: "blur(8px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.9 },
+  },
 };
 
 const stagger = {
@@ -24,39 +29,36 @@ const floating3D = {
     rotateY: [0, -8, 0, 8, 0],
     y: [0, -10, 0, 10, 0],
   },
-  transition: { duration: 14, repeat: Infinity, ease: 'easeInOut' },
+  transition: { duration: 14, repeat: Infinity, ease: "easeInOut" },
 };
 
 export default function NetworkSecurityPage() {
   return (
     <main className="w-full bg-white text-gray-900 dark:bg-background dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden bg-[#050b16]">
-
         {/* Cyber grid */}
         <div className="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,#3b82f622_1px,transparent_1px),linear-gradient(to_bottom,#3b82f622_1px,transparent_1px)] bg-[size:80px_80px]" />
 
         {/* Background image */}
         <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         {/* Data scan beam */}
         <motion.div
           className="absolute inset-y-0 w-[40%] bg-gradient-to-r from-transparent via-blue-400/10 to-transparent"
-          animate={{ x: ['-40%', '140%'] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ["-40%", "140%"] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="relative z-10 h-full flex flex-col justify-center px-6 max-w-7xl mx-auto">
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,17 +82,21 @@ export default function NetworkSecurityPage() {
             transition={{ delay: 0.4 }}
             className="mt-6 text-gray-300 max-w-3xl text-lg"
           >
-            We design and secure enterprise networks using modern cyber-defense strategies to stop attackers before they breach your infrastructure.
+            We design and secure enterprise networks using modern cyber-defense
+            strategies to stop attackers before they breach your infrastructure.
           </motion.p>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} className="mt-10">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className="mt-10"
+          >
             <Link href="/contact">
               <button className="px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition text-white font-semibold shadow-lg">
                 Speak With an Expert
               </button>
             </Link>
           </motion.div>
-
         </div>
       </section>
 
@@ -103,7 +109,6 @@ export default function NetworkSecurityPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto">
-
           <motion.div variants={sectionReveal} className="text-center mb-16">
             <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
               Network Security Consulting Services
@@ -112,12 +117,13 @@ export default function NetworkSecurityPage() {
               Comprehensive IT, Cyber & Network Security
             </p>
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Protect your organization from modern cyber threats using vulnerability assessment, penetration testing, MDR and managed network security services.
+              Protect your organization from modern cyber threats using
+              vulnerability assessment, penetration testing, MDR and managed
+              network security services.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <motion.div variants={sectionReveal} className="ml-10">
               <h2 className="text-2xl font-semibold mb-6">
                 Why Choose Our Network Security Services
@@ -142,11 +148,84 @@ export default function NetworkSecurityPage() {
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}
                 transition={floating3D.transition}
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ transformStyle: "preserve-3d" }}
               />
             </motion.div>
-
           </div>
+        </div>
+      </motion.section>
+      {/* ================= NETWORK SECURITY COMMAND CENTER ================= */}
+      <motion.section
+        className="py-28 px-6"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div variants={sectionReveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+              Network Security Control Model
+            </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+              A practical, layered approach to defending enterprise networks
+              against modern threats — focused on prevention, visibility, and
+              fast containment.
+            </p>
+          </motion.div>
+
+          {/* Main panel */}
+          <motion.div
+            variants={sectionReveal}
+            className="relative rounded-3xl border border-blue-500/20 bg-gradient-to-br from-[#0b1220] to-[#050b16] p-10 shadow-2xl overflow-hidden"
+          >
+            {/* glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_60%)]" />
+
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: "Perimeter Protection",
+                  desc: "Firewalls, gateways, and traffic filtering to control external access.",
+                },
+                {
+                  title: "Network Segmentation",
+                  desc: "Isolation of users, servers, cloud workloads, and critical systems.",
+                },
+                {
+                  title: "Threat Detection",
+                  desc: "Intrusion detection and abnormal traffic analysis across all zones.",
+                },
+                {
+                  title: "Incident Response",
+                  desc: "Rapid containment of compromised systems and malicious traffic.",
+                },
+                {
+                  title: "Access Control",
+                  desc: "Secure VPNs, device authentication, and identity-based policies.",
+                },
+                {
+                  title: "Continuous Hardening",
+                  desc: "Rule optimization, exposure reduction, and architecture reviews.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  variants={cardReveal}
+                  className="rounded-2xl border border-blue-400/20 bg-white/5 backdrop-blur-md p-6 hover:bg-white/10 transition"
+                >
+                  <h3 className="text-lg font-semibold text-blue-400">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+           
+          </motion.div>
         </div>
       </motion.section>
 
@@ -159,27 +238,34 @@ export default function NetworkSecurityPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-
-          <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
+          <motion.h2
+            variants={sectionReveal}
+            className="text-4xl font-semibold mb-14"
+          >
             Network Security & Managed IT Services
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
             {[
-              ['Vulnerability Scanning', 'Identify weaknesses before attackers do'],
-              ['Network Support & Testing', 'Assess security posture & business risk'],
-              ['Penetration Testing', 'Simulate real-world attacks'],
-              ['Security Monitoring', '24/7 detection and response'],
-              ['Managed IT Security', 'Infrastructure protection'],
-              ['Cybersecurity Services', 'Advanced threat prevention'],
+              [
+                "Vulnerability Scanning",
+                "Identify weaknesses before attackers do",
+              ],
+              [
+                "Network Support & Testing",
+                "Assess security posture & business risk",
+              ],
+              ["Penetration Testing", "Simulate real-world attacks"],
+              ["Security Monitoring", "24/7 detection and response"],
+              ["Managed IT Security", "Infrastructure protection"],
+              ["Cybersecurity Services", "Advanced threat prevention"],
             ].map(([title, desc], i) => (
               <motion.div
                 key={i}
                 variants={cardReveal}
                 whileHover={{
                   y: -6,
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.12)',
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
                 }}
                 className="relative group bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm overflow-hidden transition-all duration-300"
               >
@@ -193,9 +279,7 @@ export default function NetworkSecurityPage() {
                 </p>
               </motion.div>
             ))}
-
           </div>
-
         </div>
       </motion.section>
 
@@ -207,12 +291,19 @@ export default function NetworkSecurityPage() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        <motion.h2 variants={sectionReveal} className="text-3xl md:text-4xl font-bold mb-4">
+        <motion.h2
+          variants={sectionReveal}
+          className="text-3xl md:text-4xl font-bold mb-4"
+        >
           Strengthen Your Network Security
         </motion.h2>
 
-        <motion.p variants={sectionReveal} className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Get tailored cybersecurity guidance for your infrastructure, compliance needs and risk profile.
+        <motion.p
+          variants={sectionReveal}
+          className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground"
+        >
+          Get tailored cybersecurity guidance for your infrastructure,
+          compliance needs and risk profile.
         </motion.p>
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
@@ -223,7 +314,6 @@ export default function NetworkSecurityPage() {
           </Link>
         </motion.div>
       </motion.section>
-
     </main>
   );
 }

@@ -173,6 +173,122 @@ export default function ProactiveThreatHuntingPage() {
           </div>
         </div>
       </motion.section>
+      {/* ================= PROACTIVE THREAT HUNTING OPERATIONS MODEL ================= */}
+      <motion.section
+        className="py-28 px-6 bg-gradient-to-b from-white to-blue-50 dark:from-background dark:to-background"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+              Proactive Threat Hunting Framework
+            </h2>
+
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-muted-foreground">
+              A continuous, analyst-driven methodology used to uncover stealthy
+              attackers, misconfigurations, and unknown attack paths across
+              modern infrastructures.
+            </p>
+          </motion.div>
+
+          {/* Main panel */}
+          <motion.div
+            variants={sectionReveal}
+            className="relative rounded-3xl border border-blue-200 dark:border-blue-500/20
+                 bg-white/75 dark:bg-muted/40 backdrop-blur-xl
+                 p-10 shadow-[0_30px_80px_rgba(59,130,246,0.15)]"
+          >
+            {/* soft glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_60%)] pointer-events-none" />
+
+            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10">
+              {/* Telemetry */}
+              <div>
+                <h3 className="text-sm tracking-widest uppercase text-blue-500 mb-4">
+                  Telemetry Collected
+                </h3>
+
+                {[
+                  "Endpoint process & memory activity",
+                  "Network flow and DNS traffic",
+                  "Authentication & identity events",
+                  "Cloud and SaaS audit logs",
+                  "Email & web gateway telemetry",
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={cardReveal}
+                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
+                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                  >
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Analysis */}
+              <div>
+                <h3 className="text-sm tracking-widest uppercase text-blue-500 mb-4">
+                  Hunting & Analysis
+                </h3>
+
+                {[
+                  "Behavioral anomaly detection",
+                  "MITRE ATT&CK technique mapping",
+                  "Privilege escalation analysis",
+                  "Persistence mechanism discovery",
+                  "Lateral movement tracking",
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={cardReveal}
+                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
+                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                  >
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Outcomes */}
+              <div>
+                <h3 className="text-sm tracking-widest uppercase text-blue-500 mb-4">
+                  Operational Outcomes
+                </h3>
+
+                {[
+                  "Confirmed attacker presence or clean validation",
+                  "Root-cause and kill-chain reconstruction",
+                  "Containment and eradication guidance",
+                  "Detection logic & SIEM rule improvements",
+                  "Risk prioritization for remediation",
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    variants={cardReveal}
+                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
+                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                  >
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+           
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* ================= SERVICES GRID ================= */}
       <motion.section
