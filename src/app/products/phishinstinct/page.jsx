@@ -69,14 +69,14 @@ const PhishInstinct = () => {
         animate="show"
       >
         {/* Back */}
-        <motion.div variants={fadeUp} className="mb-10">
+        {/* <motion.div variants={fadeUp} className="mb-10">
           <Link
             href="/products"
             className="inline-flex items-center text-muted-foreground hover:text-foreground transition"
           >
             <ArrowBigLeft className="mr-2" /> Back to Products
           </Link>
-        </motion.div>
+        </motion.div> */}
 
         {/* Hero Section */}
         <motion.section

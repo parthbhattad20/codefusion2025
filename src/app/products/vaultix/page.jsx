@@ -109,15 +109,7 @@ const Vaultix = () => {
         initial="hidden"
         animate="show"
       >
-        {/* Back */}
-        <motion.div variants={fadeUp} className="mb-10">
-          <Link
-            href="/products"
-            className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowBigLeft className="mr-2" /> Back to Products
-          </Link>
-        </motion.div>
+        
 
         {/* Hero */}
         <motion.section

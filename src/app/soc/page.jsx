@@ -42,7 +42,7 @@ export default function SOCPage() {
 
       {/* ================= HERO ================= */}
       <section
-        className="relative mt-10 py-32 px-6 bg-[url('/assets/soc.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden"
+        className="relative mt-10 py-32 px-6 h-screen bg-[url('/assets/soc.jpg')] bg-cover bg-center bg-no-repeat overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-indigo-900/40" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.25),_transparent_60%)]" />
@@ -190,6 +190,139 @@ export default function SOCPage() {
           </div>
         </motion.div>
       </section>
+
+      {/* ================= AI SOC CAPABILITIES ================= */}
+<section className="py-28 px-6 border-t border-border bg-background">
+  <motion.div
+    variants={container}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    className="max-w-7xl mx-auto"
+  >
+    <motion.h2
+      variants={fadeUp}
+      className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-blue-900"
+    >
+      AI SOC Core Capabilities
+    </motion.h2>
+
+    <motion.p
+      variants={fadeUp}
+      className="text-muted-foreground max-w-4xl mx-auto text-center mb-16 text-lg"
+    >
+      Advanced AI-powered capabilities designed to detect, investigate,
+      and respond to cyber threats across cloud, hybrid, and on-prem
+      environments.
+    </motion.p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          title: "Cloud & Hybrid Monitoring",
+          desc: "Continuous visibility across AWS, Azure, GCP, and hybrid infrastructures.",
+          icon: <Cloud className="w-7 h-7 text-violet-600" />,
+        },
+        {
+          title: "Threat Intelligence Fusion",
+          desc: "AI enriches alerts using global threat feeds and behavioral context.",
+          icon: <Radar className="w-7 h-7 text-blue-600" />,
+        },
+        {
+          title: "Identity & Access Protection",
+          desc: "Detects anomalous login behavior, privilege misuse, and insider threats.",
+          icon: <Lock className="w-7 h-7 text-indigo-600" />,
+        },
+        {
+          title: "Endpoint & Network Security",
+          desc: "Monitors endpoints, servers, and network traffic in real time.",
+          icon: <Server className="w-7 h-7 text-green-600" />,
+        },
+        {
+          title: "AI-Driven Alert Triage",
+          desc: "Automatically prioritizes critical threats and suppresses false positives.",
+          icon: <Brain className="w-7 h-7 text-cyan-600" />,
+        },
+        {
+          title: "Automated Incident Response",
+          desc: "Executes containment actions while keeping analysts in control.",
+          icon: <ShieldCheck className="w-7 h-7 text-emerald-600" />,
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          variants={fadeUp}
+          {...cardHover}
+          className="relative p-6 rounded-2xl bg-foreground/5 dark:bg-white/10 border border-border shadow-lg overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-blue-500/10 opacity-0 hover:opacity-100 transition" />
+          <div className="mb-4 relative">{item.icon}</div>
+          <h3 className="text-lg font-semibold mb-2 relative">{item.title}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed relative">
+            {item.desc}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </motion.div>
+</section>
+
+{/* ================= WHO BENEFITS ================= */}
+<section className="py-28 px-6 bg-foreground/5 border-t border-border">
+  <motion.div
+    variants={container}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true }}
+    className="max-w-7xl mx-auto"
+  >
+    <motion.h2
+      variants={fadeUp}
+      className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-blue-900"
+    >
+      Who Benefits from AI SOC
+    </motion.h2>
+
+    <motion.p
+      variants={fadeUp}
+      className="text-muted-foreground max-w-4xl mx-auto text-center mb-16 text-lg"
+    >
+      Designed for organizations that require scalable, intelligent,
+      and always-on security without expanding analyst headcount.
+    </motion.p>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {[
+        {
+          title: "Enterprise Security Teams",
+          desc: "Reduce alert fatigue, accelerate investigations, and improve SOC efficiency.",
+        },
+        {
+          title: "Cloud-First Organizations",
+          desc: "Gain unified security visibility across dynamic cloud and hybrid environments.",
+        },
+        {
+          title: "Compliance-Driven Industries",
+          desc: "Support regulatory requirements with continuous monitoring and audit-ready reports.",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          variants={fadeUp}
+          {...cardHover}
+          className="relative p-8 rounded-2xl bg-background border border-border shadow-lg overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-blue-500/10 opacity-0 hover:opacity-90 transition" />
+          <h3 className="text-xl font-bold mb-4 relative">{item.title}</h3>
+          <p className="text-muted-foreground leading-relaxed relative">
+            {item.desc}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </motion.div>
+</section>
+
 
       {/* ================= CTA ================= */}
       <section className="py-24 px-6 border-t border-border">
