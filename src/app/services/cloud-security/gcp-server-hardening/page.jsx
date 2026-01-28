@@ -70,7 +70,7 @@ export default function GCPServerHardeningPage() {
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-primary">
             What Is Cloud Server Hardening for GCP?
           </h2>
 
@@ -124,7 +124,7 @@ export default function GCPServerHardeningPage() {
         className="py-20 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-14">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-primary mb-14">
             Our GCP Server Hardening Capabilities
           </h2>
 
@@ -173,6 +173,75 @@ export default function GCPServerHardeningPage() {
         </div>
       </motion.section>
 
+      {/* ================= DETAILED SERVICE INFO CONTAINER – GCP SERVER HARDENING ================= */}
+<motion.section
+  variants={fadeUp}
+  whileInView="show"
+  viewport={{ once: true }}
+  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      variants={fadeUp}
+      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-emerald-500/10 dark:from-sky-500/20 dark:to-emerald-500/20" />
+
+      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* LEFT CONTENT */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-sky-600 dark:text-blue-400 mb-6">
+            How Our GCP Server Hardening Works
+          </h3>
+
+          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+            Our GCP Server Hardening service secures your Google Cloud infrastructure by
+            applying industry best practices, CIS benchmarks, and cloud-native security controls.
+            We minimize attack surfaces, eliminate misconfigurations, and strengthen your servers
+            against real-world threats.
+          </p>
+
+          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+            <li>✔ Secure Compute Engine VM configurations</li>
+            <li>✔ IAM roles & least-privilege access enforcement</li>
+            <li>✔ Network firewall rules & VPC security review</li>
+            <li>✔ OS-level hardening & patch management</li>
+            <li>✔ Logging, monitoring & alerting enablement</li>
+            <li>✔ Compliance alignment (CIS, ISO, SOC)</li>
+          </ul>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div>
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            What You Get
+          </h4>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "Hardened GCP VM & server configurations",
+              "IAM & access control review report",
+              "Firewall & network security validation",
+              "Identified risks & misconfigurations",
+              "Compliance-ready hardening checklist",
+              "Actionable remediation & best practices",
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
+
       {/* ================= DETAILS ================= */}
       <motion.section
         variants={fadeUp}
@@ -184,8 +253,8 @@ export default function GCPServerHardeningPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              How Our GCP Server Hardening Engagement Works
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-primary">
+            GCP Hardening & Risk Reduction
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">

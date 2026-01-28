@@ -18,6 +18,11 @@ const stagger = {
   show: { transition: { staggerChildren: 0.12 } },
 };
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
 const cardReveal = {
   hidden: { opacity: 0, scale: 0.95 },
   show: {
@@ -33,7 +38,7 @@ const floating3D = {
     rotateY: [0, -10, 0, 10, 0],
     y: [0, -12, 0, 12, 0],
   },
-  transition: { duration: 14, repeat: Infinity, ease: "easeInOut" },
+  transition: { duration: 14, repeat: Infinity, repeatType: "loop", ease: "easeInOut" },
 };
 
 export default function BlackBoxTestingPage() {
@@ -171,6 +176,74 @@ export default function BlackBoxTestingPage() {
         </div>
       </motion.section>
 
+      {/* ================= DETAILED SERVICE INFO CONTAINER – BLACK BOX TESTING ================= */}
+<motion.section
+  variants={fadeUp}
+  whileInView="show"
+  viewport={{ once: true }}
+  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      variants={fadeUp}
+      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-red-500/10 dark:from-amber-500/20 dark:to-red-500/20" />
+
+      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* LEFT CONTENT */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-amber-600 dark:text-blue-400 mb-6">
+            How Our Black Box Testing Works
+          </h3>
+
+          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+            Our Black Box Testing simulates real-world attacks with zero prior knowledge of your internal systems.
+            We evaluate your applications and infrastructure exactly as an external attacker would, identifying
+            exploitable vulnerabilities from an outsider’s perspective.
+          </p>
+
+          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+            <li>✔ No internal access or architecture knowledge</li>
+            <li>✔ External attack surface reconnaissance</li>
+            <li>✔ Input validation & logic flaw testing</li>
+            <li>✔ Authentication & authorization testing</li>
+            <li>✔ Exploitation to validate real impact</li>
+            <li>✔ Risk prioritization & mitigation guidance</li>
+          </ul>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div>
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            What You Get
+          </h4>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "External attack simulation report",
+              "Identified exploitable vulnerabilities",
+              "Proof-of-concept attack evidence",
+              "Risk severity & impact analysis",
+              "Compliance-ready documentation",
+              "Clear remediation recommendations",
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
+
       {/* ================= SERVICES GRID ================= */}
       <motion.section
         className="py-20 px-6"
@@ -254,7 +327,7 @@ export default function BlackBoxTestingPage() {
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-              How Our Black Box Testing Works
+            Our Testing Methodology
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
