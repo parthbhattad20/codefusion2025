@@ -79,12 +79,7 @@ export default function OTSecurityPage() {
                 Request Security Check
               </Link>
 
-              <Link
-                href="/services"
-                className="rounded-full border border-white/40 px-8 py-3 text-white font-medium hover:bg-white/10 transition"
-              >
-                View Services
-              </Link>
+              
             </motion.div>
           </motion.div>
         </div>

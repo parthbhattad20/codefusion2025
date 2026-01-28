@@ -34,6 +34,14 @@ const FloatingNavbar = () => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    // close everything when route changes
+    setIsMenuOpen(false);
+    setOpenService(false);
+    setOpenProduct(false);
+  }, [pathname]);
+  
+
   const productItems = [
     { name: "Vaultix", href: "/products/vaultix" },
     { name: "Phishinstinct", href: "/products/phishinstinct" },
@@ -307,6 +315,7 @@ const FloatingNavbar = () => {
                               <li key={item}>
                                 <Link
                                   href={`/services/${slugify(category)}/${slugify(item)}`}
+                                 
                                   className="text-sm text-muted-foreground hover:text-primary transition block"
                                 >
                                   {item}
