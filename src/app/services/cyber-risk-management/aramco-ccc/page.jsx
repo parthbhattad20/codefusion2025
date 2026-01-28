@@ -37,7 +37,7 @@ export default function AramcoCCCPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-slate-900/70 to-black/90" />
 
         {/* GRID EFFECT */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(139,92,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(139,92,246,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
@@ -45,7 +45,7 @@ export default function AramcoCCCPage() {
           transition={{ duration: 1 }}
           className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold text-cyan-300 drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]">
+          <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(139,92,246,0.6)]">
             Aramco Cybersecurity Compliance (CCC)
           </h1>
 
@@ -58,7 +58,7 @@ export default function AramcoCCCPage() {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-8 px-10 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold shadow-[0_0_25px_rgba(34,211,238,0.6)]"
+              className="mt-8 px-10 py-3 bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white rounded-full font-semibold shadow-[0_0_25px_rgba(139,92,246,0.6)]"
             >
               Speak with an Expert
             </motion.button>
@@ -76,7 +76,7 @@ export default function AramcoCCCPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-cyan-600 dark:text-cyan-400">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
               What Is Aramco CCC?
             </h2>
 
@@ -89,7 +89,7 @@ export default function AramcoCCCPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeLeft}>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+              <h3 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
                 Why ARAMCO CCC Matters
               </h3>
 
@@ -106,7 +106,7 @@ export default function AramcoCCCPage() {
               <img
                 src="/assets/services/cyber_f.jpg"
                 alt="ARAMCO CCC Consulting"
-                className="w-full max-w-md rounded-xl shadow-xl"
+                className="w-full max-w-md rounded-xl shadow-xl border-2 border-indigo-500/30"
               />
             </motion.div>
           </div>
@@ -119,17 +119,26 @@ export default function AramcoCCCPage() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-black/90 relative overflow-hidden"
+        className="py-24 px-6 relative overflow-hidden
+             bg-gray-50 dark:bg-black/90"
       >
         {/* cyber glow background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.15),transparent_60%)]" />
+        <div
+          className="absolute inset-0
+               bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.18),transparent_60%)]
+               dark:bg-[radial-gradient(circle_at_top,rgba(217,70,239,0.18),transparent_60%)]"
+        />
 
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400">
+            <h2
+              className="text-3xl md:text-4xl font-bold
+                     bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                     bg-clip-text text-transparent"
+            >
               ARAMCO CCC Compliance Snapshot
             </h2>
-            <p className="mt-4 max-w-3xl mx-auto text-gray-300 text-lg">
+            <p className="mt-4 max-w-3xl mx-auto text-gray-700 dark:text-gray-300 text-lg">
               A security-first methodology aligned with SACS-002 to achieve,
               validate, and continuously maintain Saudi Aramco cybersecurity
               compliance.
@@ -151,19 +160,33 @@ export default function AramcoCCCPage() {
                 key={i}
                 whileHover={{
                   y: -10,
-                  boxShadow: "0 0 30px rgba(34,211,238,0.35)",
+                  boxShadow: "0 0 35px rgba(139,92,246,0.35)",
                 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="relative rounded-xl border border-cyan-400/20 bg-neutral-950 p-6 text-left"
+                className="relative rounded-xl
+                     border border-indigo-500/30
+                     bg-white dark:bg-neutral-950
+                     p-6 text-left"
               >
-                <div className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-cyan-500 text-black font-bold flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.8)]">
+                <div
+                  className="absolute -top-3 -right-3 w-9 h-9 rounded-full
+                       bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                       text-white font-bold flex items-center justify-center
+                       shadow-[0_0_18px_rgba(139,92,246,0.8)]"
+                >
                   {i + 1}
                 </div>
 
-                <h3 className="text-lg font-semibold text-cyan-400 mb-2">
+                <h3
+                  className="text-lg font-semibold
+                         bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                         bg-clip-text text-transparent mb-2"
+                >
                   {title}
                 </h3>
-                <p className="text-sm text-gray-300">{desc}</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  {desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -171,9 +194,18 @@ export default function AramcoCCCPage() {
           {/* deliverables */}
           <motion.div
             variants={fadeUp}
-            className="rounded-2xl border border-cyan-400/20 bg-neutral-950/80 backdrop-blur p-10 shadow-[0_0_40px_rgba(34,211,238,0.15)]"
+            className="rounded-2xl
+                 border border-indigo-500/30
+                 bg-white/80 dark:bg-neutral-950/80
+                 backdrop-blur
+                 p-10
+                 shadow-[0_0_45px_rgba(139,92,246,0.25)]"
           >
-            <h3 className="text-2xl font-semibold text-white mb-6">
+            <h3
+              className="text-2xl font-semibold mb-6
+                     bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                     bg-clip-text text-transparent"
+            >
               Compliance Deliverables
             </h3>
 
@@ -190,7 +222,10 @@ export default function AramcoCCCPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="border border-cyan-400/20 rounded-lg px-4 py-3 text-sm text-gray-200 bg-black/60 hover:border-cyan-400/50 transition"
+                  className="border border-indigo-500/25 rounded-lg px-4 py-3 text-sm
+                       text-gray-800 dark:text-gray-200
+                       bg-white/70 dark:bg-black/60
+                       hover:border-fuchsia-500/60 transition"
                 >
                   {item}
                 </div>
@@ -209,7 +244,7 @@ export default function AramcoCCCPage() {
         className="py-20 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-14 text-gray-900 dark:text-white">
+          <h2 className="text-4xl font-bold mb-14 bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
             Our ARAMCO CCC Services
           </h2>
 
@@ -235,14 +270,14 @@ export default function AramcoCCCPage() {
                 whileHover={{
                   y: -12,
                   scale: 1.05,
-                  boxShadow: "0 0 25px rgba(34,211,238,0.4)",
+                  boxShadow: "0 0 25px rgba(139,92,246,0.4)",
                 }}
                 transition={{ type: "spring", stiffness: 250 }}
-                className="bg-white dark:bg-neutral-900 border border-cyan-200/40 dark:border-cyan-500/20 rounded-xl p-6 shadow-md relative overflow-hidden"
+                className="bg-white dark:bg-neutral-900 border border-indigo-500/30 rounded-xl p-6 shadow-md relative overflow-hidden"
               >
-                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-r from-cyan-500/10 to-blue-500/10" />
+                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-r from-indigo-500/10 to-fuchsia-500/10" />
 
-                <h3 className="relative text-lg font-semibold mb-2 text-cyan-600 dark:text-cyan-400">
+                <h3 className="relative text-lg font-semibold mb-2 bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
                   {title}
                 </h3>
                 <p className="relative text-sm text-gray-700 dark:text-gray-300">
@@ -265,7 +300,7 @@ export default function AramcoCCCPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
               How Our ARAMCO CCC Engagement Works
             </h2>
             <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -273,7 +308,7 @@ export default function AramcoCCCPage() {
               maintaining ARAMCO CCC readiness.
             </p>
 
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500" />
           </div>
 
           {/* Cards */}
@@ -282,13 +317,13 @@ export default function AramcoCCCPage() {
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+              className="relative p-8 rounded-2xl border border-indigo-500/30
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
-                   shadow-lg hover:shadow-2xl"
+                   shadow-lg hover:shadow-2xl hover:shadow-indigo-500/20"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+              <h3 className="text-xl font-semibold mb-6 bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
                 Assessment & Implementation
               </h3>
 
@@ -305,13 +340,13 @@ export default function AramcoCCCPage() {
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+              className="relative p-8 rounded-2xl border border-indigo-500/30
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
-                   shadow-lg hover:shadow-2xl"
+                   shadow-lg hover:shadow-2xl hover:shadow-fuchsia-500/20"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+              <h3 className="text-xl font-semibold mb-6 bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
                 Continuous Security Improvement
               </h3>
 
@@ -334,7 +369,7 @@ export default function AramcoCCCPage() {
         viewport={{ once: true }}
         className="py-24 px-6 text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent">
           Simplify Your ARAMCO CCC Journey
         </h2>
 
@@ -346,7 +381,7 @@ export default function AramcoCCCPage() {
         <Link href="/contact">
           <motion.button
             whileHover={{ scale: 1.1 }}
-            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg"
+            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white shadow-lg shadow-indigo-500/30"
           >
             Speak With a Compliance Expert
           </motion.button>

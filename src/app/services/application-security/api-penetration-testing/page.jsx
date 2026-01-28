@@ -237,7 +237,7 @@ export default function APIPenTestingPage() {
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
                 className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300"
               >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                <h3 className="font-semibold text-lg mb-3 from-violet-500 to-indigo-500">
                   {item.title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
@@ -277,7 +277,7 @@ export default function APIPenTestingPage() {
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Penetration Testing Process
@@ -297,7 +297,7 @@ export default function APIPenTestingPage() {
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Continuous Improvement & Support

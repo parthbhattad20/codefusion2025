@@ -206,7 +206,7 @@ export default function DPOServicePage() {
                 transition={{ type: "spring", stiffness: 160, damping: 16 }}
                 className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
               >
-                <div className="mb-3 text-xs font-semibold tracking-wide text-emerald-600 dark:text-emerald-400">
+                <div className="mb-3 text-xs font-semibold tracking-wide text-black dark:text-white">
                   Phase {i + 1}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
