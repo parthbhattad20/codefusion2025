@@ -34,9 +34,14 @@ export default function AISOCPage() {
         />
 
         {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-25"
-          style={{ backgroundImage: "url('/assets/services/ai.webp')" }}
+       
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/assets/videos/main.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
 
         {/* Overlay */}
@@ -156,7 +161,7 @@ export default function AISOCPage() {
             variants={fadeUp}
             src="/assets/services/ai.webp"
             alt="AI SOC"
-            className="w-full max-w-md rounded-xl shadow-xl mx-auto"
+            className="w-full max-w-xl md:max-w-xl rounded-xl shadow-xl mx-auto"
           />
         </div>
       </motion.section>
@@ -219,6 +224,74 @@ export default function AISOCPage() {
           </div>
         </div>
       </motion.section>
+
+      {/* ================= DETAILED AI SOC INFO CONTAINER ================= */}
+<motion.section
+  variants={fadeUp}
+  whileInView="show"
+  viewport={{ once: true }}
+  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      variants={fadeUp}
+      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
+
+      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* LEFT CONTENT */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+            How Our AI SOC Service Works
+          </h3>
+
+          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+            Our AI-powered Security Operations Center (SOC) continuously monitors,
+            detects, and responds to cyber threats in real time using advanced
+            machine learning, behavioral analytics, and threat intelligence.
+          </p>
+
+          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+            <li>✔ 24×7 real-time security monitoring</li>
+            <li>✔ AI-driven threat detection & correlation</li>
+            <li>✔ Behavioral anomaly analysis</li>
+            <li>✔ Automated alert triage & prioritization</li>
+            <li>✔ Incident investigation & response</li>
+            <li>✔ Continuous tuning & threat hunting</li>
+          </ul>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div>
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            What You Get
+          </h4>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "24×7 SOC monitoring dashboard",
+              "AI-based threat detection & alerts",
+              "Incident response playbooks",
+              "Threat intelligence integration",
+              "Compliance-ready logs & reports",
+              "Dedicated SOC analyst support",
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
 
       {/* ================= DETAILS ================= */}
       <motion.section

@@ -124,10 +124,11 @@ const FloatingNavbar = () => {
 
   return (
     <nav
+    key={pathname}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled || isMenuOpen
-          ? "bg-white/80 dark:bg-white/10 backdrop-blur-md lg:border-b lg:border-gray-200 dark:lg:border-white/10 lg:shadow-lg"
-          : "bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm"
+          ? "bg-white/80 dark:bg-white/10 backdrop-blur-md lg:border-b lg:border-gray-200 dark:lg:border-white/10 lg:shadow-lg "
+          : "bg-white/50 dark:bg-background backdrop-blur-sm bg-foreground/5 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">

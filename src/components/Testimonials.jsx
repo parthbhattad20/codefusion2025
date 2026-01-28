@@ -26,7 +26,7 @@ export default function Testimonials() {
       span: "md:col-span-3 md:place-self-end",
     },
     {
-      text: "We are now associated with Vulenris for the last two years for security services. I found them extremely professional and very accommodating. Their understanding and positioning of services in Cyber Security is outstanding. In particular, my wavelength instantly synced with Aishwarya, who stands out in this male-dominated industry with her proficiency in cyber security.",
+      text: "We are now associated with Vulnuris for the last two years for security services. I found them extremely professional and very accommodating. Their understanding and positioning of services in Cyber Security is outstanding. In particular, my wavelength instantly synced with Aishwarya, who stands out in this male-dominated industry with her proficiency in cyber security.",
       industry: "CyberSecurity",
       icon: <Shield className="w-4 h-4 text-red-500"/>,
       color: "red",

@@ -8,6 +8,11 @@ const fadeDiagonalLeft = {
   show: { opacity: 1, x: 0, y: 0, transition: { duration: 0.7 } },
 };
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
 const fadeDiagonalRight = {
   hidden: { opacity: 0, x: 60, y: 60 },
   show: { opacity: 1, x: 0, y: 0, transition: { duration: 0.7 } },
@@ -128,6 +133,74 @@ export default function AzureServerHardeningPage() {
 
         </div>
       </motion.section>
+
+      {/* ================= DETAILED SERVICE INFO CONTAINER – AZURE SERVER HARDENING ================= */}
+<motion.section
+  variants={fadeUp}
+  whileInView="show"
+  viewport={{ once: true }}
+  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      variants={fadeUp}
+      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-cyan-500/10 dark:from-blue-600/20 dark:to-cyan-500/20" />
+
+      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* LEFT CONTENT */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+            How Our Azure Server Hardening Works
+          </h3>
+
+          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+            Our Azure Server Hardening service secures Azure virtual machines and cloud workloads by applying
+            Microsoft security best practices and industry benchmarks. We reduce attack surfaces, enforce
+            least-privilege access, and harden configurations to protect your Azure environment.
+          </p>
+
+          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+            <li>✔ Azure VM & OS-level security assessment</li>
+            <li>✔ Entra ID (Azure AD) roles & access hardening</li>
+            <li>✔ Network security (NSGs & Azure Firewall)</li>
+            <li>✔ Patch management & vulnerability mitigation</li>
+            <li>✔ Logging, monitoring & Defender configuration</li>
+            <li>✔ CIS & Microsoft security baseline alignment</li>
+          </ul>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div>
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            What You Get
+          </h4>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "Azure server hardening assessment report",
+              "Hardened Azure VM & OS configurations",
+              "Secure identity & network setup",
+              "Risk & exposure reduction summary",
+              "CIS & Microsoft baseline compliance mapping",
+              "Post-hardening validation checklist",
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
 
       {/* ================= SERVICES GRID ================= */}
       <motion.section

@@ -51,13 +51,12 @@ const Vumas = () => {
               Vaultix - State of Art Next-Gen ITSM Platform
             </h1>
 
-            <p className="text-xl md:text-2xl font-medium text-white">
-              <ul className="text-lg md:text-2xl font-medium list-disc pl-5 space-y-2">
-                <li>Unified asset management,</li>
-                <li>SBOM tracking, and</li>
-                <li>intelligent ticket resolution for modern enterprises.</li>
+              <ul className="text-lg md:text-2xl font-medium list-disc pl-5 space-y-2 text-foreground">
+                <li>Unified asset management</li>
+                <li>SBOM tracking</li>
+                <li>Intelligent ticket resolution for modern enterprises</li>
               </ul>
-            </p>
+
 
             {/* Description */}
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
