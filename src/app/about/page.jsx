@@ -150,8 +150,8 @@ const AboutPage = () => {
         <motion.div variants={fadeUp}>
           <Partner />
         </motion.div>
-      </div>
-    </motion.div>
+        </div>
+      </motion.div>
   );
 };
 

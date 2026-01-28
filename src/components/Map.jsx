@@ -86,7 +86,7 @@ export default function OurPresence() {
         </h2>
 
         <p className="md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
-          <span className="text-violet-800">V</span>secure our clients across
+          <span className="text-violet-800">V</span> secure our clients across
           the globe. Our expertise powers trust, resilience, and
           protection—wherever you are.
         </p>
