@@ -149,6 +149,93 @@ export default function WirelessSecurityPage() {
         </div>
       </motion.section>
 
+      {/* ================= WIRELESS SECURITY COMMAND CENTER ================= */}
+<motion.section
+  className="py-28 px-6"
+  variants={stagger}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+>
+  <div className="max-w-7xl mx-auto">
+
+    {/* Heading */}
+    <motion.div variants={sectionReveal} className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400">
+        Wireless Security Control Model
+      </h2>
+
+      <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+        A practical framework to identify, validate, and secure wireless attack
+        surfaces across enterprise environments.
+      </p>
+    </motion.div>
+
+    {/* Main command panel */}
+    <motion.div
+      variants={sectionReveal}
+      className="relative rounded-3xl border border-emerald-500/20
+                 bg-gradient-to-br from-[#071512] to-[#030b08]
+                 p-10 shadow-2xl overflow-hidden"
+    >
+      {/* signal glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.15),transparent_60%)]" />
+
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {[
+          {
+            title: "Access Point Security",
+            desc: "Assessment of encryption, authentication methods, and management interfaces."
+          },
+          {
+            title: "Rogue Device Detection",
+            desc: "Identification of unauthorized access points and impersonating networks."
+          },
+          {
+            title: "Client Device Exposure",
+            desc: "Validation of laptop, mobile, and IoT wireless configurations."
+          },
+          {
+            title: "Signal Coverage Analysis",
+            desc: "Detection of excessive signal leakage beyond physical boundaries."
+          },
+          {
+            title: "Attack Simulation",
+            desc: "Controlled testing of handshake capture, weak encryption, and misconfigurations."
+          },
+          {
+            title: "Monitoring & Hardening",
+            desc: "Recommendations for continuous detection and wireless security controls."
+          },
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            variants={cardReveal}
+            className="rounded-2xl border border-emerald-400/20
+                       bg-white/5 backdrop-blur-md p-6
+                       hover:bg-white/10 transition"
+          >
+            <h3 className="text-lg font-semibold text-emerald-400">
+              {item.title}
+            </h3>
+
+            <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+              {item.desc}
+            </p>
+          </motion.div>
+        ))}
+
+      </div>
+
+     
+
+    </motion.div>
+
+  </div>
+</motion.section>
+
+
       {/* ================= SERVICES GRID ================= */}
       <motion.section
         className="py-20 px-6"
