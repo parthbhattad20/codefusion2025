@@ -136,7 +136,7 @@ export default function Footer() {
             Formarly Known as Newtonsapple Security Solutions LLP
           </p>
 
-          <div className="relative w-28 h-14 md:w-36 md:h-18 lg:w-48 lg:h-24">
+          <Link href="/" className="relative w-28 h-14 md:w-36 md:h-18 lg:w-48 lg:h-24 block">
             <Image
               src={
                 theme === "light"
@@ -148,7 +148,7 @@ export default function Footer() {
               className="object-contain"
               priority
             />
-          </div>
+          </Link>
         </motion.div>
 
         {/* Links */}
@@ -157,9 +157,6 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             {[
               { name: "Blog", url: "/blogs" },
-              { name: "FAQs", url: "/faqs" },
-              { name: "Terms", url: "/terms" },
-              { name: "Sitemap", url: "/sitemap" },
               { name: "Privacy Policy", url: "/privacy-policy" },
             ].map((itemLink) => (
               <li key={itemLink.name} className="relative group">

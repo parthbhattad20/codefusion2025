@@ -248,40 +248,64 @@ const Vaultix = () => {
         {/* Ticket Flow */}
         <motion.section
           variants={fadeUp}
-          className="py-24 bg-muted/40 border-y border-border mb-24"
+          className="relative py-32 bg-gradient-to-b from-muted/40 to-background border-y border-border mb-28 overflow-hidden"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
-            Intelligent Ticket Management
-          </h2>
+          {/* Decorative background blur */}
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-3xl" />
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <motion.div
-                key={n}
-                variants={fadeUp}
-                {...cardHover}
-                {...glowHover}
-                className="group flex items-start gap-5 bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg relative overflow-hidden"
-              >
-                <div className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-br from-violet-500/10 to-cyan-500/10" />
-                <div className="relative w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center font-semibold group-hover:bg-primary group-hover:text-white transition">
-                  {n}
-                </div>
-                <div className="relative">
-                  <h3 className="text-xl font-semibold mb-1">Step {n}</h3>
-                  <p className="text-muted-foreground">
-                    Automated workflow stage.
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="relative max-w-7xl mx-auto px-6">
+            {/* Heading */}
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight">
+                Intelligent Ticket Management
+              </h2>
+              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                Automate triage, prioritization, and resolution using AI-powered
+                workflows built for scale.
+              </p>
+              <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-cyan-500" />
+            </div>
+
+            {/* Cards */}
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-10"
+            >
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <motion.div
+                  key={n}
+                  variants={fadeUp}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                  className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-violet-500/40 to-cyan-500/40"
+                >
+                  <div className="relative flex gap-6 items-start bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl rounded-2xl p-7 border border-border shadow-lg hover:shadow-2xl transition-all overflow-hidden">
+                    {/* Glow layer */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-violet-500/10 to-cyan-500/10" />
+
+                    {/* Number badge */}
+                    <div className="relative shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-cyan-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                      {n}
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative">
+                      <h3 className="text-xl font-semibold mb-1 text-gray-900 dark:text-white">
+                        Step {n}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Automated workflow stage with intelligent routing, SLA
+                        tracking, and escalation logic.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </motion.section>
 
         {/* CTA */}

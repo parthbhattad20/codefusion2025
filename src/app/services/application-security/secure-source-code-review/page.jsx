@@ -1,12 +1,19 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Code, ShieldAlert, Bug, FileSearch, LineChart, Lock } from 'lucide-react';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Code,
+  ShieldAlert,
+  Bug,
+  FileSearch,
+  LineChart,
+  Lock,
+} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 const stagger = {
@@ -16,35 +23,41 @@ const stagger = {
 export default function SourceCodeReviewPage() {
   return (
     <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-         className="relative h-screen overflow-hidden"
+        className="relative h-screen overflow-hidden"
       >
-       <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
-          <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          >
             Secure Source Code Review Services
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left">
-            Deep testing of source code to identify weaknesses before hackers exploit them.
-            Secure your applications at the atomic level of software security.
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
+          >
+            Deep testing of source code to identify weaknesses before hackers
+            exploit them. Secure your applications at the atomic level of
+            software security.
           </motion.p>
 
           <Link href="/contact">
@@ -63,26 +76,25 @@ export default function SourceCodeReviewPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
         className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto">
-
           <div className="text-center mb-16">
             <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
               What is Secure Source Code Review?
             </h1>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Source code review improves the quality and security of software applications
-              through in-depth code-level analysis. It helps identify vulnerabilities early
-              in the development lifecycle and ensures secure applications are released into production.
+              Source code review improves the quality and security of software
+              applications through in-depth code-level analysis. It helps
+              identify vulnerabilities early in the development lifecycle and
+              ensures secure applications are released into production.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <motion.div variants={fadeUp} className="ml-10">
               <h2 className="text-2xl font-semibold text-primary mb-6">
                 Vulnerabilities We Identify
@@ -109,8 +121,70 @@ export default function SourceCodeReviewPage() {
                 className="w-full max-w-md rounded-xl shadow-lg transition"
               />
             </motion.div>
-
           </div>
+        </div>
+      </motion.section>
+
+      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
+
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+                  How Our Source Code Review Works
+                </h3>
+
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our secure code review follows a rigorous manual and automated analysis process to identify insecure coding patterns, logic flaws, cryptographic weaknesses, and data handling risks before they reach production.
+                </p>
+
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li>✔ Codebase scoping & architecture review</li>
+                  <li>✔ Static analysis (SAST) + manual inspection</li>
+                  <li>✔ Authentication & authorization flow validation</li>
+                  <li>✔ Business logic & data validation testing</li>
+                  <li>✔ Secure dependency & library analysis</li>
+                  <li>✔ CVSS-based risk classification</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Executive security summary",
+                    "Developer-friendly technical findings",
+                    "Annotated vulnerable code snippets",
+                    "CVSS severity scoring",
+                    "Compliance mapping (ISO, PCI, SOC2)",
+                    "Prioritized remediation roadmap",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -118,49 +192,50 @@ export default function SourceCodeReviewPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
         className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
-
-          <motion.h2 variants={fadeUp} className="text-4xl font-semibold text-primary mb-14">
+          <motion.h2
+            variants={fadeUp}
+            className="text-4xl font-semibold text-primary mb-14"
+          >
             Why Do You Need a Source Code Review?
           </motion.h2>
 
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
             {[
               {
-                title: 'Early Vulnerability Detection',
-                desc: 'Identify security flaws at the earliest stage to reduce remediation cost and risk.',
+                title: "Early Vulnerability Detection",
+                desc: "Identify security flaws at the earliest stage to reduce remediation cost and risk.",
               },
               {
-                title: 'Business & Reputation Protection',
-                desc: 'Prevent breaches that could damage customer trust and brand reputation.',
+                title: "Business & Reputation Protection",
+                desc: "Prevent breaches that could damage customer trust and brand reputation.",
               },
               {
-                title: 'Compliance & Legal Readiness',
-                desc: 'Meet regulatory and security compliance requirements with confidence.',
+                title: "Compliance & Legal Readiness",
+                desc: "Meet regulatory and security compliance requirements with confidence.",
               },
               {
-                title: 'Secure Production Releases',
-                desc: 'Ensure secure code before deployment into production environments.',
+                title: "Secure Production Releases",
+                desc: "Ensure secure code before deployment into production environments.",
               },
               {
-                title: 'Improved Code Quality',
-                desc: 'Enhance maintainability, performance, and security best practices.',
+                title: "Improved Code Quality",
+                desc: "Enhance maintainability, performance, and security best practices.",
               },
               {
-                title: 'Reduced Long-Term Risk',
-                desc: 'Fix issues early to avoid costly security incidents later.',
+                title: "Reduced Long-Term Risk",
+                desc: "Fix issues early to avoid costly security incidents later.",
               },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
                 whileHover={{ y: -8, scale: 1.03 }}
-                transition={{ type: 'spring', stiffness: 220, damping: 18 }}
+                transition={{ type: "spring", stiffness: 220, damping: 18 }}
                 className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all group"
               >
                 <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
@@ -171,7 +246,6 @@ export default function SourceCodeReviewPage() {
                 </p>
               </motion.div>
             ))}
-
           </motion.div>
         </div>
       </motion.section>
@@ -180,41 +254,68 @@ export default function SourceCodeReviewPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-24 px-20 bg-gray-50 dark:bg-background transition-colors"
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+              How Our Source Code Review Works
+            </h2>
 
-          <h2 className="text-center text-2xl md:text-3xl font-bold text-primary mb-16">
-            How Our Source Code Review Works
-          </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              Deep security analysis to uncover vulnerabilities hidden within
+              your application logic.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+          </div>
 
-            <ul className="space-y-6 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li>• Assess application architecture and codebase</li>
-              <li>• Perform manual and automated code analysis</li>
-              <li>• Identify vulnerabilities at the root level</li>
-              <li>• Validate security controls and logic flows</li>
-              <li>• Prioritize risks based on business impact</li>
-            </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
 
-            <ul className="space-y-6 ml-20 text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
-              <li className="font-semibold">• Report</li>
-              <ul className="ml-10 space-y-4 text-gray-700 dark:text-muted-foreground">
-                <li>○ Detailed vulnerability findings</li>
-                <li>○ Secure coding recommendations</li>
-                <li>○ Developer-friendly remediation guidance</li>
-                <li>○ Risk severity & impact analysis</li>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Review & Analysis
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Assess application architecture and codebase</li>
+                <li>• Perform manual and automated code analysis</li>
+                <li>• Identify vulnerabilities at the root level</li>
+                <li>• Validate security controls and logic flows</li>
+                <li>• Prioritize risks based on business impact</li>
               </ul>
-              <li className="font-semibold ml-5">• Monitor</li>
-              <p className="ml-10 text-gray-700 dark:text-muted-foreground">
-                Continuous assessments to proactively identify new vulnerabilities
-                as the codebase evolves.
-              </p>
-            </ul>
+            </motion.div>
 
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Reporting & Continuous Monitoring
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg mb-6">
+                <li>• Detailed vulnerability findings</li>
+                <li>• Secure coding recommendations</li>
+                <li>• Developer-friendly remediation guidance</li>
+                <li>• Risk severity & impact analysis</li>
+              </ul>
+
+              <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                Continuous assessments to proactively identify new
+                vulnerabilities as the codebase evolves.
+              </p>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -232,8 +333,8 @@ export default function SourceCodeReviewPage() {
         </h2>
 
         <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Identify vulnerabilities early and build secure applications
-          with Vulnuris Secure Source Code Review Services.
+          Identify vulnerabilities early and build secure applications with
+          Vulnuris Secure Source Code Review Services.
         </p>
 
         <Link href="/contact">
@@ -246,7 +347,6 @@ export default function SourceCodeReviewPage() {
           </motion.button>
         </Link>
       </motion.section>
-
     </main>
   );
 }

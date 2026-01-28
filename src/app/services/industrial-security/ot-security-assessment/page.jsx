@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const sectionReveal = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(6px)' },
-  show: { opacity: 1, y: 0, filter: 'blur(0)', transition: { duration: 0.8 } },
+  hidden: { opacity: 0, y: 40, filter: "blur(6px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0)", transition: { duration: 0.8 } },
 };
 
 const stagger = {
@@ -22,21 +22,19 @@ const cardReveal = {
 export default function OTSecurityPage() {
   return (
     <main className="w-full bg-background text-foreground overflow-x-hidden">
-
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden bg-[#05080f]">
-
         <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#22d3ee22_1px,transparent_1px),linear-gradient(to_bottom,#22d3ee22_1px,transparent_1px)] bg-[size:90px_90px]" />
 
         <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-600/10" />
 
@@ -65,8 +63,9 @@ export default function OTSecurityPage() {
               variants={sectionReveal}
               className="mt-6 text-lg md:text-xl text-gray-300"
             >
-              Protect your critical industrial infrastructure from cyber threats with
-              comprehensive OT security assessments and risk mitigation strategies.
+              Protect your critical industrial infrastructure from cyber threats
+              with comprehensive OT security assessments and risk mitigation
+              strategies.
             </motion.p>
 
             <motion.div
@@ -100,20 +99,19 @@ export default function OTSecurityPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto">
-
           <motion.div variants={sectionReveal} className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary">
               What is OT Security Assessment?
             </h2>
             <p className="mt-6 max-w-4xl mx-auto text-lg text-muted-foreground leading-relaxed">
-              Operational Technology systems control industrial environments such as oil & gas,
-              manufacturing, energy, transportation, and maritime operations. Our OT assessments
-              uncover vulnerabilities that could lead to safety hazards, downtime, or financial loss.
+              Operational Technology systems control industrial environments
+              such as oil & gas, manufacturing, energy, transportation, and
+              maritime operations. Our OT assessments uncover vulnerabilities
+              that could lead to safety hazards, downtime, or financial loss.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <motion.div variants={sectionReveal} className="ml-10">
               <h3 className="text-2xl font-semibold text-primary mb-6">
                 Why OT Security Matters
@@ -138,7 +136,6 @@ export default function OTSecurityPage() {
                 className="w-full max-w-md rounded-xl shadow-lg"
               />
             </motion.div>
-
           </div>
         </div>
       </motion.section>
@@ -152,7 +149,6 @@ export default function OTSecurityPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-
           <motion.h2
             variants={sectionReveal}
             className="text-3xl md:text-4xl font-semibold text-primary mb-14"
@@ -161,21 +157,38 @@ export default function OTSecurityPage() {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
             {[
-              { title: 'Assess', desc: 'Identify vulnerabilities and risks in your OT environment.' },
-              { title: 'Secure', desc: 'Apply access control, segmentation, patching, and protection.' },
-              { title: 'Monitor', desc: 'Real-time threat detection across OT networks.' },
-              { title: 'Respond', desc: 'Rapid remediation to minimize business impact.' },
-              { title: 'Compliance', desc: 'Meet regulatory and industry standards.' },
-              { title: 'Optimization', desc: 'Focus resources on critical assets.' },
+              {
+                title: "Assess",
+                desc: "Identify vulnerabilities and risks in your OT environment.",
+              },
+              {
+                title: "Secure",
+                desc: "Apply access control, segmentation, patching, and protection.",
+              },
+              {
+                title: "Monitor",
+                desc: "Real-time threat detection across OT networks.",
+              },
+              {
+                title: "Respond",
+                desc: "Rapid remediation to minimize business impact.",
+              },
+              {
+                title: "Compliance",
+                desc: "Meet regulatory and industry standards.",
+              },
+              {
+                title: "Optimization",
+                desc: "Focus resources on critical assets.",
+              },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 variants={cardReveal}
                 whileHover={{
                   y: -8,
-                  boxShadow: '0 25px 45px rgba(0,0,0,0.15)',
+                  boxShadow: "0 25px 45px rgba(0,0,0,0.15)",
                 }}
                 className="relative group bg-background border border-border rounded-2xl p-6 transition-all overflow-hidden"
               >
@@ -195,51 +208,79 @@ export default function OTSecurityPage() {
 
       {/* ================= PROCESS ================= */}
       <motion.section
-        className="py-24 px-20"
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              How Our OT Security Engagement Works
+            </h2>
 
-          <motion.h2
-            variants={sectionReveal}
-            className="text-center text-2xl md:text-3xl font-bold text-primary mb-16"
-          >
-            How Our OT Security Engagement Works
-          </motion.h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              We secure operational technology environments without disrupting
+              production, safety, or reliability.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+          </motion.div>
 
-            <motion.ul
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Technical Process */}
+            <motion.div
               variants={sectionReveal}
-              className="space-y-6 text-muted-foreground text-lg"
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
             >
-              <li>• OT environment assessment</li>
-              <li>• Security controls implementation</li>
-              <li>• Continuous monitoring</li>
-              <li>• Incident response & mitigation</li>
-              <li>• Compliance reporting</li>
-            </motion.ul>
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
 
-            <motion.ul
-              variants={sectionReveal}
-              className="space-y-6 ml-20 text-muted-foreground text-lg"
-            >
-              <li className="font-semibold text-primary">• Continuous Security Improvement</li>
-              <ul className="ml-8 space-y-3">
-                <li>○ Control validation</li>
-                <li>○ Threat detection enhancement</li>
-                <li>○ Operational risk analysis</li>
-                <li>○ Staff awareness</li>
-                <li>○ Incident planning</li>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Security Implementation & Monitoring
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• OT environment assessment</li>
+                <li>• Security controls implementation</li>
+                <li>• Continuous system monitoring</li>
+                <li>• Incident response and mitigation</li>
+                <li>• Compliance reporting</li>
               </ul>
-              <li className="font-semibold text-primary mt-4">
-                • Operational Continuity & Risk Reduction
-              </li>
-            </motion.ul>
+            </motion.div>
 
+            {/* Improvement & Continuity */}
+            <motion.div
+              variants={sectionReveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Continuous Improvement & Operational Resilience
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Control validation</li>
+                <li>• Advanced threat detection enhancement</li>
+                <li>• Operational risk analysis</li>
+                <li>• Staff security awareness</li>
+                <li>• Incident planning & readiness</li>
+                <li className="pt-3 font-semibold text-gray-900 dark:text-white">
+                  Operational continuity & long-term risk reduction
+                </li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -263,7 +304,8 @@ export default function OTSecurityPage() {
           variants={sectionReveal}
           className="mb-8 max-w-2xl mx-auto text-lg text-muted-foreground"
         >
-          Reduce operational risks and ensure continuity with professional OT security assessments.
+          Reduce operational risks and ensure continuity with professional OT
+          security assessments.
         </motion.p>
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
@@ -275,7 +317,6 @@ export default function OTSecurityPage() {
           </Link>
         </motion.div>
       </motion.section>
-
     </main>
   );
 }

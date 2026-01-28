@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const FloatingNavbar = () => {
   const pathname = usePathname();
   const { theme, resolvedTheme } = useTheme();
-  
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openProduct, setOpenProduct] = useState(false);
@@ -42,14 +42,14 @@ const FloatingNavbar = () => {
   ];
 
   const servicesMegaMenu = {
-    'Application Security': [
-      'VAPT',
-      'Web Application Penetration Testing',
-      'Mobile App Penetration Testing',
-      'API Penetration Testing',
-      'Secure Source Code Review',
-      'Ecommerce Security',
-      'SaaS Security',
+    "Application Security": [
+      "VAPT",
+      "Web Application Penetration Testing",
+      "Mobile App Penetration Testing",
+      "API Penetration Testing",
+      "Secure Source Code Review",
+      "Ecommerce Security",
+      "SaaS Security",
     ],
 
     "Cyber Risk Management": [
@@ -78,59 +78,60 @@ const FloatingNavbar = () => {
       "GCP Server Hardening",
       "Container Security",
     ],
-    'Data Privacy': [
-      'DPO as a Service',
-      'GDPR Compliance',
-      'Data Privacy Consulting',
-      'DPDPA',
+    "Data Privacy": [
+      "DPO as a Service",
+      "GDPR Compliance",
+      "Data Privacy Consulting",
+      "DPDPA",
     ],
-     'Managed Services': [
-      'Managed Security Services',
-      'Security Operations Centre',
-      'Annual Security Program',
+    "Managed Services": [
+      "Managed Security Services",
+      "Security Operations Centre",
+      "Annual Security Program",
     ],
-    'Industrial Security': [
-      'IoT Penetration Testing',
-      'OT Security Assessment',
-      'ICS Scada Security Testing',
+    "Industrial Security": [
+      "IoT Penetration Testing",
+      "OT Security Assessment",
+      "ICS Scada Security Testing",
     ],
-    'Network Security': [
-      'Firewall Assessment',
-      'Network Penetration Testing',
-      'Wireless Security Assessment',
+    "Network Security": [
+      "Firewall Assessment",
+      "Network Penetration Testing",
+      "Wireless Security Assessment",
     ],
-    'Managed VAPT': [
-      'Managed Threat Hunting',
-      'Pro active threat hunting',
-    ],
-    
-     'Threat simulations': [
-      'Phishing Simulation',
-      'Red Teaming',
-    ],
+    "Managed VAPT": ["Managed Threat Hunting", "Pro active threat hunting"],
+
+    "Threat simulations": ["Phishing Simulation", "Red Teaming"],
   };
 
   const slugify = (text) =>
-  text
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)+/g, '');
+    text
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "");
 
   // Prevent hydration mismatch - don't render theme-dependent logo until mounted
-  const currentTheme = mounted ? (resolvedTheme || theme) : 'light';
+  const currentTheme = mounted ? resolvedTheme || theme : "light";
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur-xl shadow-lg border-b border-white/10 before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-40 before:pointer-events-none">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled || isMenuOpen
+          ? "bg-white/80 dark:bg-white/10 backdrop-blur-md lg:border-b lg:border-gray-200 dark:lg:border-white/10 lg:shadow-lg"
+          : "bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-
         {/* LOGO */}
         <Link href="/" className="flex items-center">
           {mounted ? (
             <Image
-              src={currentTheme === 'dark'
-                ? '/assets/vulnuris.png'
-                : '/assets/vulnuris_logo_full1.png'}
+              src={
+                currentTheme === "dark"
+                  ? "/assets/vulnuris.png"
+                  : "/assets/vulnuris_logo_full1.png"
+              }
               alt="Vulnuris logo"
               width={180}
               height={50}
@@ -182,7 +183,7 @@ const FloatingNavbar = () => {
           className={`fixed top-[80px] right-0 h-[calc(100vh-80px)] w-[85%] max-w-[360px] bg-background/95 dark:bg-slate-950/95 backdrop-blur-2xl border-l border-border/40 shadow-2xl transition-transform duration-300 overflow-y-auto ${isMenuOpen ? "translate-x-0" : "translate-x-full"} lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0 lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none lg:overflow-visible`}
         >
           <ul className="flex flex-col items-start justify-start min-h-full px-6 pt-6 pb-8 space-y-6 lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:gap-8 lg:px-0 lg:pt-0 lg:pb-0 lg:min-h-0">
-             <NavItem
+            <NavItem
               label="Home"
               href="/"
               pathname={pathname}
@@ -194,57 +195,30 @@ const FloatingNavbar = () => {
               pathname={pathname}
               close={() => setIsMenuOpen(false)}
             />
-           
 
             {/* Products Dropdown */}
             <li className="relative w-full lg:w-auto text-left lg:text-left">
               <div className="hidden lg:block group relative">
-                <motion.button
-                  className="text-sm font-medium relative flex items-center gap-1 py-2"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
+                <button className="text-sm font-medium relative flex items-center gap-1 py-2 transition-colors duration-200 hover:text-violet-500">
                   Products
-                  <motion.span
-                    animate={{ rotate: 0 }}
-                    whileHover={{ rotate: 180 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown size={16} className="opacity-60" />
-                  </motion.span>
+                  <ChevronDown size={16} className="opacity-60" />
                   <Underline active={pathname.startsWith("/products")} />
-                </motion.button>
+                </button>
 
                 <div className="absolute left-1/2 top-full hidden group-hover:block -translate-x-1/2 pt-4 z-50">
-                  <motion.div
-                    className="w-[280px] rounded-2xl bg-background/95 backdrop-blur-xl border border-border/40 shadow-2xl p-2 overflow-hidden"
-                    initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <motion.div
-                      className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-cyan-500"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.4, delay: 0.1 }}
-                    />
-                    {productItems.map((p, i) => (
-                      <motion.div
+                  <div className="w-[280px] rounded-2xl bg-background/95 backdrop-blur-xl border border-border/40 shadow-2xl p-2 overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-cyan-500" />
+
+                    {productItems.map((p) => (
+                      <Link
                         key={p.name}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.2, delay: i * 0.05 }}
+                        href={p.href}
+                        className="block px-4 py-3 rounded-lg text-sm transition-colors hover:text-violet-500 hover:bg-primary/10"
                       >
-                        <Link
-                          href={p.href}
-                          className="block px-4 py-3 rounded-lg text-sm hover:bg-primary/10 transition-all group/item relative overflow-hidden"
-                        >
-                          <motion.div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-cyan-500/5 opacity-0 group-hover/item:opacity-100 transition-opacity" />
-                          <span className="relative z-10">{p.name}</span>
-                        </Link>
-                      </motion.div>
+                        {p.name}
+                      </Link>
                     ))}
-                  </motion.div>
+                  </div>
                 </div>
               </div>
 
@@ -323,11 +297,13 @@ const FloatingNavbar = () => {
                       [&::-webkit-scrollbar]:hidden"
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                      {Object.keys(servicesMegaMenu).map(category => (
+                      {Object.keys(servicesMegaMenu).map((category) => (
                         <div key={category}>
-                          <h3 className="text-primary font-semibold mb-3 border-b pb-1">{category}</h3>
+                          <h3 className="text-primary font-semibold mb-3 border-b pb-1">
+                            {category}
+                          </h3>
                           <ul className="space-y-3">
-                            {servicesMegaMenu[category].map(item => (
+                            {servicesMegaMenu[category].map((item) => (
                               <li key={item}>
                                 <Link
                                   href={`/services/${slugify(category)}/${slugify(item)}`}
@@ -378,7 +354,9 @@ const FloatingNavbar = () => {
                           transition={{ duration: 0.2, delay: i * 0.03 }}
                         >
                           <div className="px-3 py-2 rounded-lg bg-primary/5">
-                            <h4 className="font-semibold text-primary mb-2 text-sm">{category}</h4>
+                            <h4 className="font-semibold text-primary mb-2 text-sm">
+                              {category}
+                            </h4>
                             <div className="space-y-1">
                               {servicesMegaMenu[category].map((item) => (
                                 <Link
@@ -400,9 +378,24 @@ const FloatingNavbar = () => {
               </div>
             </li>
 
-            <NavItem label="SOC" href="/soc" pathname={pathname} close={() => setIsMenuOpen(false)} />
-            <NavItem label="Contact" href="/contact" pathname={pathname} close={() => setIsMenuOpen(false)} />
-            <NavItem label="Blogs" href="/blogs" pathname={pathname} close={() => setIsMenuOpen(false)} />
+            <NavItem
+              label="SOC"
+              href="/soc"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
+            <NavItem
+              label="Contact"
+              href="/contact"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
+            <NavItem
+              label="Blogs"
+              href="/blogs"
+              pathname={pathname}
+              close={() => setIsMenuOpen(false)}
+            />
 
             <motion.li
               className="lg:hidden w-full flex justify-start pt-4 border-t border-border/40"
@@ -416,7 +409,13 @@ const FloatingNavbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <div className={`h-5 w-px ${isScrolled ? 'bg-background/80 shadow-xl' : 'bg-background/60'}`} />
+          <div
+            className={`h-5 w-px transition-opacity duration-300 ${
+              isScrolled
+                ? "bg-gray-300 dark:bg-gray-700 opacity-100"
+                : "opacity-0"
+            }`}
+          />
           <SelectTheme />
         </div>
       </div>
@@ -437,9 +436,7 @@ const NavItem = ({ label, href, pathname, close }) => (
       onClick={close}
       className="text-lg lg:text-sm font-medium py-2 px-4 lg:px-3 block relative rounded-lg"
     >
-      <motion.span 
-        className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" 
-      />
+      <motion.span className="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
       {label}
       <Underline active={pathname === href} />
     </Link>

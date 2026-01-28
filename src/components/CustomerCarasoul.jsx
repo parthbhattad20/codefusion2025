@@ -27,7 +27,7 @@ export default function CustomerCarousel() {
   return (
     <div className="font-primary pt-10 w-full">
       <div className="w-full max-w-full">
-        <h2 className="font-bold text-center lg:text-left text-xl text-gray-700 dark:text-gray-400">
+        <h2 className="font-bold text-center text-xl text-gray-700 dark:text-gray-400">
           Making Security effortless for{" "}
           <span className="bg-gradient-to-b from-violet-400 to-violet-800 bg-clip-text text-transparent">
             200+

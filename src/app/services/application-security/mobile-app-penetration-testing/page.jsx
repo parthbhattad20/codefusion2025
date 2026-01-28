@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 const stagger = {
@@ -15,7 +15,6 @@ const stagger = {
 export default function MobileAppSecurityTestingPage() {
   return (
     <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <motion.section
         initial="hidden"
@@ -23,29 +22,34 @@ export default function MobileAppSecurityTestingPage() {
         viewport={{ once: true }}
         variants={fadeUp}
         className="relative h-screen overflow-hidden"
-       
       >
-
-<video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
+          >
             Mobile Application Security Testing
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-6 max-w-4xl text-lg md:text-xl text-gray-200">
-            Deep testing of mobile applications to uncover weaknesses before hackers exploit them —
-            helping you build safer, production-ready Android and iOS apps.
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-4xl text-lg md:text-xl text-gray-200"
+          >
+            Deep testing of mobile applications to uncover weaknesses before
+            hackers exploit them — helping you build safer, production-ready
+            Android and iOS apps.
           </motion.p>
 
           <Link href="/contact">
@@ -64,22 +68,89 @@ export default function MobileAppSecurityTestingPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
         className="py-24 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto text-center">
-
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
             What We Do
           </h2>
 
           <p className="max-w-5xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-            We perform deep penetration testing and security audits inside Android and iOS environments.
-            Our certified experts manually exploit vulnerabilities, validate business logic, perform binary
-            and file-level analysis, and ensure zero false positives while meeting global compliance standards
-            such as PCI, GDPR, HIPAA, NIST, ISO 27001 and more.
+            We perform deep penetration testing and security audits inside
+            Android and iOS environments. Our certified experts manually exploit
+            vulnerabilities, validate business logic, perform binary and
+            file-level analysis, and ensure zero false positives while meeting
+            global compliance standards such as PCI, GDPR, HIPAA, NIST, ISO
+            27001 and more.
           </p>
+        </div>
+      </motion.section>
+      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
+
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+                  How Our Mobile App Security Testing Works
+                </h3>
+
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our mobile application security testing follows a structured
+                  attacker-centric workflow to uncover client-side, backend, and
+                  device-level vulnerabilities that traditional QA and automated
+                  scanners often miss.
+                </p>
+
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li>✔ Application & API scope definition</li>
+                  <li>✔ Static and dynamic analysis (SAST & DAST)</li>
+                  <li>✔ Runtime manipulation & instrumentation</li>
+                  <li>✔ Business logic & authorization testing</li>
+                  <li>✔ Secure exploitation to validate impact</li>
+                  <li>✔ CVSS-based risk classification</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Executive summary for stakeholders",
+                    "Detailed technical vulnerability report",
+                    "Proof-of-concept screenshots & traces",
+                    "CVSS severity ratings",
+                    "Compliance mapping (PCI, ISO, HIPAA, GDPR)",
+                    "Step-by-step remediation roadmap",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -87,16 +158,28 @@ export default function MobileAppSecurityTestingPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-24 px-6 bg-white dark:bg-muted"
+        className="py-28 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-
-          <motion.h2 variants={fadeUp} className="text-center text-3xl md:text-4xl font-bold text-primary mb-16">
-            Mobile App Penetration Testing – Business Benefits
+          {/* Heading */}
+          <motion.h2
+            variants={fadeUp}
+            className="text-center text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6"
+          >
+            Mobile App Penetration Testing
           </motion.h2>
 
+          <motion.p
+            variants={fadeUp}
+            className="text-center max-w-3xl mx-auto text-gray-600 dark:text-gray-400 mb-16 text-lg"
+          >
+            Measurable security, faster delivery, and enterprise-grade risk
+            visibility for modern mobile applications.
+          </motion.p>
+
+          {/* Cards */}
           <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               "Simulate real-world hacker attacks",
@@ -112,13 +195,25 @@ export default function MobileAppSecurityTestingPage() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                whileHover={{ y: -8, scale: 1.03 }}
-                transition={{ type: 'spring', stiffness: 220, damping: 18 }}
-                className="rounded-2xl p-6 bg-gray-50 dark:bg-background border border-border shadow-sm hover:shadow-xl transition"
+                whileHover={{ y: -10, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-indigo-500/40 via-violet-500/40 to-cyan-500/40"
               >
-                <p className="text-gray-700 dark:text-muted-foreground">
-                  {item}
-                </p>
+                <div
+                  className="relative h-full rounded-2xl p-6 bg-white/80 dark:bg-slate-900/70
+                       backdrop-blur-xl border border-white/40 dark:border-slate-800
+                       shadow-md hover:shadow-2xl transition overflow-hidden"
+                >
+                  {/* light sweep effect */}
+                  <div className="absolute -left-full top-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-full transition-all duration-700" />
+
+                  {/* accent dot */}
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 mb-4" />
+
+                  <p className="relative text-gray-800 dark:text-gray-200 font-medium leading-relaxed">
+                    {item}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -129,12 +224,11 @@ export default function MobileAppSecurityTestingPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
         className="py-24 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-
           {[
             {
               title: "Assess",
@@ -155,13 +249,14 @@ export default function MobileAppSecurityTestingPage() {
               whileHover={{ y: -6 }}
               className="transition"
             >
-              <h3 className="text-xl font-semibold text-primary mb-4">{item.title}</h3>
+              <h3 className="text-xl font-semibold text-primary mb-4">
+                {item.title}
+              </h3>
               <p className="text-gray-700 dark:text-muted-foreground">
                 {item.desc}
               </p>
             </motion.div>
           ))}
-
         </div>
       </motion.section>
 
@@ -169,39 +264,77 @@ export default function MobileAppSecurityTestingPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-24 px-6 bg-white dark:bg-muted"
+        className="py-28 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+              What We Test in Mobile Applications
+            </h2>
 
-          <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-16">
-            What We Test in Mobile Applications
-          </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A comprehensive assessment covering application logic, device
+              security, backend APIs, and real-world attack vectors.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-lg text-gray-700 dark:text-muted-foreground">
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+          </div>
 
-            <ul className="space-y-4">
-              <li>• OWASP Mobile Top 10</li>
-              <li>• Data Storage Security</li>
-              <li>• Authentication & Authorization</li>
-              <li>• Device & Jailbreak Detection</li>
-              <li>• Secure Communication & Encryption</li>
-              <li>• Binary & File-Level Analysis</li>
-              <li>• Source Code Review</li>
-              <li>• API & Web Services Security</li>
-            </ul>
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Application Layer */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
 
-            <ul className="space-y-4">
-              <li>• Black Box, Grey Box & White Box Testing</li>
-              <li>• Reverse Engineering & Decompiling</li>
-              <li>• Cryptography Validation</li>
-              <li>• Business Logic Flaws</li>
-              <li>• Platform & Architecture Review</li>
-              <li>• Updates & CVE Checks</li>
-              <li>• Backend & Database Risks</li>
-            </ul>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Application & Device Security
+              </h3>
 
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• OWASP Mobile Top 10</li>
+                <li>• Data storage security</li>
+                <li>• Authentication & authorization</li>
+                <li>• Device & jailbreak detection</li>
+                <li>• Secure communication & encryption</li>
+                <li>• Binary & file-level analysis</li>
+                <li>• Source code review</li>
+                <li>• API & web services security</li>
+              </ul>
+            </motion.div>
+
+            {/* Advanced Testing */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Advanced & Infrastructure Testing
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Black box, grey box & white box testing</li>
+                <li>• Reverse engineering & decompiling</li>
+                <li>• Cryptography validation</li>
+                <li>• Business logic flaws</li>
+                <li>• Platform & architecture review</li>
+                <li>• Updates & CVE checks</li>
+                <li>• Backend & database risks</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -210,13 +343,15 @@ export default function MobileAppSecurityTestingPage() {
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
         className="py-24 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto text-center">
-
-          <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-primary mb-12">
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl md:text-4xl font-bold text-primary mb-12"
+          >
             Steps Involved in Mobile Penetration Testing
           </motion.h2>
 
@@ -260,8 +395,9 @@ export default function MobileAppSecurityTestingPage() {
         </h2>
 
         <p className="max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground mb-8">
-          Identify vulnerabilities early, protect sensitive data, and meet global compliance
-          requirements with enterprise-grade mobile security testing.
+          Identify vulnerabilities early, protect sensitive data, and meet
+          global compliance requirements with enterprise-grade mobile security
+          testing.
         </p>
 
         <Link href="/contact">
@@ -274,7 +410,6 @@ export default function MobileAppSecurityTestingPage() {
           </motion.button>
         </Link>
       </motion.section>
-
     </main>
   );
 }

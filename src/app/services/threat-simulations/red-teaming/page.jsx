@@ -1,9 +1,7 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-
-
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const sectionReveal = {
   hidden: { opacity: 0, y: 50 },
@@ -23,10 +21,8 @@ const cardReveal = {
 export default function RedTeamingPage() {
   return (
     <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden bg-[#060001]">
-
         {/* Red cyber grid */}
         <div
           className="absolute inset-0 opacity-[0.08]
@@ -37,26 +33,25 @@ export default function RedTeamingPage() {
 
         {/* Background image */}
         <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         {/* Scan beam */}
         <motion.div
           className="absolute inset-y-0 w-[45%] bg-gradient-to-r from-transparent via-red-600/30 to-transparent"
-          animate={{ x: ['-50%', '150%'] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ["-50%", "150%"] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/90" />
 
         <div className="relative z-10 h-full flex flex-col justify-center px-6 max-w-7xl mx-auto">
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,8 +75,8 @@ export default function RedTeamingPage() {
             transition={{ delay: 0.3 }}
             className="mt-6 text-red-200/80 max-w-3xl text-lg"
           >
-            Simulate real-world cyber attacks to expose blind spots, break defenses,
-            and strengthen detection before real adversaries strike.
+            Simulate real-world cyber attacks to expose blind spots, break
+            defenses, and strengthen detection before real adversaries strike.
           </motion.p>
 
           <motion.div
@@ -90,16 +85,17 @@ export default function RedTeamingPage() {
             className="mt-10"
           >
             <Link href="/contact">
-              <button className="px-10 py-4 rounded-full font-semibold text-white
+              <button
+                className="px-10 py-4 rounded-full font-semibold text-white
                 bg-gradient-to-r from-red-700 via-red-600 to-orange-600
                 shadow-[0_0_40px_rgba(255,0,0,0.35)]
                 hover:shadow-[0_0_70px_rgba(255,0,0,0.6)]
-                transition-all">
+                transition-all"
+              >
                 Speak With a Red Team Expert
               </button>
             </Link>
           </motion.div>
-
         </div>
       </section>
 
@@ -112,21 +108,22 @@ export default function RedTeamingPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto">
-
           <motion.div variants={sectionReveal} className="text-center mb-16">
             <h1 className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-500">
               Red Teaming Assessments
             </h1>
             <p className="mt-6 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-              Red Teaming emulates advanced threat actors using stealthy techniques across
-              networks, applications, cloud, and human targets.
+              Red Teaming emulates advanced threat actors using stealthy
+              techniques across networks, applications, cloud, and human
+              targets.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">Why Red Teaming Matters</h2>
+              <h2 className="text-2xl font-semibold mb-6">
+                Why Red Teaming Matters
+              </h2>
               <ul className="space-y-4">
                 <li>• Identify real-world attack paths</li>
                 <li>• Measure detection & response effectiveness</li>
@@ -145,10 +142,13 @@ export default function RedTeamingPage() {
                 alt="Red Teaming"
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
             </motion.div>
-
           </div>
         </div>
       </motion.section>
@@ -162,20 +162,21 @@ export default function RedTeamingPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-
-          <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
+          <motion.h2
+            variants={sectionReveal}
+            className="text-4xl font-semibold mb-14"
+          >
             Our Red Teaming Capabilities
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
             {[
-              ['External Red Teaming', 'Simulate perimeter attacks'],
-              ['Internal Red Teaming', 'Post-breach movement'],
-              ['Social Engineering', 'Human-layer attacks'],
-              ['Cloud & Identity', 'Privilege escalation'],
-              ['Adversary Simulation', 'MITRE ATT&CK'],
-              ['Purple Teaming', 'Detection tuning'],
+              ["External Red Teaming", "Simulate perimeter attacks"],
+              ["Internal Red Teaming", "Post-breach movement"],
+              ["Social Engineering", "Human-layer attacks"],
+              ["Cloud & Identity", "Privilege escalation"],
+              ["Adversary Simulation", "MITRE ATT&CK"],
+              ["Purple Teaming", "Detection tuning"],
             ].map(([title, desc], i) => (
               <motion.div
                 key={i}
@@ -197,36 +198,76 @@ export default function RedTeamingPage() {
 
       {/* ================= DETAILS ================= */}
       <motion.section
-        className="py-24 px-20"
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-red-600 dark:text-red-500">
+              How Our Red Team Engagement Works
+            </h2>
 
-          <motion.h2 variants={sectionReveal} className="text-center text-3xl font-bold mb-16">
-            How Our Red Team Engagement Works
-          </motion.h2>
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
+              We simulate real-world adversaries to uncover hidden weaknesses,
+              test your defenses, and measure your organization’s true
+              cyber-resilience.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-red-500 to-rose-600" />
+          </motion.div>
 
-            <motion.ul variants={sectionReveal} className="space-y-6 text-lg">
-              <li>• Define scope</li>
-              <li>• Reconnaissance</li>
-              <li>• Attack simulation</li>
-              <li>• Control evasion</li>
-              <li>• Business impact mapping</li>
-            </motion.ul>
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+            {/* Attack Simulation Card */}
+            <motion.div
+              variants={sectionReveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-red-500 to-rose-600 rounded-full" />
 
-            <motion.ul variants={sectionReveal} className="space-y-6 text-lg">
-              <li className="font-semibold">• Continuous improvement</li>
-              <li>○ MITRE mapping</li>
-              <li>○ Detection gaps</li>
-              <li>○ Executive reporting</li>
-              <li>○ Validation</li>
-            </motion.ul>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Adversary Simulation Process
+              </h3>
 
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Define engagement scope</li>
+                <li>• Deep reconnaissance & target profiling</li>
+                <li>• Realistic attack simulation</li>
+                <li>• Security control evasion</li>
+                <li>• Business impact mapping</li>
+              </ul>
+            </motion.div>
+
+            {/* Improvement Card */}
+            <motion.div
+              variants={sectionReveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-rose-600 to-red-700 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Continuous Improvement & Validation
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• MITRE ATT&CK technique mapping</li>
+                <li>• Detection & response gap analysis</li>
+                <li>• Executive-level reporting</li>
+                <li>• Defensive validation & retesting</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -239,12 +280,19 @@ export default function RedTeamingPage() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        <motion.h2 variants={sectionReveal} className="text-3xl md:text-4xl font-bold mb-4">
+        <motion.h2
+          variants={sectionReveal}
+          className="text-3xl md:text-4xl font-bold mb-4"
+        >
           Think Like an Attacker. Defend Like a Pro.
         </motion.h2>
 
-        <motion.p variants={sectionReveal} className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Validate your defenses with real-world Red Teaming by Vulnuris experts.
+        <motion.p
+          variants={sectionReveal}
+          className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground"
+        >
+          Validate your defenses with real-world Red Teaming by Vulnuris
+          experts.
         </motion.p>
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
@@ -255,7 +303,6 @@ export default function RedTeamingPage() {
           </Link>
         </motion.div>
       </motion.section>
-
     </main>
   );
 }

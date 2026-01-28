@@ -49,19 +49,17 @@ export default function DataPrivacyPage() {
     <main className="w-full bg-white text-gray-900 dark:bg-background dark:text-foreground">
 
       {/* ================= HERO ================= */}
-      <section
-        className="relative h-screen overflow-hidden"
-        
-      >
+      <section className="relative h-screen overflow-hidden">
         <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
+
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/50 to-black/70"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-70">
@@ -81,7 +79,7 @@ export default function DataPrivacyPage() {
             transition={{ delay: 0.3 }}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
-            Stay ahead with comprehensive data privacy compliance services in UAE, protecting sensitive information and ensuring regulatory adherence.
+            Stay ahead with comprehensive data privacy compliance services that protect sensitive information and ensure regulatory adherence.
           </motion.p>
 
           <motion.div whileHover={{ scale: 1.06 }}>
@@ -114,7 +112,7 @@ export default function DataPrivacyPage() {
             </p>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Proper data privacy practices build trust, reduce risks, and ensure regulatory compliance across UAE and global markets.
+              Proper data privacy practices build trust, reduce risks, and ensure regulatory compliance across industries and regions.
             </p>
           </motion.div>
 
@@ -130,11 +128,10 @@ export default function DataPrivacyPage() {
                 <li>• Build customer trust</li>
                 <li>• Comply with regulations</li>
                 <li>• Reduce financial & reputational risk</li>
-                <li>• Enable global business growth</li>
+                <li>• Support secure business growth</li>
               </ul>
             </motion.div>
 
-            {/* 3D Floating Image */}
             <motion.div
               variants={sectionReveal}
               className="flex justify-center md:justify-end mr-20 perspective-[1200px]"
@@ -164,7 +161,7 @@ export default function DataPrivacyPage() {
         <div className="max-w-7xl mx-auto text-center">
 
           <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
-            Our Data Privacy Services in UAE
+            Our Data Privacy Services
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
@@ -172,7 +169,7 @@ export default function DataPrivacyPage() {
             {[
               ['Risk Assessment', 'Identify data privacy risks through assessments.'],
               ['Policy Implementation', 'Develop and enforce protection policies.'],
-              ['Cybersecurity Compliance', 'Meet UAE & international regulations.'],
+              ['Cybersecurity Compliance', 'Meet applicable data protection regulations.'],
               ['GDPR & Global Standards', 'Comply with GDPR, HIPAA, ISO, PDPL.'],
               ['DPO as a Service', 'Dedicated data protection leadership.'],
               ['Continuous Monitoring', 'Ongoing vulnerability tracking.'],
@@ -187,7 +184,6 @@ export default function DataPrivacyPage() {
                 transition={{ duration: 0.35, ease: 'easeOut' }}
                 className="relative bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm cursor-pointer overflow-hidden group"
               >
-                {/* gradient border effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
                   <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-blue-500/40 via-violet-500/40 to-blue-500/40 blur-sm" />
                 </div>
@@ -207,34 +203,71 @@ export default function DataPrivacyPage() {
 
       {/* ================= DETAILS ================= */}
       <motion.section
-        className="py-24 px-20"
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
 
-          <motion.h2 variants={sectionReveal} className="text-center text-2xl md:text-3xl font-bold mb-16">
-            How Our Data Privacy Consulting Works
-          </motion.h2>
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              How Our Data Privacy Consulting Works
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A structured consulting framework to assess, implement, and continuously improve your organization’s data protection posture.
+            </p>
 
-            <motion.ul variants={sectionReveal} className="space-y-6 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
-              <li>• Assess data practices</li>
-              <li>• Report risks & gaps</li>
-              <li>• Implement controls & training</li>
-              <li>• Monitor continuously</li>
-            </motion.ul>
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+          </motion.div>
 
-            <motion.ul variants={sectionReveal} className="space-y-6 ml-20 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
-              <li className="font-semibold">• Regulatory Coverage</li>
-              <li>○ UAE regulations</li>
-              <li>○ GDPR, HIPAA, ISO, PDPL, CCPA</li>
-              <li>○ DPO services</li>
-              <li>○ Custom compliance roadmap</li>
-            </motion.ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <motion.div
+              variants={sectionReveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                         bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                         shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Consulting Process
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Assess data practices</li>
+                <li>• Report risks & gaps</li>
+                <li>• Implement controls & training</li>
+                <li>• Monitor continuously</li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              variants={sectionReveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                         bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                         shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Regulatory Coverage
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Applicable data protection regulations</li>
+                <li>• GDPR, HIPAA, ISO, PDPL, CCPA</li>
+                <li>• DPO services</li>
+                <li>• Custom compliance roadmap</li>
+              </ul>
+            </motion.div>
 
           </div>
         </div>

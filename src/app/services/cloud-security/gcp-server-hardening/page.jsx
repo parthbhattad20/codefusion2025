@@ -1,40 +1,37 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -60 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 const fadeRight = {
   hidden: { opacity: 0, x: 60 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 export default function GCPServerHardeningPage() {
   return (
     <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-gray-100">
-
       {/* ================= HERO ================= */}
-      <section
-        className="relative h-screen overflow-hidden"
-      >
+      <section className="relative h-screen overflow-hidden">
         <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 w-full h-full object-cover"
-  >
-    <source src="/assets/videos/main.mp4" type="video/mp4" />
-  </video>
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/70" />
 
         <motion.div
@@ -48,7 +45,8 @@ export default function GCPServerHardeningPage() {
           </h1>
 
           <p className="mt-6 max-w-4xl text-lg text-gray-200">
-            Keep your Google Cloud Platform secure with expert server hardening strategies for UAE businesses.
+            Keep your Google Cloud Platform secure with expert server hardening
+            strategies for businesses.
           </p>
 
           <Link href="/contact">
@@ -68,32 +66,37 @@ export default function GCPServerHardeningPage() {
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             What Is Cloud Server Hardening for GCP?
           </h2>
 
           <p className="mt-6 max-w-4xl mx-auto text-lg text-gray-700 dark:text-gray-300">
-            Google Cloud Platform (GCP) provides powerful cloud infrastructure, but securing your assets remains the responsibility of your business. Server hardening ensures access control, audit readiness, and adherence to CIS benchmarks.
+            Google Cloud Platform (GCP) provides powerful cloud infrastructure,
+            but securing your assets remains the responsibility of your
+            business. Server hardening ensures access control, audit readiness,
+            and adherence to CIS benchmarks.
           </p>
 
           <p className="mt-4 max-w-4xl mx-auto text-lg text-gray-700 dark:text-gray-300">
-            Proper hardening protects sensitive information, ensures confidentiality and integrity, supports compliance, optimizes costs, and enhances incident response capabilities.
+            Proper hardening protects sensitive information, ensures
+            confidentiality and integrity, supports compliance, optimizes costs,
+            and enhances incident response capabilities.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
-
             <motion.div variants={fadeLeft} className="text-left">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
                 Benefits of GCP Server Hardening
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300">
-                <li>• Safeguard data with robust encryption and access controls</li>
+                <li>
+                  • Safeguard data with robust encryption and access controls
+                </li>
                 <li>• Ensure service continuity and effective backups</li>
                 <li>• Optimize operational costs and cloud resource usage</li>
                 <li>• Strengthen incident response and threat mitigation</li>
@@ -108,7 +111,6 @@ export default function GCPServerHardeningPage() {
                 className="w-full max-w-md rounded-xl shadow-xl"
               />
             </motion.div>
-
           </div>
         </div>
       </motion.section>
@@ -118,29 +120,45 @@ export default function GCPServerHardeningPage() {
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
         className="py-20 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-14">
             Our GCP Server Hardening Capabilities
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
             {[
-              ['Discovery & Mapping', 'Identify and categorize all cloud assets based on type and criticality.'],
-              ['Vulnerability Assessment', 'Detect vulnerabilities using advanced tools and best practices.'],
-              ['Penetration Testing', 'Validate vulnerabilities to determine real-world risk.'],
-              ['Access & Identity Management', 'Enforce least privilege and monitor user roles.'],
-              ['Reporting & Remediation', 'Deliver actionable security improvement plans.'],
-              ['Continuous Monitoring', 'Detect threats in real time and respond efficiently.'],
+              [
+                "Discovery & Mapping",
+                "Identify and categorize all cloud assets based on type and criticality.",
+              ],
+              [
+                "Vulnerability Assessment",
+                "Detect vulnerabilities using advanced tools and best practices.",
+              ],
+              [
+                "Penetration Testing",
+                "Validate vulnerabilities to determine real-world risk.",
+              ],
+              [
+                "Access & Identity Management",
+                "Enforce least privilege and monitor user roles.",
+              ],
+              [
+                "Reporting & Remediation",
+                "Deliver actionable security improvement plans.",
+              ],
+              [
+                "Continuous Monitoring",
+                "Detect threats in real time and respond efficiently.",
+              ],
             ].map(([title, desc], i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -10, scale: 1.04 }}
-                transition={{ type: 'spring', stiffness: 300 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-xl p-6 shadow-md"
               >
                 <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
@@ -151,7 +169,6 @@ export default function GCPServerHardeningPage() {
                 </p>
               </motion.div>
             ))}
-
           </div>
         </div>
       </motion.section>
@@ -161,34 +178,71 @@ export default function GCPServerHardeningPage() {
         variants={fadeUp}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-100px' }}
-        className="py-24 px-6"
+        viewport={{ once: true, margin: "-120px" }}
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              How Our GCP Server Hardening Engagement Works
+            </h2>
 
-          <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white mb-16">
-            How Our GCP Server Hardening Engagement Works
-          </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A structured, security-first approach to protecting your Google
+              Cloud infrastructure.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-indigo-500" />
+          </div>
 
-            <ul className="space-y-5 text-gray-700 dark:text-gray-300">
-              <li>• Discover and map all cloud assets</li>
-              <li>• Perform vulnerability assessments</li>
-              <li>• Conduct penetration testing</li>
-              <li>• Apply secure configurations</li>
-              <li>• Monitor and remediate continuously</li>
-            </ul>
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Process */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-sky-500 to-indigo-500 rounded-full" />
 
-            <ul className="space-y-5 text-gray-700 dark:text-gray-300">
-              <li className="font-semibold text-gray-900 dark:text-white">• Secure Cloud Operations</li>
-              <li>○ CIS benchmark alignment</li>
-              <li>○ Threat detection & mitigation</li>
-              <li>○ Backup & disaster recovery</li>
-              <li>○ Cost optimization</li>
-              <li>○ Enhanced incident response</li>
-            </ul>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Engagement Process
+              </h3>
 
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Discover and map all cloud assets</li>
+                <li>• Perform vulnerability assessments</li>
+                <li>• Conduct penetration testing</li>
+                <li>• Apply secure configurations</li>
+                <li>• Monitor and remediate continuously</li>
+              </ul>
+            </motion.div>
+
+            {/* Operations */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Secure Cloud Operations
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• CIS benchmark alignment</li>
+                <li>• Threat detection & mitigation</li>
+                <li>• Backup & disaster recovery</li>
+                <li>• Cost optimization</li>
+                <li>• Enhanced incident response</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -206,7 +260,8 @@ export default function GCPServerHardeningPage() {
         </h2>
 
         <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-gray-300">
-          Ensure your Google Cloud environment is hardened, compliant, and secure with our expert services.
+          Ensure your Google Cloud environment is hardened, compliant, and
+          secure with our expert services.
         </p>
 
         <Link href="/contact">
@@ -218,7 +273,6 @@ export default function GCPServerHardeningPage() {
           </motion.button>
         </Link>
       </motion.section>
-
     </main>
   );
 }

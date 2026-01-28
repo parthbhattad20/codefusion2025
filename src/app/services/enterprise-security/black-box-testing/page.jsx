@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const sectionReveal = {
-  hidden: { opacity: 0, y: 50, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 50, filter: "blur(8px)" },
   show: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
+    filter: "blur(0px)",
     transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
   },
 };
@@ -23,7 +23,7 @@ const cardReveal = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
@@ -33,26 +33,23 @@ const floating3D = {
     rotateY: [0, -10, 0, 10, 0],
     y: [0, -12, 0, 12, 0],
   },
-  transition: { duration: 14, repeat: Infinity, ease: 'easeInOut' },
+  transition: { duration: 14, repeat: Infinity, ease: "easeInOut" },
 };
 
 export default function BlackBoxTestingPage() {
   return (
     <main className="w-full bg-white text-gray-900 dark:bg-background dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden">
-
-      <video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover"
->
-  <source src="/assets/videos/main.mp4" type="video/mp4" />
-</video>
-
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/85"
@@ -65,12 +62,11 @@ export default function BlackBoxTestingPage() {
 
         <motion.div
           className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-12"
-          animate={{ x: ['-30%', '30%'] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ["-30%", "30%"] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-32">
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -102,17 +98,22 @@ export default function BlackBoxTestingPage() {
             transition={{ delay: 0.5 }}
             className="text-sm md:text-xl text-gray-200 max-w-4xl text-center"
           >
-            Discover how a real attacker could hack your business — safely. Our expert Black Box Penetration Testing services replicate real-world cyber attacks without prior system knowledge.
+            Discover how a real attacker could hack your business — safely. Our
+            expert Black Box Penetration Testing services replicate real-world
+            cyber attacks without prior system knowledge.
           </motion.p>
 
-          <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.96 }} className="mt-10">
+          <motion.div
+            whileHover={{ scale: 1.07 }}
+            whileTap={{ scale: 0.96 }}
+            className="mt-10"
+          >
             <Link href="/contact">
               <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition">
                 Request a Pentest
               </button>
             </Link>
           </motion.div>
-
         </div>
       </section>
 
@@ -122,22 +123,23 @@ export default function BlackBoxTestingPage() {
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
-
           <motion.div variants={sectionReveal} className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
               What is Black Box Penetration Testing?
             </h2>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Black Box Penetration Testing is a real-world security assessment conducted without any internal knowledge of application code, architecture, or system design — except a target URL and legal permission.
+              Black Box Penetration Testing is a real-world security assessment
+              conducted without any internal knowledge of application code,
+              architecture, or system design — except a target URL and legal
+              permission.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <motion.div variants={sectionReveal} className="ml-10">
               <h3 className="text-2xl font-semibold mb-6">
                 Why Black Box Testing Matters
@@ -162,10 +164,9 @@ export default function BlackBoxTestingPage() {
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}
                 transition={floating3D.transition}
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ transformStyle: "preserve-3d" }}
               />
             </motion.div>
-
           </div>
         </div>
       </motion.section>
@@ -179,20 +180,39 @@ export default function BlackBoxTestingPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-
-          <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
+          <motion.h2
+            variants={sectionReveal}
+            className="text-4xl font-semibold mb-14"
+          >
             Benefits of Black Box Penetration Testing
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
             {[
-              ['Realistic Attack Simulation', 'Replicates how attackers exploit exposed applications and infrastructure.'],
-              ['Unbiased Results', 'No insider knowledge ensures realistic vulnerability discovery.'],
-              ['Critical Vulnerability Detection', 'Identifies XSS, CSRF, injections, and misconfigurations.'],
-              ['Business Logic Testing', 'Manual testing uncovers complex workflow flaws.'],
-              ['Actionable Remediation', 'Clear guidance enables faster vulnerability fixes.'],
-              ['Regulatory Readiness', 'Supports compliance expectations across UAE industries.'],
+              [
+                "Realistic Attack Simulation",
+                "Replicates how attackers exploit exposed applications and infrastructure.",
+              ],
+              [
+                "Unbiased Results",
+                "No insider knowledge ensures realistic vulnerability discovery.",
+              ],
+              [
+                "Critical Vulnerability Detection",
+                "Identifies XSS, CSRF, injections, and misconfigurations.",
+              ],
+              [
+                "Business Logic Testing",
+                "Manual testing uncovers complex workflow flaws.",
+              ],
+              [
+                "Actionable Remediation",
+                "Clear guidance enables faster vulnerability fixes.",
+              ],
+              [
+                "Regulatory Readiness",
+                "Supports compliance expectations across UAE industries.",
+              ],
             ].map(([title, desc], i) => (
               <motion.div
                 key={i}
@@ -202,9 +222,9 @@ export default function BlackBoxTestingPage() {
                   rotateY: -8,
                   y: -12,
                 }}
-                transition={{ type: 'spring', stiffness: 180, damping: 14 }}
+                transition={{ type: "spring", stiffness: 180, damping: 14 }}
                 className="relative bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-md cursor-pointer overflow-hidden group perspective-[800px]"
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
                   <div className="absolute inset-[-2px] rounded-2xl bg-gradient-to-br from-blue-500/40 via-violet-500/40 to-cyan-500/40 blur-md" />
@@ -224,37 +244,76 @@ export default function BlackBoxTestingPage() {
 
       {/* ================= PROCESS ================= */}
       <motion.section
-        className="py-24 px-20"
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              How Our Black Box Testing Works
+            </h2>
 
-          <motion.h2 variants={sectionReveal} className="text-center text-2xl md:text-3xl font-bold mb-16">
-            How Our Black Box Testing Works
-          </motion.h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A real-world attack simulation methodology to identify exploitable
+              weaknesses before adversaries do.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
+          </motion.div>
 
-            <motion.ul variants={sectionReveal} className="space-y-6 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
-              <li>• Reconnaissance scanning</li>
-              <li>• Attack surface discovery</li>
-              <li>• VAPT execution</li>
-              <li>• Manual exploitation</li>
-              <li>• Impact analysis</li>
-            </motion.ul>
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Testing Flow */}
+            <motion.div
+              variants={sectionReveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-violet-500 rounded-full" />
 
-            <motion.ul variants={sectionReveal} className="space-y-6 ml-20 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
-              <li className="font-semibold">• Reporting & Remediation</li>
-              <li>○ Proof of exploitation</li>
-              <li>○ Severity scoring</li>
-              <li>○ Developer guidance</li>
-              <li>○ Retesting</li>
-              <li className="font-semibold">• Continuous Security Validation</li>
-            </motion.ul>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Offensive Testing Lifecycle
+              </h3>
 
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Reconnaissance scanning</li>
+                <li>• Attack surface discovery</li>
+                <li>• VAPT execution</li>
+                <li>• Manual exploitation</li>
+                <li>• Impact analysis</li>
+              </ul>
+            </motion.div>
+
+            {/* Reporting */}
+            <motion.div
+              variants={sectionReveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Reporting & Continuous Validation
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Proof of exploitation</li>
+                <li>• Severity scoring</li>
+                <li>• Developer remediation guidance</li>
+                <li>• Verification retesting</li>
+                <li>• Continuous security validation</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -267,12 +326,19 @@ export default function BlackBoxTestingPage() {
         whileInView="show"
         viewport={{ once: true }}
       >
-        <motion.h2 variants={sectionReveal} className="text-3xl md:text-4xl font-bold mb-4">
+        <motion.h2
+          variants={sectionReveal}
+          className="text-3xl md:text-4xl font-bold mb-4"
+        >
           Test Your Defenses Before Attackers Do
         </motion.h2>
 
-        <motion.p variants={sectionReveal} className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Identify real attack paths with expert-led Black Box Penetration Testing by Vulnuris.
+        <motion.p
+          variants={sectionReveal}
+          className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground"
+        >
+          Identify real attack paths with expert-led Black Box Penetration
+          Testing by Vulnuris.
         </motion.p>
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
@@ -283,7 +349,6 @@ export default function BlackBoxTestingPage() {
           </Link>
         </motion.div>
       </motion.section>
-
     </main>
   );
 }

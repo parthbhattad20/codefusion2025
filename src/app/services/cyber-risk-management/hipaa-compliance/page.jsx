@@ -12,6 +12,14 @@ const reveal = {
     transition: { duration: 0.8, ease: "easeOut" },
   },
 };
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
 
 const stagger = {
   hidden: {},
@@ -64,7 +72,7 @@ export default function HIPAACompliancePage() {
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
             Ensure secure healthcare data transfer, build patient trust, and
-            stay compliant with HIPAA regulations in the UAE.
+            stay compliant with regulations like HIPAA.
           </motion.p>
 
           <motion.div whileHover={{ scale: 1.06 }}>
@@ -130,6 +138,85 @@ export default function HIPAACompliancePage() {
           </div>
         </div>
       </motion.section>
+      {/* ================= HIPAA COMPLIANCE SNAPSHOT ================= */}
+      <motion.section
+        className="py-24 px-6 bg-gradient-to-br from-blue-50 to-sky-50 dark:from-slate-900 dark:to-slate-950"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div variants={reveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-sky-600 dark:text-sky-400">
+              HIPAA Compliance Implementation Snapshot
+            </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A healthcare-focused compliance framework designed to secure
+              Protected Health Information (PHI) and meet HIPAA Security &
+              Privacy Rule requirements.
+            </p>
+          </motion.div>
+
+          {/* Phases */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-16">
+            {[
+              ["Identify", "Systems, workforce roles, PHI data flows"],
+              ["Assess", "Administrative, technical & physical safeguards"],
+              ["Secure", "Access control, encryption, network protection"],
+              ["Test", "Penetration testing & control validation"],
+              ["Maintain", "Audits, training & continuous monitoring"],
+            ].map(([title, desc], i) => (
+              <motion.div
+                key={i}
+                variants={reveal}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 180, damping: 16 }}
+                className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
+              >
+                <div className="mb-3 text-sm font-semibold text-sky-500">
+                  Step {i + 1}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                  {title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Deliverables */}
+          <motion.div variants={reveal}>
+            <div className="rounded-3xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-10 shadow-xl">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+                What You Receive
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  "HIPAA gap assessment report",
+                  "PHI asset & data-flow inventory",
+                  "Risk analysis documentation",
+                  "Security & privacy policy set",
+                  "Incident response & breach procedure",
+                  "Safeguard implementation roadmap",
+                  "Audit readiness evidence pack",
+                  "Compliance posture summary report",
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm bg-white dark:bg-slate-950 text-gray-700 dark:text-gray-300"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* ================= SERVICES ================= */}
       <motion.section
@@ -192,42 +279,73 @@ export default function HIPAACompliancePage() {
 
       {/* ================= HOW IT WORKS ================= */}
       <motion.section
-        className="py-24 px-20"
-        variants={stagger}
+        variants={fadeUp}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <motion.h2
-            variants={reveal}
-            className="text-center text-2xl md:text-3xl font-bold mb-16 text-gray-900 dark:text-foreground"
-          >
-            How Our HIPAA Compliance Engagement Works
-          </motion.h2>
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              How Our HIPAA Compliance Engagement Works
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-            <motion.ul
-              variants={reveal}
-              className="space-y-6 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed"
-            >
-              <li>• Identify PHI assets</li>
-              <li>• Perform risk assessments</li>
-              <li>• Conduct penetration testing</li>
-              <li>• Implement controls</li>
-              <li>• Maintain compliance</li>
-            </motion.ul>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A structured compliance framework to safeguard patient data and
+              meet regulatory requirements.
+            </p>
 
-            <motion.ul
-              variants={reveal}
-              className="space-y-6 ml-20 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed"
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-indigo-500" />
+          </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Process */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
             >
-              <li className="font-semibold">• Continuous Improvement</li>
-              <li>○ Regular audits</li>
-              <li>○ Employee training</li>
-              <li>○ Continuous monitoring</li>
-              <li>○ Rapid remediation</li>
-            </motion.ul>
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-sky-500 to-indigo-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Compliance Process
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Identify PHI assets</li>
+                <li>• Perform risk assessments</li>
+                <li>• Conduct penetration testing</li>
+                <li>• Implement controls</li>
+                <li>• Maintain compliance</li>
+              </ul>
+            </motion.div>
+
+            {/* Continuous Improvement */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Continuous Improvement
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Regular audits</li>
+                <li>• Employee training</li>
+                <li>• Continuous monitoring</li>
+                <li>• Rapid remediation</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>

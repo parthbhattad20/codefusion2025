@@ -63,9 +63,8 @@ export default function ISO27001Page() {
             transition={{ delay: 0.3 }}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
-            Leverage the expertise of qualified ISO 27001 compliance auditors in
-            UAE and get certified – raise your business to international
-            standards.
+            Leverage the expertise of qualified ISO 27001 compliance auditors
+            and get certified – raise your business to international standards.
           </motion.p>
 
           <motion.div whileHover={{ scale: 1.06 }}>
@@ -131,6 +130,93 @@ export default function ISO27001Page() {
         </div>
       </motion.section>
 
+      {/* ================= ISO 27001 SERVICE SNAPSHOT ================= */}
+      <motion.section
+        className="py-24 px-6 bg-slate-50 dark:bg-slate-950"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div variants={reveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-sky-600 dark:text-sky-400">
+              ISO 27001 Engagement Snapshot
+            </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A compliance-first consulting model designed for fast
+              certification, reduced risk, and long-term governance.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {["Plan", "Implement", "Certify & Operate"].map((phase, idx) => (
+              <motion.div
+                key={phase}
+                variants={reveal}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 180, damping: 16 }}
+                className="relative rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-md hover:shadow-xl"
+              >
+                <div className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-gradient-to-br from-sky-500 to-indigo-500 text-white flex items-center justify-center font-bold shadow-lg">
+                  {idx + 1}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+                  {phase}
+                </h3>
+
+                {phase === "Plan" && (
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                    <li>• Scope definition & asset inventory</li>
+                    <li>• GAP analysis against ISO clauses</li>
+                    <li>• Risk register creation</li>
+                    <li>• ISMS roadmap design</li>
+                  </ul>
+                )}
+
+                {phase === "Implement" && (
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                    <li>• Annex-A control implementation</li>
+                    <li>• Policy & SOP development</li>
+                    <li>• Technical security controls</li>
+                    <li>• Employee awareness training</li>
+                  </ul>
+                )}
+
+                {phase === "Certify & Operate" && (
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                    <li>• Internal audit execution</li>
+                    <li>• Stage-1 & Stage-2 audit support</li>
+                    <li>• Corrective action handling</li>
+                    <li>• Continuous compliance monitoring</li>
+                  </ul>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            variants={reveal}
+            className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6"
+          >
+            {[
+              "ISMS Documentation",
+              "Risk Register",
+              "Audit Evidence Pack",
+              "Certification Readiness Report",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-gray-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur px-4 py-4 text-center text-sm text-gray-700 dark:text-gray-300 shadow-sm"
+              >
+                {item}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
       {/* ================= SERVICES ================= */}
       <motion.section
         className="py-20 px-6"
@@ -192,42 +278,75 @@ export default function ISO27001Page() {
 
       {/* ================= HOW IT WORKS ================= */}
       <motion.section
-        className="py-24 px-20"
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
-          <motion.h2
-            variants={reveal}
-            className="text-center text-2xl md:text-3xl font-bold mb-16"
-          >
-            How Our ISO 27001 Engagement Works
-          </motion.h2>
+          {/* Heading */}
+          <motion.div variants={reveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              How Our ISO 27001 Engagement Works
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-            <motion.ul
-              variants={reveal}
-              className="space-y-6 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed"
-            >
-              <li>• Define scope & ISMS requirements</li>
-              <li>• GAP analysis & risk assessment</li>
-              <li>• Implement controls</li>
-              <li>• Internal audits & testing</li>
-              <li>• Certification support</li>
-            </motion.ul>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A structured approach to implement, audit, and maintain an
+              ISO-aligned Information Security Management System.
+            </p>
 
-            <motion.ul
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-indigo-500" />
+          </motion.div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Process */}
+            <motion.div
               variants={reveal}
-              className="space-y-6 ml-20 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed"
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
             >
-              <li className="font-semibold">• Continuous Improvement</li>
-              <li>○ Executive risk reporting</li>
-              <li>○ Staff training</li>
-              <li>○ Control enhancements</li>
-              <li>○ Post-cert monitoring</li>
-            </motion.ul>
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-sky-500 to-indigo-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Engagement Process
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Define scope & ISMS requirements</li>
+                <li>• GAP analysis & risk assessment</li>
+                <li>• Implement controls</li>
+                <li>• Internal audits & testing</li>
+                <li>• Certification support</li>
+              </ul>
+            </motion.div>
+
+            {/* Continuous Improvement */}
+            <motion.div
+              variants={reveal}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Continuous Improvement
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Executive risk reporting</li>
+                <li>• Staff training</li>
+                <li>• Control enhancements</li>
+                <li>• Post-cert monitoring</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>

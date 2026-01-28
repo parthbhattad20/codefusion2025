@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const sectionReveal = {
-  hidden: { opacity: 0, y: 50, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 50, filter: "blur(8px)" },
   show: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
+    filter: "blur(0px)",
     transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
   },
 };
@@ -29,7 +29,7 @@ const floating3D = {
     rotateY: [0, -8, 0, 8, 0],
     y: [0, -10, 0, 10, 0],
   },
-  transition: { duration: 12, repeat: Infinity, ease: 'easeInOut' },
+  transition: { duration: 12, repeat: Infinity, ease: "easeInOut" },
 };
 
 export default function EmailSecurityAuditPage() {
@@ -38,17 +38,15 @@ export default function EmailSecurityAuditPage() {
 
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden">
-
-      <video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover"
->
-  <source src="/assets/videos/main.mp4" type="video/mp4" />
-</video>
-
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/assets/videos/main.mp4" type="video/mp4" />
+        </video>
 
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/65 to-black/85"
@@ -61,12 +59,11 @@ export default function EmailSecurityAuditPage() {
 
         <motion.div
           className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-12"
-          animate={{ x: ['-30%', '30%'] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
+          animate={{ x: ["-30%", "30%"] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
         />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-32">
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -98,8 +95,9 @@ export default function EmailSecurityAuditPage() {
             transition={{ delay: 0.5 }}
             className="text-sm md:text-xl text-gray-200 max-w-4xl text-center"
           >
-            Securing your electronic communication channels from bad actors in the UAE.
-            Our Email Security Audit services protect inboxes from phishing, malware, and data leakage.
+            Securing your electronic communication channels across modern organizations.
+            Our Email Security Audit services protect inboxes from phishing, malware, and
+            data leakage.
           </motion.p>
 
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.96 }} className="mt-10">
@@ -109,7 +107,6 @@ export default function EmailSecurityAuditPage() {
               </button>
             </Link>
           </motion.div>
-
         </div>
       </section>
 
@@ -119,23 +116,22 @@ export default function EmailSecurityAuditPage() {
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-120px' }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
-
           <motion.div variants={sectionReveal} className="text-center mb-16">
             <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
-              What is Email Security in the UAE?
+              What is Email Security?
             </h1>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Email security safeguards communication from unauthorized access and attacks.
-              Human error contributes to nearly 90% of email-based security incidents in the UAE.
+              Email security safeguards communication from unauthorized access
+              and attacks. Human error contributes to nearly 90% of email-based
+              security incidents across organizations.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <motion.div variants={sectionReveal} className="ml-10">
               <h2 className="text-2xl font-semibold mb-6">
                 Why Email Security Matters
@@ -160,10 +156,9 @@ export default function EmailSecurityAuditPage() {
                 className="w-full max-w-md rounded-xl shadow-xl"
                 animate={floating3D.animate}
                 transition={floating3D.transition}
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ transformStyle: "preserve-3d" }}
               />
             </motion.div>
-
           </div>
         </div>
       </motion.section>
@@ -177,20 +172,18 @@ export default function EmailSecurityAuditPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-
           <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
             Our Email Security Audit Approach
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
             {[
-              ['Train', 'Educate employees on phishing resilience.'],
-              ['Filter', 'Block spoofed and malicious emails.'],
-              ['Secure', 'Encrypt sensitive communications.'],
-              ['Respond', 'Detect and neutralize threats fast.'],
-              ['Threat Analysis', 'Investigate malware and phishing trends.'],
-              ['Configuration Review', 'Audit SPF, DKIM, DMARC & servers.'],
+              ["Train", "Educate employees on phishing resilience."],
+              ["Filter", "Block spoofed and malicious emails."],
+              ["Secure", "Encrypt sensitive communications."],
+              ["Respond", "Detect and neutralize threats fast."],
+              ["Threat Analysis", "Investigate malware and phishing trends."],
+              ["Configuration Review", "Audit SPF, DKIM, DMARC & servers."],
             ].map(([title, desc], i) => (
               <motion.div
                 key={i}
@@ -199,12 +192,10 @@ export default function EmailSecurityAuditPage() {
                 transition={{ duration: 0.3 }}
                 className="relative bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-md cursor-pointer overflow-hidden group"
               >
-                {/* Cyber scan line */}
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute -left-full top-0 w-full h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent group-hover:left-full transition-all duration-700" />
                 </div>
 
-                {/* Glow border */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
                   <div className="absolute inset-[-2px] rounded-2xl bg-gradient-to-br from-blue-500/40 via-violet-500/40 to-cyan-500/40 blur-md" />
                 </div>
@@ -223,66 +214,70 @@ export default function EmailSecurityAuditPage() {
 
       {/* ================= DETAILS ================= */}
       <motion.section
-        className="py-24 px-20"
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
         variants={stagger}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
 
-          <motion.h2 variants={sectionReveal} className="text-center text-2xl md:text-3xl font-bold mb-16">
-            How Our Email Security Audit Works
-          </motion.h2>
+          <motion.div variants={sectionReveal} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+              How Our Email Security Audit Works
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A comprehensive evaluation of your email infrastructure to prevent
+              phishing, spoofing, business email compromise, and data leakage.
+            </p>
 
-            <motion.ul variants={sectionReveal} className="space-y-6 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
-              <li>• Infrastructure assessment</li>
-              <li>• Threat exposure review</li>
-              <li>• Staff awareness analysis</li>
-              <li>• Misconfiguration detection</li>
-              <li>• Incident readiness evaluation</li>
-            </motion.ul>
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
+          </motion.div>
 
-            <motion.ul variants={sectionReveal} className="space-y-6 ml-20 text-gray-800 dark:text-muted-foreground text-lg leading-relaxed">
-              <li className="font-semibold">• Reporting & Improvement</li>
-              <li>○ Detailed findings</li>
-              <li>○ Risk scoring</li>
-              <li>○ Remediation roadmap</li>
-              <li>○ Awareness upgrades</li>
-              <li className="font-semibold">• Continuous Protection</li>
-            </motion.ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <motion.div className="relative p-8 rounded-2xl border bg-white/80 dark:bg-slate-900/70 shadow-lg">
+              <h3 className="text-xl font-semibold mb-6">Audit & Risk Assessment</h3>
+              <ul className="space-y-3">
+                <li>• Infrastructure assessment</li>
+                <li>• Threat exposure review</li>
+                <li>• Staff awareness analysis</li>
+                <li>• Misconfiguration detection</li>
+                <li>• Incident readiness evaluation</li>
+              </ul>
+            </motion.div>
 
+            <motion.div className="relative p-8 rounded-2xl border bg-white/80 dark:bg-slate-900/70 shadow-lg">
+              <h3 className="text-xl font-semibold mb-6">Reporting & Continuous Protection</h3>
+              <ul className="space-y-3">
+                <li>• Detailed security findings</li>
+                <li>• Risk scoring & prioritization</li>
+                <li>• Remediation roadmap</li>
+                <li>• Security awareness upgrades</li>
+                <li>• Continuous protection strategy</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>
 
       {/* ================= CTA ================= */}
-      <motion.section
-        className="py-24 px-6 text-center"
-        variants={stagger}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <motion.h2 variants={sectionReveal} className="text-3xl md:text-4xl font-bold mb-4">
+      <motion.section className="py-24 px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Secure Every Email Before It Becomes a Threat
-        </motion.h2>
+        </h2>
 
-        <motion.p variants={sectionReveal} className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Protect your organization from phishing, malware, and data breaches with expert-led Email Security Audits.
-        </motion.p>
+        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
+          Protect your organization from phishing, malware, and data breaches
+          with expert-led Email Security Audits.
+        </p>
 
-        <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
-          <Link href="/contact">
-            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-xl">
-              Talk to an Email Security Expert
-            </button>
-          </Link>
-        </motion.div>
+        <Link href="/contact">
+          <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-xl">
+            Talk to an Email Security Expert
+          </button>
+        </Link>
       </motion.section>
-
     </main>
   );
 }

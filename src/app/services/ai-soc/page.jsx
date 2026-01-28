@@ -1,9 +1,7 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-
-
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const container = {
   hidden: {},
@@ -14,7 +12,7 @@ const container = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
 const heroFade = {
@@ -25,10 +23,8 @@ const heroFade = {
 export default function AISOCPage() {
   return (
     <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden bg-[#05070d]">
-
         {/* AI grid */}
         <div
           className="absolute inset-0 opacity-[0.08]
@@ -72,8 +68,9 @@ export default function AISOCPage() {
             variants={heroFade}
             className="mt-6 text-gray-300 max-w-3xl text-lg"
           >
-            Continuously monitor, detect, and respond to cyber threats in real-time using
-            artificial intelligence, automation, and advanced analytics.
+            Continuously monitor, detect, and respond to cyber threats in
+            real-time using artificial intelligence, automation, and advanced
+            analytics.
           </motion.p>
 
           <motion.div
@@ -106,17 +103,28 @@ export default function AISOCPage() {
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <motion.h1 variants={fadeUp} className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+          <motion.h1
+            variants={fadeUp}
+            className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400"
+          >
             AI Security Operations Center (AI SOC)
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="mt-6 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-            An AI SOC uses artificial intelligence and machine learning to monitor security events,
-            detect anomalies, and respond to incidents faster than traditional SOC models.
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground"
+          >
+            An AI SOC uses artificial intelligence and machine learning to
+            monitor security events, detect anomalies, and respond to incidents
+            faster than traditional SOC models.
           </motion.p>
 
-          <motion.p variants={fadeUp} className="mt-4 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-            It enhances visibility, reduces response time, minimizes alert fatigue, and improves your overall security posture.
+          <motion.p
+            variants={fadeUp}
+            className="mt-4 max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground"
+          >
+            It enhances visibility, reduces response time, minimizes alert
+            fatigue, and improves your overall security posture.
           </motion.p>
         </div>
       </motion.section>
@@ -130,7 +138,6 @@ export default function AISOCPage() {
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-
           <motion.div variants={fadeUp} className="ml-6">
             <h2 className="text-2xl font-semibold text-primary mb-6">
               Why AI Security Operations Center
@@ -163,19 +170,36 @@ export default function AISOCPage() {
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-
           <motion.h2 variants={fadeUp} className="text-3xl font-semibold mb-16">
             AI SOC Capabilities & Services
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-10">
             {[
-              ["24×7 Security Monitoring", "Continuous monitoring of logs, endpoints, networks, and cloud environments."],
-              ["AI Threat Detection", "Machine learning based detection of anomalies and advanced threats."],
-              ["Incident Response", "Automated and analyst-led incident investigation and response."],
-              ["SIEM & SOAR Integration", "Centralized visibility and automated workflows."],
-              ["Threat Intelligence", "Correlation of global threat intelligence with internal events."],
-              ["Compliance Monitoring", "Support regulatory compliance through continuous monitoring."],
+              [
+                "24×7 Security Monitoring",
+                "Continuous monitoring of logs, endpoints, networks, and cloud environments.",
+              ],
+              [
+                "AI Threat Detection",
+                "Machine learning based detection of anomalies and advanced threats.",
+              ],
+              [
+                "Incident Response",
+                "Automated and analyst-led incident investigation and response.",
+              ],
+              [
+                "SIEM & SOAR Integration",
+                "Centralized visibility and automated workflows.",
+              ],
+              [
+                "Threat Intelligence",
+                "Correlation of global threat intelligence with internal events.",
+              ],
+              [
+                "Compliance Monitoring",
+                "Support regulatory compliance through continuous monitoring.",
+              ],
             ].map(([title, desc], i) => (
               <motion.div
                 key={i}
@@ -198,32 +222,75 @@ export default function AISOCPage() {
 
       {/* ================= DETAILS ================= */}
       <motion.section
+        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6"
+        viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <motion.div variants={fadeUp} className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+              What Is an AI Security Operations Center?
+            </h2>
 
-          <motion.h2 variants={fadeUp} className="text-center text-2xl md:text-3xl font-bold mb-16">
-            What Is an AI Security Operations Center?
-          </motion.h2>
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
+              An AI-powered SOC continuously monitors your digital environment
+              using machine learning and automation to detect, investigate, and
+              respond to cyber threats in real time.
+            </p>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.ul variants={fadeUp} className="space-y-6 text-lg text-gray-800 dark:text-gray-200">
-              <li>• Continuous monitoring of security events</li>
-              <li>• AI-driven threat detection and correlation</li>
-              <li>• Faster incident triage and investigation</li>
-              <li>• Reduced manual workload for security teams</li>
-            </motion.ul>
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+          </motion.div>
 
-            <motion.ul variants={fadeUp} className="space-y-6 text-lg text-gray-800 dark:text-gray-200">
-              <li>• Endpoint, network, and cloud visibility</li>
-              <li>• Automated response and containment</li>
-              <li>• Threat intelligence integration</li>
-              <li>• Security reporting and dashboards</li>
-            </motion.ul>
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+            {/* Capabilities Card */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Intelligent Threat Detection
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Continuous monitoring of security events</li>
+                <li>• AI-driven threat detection and correlation</li>
+                <li>• Faster incident triage and investigation</li>
+                <li>• Reduced manual workload for security teams</li>
+              </ul>
+            </motion.div>
+
+            {/* Operations Card */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+            >
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Automated Security Operations
+              </h3>
+
+              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+                <li>• Endpoint, network, and cloud visibility</li>
+                <li>• Automated response and containment</li>
+                <li>• Threat intelligence integration</li>
+                <li>• Security reporting and dashboards</li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </motion.section>
@@ -236,12 +303,19 @@ export default function AISOCPage() {
         viewport={{ once: true }}
         className="py-24 px-6 text-center"
       >
-        <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mb-4">
+        <motion.h2
+          variants={fadeUp}
+          className="text-3xl md:text-4xl font-bold mb-4"
+        >
           Stay Ahead of Cyber Threats with AI SOC
         </motion.h2>
 
-        <motion.p variants={fadeUp} className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Detect, analyze, and respond to threats faster with our AI-powered Security Operations Center.
+        <motion.p
+          variants={fadeUp}
+          className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground"
+        >
+          Detect, analyze, and respond to threats faster with our AI-powered
+          Security Operations Center.
         </motion.p>
 
         <motion.div variants={fadeUp} whileHover={{ scale: 1.08 }}>
@@ -252,7 +326,6 @@ export default function AISOCPage() {
           </Link>
         </motion.div>
       </motion.section>
-
     </main>
   );
 }

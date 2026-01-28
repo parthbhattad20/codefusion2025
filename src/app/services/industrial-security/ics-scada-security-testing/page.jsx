@@ -204,40 +204,83 @@ export default function ICS_SCADA_SecurityPage() {
       </motion.section>
 
       {/* ================= DETAILS ================= */}
-      <motion.section
-        className="py-24 px-20"
-        variants={stagger}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
+     <motion.section
+  className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+  variants={stagger}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, margin: "-120px" }}
+>
+  <div className="max-w-7xl mx-auto">
+
+    {/* Heading */}
+    <motion.div variants={sectionReveal} className="text-center mb-20">
+      <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+        How Our ICS / SCADA Engagement Works
+      </h2>
+
+      <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+        Securing industrial environments requires specialized expertise. We protect
+        operational technology while maintaining safety, uptime, and compliance.
+      </p>
+
+      <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+    </motion.div>
+
+    {/* Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      {/* Technical Process */}
+      <motion.div
+        variants={sectionReveal}
+        whileHover={{ y: -6 }}
+        transition={{ type: "spring", stiffness: 200, damping: 18 }}
+        className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
 
-          <motion.h2 variants={sectionReveal} className="text-center text-2xl md:text-3xl font-bold mb-16">
-            How Our ICS/SCADA Engagement Works
-          </motion.h2>
+        <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+          Security Assessment & Protection
+        </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+        <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+          <li>• Assess industrial networks and control systems</li>
+          <li>• Implement segmentation and system hardening</li>
+          <li>• Simulate real-world cyberattacks</li>
+          <li>• Continuous monitoring of OT environments</li>
+          <li>• Rapid threat detection and response</li>
+        </ul>
+      </motion.div>
 
-            <motion.ul variants={sectionReveal} className="space-y-6 text-lg text-gray-800 dark:text-muted-foreground">
-              <li>• Assess industrial network and control systems</li>
-              <li>• Implement segmentation and hardening</li>
-              <li>• Simulate cyberattacks</li>
-              <li>• Monitor systems continuously</li>
-              <li>• Respond rapidly to threats</li>
-            </motion.ul>
+      {/* Business Impact */}
+      <motion.div
+        variants={sectionReveal}
+        whileHover={{ y: -6 }}
+        transition={{ type: "spring", stiffness: 200, damping: 18 }}
+        className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800
+                   bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
+                   shadow-lg hover:shadow-2xl"
+      >
+        <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
-            <motion.ul variants={sectionReveal} className="space-y-6 ml-20 text-lg text-gray-800 dark:text-muted-foreground">
-              <li className="font-semibold">• Operational Continuity</li>
-              <li>○ Prevent blackouts & disruptions</li>
-              <li>○ Maintain compliance</li>
-              <li>○ Improve system resilience</li>
-              <li>○ Infrastructure protection</li>
-            </motion.ul>
+        <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+          Operational Continuity & Resilience
+        </h3>
 
-          </div>
-        </div>
-      </motion.section>
+        <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
+          <li>• Prevent blackouts and production disruptions</li>
+          <li>• Maintain regulatory and industry compliance</li>
+          <li>• Improve system reliability and resilience</li>
+          <li>• Protect critical national infrastructure</li>
+        </ul>
+      </motion.div>
+
+    </div>
+  </div>
+</motion.section>
+
 
       {/* ================= CTA ================= */}
       <motion.section

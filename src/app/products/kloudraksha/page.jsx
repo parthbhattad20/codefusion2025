@@ -231,75 +231,117 @@ const KloudRaksha = () => {
 
         <motion.section
           variants={fadeUp}
-          className="py-20 bg-muted/40 border-y border-border mb-24"
+          className="relative py-32 bg-gradient-to-b from-muted/40 to-background border-y border-border mb-28 overflow-hidden"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-6">
-            How KloudRaksha Works
-          </h2>
+          {/* Ambient glow */}
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-3xl" />
 
-          <p className="text-center text-lg text-muted-foreground mb-16 max-w-3xl mx-auto">
-            Automated cloud security audits with compliance mapping
-          </p>
+          <div className="relative max-w-7xl mx-auto px-6">
+            {/* Heading */}
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight">
+                How KloudRaksha Works
+              </h2>
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <motion.div
-                key={num}
-                variants={fadeUp}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="group flex items-start gap-5 bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg"
-              >
-                <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center font-semibold group-hover:bg-primary group-hover:text-white transition">
-                  {num}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-1">Step {num}</h3>
-                  <p className="text-muted-foreground">
-                    Automated secure workflow stage.
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
+              <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                Automated cloud security audits with intelligent compliance
+                mapping across your infrastructure.
+              </p>
 
-        <motion.section variants={fadeUp} className="py-20">
-          <h2 className="text-center text-3xl md:text-4xl font-bold text-primary mb-16">
-            Frequently Asked Questions
-          </h2>
+              <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-cyan-500" />
+            </div>
 
-          <div className="max-w-4xl mx-auto divide-y divide-border">
-            {[
-              [
-                "What is KloudRaksha?",
-                "Automated cloud security configuration audit platform.",
-              ],
-              ["Which clouds?", "AWS, Azure, GCP supported."],
-              ["Compliance standards?", "CIS, ISO 27001, GDPR, HIPAA."],
-            ].map(([q, a], i) => (
-              <motion.details
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="py-6"
-              >
-                <summary className="cursor-pointer font-semibold text-lg flex justify-between">
-                  {q}
-                  <span>+</span>
-                </summary>
-                <p className="mt-4 text-muted-foreground">{a}</p>
-              </motion.details>
-            ))}
+            {/* Steps */}
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-10"
+            >
+              {[
+                "Cloud environment discovery",
+                "Asset inventory & configuration analysis",
+                "Security posture assessment",
+                "Compliance framework mapping (ISO, SOC2, PCI, etc.)",
+                "Risk prioritization & remediation guidance",
+                "Continuous monitoring & audit reporting",
+              ].map((text, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                  className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-violet-500/40 to-cyan-500/40"
+                >
+                  <div className="relative flex gap-6 items-start bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl rounded-2xl p-7 border border-border shadow-lg hover:shadow-2xl transition-all overflow-hidden">
+                    {/* Glow layer */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-violet-500/10 to-cyan-500/10" />
+
+                    {/* Step badge */}
+                    <div className="relative shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-cyan-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
+                      {i + 1}
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative">
+                      <h3 className="text-xl font-semibold mb-1 text-gray-900 dark:text-white">
+                        Step {i + 1}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {text}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </motion.section>
+
+      <motion.section variants={fadeUp} className="py-24">
+  <div className="max-w-4xl mx-auto px-6">
+
+    <h2 className="text-center text-3xl md:text-4xl font-semibold text-primary mb-14">
+      Frequently Asked Questions
+    </h2>
+
+    <div className="space-y-4">
+      {[
+        [
+          "What is KloudRaksha?",
+          "KloudRaksha is an automated cloud security configuration audit platform designed to continuously assess and improve your cloud security posture.",
+        ],
+        ["Which clouds are supported?", "AWS, Azure, and Google Cloud Platform (GCP)."],
+        [
+          "Which compliance standards are supported?",
+          "CIS benchmarks, ISO/IEC 27001, GDPR, and HIPAA compliance frameworks are supported.",
+        ],
+      ].map(([q, a], i) => (
+        <motion.details
+          key={i}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.08 }}
+          className="group rounded-xl border border-border bg-background hover:bg-muted/40 transition-colors"
+        >
+          <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-lg font-medium text-foreground">
+            {q}
+            <span className="ml-4 text-muted-foreground transition-transform group-open:rotate-45">
+              +
+            </span>
+          </summary>
+
+          <div className="px-6 pb-5 text-muted-foreground leading-relaxed">
+            {a}
+          </div>
+        </motion.details>
+      ))}
+    </div>
+
+  </div>
+</motion.section>
+
 
         <motion.section variants={fadeUp} className="text-center py-20">
           <h2 className="text-3xl font-bold text-primary mb-6">

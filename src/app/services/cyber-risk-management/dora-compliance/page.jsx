@@ -130,6 +130,85 @@ export default function DoraCompliancePage() {
           </div>
         </div>
       </motion.section>
+      {/* ================= DORA COMPLIANCE SNAPSHOT ================= */}
+      <motion.section
+        className="py-24 px-6 bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-slate-900 dark:to-slate-950"
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div variants={reveal} className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-indigo-600 dark:text-indigo-400">
+              DORA Compliance Implementation Snapshot
+            </h2>
+            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+              A resilience-driven compliance model to help financial
+              institutions meet EU Digital Operational Resilience Act (DORA)
+              requirements.
+            </p>
+          </motion.div>
+
+          {/* Phases */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-16">
+            {[
+              ["Identify", "ICT assets, critical services, threat landscape"],
+              ["Assess", "Risk gaps, maturity level, compliance mapping"],
+              ["Protect", "Security controls & governance framework"],
+              ["Test", "Resilience testing & incident simulations"],
+              ["Monitor", "Continuous risk & vendor oversight"],
+            ].map(([title, desc], i) => (
+              <motion.div
+                key={i}
+                variants={reveal}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 180, damping: 16 }}
+                className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
+              >
+                <div className="mb-3 text-sm font-semibold text-indigo-500">
+                  Step {i + 1}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+                  {title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Deliverables */}
+          <motion.div variants={reveal}>
+            <div className="rounded-3xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-10 shadow-xl">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+                What You Receive
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  "DORA gap assessment report",
+                  "ICT risk management framework",
+                  "Critical service dependency mapping",
+                  "Incident response & reporting procedures",
+                  "Resilience testing plan",
+                  "Third-party risk register",
+                  "Compliance evidence pack",
+                  "Regulatory readiness report",
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-gray-200 dark:border-slate-700 px-4 py-3 text-sm bg-white dark:bg-slate-950 text-gray-700 dark:text-gray-300"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
       {/* ================= SERVICES ================= */}
       <motion.section
