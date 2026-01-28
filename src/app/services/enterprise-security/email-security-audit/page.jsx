@@ -13,6 +13,11 @@ const sectionReveal = {
   },
 };
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+};
+
 const stagger = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12 } },
@@ -163,6 +168,74 @@ export default function EmailSecurityAuditPage() {
         </div>
       </motion.section>
 
+      {/* ================= DETAILED SERVICE INFO CONTAINER – EMAIL SECURITY AUDIT ================= */}
+<motion.section
+  variants={fadeUp}
+  whileInView="show"
+  viewport={{ once: true }}
+  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      variants={fadeUp}
+      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10 dark:from-cyan-500/20 dark:to-blue-500/20" />
+
+      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* LEFT CONTENT */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-cyan-600 dark:text-blue-400 mb-6">
+            How Our Email Security Audit Works
+          </h3>
+
+          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+            Our Email Security Audit evaluates your organization’s email ecosystem to identify weaknesses that
+            attackers commonly exploit for phishing, spoofing, malware delivery, and business email compromise (BEC).
+            The assessment focuses on configuration, policy, and user-level risks.
+          </p>
+
+          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+            <li>✔ Email infrastructure & gateway review</li>
+            <li>✔ SPF, DKIM & DMARC configuration analysis</li>
+            <li>✔ Phishing & spoofing risk assessment</li>
+            <li>✔ Malware & attachment protection checks</li>
+            <li>✔ User awareness & policy evaluation</li>
+            <li>✔ Risk scoring & prioritized improvements</li>
+          </ul>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div>
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            What You Get
+          </h4>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "Email security posture report",
+              "SPF / DKIM / DMARC findings",
+              "Phishing & BEC risk analysis",
+              "Misconfiguration evidence",
+              "Compliance-aligned recommendations",
+              "Step-by-step remediation guidance",
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
+
       {/* ================= SERVICES GRID ================= */}
       <motion.section
         className="py-20 px-6"
@@ -224,7 +297,7 @@ export default function EmailSecurityAuditPage() {
 
           <motion.div variants={sectionReveal} className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-              How Our Email Security Audit Works
+            Our Audit Methodology
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">

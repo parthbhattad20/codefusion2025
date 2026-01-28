@@ -196,6 +196,74 @@ export default function CloudSecurityPage() {
         </div>
       </motion.section>
 
+      {/* ================= DETAILED SERVICE INFO CONTAINER – CLOUD SECURITY SERVICES ================= */}
+<motion.section
+  variants={fadeUp}
+  whileInView="show"
+  viewport={{ once: true }}
+  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+>
+  <div className="max-w-7xl mx-auto">
+    <motion.div
+      variants={fadeUp}
+      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-cyan-500/10 dark:from-indigo-500/20 dark:to-cyan-500/20" />
+
+      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* LEFT CONTENT */}
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6">
+            How Our Cloud Security Services Work
+          </h3>
+
+          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+            Our Cloud Security Services help organizations design, implement, and manage secure cloud environments
+            across public, private, and hybrid infrastructures. We focus on protecting identities, workloads,
+            data, and configurations while enabling scalable and compliant cloud operations.
+          </p>
+
+          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+            <li>✔ Cloud security posture & risk assessment</li>
+            <li>✔ Secure cloud architecture design & review</li>
+            <li>✔ Identity & access management configuration</li>
+            <li>✔ Network, workload & container security</li>
+            <li>✔ Continuous monitoring & threat detection</li>
+            <li>✔ Compliance alignment & best practices</li>
+          </ul>
+        </div>
+
+        {/* RIGHT CONTENT */}
+        <div>
+          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            What You Get
+          </h4>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              "Cloud security assessment report",
+              "Secure cloud architecture & design guidance",
+              "Identity & access control configurations",
+              "Misconfiguration & exposure findings",
+              "Compliance mapping (ISO / SOC2 / CIS)",
+              "Actionable cloud security roadmap",
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.03 }}
+                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+              >
+                {item}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</motion.section>
+
+
       {/* ================= DETAILS ================= */}
       <motion.section
         variants={fadeUp}
