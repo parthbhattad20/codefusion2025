@@ -40,6 +40,66 @@ const glowHover = {
   },
 };
 
+const ticketSteps = [
+  {
+    title: "Continuous scanning",
+    desc: "Continuous vulnerability and asset scanning to detect issues.",
+  },
+  {
+    title: "Auto-ticket",
+    desc: "Automatically create tickets from scan findings with context and severity.",
+  },
+  {
+    title: "Prioritize",
+    desc: "Risk-based prioritization using business impact and exposure.",
+  },
+  {
+    title: "Assign",
+    desc: "Ownership assignment to teams or individuals aligned with ITSM.",
+  },
+  {
+    title: "SLA timers",
+    desc: "Track SLAs per ticket aligned to business risk and compliance.",
+  },
+  {
+    title: "Escalate",
+    desc: "Automated escalation on SLA breaches with audit trail preserved.",
+  },
+];
+const sectionVariants = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.21, 1, 0.21, 1] },
+  },
+};
+
+const gridVariants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 14, scale: 0.985 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.55, ease: [0.21, 1, 0.21, 1] },
+  },
+};
+
+const badgeVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.45, ease: [0.21, 1, 0.21, 1] },
+  },
+};
 const Vaultix = () => {
   return (
     <div className="min-h-screen bg-background text-foreground py-16 mt-10 lg:mt-20 overflow-hidden">
@@ -102,7 +162,30 @@ const Vaultix = () => {
                   Download Brochure
                 </Button>
               </a>
+
+              {/* Learn More */}
+              <a
+                href="https://vaultix.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="
+        rounded-full px-10
+        border-2 border-violet-500/40
+        text-violet-500
+        hover:bg-violet-500/10
+        hover:border-violet-500
+        transition-all hover:scale-105
+      "
+                >
+                  Learn More
+                </Button>
+              </a>
             </div>
+
           </div>
 
           {/* 3D Floating Image (same as KloudRaksha) */}
@@ -246,67 +329,130 @@ const Vaultix = () => {
         </motion.section>
 
         {/* Ticket Flow */}
-        <motion.section
-          variants={fadeUp}
-          className="relative py-32 bg-gradient-to-b from-muted/40 to-background border-y border-border mb-28 overflow-hidden"
-        >
-          {/* Decorative background blur */}
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-violet-500/10 rounded-full blur-3xl" />
+      <motion.section
+  variants={sectionVariants}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.25 }}
+  className="
+    relative overflow-hidden
+    py-20 sm:py-24 lg:py-28
+    border-y border-border
+    bg-background
+  "
+>
+  {/* Subtle enterprise background (no extra coloring) */}
+  <div className="pointer-events-none absolute inset-0">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,6,23,0.06),transparent_55%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_55%)]" />
+    <div className="absolute -top-48 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-foreground/5 blur-3xl" />
+  </div>
 
-          <div className="relative max-w-7xl mx-auto px-6">
-            {/* Heading */}
-            <div className="text-center mb-20">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-primary tracking-tight">
-                Intelligent Ticket Management
-              </h2>
-              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                Automate triage, prioritization, and resolution using AI-powered
-                workflows built for scale.
-              </p>
-              <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-cyan-500" />
-            </div>
+  <div className="relative max-w-7xl mx-auto px-6">
+    {/* Header */}
+    <div className="text-center mb-12 sm:mb-14 lg:mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.55, ease: [0.21, 1, 0.21, 1] }}
+        className="
+          inline-flex items-center gap-2
+          rounded-full border border-border
+          bg-muted/40 px-4 py-2 text-sm
+          text-muted-foreground backdrop-blur
+        "
+      >
+        <span className="h-1.5 w-1.5 rounded-full bg-foreground/60" />
+        AI-assisted ITSM workflow
+      </motion.div>
 
-            {/* Cards */}
+      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+        Intelligent Ticket Management
+      </h2>
+
+      <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+        Automate triage, prioritization, and resolution using AI-powered workflows built for scale.
+      </p>
+
+      <div className="mt-6 h-px w-24 mx-auto bg-border" />
+    </div>
+
+    {/* Timeline / Cards */}
+    <div className="relative">
+      {/* vertical connector (desktop) */}
+      <div className="hidden md:block pointer-events-none absolute left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-border/70" />
+
+      <motion.div
+        variants={gridVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
+      >
+        {ticketSteps.map((step, idx) => {
+          const n = idx + 1;
+          const isLeft = idx % 2 === 0;
+
+          return (
             <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-10"
+              key={step.title}
+              variants={cardVariants}
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              className={[
+                "group relative rounded-2xl",
+                "border border-border",
+                "bg-card/70 dark:bg-card/50",
+                "backdrop-blur-xl",
+                "shadow-sm hover:shadow-md transition-shadow",
+                "p-6 sm:p-7",
+                isLeft ? "md:pr-8" : "md:pl-8",
+              ].join(" ")}
             >
-              {[1, 2, 3, 4, 5, 6].map((n) => (
-                <motion.div
-                  key={n}
-                  variants={fadeUp}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-violet-500/40 to-cyan-500/40"
-                >
-                  <div className="relative flex gap-6 items-start bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl rounded-2xl p-7 border border-border shadow-lg hover:shadow-2xl transition-all overflow-hidden">
-                    {/* Glow layer */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-violet-500/10 to-cyan-500/10" />
+              {/* timeline node dot (desktop) */}
+              <div
+                className={[
+                  "hidden md:block pointer-events-none absolute top-9",
+                  isLeft ? "right-0 translate-x-[14px]" : "left-0 -translate-x-[14px]",
+                ].join(" ")}
+              >
+                <div className="h-3 w-3 rounded-full bg-foreground/60 shadow-[0_0_0_6px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_6px_rgba(255,255,255,0.06)]" />
+              </div>
 
-                    {/* Number badge */}
-                    <div className="relative shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-cyan-500 text-white flex items-center justify-center font-bold text-lg shadow-md">
-                      {n}
-                    </div>
-
-                    {/* Content */}
-                    <div className="relative">
-                      <h3 className="text-xl font-semibold mb-1 text-gray-900 dark:text-white">
-                        Step {n}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Automated workflow stage with intelligent routing, SLA
-                        tracking, and escalation logic.
-                      </p>
-                    </div>
+              <div className="flex items-start gap-5">
+                {/* number badge (minimal) */}
+                <motion.div variants={badgeVariants} className="shrink-0">
+                  <div className="w-11 h-11 rounded-xl border border-border bg-muted/40 text-foreground flex items-center justify-center font-semibold">
+                    {n}
                   </div>
                 </motion.div>
-              ))}
+
+                {/* content */}
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <h3 className="text-lg sm:text-xl font-semibold text-foreground">
+                      {step.title}
+                    </h3>
+                    <span className="text-xs text-muted-foreground border border-border rounded-full px-2 py-0.5">
+                      Step {n}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-muted-foreground leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+
+              {/* subtle hover wash (no color) */}
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top,rgba(2,6,23,0.06),transparent_60%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_60%)] rounded-2xl" />
             </motion.div>
-          </div>
-        </motion.section>
+          );
+        })}
+      </motion.div>
+    </div>
+  </div>
+</motion.section>
+
 
         {/* CTA */}
         <motion.section variants={fadeUp} className="text-center py-24">

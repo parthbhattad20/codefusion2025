@@ -142,9 +142,9 @@ export default function Hero() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: Smartphone, value: 80, suffix: "+", label: "Mobile Apps Secured" },
-              { icon: Network, value: 11, suffix: "k+", label: "IP Addresses Protected" },
-              { icon: Globe, value: 220, suffix: "+", label: "Web Apps Fortified" },
+              { icon: Smartphone, value: 100, suffix: "+", label: "Mobile Apps Secured" },
+              { icon: Network, value: 15, suffix: "k+", label: "IP Addresses Protected" },
+              { icon: Globe, value: 300, suffix: "+", label: "Web Apps Fortified" },
             ].map((item, i) => (
               <motion.div
                 key={i}
