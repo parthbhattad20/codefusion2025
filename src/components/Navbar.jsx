@@ -124,6 +124,7 @@ const FloatingNavbar = () => {
 
   return (
     <nav
+    key={pathname}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled || isMenuOpen
           ? "bg-white/80 dark:bg-white/10 backdrop-blur-md lg:border-b lg:border-gray-200 dark:lg:border-white/10 lg:shadow-lg "
