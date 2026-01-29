@@ -90,7 +90,7 @@ export default function CloudSecurityPage() {
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
             Cloud Security Consulting & Protection
           </h2>
 
@@ -306,7 +306,7 @@ export default function CloudSecurityPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-sky-600 dark:text-sky-400">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               What Our Cloud Security Covers
             </h2>
 

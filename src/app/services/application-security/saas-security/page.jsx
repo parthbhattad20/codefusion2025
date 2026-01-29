@@ -82,7 +82,7 @@ export default function SourceCodeReviewPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               Understanding the Need for SaaS Cybersecurity
             </h1>
 

@@ -81,7 +81,7 @@ export default function SourceCodeReviewPage() {
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+          <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
             What is E-commerce Security?
           </h1>
 

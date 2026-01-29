@@ -87,7 +87,7 @@ export default function PCIDSSPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is PCI DSS?
             </h1>
 
@@ -99,7 +99,7 @@ export default function PCIDSSPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={reveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why PCI DSS Compliance Matters
               </h2>
 
@@ -140,7 +140,7 @@ export default function PCIDSSPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-indigo-600 dark:text-indigo-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               PCI DSS Compliance Implementation Snapshot
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -166,7 +166,7 @@ export default function PCIDSSPage() {
                 transition={{ type: "spring", stiffness: 180, damping: 16 }}
                 className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
               >
-                <div className="mb-3 text-sm font-semibold text-indigo-500">
+                <div className="mb-3 text-sm font-semibold text-primary">
                   Step {i + 1}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
@@ -182,7 +182,7 @@ export default function PCIDSSPage() {
           {/* Deliverables */}
           <motion.div variants={reveal}>
             <div className="rounded-3xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-10 shadow-xl">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-semibold text-primary dark:text-primary">
                 What You Receive
               </h3>
 
@@ -219,7 +219,7 @@ export default function PCIDSSPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-          <motion.h2 variants={reveal} className="text-4xl font-semibold mb-14">
+          <motion.h2 variants={reveal} className="text-4xl font-semibold mb-14 text-primary">
             Our PCI DSS Services
           </motion.h2>
 
@@ -270,7 +270,7 @@ export default function PCIDSSPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={reveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our PCI DSS Engagement Works
             </h2>
 
@@ -344,7 +344,7 @@ export default function PCIDSSPage() {
       >
         <motion.h2
           variants={reveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Protect Cardholder Data & Ensure PCI DSS Compliance
         </motion.h2>

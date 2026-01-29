@@ -71,7 +71,7 @@ export default function CloudApplicationSecurityAssessmentPage() {
                 boxShadow: "0 0 30px rgba(59,130,246,0.6)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-700 text-white rounded-lg font-semibold transition"
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold transition"
             >
               CONNECT WITH OUR EXPERTS
             </motion.button>
@@ -88,7 +88,7 @@ export default function CloudApplicationSecurityAssessmentPage() {
         className="py-24 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+          <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
             What Is Cloud Application Security Assessment (CASA)?
           </h1>
 
@@ -164,7 +164,7 @@ export default function CloudApplicationSecurityAssessmentPage() {
                 }}
                 className="bg-white dark:bg-muted border rounded-2xl p-6 shadow-md transition"
               >
-                <h3 className="font-semibold text-lg text-blue-600 dark:text-blue-400">
+                <h3 className="font-semibold text-lg text-primary dark:text-primary">
                   {title}
                 </h3>
               </motion.div>
@@ -274,7 +274,7 @@ export default function CloudApplicationSecurityAssessmentPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Assessment & Testing
@@ -297,7 +297,7 @@ export default function CloudApplicationSecurityAssessmentPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Reporting & Compliance

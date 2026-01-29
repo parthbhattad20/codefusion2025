@@ -128,7 +128,7 @@ export default function EmailSecurityAuditPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is Email Security?
             </h1>
 
@@ -281,7 +281,7 @@ export default function EmailSecurityAuditPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our Email Security Audit Approach
           </motion.h2>
@@ -332,7 +332,7 @@ export default function EmailSecurityAuditPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
               Our Audit Methodology
             </h2>
 
@@ -376,7 +376,7 @@ export default function EmailSecurityAuditPage() {
 
       {/* ================= CTA ================= */}
       <motion.section className="py-24 px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Every Email Before It Becomes a Threat
         </h2>
 

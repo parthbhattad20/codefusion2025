@@ -73,7 +73,7 @@ export default function VAPTPage() {
         className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+          <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
             Vulnerability Assessment & Penetration Testing (VAPT)
           </h1>
 
@@ -264,7 +264,7 @@ export default function VAPTPage() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-sky-600 dark:text-sky-400">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               What Is Vulnerability Assessment & Penetration Testing?
             </h2>
 

@@ -166,7 +166,7 @@ export default function MobileAppSecurityTestingPage() {
           {/* Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-center text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6"
+            className="text-center text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary mb-6"
           >
             Mobile App Penetration Testing
           </motion.h2>

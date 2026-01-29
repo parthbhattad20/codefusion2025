@@ -95,7 +95,7 @@ export default function HIPAACompliancePage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is HIPAA?
             </h1>
 
@@ -108,7 +108,7 @@ export default function HIPAACompliancePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={reveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-foreground">
+              <h2 className="text-2xl font-semibold mb-6 text-primary dark:text-primary">
                 Why HIPAA Compliance Matters
               </h2>
 
@@ -148,7 +148,7 @@ export default function HIPAACompliancePage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-sky-600 dark:text-sky-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               HIPAA Compliance Implementation Snapshot
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -174,7 +174,7 @@ export default function HIPAACompliancePage() {
                 transition={{ type: "spring", stiffness: 180, damping: 16 }}
                 className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
               >
-                <div className="mb-3 text-sm font-semibold text-sky-500">
+                <div className="mb-3 text-sm font-semibold text-primary">
                   Step {i + 1}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
@@ -229,7 +229,7 @@ export default function HIPAACompliancePage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={reveal}
-            className="text-4xl font-semibold mb-14 text-gray-900 dark:text-foreground"
+            className="text-4xl font-semibold mb-14 text-primary dark:text-primary"
           >
             Our HIPAA Compliance Services
           </motion.h2>
@@ -289,7 +289,7 @@ export default function HIPAACompliancePage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our HIPAA Compliance Engagement Works
             </h2>
 
@@ -361,7 +361,7 @@ export default function HIPAACompliancePage() {
       >
         <motion.h2
           variants={reveal}
-          className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-foreground"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary dark:text-primary"
         >
           Protect Patient Data & Ensure HIPAA Compliance
         </motion.h2>

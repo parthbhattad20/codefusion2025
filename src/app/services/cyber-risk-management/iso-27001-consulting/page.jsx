@@ -87,7 +87,7 @@ export default function ISO27001Page() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is ISO 27001?
             </h1>
 
@@ -99,7 +99,7 @@ export default function ISO27001Page() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={reveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why ISO 27001 Matters
               </h2>
 
@@ -140,7 +140,7 @@ export default function ISO27001Page() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-sky-600 dark:text-sky-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primry">
               ISO 27001 Engagement Snapshot
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -158,7 +158,7 @@ export default function ISO27001Page() {
                 transition={{ type: "spring", stiffness: 180, damping: 16 }}
                 className="relative rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-md hover:shadow-xl"
               >
-                <div className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-gradient-to-br from-sky-500 to-indigo-500 text-white flex items-center justify-center font-bold shadow-lg">
+                <div className="absolute -top-4 -right-4 h-10 w-10 rounded-full bg-gradient-to-r from-violet-500 to-blue-600 text-white flex items-center justify-center font-bold shadow-lg">
                   {idx + 1}
                 </div>
 
@@ -226,7 +226,7 @@ export default function ISO27001Page() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-          <motion.h2 variants={reveal} className="text-4xl font-semibold mb-14">
+          <motion.h2 variants={reveal} className="text-4xl font-semibold mb-14 text-primary">
             Our ISO 27001 Services
           </motion.h2>
 
@@ -287,7 +287,7 @@ export default function ISO27001Page() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={reveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our ISO 27001 Engagement Works
             </h2>
 
@@ -361,7 +361,7 @@ export default function ISO27001Page() {
       >
         <motion.h2
           variants={reveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Achieve ISO 27001 Certification with Confidence
         </motion.h2>
