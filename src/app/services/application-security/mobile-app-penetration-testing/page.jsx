@@ -56,7 +56,7 @@ export default function MobileAppSecurityTestingPage() {
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-8 px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="mt-8 px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
             >
               GET STARTED
             </motion.button>
@@ -166,7 +166,7 @@ export default function MobileAppSecurityTestingPage() {
           {/* Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-center text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6"
+            className="text-center text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary mb-6"
           >
             Mobile App Penetration Testing
           </motion.h2>
@@ -293,7 +293,7 @@ export default function MobileAppSecurityTestingPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Application & Device Security
@@ -319,7 +319,7 @@ export default function MobileAppSecurityTestingPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Advanced & Infrastructure Testing

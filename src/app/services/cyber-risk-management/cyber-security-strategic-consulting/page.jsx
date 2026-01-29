@@ -76,7 +76,7 @@ export default function CyberSecurityConsultingPage() {
             whileHover={{ scale: 1.05 }}
           >
             <Link href="/contact">
-              <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition mt-6">
+              <button className="px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition mt-6">
                 Get Your Free Consultation
               </button>
             </Link>
@@ -98,7 +98,7 @@ export default function CyberSecurityConsultingPage() {
             animate="show"
             className="text-center mb-16"
           >
-            <motion.h1 variants={fadeItem} className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <motion.h1 variants={fadeItem} className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               Cyber Security Strategic Consulting 
             </motion.h1>
 
@@ -159,7 +159,7 @@ export default function CyberSecurityConsultingPage() {
     >
       <motion.h2
         variants={fadeItem}
-        className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400"
+        className="text-3xl md:text-4xl font-bold text-primary dark:text-priamry"
       >
         Cyber Security Strategy Implementation Snapshot
       </motion.h2>
@@ -196,7 +196,7 @@ export default function CyberSecurityConsultingPage() {
           transition={{ type: 'spring', stiffness: 180, damping: 16 }}
           className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
         >
-          <div className="mb-3 text-sm font-semibold text-blue-500">
+          <div className="mb-3 text-sm font-semibold text-primary">
             Phase {i + 1}
           </div>
           <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
@@ -210,7 +210,7 @@ export default function CyberSecurityConsultingPage() {
     {/* Deliverables */}
     <motion.div variants={fadeItem}>
       <div className="rounded-3xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur p-10 shadow-xl">
-        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+        <h3 className="text-2xl font-semibold text-primary dark:text-primary mb-6">
           What You Receive
         </h3>
 

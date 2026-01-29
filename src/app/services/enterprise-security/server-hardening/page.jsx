@@ -128,7 +128,7 @@ export default function ServerHardeningPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               Hardening Servers
             </h1>
 
@@ -142,7 +142,7 @@ export default function ServerHardeningPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why Server Hardening Matters
               </h2>
 
@@ -183,7 +183,7 @@ export default function ServerHardeningPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our Server Hardening Capabilities
           </motion.h2>
@@ -235,72 +235,103 @@ export default function ServerHardeningPage() {
       </motion.section>
 
       {/* ================= DETAILED SERVICE INFO CONTAINER – SERVER HARDENING ================= */}
-<motion.section
-  variants={fadeUp}
-  whileInView="show"
-  viewport={{ once: true }}
-  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
->
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      variants={fadeUp}
-      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-500/10 via-transparent to-indigo-500/10 dark:from-slate-500/20 dark:to-indigo-500/20" />
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background shadow-xl"
+          >
+            {/* light gradient overlay – REQUIRED COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
-      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* LEFT CONTENT */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-slate-700 dark:text-blue-400 mb-6">
-            How Our Server Hardening Service Works
-          </h3>
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* LEFT CONTENT */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-fuchsia-400 mb-6">
+                  How Our Server Hardening Service Works
+                </h3>
 
-          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-            Our Server Hardening service strengthens your operating systems and server configurations by removing
-            unnecessary exposure and enforcing security best practices. The goal is to minimize the attack surface
-            while maintaining performance, stability, and compliance.
-          </p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our Server Hardening service strengthens your operating
+                  systems and server configurations by removing unnecessary
+                  exposure and enforcing security best practices. The goal is to
+                  minimize the attack surface while maintaining performance,
+                  stability, and compliance.
+                </p>
 
-          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-            <li>✔ Server inventory & baseline assessment</li>
-            <li>✔ Secure OS configuration (Linux / Windows)</li>
-            <li>✔ Removal of unused services & ports</li>
-            <li>✔ Patch management & vulnerability mitigation</li>
-            <li>✔ Secure user access & privilege controls</li>
-            <li>✔ Continuous monitoring recommendations</li>
-          </ul>
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Server inventory &
+                    baseline assessment
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Secure OS
+                    configuration (Linux / Windows)
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Removal of unused
+                    services & ports
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Patch management &
+                    vulnerability mitigation
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Secure user access
+                    & privilege controls
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Continuous
+                    monitoring recommendations
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Server hardening assessment report",
+                    "Secure configuration benchmarks",
+                    "Hardened OS & service settings",
+                    "Risk & exposure reduction summary",
+                    "Compliance alignment (CIS / ISO)",
+                    "Post-hardening validation checklist",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-700 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div>
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            What You Get
-          </h4>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "Server hardening assessment report",
-              "Secure configuration benchmarks",
-              "Hardened OS & service settings",
-              "Risk & exposure reduction summary",
-              "Compliance alignment (CIS / ISO)",
-              "Post-hardening validation checklist",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
       <motion.section
@@ -313,8 +344,8 @@ export default function ServerHardeningPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Our Hardening Methodology
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
+              Our Hardening Methodology
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -337,7 +368,7 @@ export default function ServerHardeningPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Hardening & Configuration
@@ -389,7 +420,7 @@ export default function ServerHardeningPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Yes, Your Free Consultation Is Just a Click Away
         </motion.h2>

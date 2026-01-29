@@ -53,7 +53,7 @@ export default function GCPServerHardeningPage() {
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg font-semibold shadow-lg"
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold shadow-lg"
             >
               TALK TO OUR CLOUD EXPERT
             </motion.button>
@@ -70,7 +70,7 @@ export default function GCPServerHardeningPage() {
         className="py-24 px-6"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-primary">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
             What Is Cloud Server Hardening for GCP?
           </h2>
 
@@ -174,73 +174,103 @@ export default function GCPServerHardeningPage() {
       </motion.section>
 
       {/* ================= DETAILED SERVICE INFO CONTAINER – GCP SERVER HARDENING ================= */}
-<motion.section
-  variants={fadeUp}
-  whileInView="show"
-  viewport={{ once: true }}
-  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
->
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      variants={fadeUp}
-      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-emerald-500/10 dark:from-sky-500/20 dark:to-emerald-500/20" />
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background shadow-xl"
+          >
+            {/* light gradient overlay – REQUIRED COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
-      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* LEFT CONTENT */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-sky-600 dark:text-blue-400 mb-6">
-            How Our GCP Server Hardening Works
-          </h3>
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* LEFT CONTENT */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-fuchsia-400 mb-6">
+                  How Our GCP Server Hardening Works
+                </h3>
 
-          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-            Our GCP Server Hardening service secures your Google Cloud infrastructure by
-            applying industry best practices, CIS benchmarks, and cloud-native security controls.
-            We minimize attack surfaces, eliminate misconfigurations, and strengthen your servers
-            against real-world threats.
-          </p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our GCP Server Hardening service secures your Google Cloud
+                  infrastructure by applying industry best practices, CIS
+                  benchmarks, and cloud-native security controls. We minimize
+                  attack surfaces, eliminate misconfigurations, and strengthen
+                  your servers against real-world threats.
+                </p>
 
-          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-            <li>✔ Secure Compute Engine VM configurations</li>
-            <li>✔ IAM roles & least-privilege access enforcement</li>
-            <li>✔ Network firewall rules & VPC security review</li>
-            <li>✔ OS-level hardening & patch management</li>
-            <li>✔ Logging, monitoring & alerting enablement</li>
-            <li>✔ Compliance alignment (CIS, ISO, SOC)</li>
-          </ul>
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Secure Compute
+                    Engine VM configurations
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>IAM roles &
+                    least-privilege access enforcement
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Network firewall
+                    rules & VPC security review
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>OS-level hardening
+                    & patch management
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Logging,
+                    monitoring & alerting enablement
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Compliance
+                    alignment (CIS, ISO, SOC)
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Hardened GCP VM & server configurations",
+                    "IAM & access control review report",
+                    "Firewall & network security validation",
+                    "Identified risks & misconfigurations",
+                    "Compliance-ready hardening checklist",
+                    "Actionable remediation & best practices",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-700 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div>
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            What You Get
-          </h4>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "Hardened GCP VM & server configurations",
-              "IAM & access control review report",
-              "Firewall & network security validation",
-              "Identified risks & misconfigurations",
-              "Compliance-ready hardening checklist",
-              "Actionable remediation & best practices",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
       <motion.section
@@ -254,7 +284,7 @@ export default function GCPServerHardeningPage() {
           {/* Heading */}
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-primary">
-            GCP Hardening & Risk Reduction
+              GCP Hardening & Risk Reduction
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -275,7 +305,7 @@ export default function GCPServerHardeningPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-sky-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Engagement Process
@@ -298,7 +328,7 @@ export default function GCPServerHardeningPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Secure Cloud Operations

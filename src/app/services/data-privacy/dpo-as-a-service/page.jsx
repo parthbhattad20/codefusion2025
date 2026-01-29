@@ -70,7 +70,7 @@ export default function DPOServicePage() {
             transition={{ delay: 0.4 }}
             className="mb-6 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm text-white tracking-wide"
           >
-            UAE Data Protection & Compliance
+             Data Protection & Compliance
           </motion.div>
 
           <motion.h1
@@ -122,7 +122,7 @@ export default function DPOServicePage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What Is DPO ?
             </h1>
 
@@ -141,7 +141,7 @@ export default function DPOServicePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Benefits of DPO as a Service
               </h2>
 
@@ -180,7 +180,7 @@ export default function DPOServicePage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               DPO Service Delivery Framework
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -206,7 +206,7 @@ export default function DPOServicePage() {
                 transition={{ type: "spring", stiffness: 160, damping: 16 }}
                 className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
               >
-                <div className="mb-3 text-xs font-semibold tracking-wide text-emerald-600 dark:text-emerald-400">
+                <div className="mb-3 text-xs font-semibold tracking-wide text-primary dark:text-primary">
                   Phase {i + 1}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
@@ -222,7 +222,7 @@ export default function DPOServicePage() {
           {/* Deliverables */}
           <motion.div variants={sectionReveal}>
             <div className="rounded-3xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-10 shadow-xl">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-semibold text-primary dark:text-primary mb-6">
                 Key Deliverables
               </h3>
 
@@ -261,7 +261,7 @@ export default function DPOServicePage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our DPO as a Service Capabilities
           </motion.h2>
@@ -301,7 +301,7 @@ export default function DPOServicePage() {
                 className="relative bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm cursor-pointer overflow-hidden group"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
-                  <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-blue-500/40 via-violet-500/40 to-blue-500/40 blur-sm" />
+                  <div className="absolute inset-[-1px] rounded-2xl blur-sm" />
                 </div>
 
                 <h3 className="relative font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
@@ -327,7 +327,7 @@ export default function DPOServicePage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our DPO Service Engagement Works
             </h2>
 
@@ -402,7 +402,7 @@ export default function DPOServicePage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Protect Your Data Today
         </motion.h2>

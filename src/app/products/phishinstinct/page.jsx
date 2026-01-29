@@ -69,14 +69,14 @@ const PhishInstinct = () => {
         animate="show"
       >
         {/* Back */}
-        <motion.div variants={fadeUp} className="mb-10">
+        {/* <motion.div variants={fadeUp} className="mb-10">
           <Link
             href="/products"
             className="inline-flex items-center text-muted-foreground hover:text-foreground transition"
           >
             <ArrowBigLeft className="mr-2" /> Back to Products
           </Link>
-        </motion.div>
+        </motion.div> */}
 
         {/* Hero Section */}
         <motion.section
@@ -84,8 +84,11 @@ const PhishInstinct = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-24"
         >
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-extrabold text-primary tracking-tight">
-              PhishInstinct – Build a Human Firewall
+            <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              PhishInstinct
+              </span>{" "}
+               – Build a Human Firewall
             </h1>
 
             <ul className="list-disc pl-5 text-lg md:text-xl space-y-1">
@@ -337,7 +340,7 @@ const PhishInstinct = () => {
         Workflow overview
       </div>
 
-      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
         How PhishInstinct Works
       </h2>
 

@@ -127,7 +127,7 @@ export default function Microsoft365SecurityPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What Is Office 365 Security?
             </h1>
 
@@ -141,7 +141,7 @@ export default function Microsoft365SecurityPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why Office 365 Security Matters
               </h2>
 
@@ -182,7 +182,7 @@ export default function Microsoft365SecurityPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Benefits of Office 365 Security Services
           </motion.h2>
@@ -231,72 +231,103 @@ export default function Microsoft365SecurityPage() {
       </motion.section>
 
       {/* ================= DETAILED SERVICE INFO CONTAINER – MICROSOFT 365 SECURITY SERVICES ================= */}
-<motion.section
-  variants={fadeUp}
-  whileInView="show"
-  viewport={{ once: true }}
-  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
->
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      variants={fadeUp}
-      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-indigo-500/10 dark:from-sky-500/20 dark:to-indigo-500/20" />
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background shadow-xl"
+          >
+            {/* light gradient overlay – REQUIRED COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
-      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* LEFT CONTENT */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-sky-600 dark:text-blue-400 mb-6">
-            How Our Microsoft 365 Security Services Work
-          </h3>
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* LEFT CONTENT */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-fuchsia-400 mb-6">
+                  How Our Microsoft 365 Security Services Work
+                </h3>
 
-          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-            Our Microsoft 365 Security Services help organizations secure identities, email, data, and collaboration
-            tools across the Microsoft ecosystem. We configure, optimize, and monitor security controls to protect
-            against modern threats while ensuring compliance and productivity.
-          </p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our Microsoft 365 Security Services help organizations secure
+                  identities, email, data, and collaboration tools across the
+                  Microsoft ecosystem. We configure, optimize, and monitor
+                  security controls to protect against modern threats while
+                  ensuring compliance and productivity.
+                </p>
 
-          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-            <li>✔ Microsoft 365 security posture assessment</li>
-            <li>✔ Identity & access management (Azure AD / Entra ID)</li>
-            <li>✔ Multi-Factor Authentication & Conditional Access</li>
-            <li>✔ Email & collaboration security (Defender)</li>
-            <li>✔ Data protection & information governance</li>
-            <li>✔ Continuous monitoring & security optimization</li>
-          </ul>
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Microsoft 365
+                    security posture assessment
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Identity & access
+                    management (Azure AD / Entra ID)
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Multi-Factor
+                    Authentication & Conditional Access
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Email &
+                    collaboration security (Defender)
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Data protection &
+                    information governance
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Continuous
+                    monitoring & security optimization
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Microsoft 365 security assessment report",
+                    "Secure identity & access configuration",
+                    "Defender & security policy setup",
+                    "Data loss prevention (DLP) policies",
+                    "Compliance & audit readiness guidance",
+                    "Ongoing security recommendations",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-700 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div>
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            What You Get
-          </h4>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "Microsoft 365 security assessment report",
-              "Secure identity & access configuration",
-              "Defender & security policy setup",
-              "Data loss prevention (DLP) policies",
-              "Compliance & audit readiness guidance",
-              "Ongoing security recommendations",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
       <motion.section
@@ -308,8 +339,8 @@ export default function Microsoft365SecurityPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Our Microsoft 365 Security Methodology
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
+              Our Microsoft 365 Security Methodology
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -380,7 +411,7 @@ export default function Microsoft365SecurityPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Secure Your Microsoft 365 Environment Today
         </motion.h2>

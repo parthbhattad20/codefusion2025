@@ -126,7 +126,7 @@ export default function SecurityArchitectureReviewPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What Is Security Architecture Review?
             </h1>
 
@@ -144,7 +144,7 @@ export default function SecurityArchitectureReviewPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why Security Architecture Review Is Critical
               </h2>
 
@@ -185,7 +185,7 @@ export default function SecurityArchitectureReviewPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our Security Architecture Review Approach
           </motion.h2>
@@ -234,72 +234,104 @@ export default function SecurityArchitectureReviewPage() {
       </motion.section>
 
       {/* ================= DETAILED SERVICE INFO CONTAINER – SECURITY ARCHITECTURE REVIEW ================= */}
-<motion.section
-  variants={fadeUp}
-  whileInView="show"
-  viewport={{ once: true }}
-  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
->
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      variants={fadeUp}
-      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10 dark:from-purple-500/20 dark:to-indigo-500/20" />
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background shadow-xl"
+          >
+            {/* light gradient overlay – REQUIRED COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
-      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* LEFT CONTENT */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-purple-600 dark:text-blue-400 mb-6">
-            How Our Security Architecture Review Works
-          </h3>
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* LEFT CONTENT */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-fuchsia-400 mb-6">
+                  How Our Security Architecture Review Works
+                </h3>
 
-          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-            Our Security Architecture Review evaluates the design and implementation of your security controls across
-            applications, infrastructure, networks, and cloud environments. We assess whether your architecture
-            effectively mitigates threats, supports business goals, and aligns with industry best practices.
-          </p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our Security Architecture Review evaluates the design and
+                  implementation of your security controls across applications,
+                  infrastructure, networks, and cloud environments. We assess
+                  whether your architecture effectively mitigates threats,
+                  supports business goals, and aligns with industry best
+                  practices.
+                </p>
 
-          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-            <li>✔ Current-state architecture & design review</li>
-            <li>✔ Threat modeling & attack surface analysis</li>
-            <li>✔ Identity, network & data flow evaluation</li>
-            <li>✔ Security control effectiveness assessment</li>
-            <li>✔ Zero Trust & defense-in-depth alignment</li>
-            <li>✔ Target-state architecture recommendations</li>
-          </ul>
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Current-state
+                    architecture & design review
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Threat modeling &
+                    attack surface analysis
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Identity, network
+                    & data flow evaluation
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Security control
+                    effectiveness assessment
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Zero Trust &
+                    defense-in-depth alignment
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Target-state
+                    architecture recommendations
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Security architecture assessment report",
+                    "Identified design gaps & risk areas",
+                    "Threat model & risk scenarios",
+                    "Architecture diagrams & findings",
+                    "Best-practice & framework alignment",
+                    "Future-state security roadmap",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-700 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div>
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            What You Get
-          </h4>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "Security architecture assessment report",
-              "Identified design gaps & risk areas",
-              "Threat model & risk scenarios",
-              "Architecture diagrams & findings",
-              "Best-practice & framework alignment",
-              "Future-state security roadmap",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
       <motion.section
@@ -312,8 +344,8 @@ export default function SecurityArchitectureReviewPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Architecture Assessment & Risk Analysis
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
+              Architecture Assessment & Risk Analysis
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -388,7 +420,7 @@ export default function SecurityArchitectureReviewPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Strengthen Your Security Architecture Today
         </motion.h2>

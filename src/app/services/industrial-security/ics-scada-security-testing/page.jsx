@@ -95,7 +95,7 @@ export default function ICS_SCADA_SecurityPage() {
             className="mt-10"
           >
             <Link href="/contact">
-              <button className="px-10 py-4 rounded-full bg-cyan-600 hover:bg-cyan-500 transition text-white font-semibold shadow-lg">
+              <button className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:bg-cyan-500 transition text-white font-semibold shadow-lg">
                 Request Security Check
               </button>
             </Link>
@@ -113,7 +113,7 @@ export default function ICS_SCADA_SecurityPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is ICS/SCADA Security Testing?
             </h1>
 
@@ -172,7 +172,7 @@ export default function ICS_SCADA_SecurityPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-blue-600 dark:text-blue-400">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-primary dark:text-primary">
               Industrial-Grade Cybersecurity for Operational Technology
             </h2>
 
@@ -190,7 +190,7 @@ export default function ICS_SCADA_SecurityPage() {
             {/* LEFT – OT Security Model */}
             <motion.div variants={sectionReveal} className="space-y-8">
               <div className="p-8 rounded-2xl border border-gray-200 dark:border-border bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-sm">
-                <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+                <h3 className="text-xl font-semibold text-primary dark:text-primary mb-4">
                   OT-Focused Security Model
                 </h3>
 
@@ -214,7 +214,7 @@ export default function ICS_SCADA_SecurityPage() {
                 </ul>
               </div>
 
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-lg">
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-500 text-white shadow-lg">
                 <h3 className="text-lg font-semibold mb-3">
                   Built for safety-critical environments
                 </h3>
@@ -268,7 +268,7 @@ export default function ICS_SCADA_SecurityPage() {
                 >
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_60%)]" />
 
-                  <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-3">
+                  <h4 className="text-lg font-semibold text-primary dark:text-primary mb-3">
                     {item.title}
                   </h4>
 
@@ -293,7 +293,7 @@ export default function ICS_SCADA_SecurityPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our ICS/SCADA Security Services
           </motion.h2>
@@ -357,7 +357,7 @@ export default function ICS_SCADA_SecurityPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our ICS / SCADA Engagement Works
             </h2>
 
@@ -367,7 +367,7 @@ export default function ICS_SCADA_SecurityPage() {
               uptime, and compliance.
             </p>
 
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500" />
           </motion.div>
 
           {/* Cards */}
@@ -381,7 +381,7 @@ export default function ICS_SCADA_SecurityPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Security Assessment & Protection
@@ -432,7 +432,7 @@ export default function ICS_SCADA_SecurityPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Secure Your Industrial Infrastructure
         </motion.h2>
@@ -447,7 +447,7 @@ export default function ICS_SCADA_SecurityPage() {
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
           <Link href="/contact">
-            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-xl">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-xl">
               Request ICS/SCADA Security Check
             </button>
           </Link>

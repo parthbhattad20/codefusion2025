@@ -40,7 +40,6 @@ const FloatingNavbar = () => {
     setOpenService(false);
     setOpenProduct(false);
   }, [pathname]);
-  
 
   const productItems = [
     { name: "Vaultix", href: "/products/vaultix" },
@@ -107,7 +106,7 @@ const FloatingNavbar = () => {
       "Network Penetration Testing",
       "Wireless Security Assessment",
     ],
-    "Managed VAPT": ["Managed Threat Hunting", "Pro active threat hunting"],
+    "Managed VAPT": ["Managed Threat Hunting", "Proactive threat hunting"],
 
     "Threat simulations": ["Phishing Simulation", "Red Teaming"],
   };
@@ -122,9 +121,65 @@ const FloatingNavbar = () => {
   // Prevent hydration mismatch - don't render theme-dependent logo until mounted
   const currentTheme = mounted ? resolvedTheme || theme : "light";
 
+  // Prevent hydration mismatch - use consistent className on first render
+  if (!mounted) {
+    return (
+      <nav className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/50 dark:bg-background backdrop-blur-sm bg-foreground/5 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+          {/* LOGO */}
+          <Link href="/" className="flex items-center">
+            <div className="w-[180px] h-[50px]" />
+          </Link>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            className="lg:hidden z-50 p-2 rounded-lg hover:bg-primary/10 transition-colors"
+            aria-label="Toggle menu"
+          >
+            <Menu size={26} />
+          </button>
+
+          {/* MENU */}
+          <div className="fixed top-[80px] right-0 h-[calc(100vh-80px)] w-[85%] max-w-[360px] bg-background/95 dark:bg-slate-950/95 backdrop-blur-2xl border-l border-border/40 shadow-2xl transition-transform duration-300 overflow-y-auto translate-x-full lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0 lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none lg:overflow-visible">
+            <ul className="flex flex-col items-start justify-start min-h-full px-6 pt-6 pb-8 space-y-6 lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:gap-8 lg:px-0 lg:pt-0 lg:pb-0 lg:min-h-0">
+              <NavItem label="Home" href="/" pathname={pathname} close={() => {}} />
+              <NavItem label="About" href="/about" pathname={pathname} close={() => {}} />
+              <li className="relative w-full lg:w-auto text-left lg:text-left">
+                <div className="hidden lg:block group relative">
+                  <button className="text-sm font-medium relative flex items-center gap-1 py-2 transition-colors duration-200 hover:text-violet-500">
+                    Products
+                    <ChevronDown size={16} className="opacity-60" />
+                    <Underline active={pathname.startsWith("/products")} />
+                  </button>
+                </div>
+              </li>
+              <li className="relative w-full lg:w-auto text-left lg:text-left">
+                <div className="hidden lg:block group relative">
+                  <button className="text-sm font-medium relative flex items-center gap-1 py-2">
+                    Services
+                    <ChevronDown size={16} className="opacity-60" />
+                    <Underline active={pathname.startsWith("/services")} />
+                  </button>
+                </div>
+              </li>
+              <NavItem label="SOC" href="/soc" pathname={pathname} close={() => {}} />
+              <NavItem label="Contact" href="/contact" pathname={pathname} close={() => {}} />
+              <NavItem label="Blogs" href="/blogs" pathname={pathname} close={() => {}} />
+            </ul>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="h-5 w-px opacity-0" />
+            <SelectTheme />
+          </div>
+        </div>
+      </nav>
+    );
+  }
+
   return (
     <nav
-    key={pathname}
+      key={pathname}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled || isMenuOpen
           ? "bg-white/80 dark:bg-white/10 backdrop-blur-md lg:border-b lg:border-gray-200 dark:lg:border-white/10 lg:shadow-lg "
@@ -134,23 +189,18 @@ const FloatingNavbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* LOGO */}
         <Link href="/" className="flex items-center">
-          {mounted ? (
-            <Image
-              src={
-                currentTheme === "dark"
-                  ? "/assets/vulnuris.png"
-                  : "/assets/vulnuris_logo_full1.png"
-              }
-              alt="Vulnuris logo"
-              width={180}
-              height={50}
-              priority
-              className="object-contain"
-            />
-          ) : (
-            // Server-side placeholder with consistent dimensions
-            <div className="w-[180px] h-[50px]" />
-          )}
+          <Image
+            src={
+              currentTheme === "dark"
+                ? "/assets/vulnuris.png"
+                : "/assets/vulnuris_logo_full1.png"
+            }
+            alt="Vulnuris logo"
+            width={180}
+            height={50}
+            priority
+            className="object-contain"
+          />
         </Link>
 
         {/* MOBILE MENU BUTTON */}
@@ -189,7 +239,9 @@ const FloatingNavbar = () => {
 
         {/* MENU */}
         <div
-          className={`fixed top-[80px] right-0 h-[calc(100vh-80px)] w-[85%] max-w-[360px] bg-background/95 dark:bg-slate-950/95 backdrop-blur-2xl border-l border-border/40 shadow-2xl transition-transform duration-300 overflow-y-auto ${isMenuOpen ? "translate-x-0" : "translate-x-full"} lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0 lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none lg:overflow-visible`}
+          className={`fixed top-[80px] right-0 h-[calc(100vh-80px)] w-[85%] max-w-[360px] bg-background/95 dark:bg-slate-950/95 backdrop-blur-2xl border-l border-border/40 shadow-2xl transition-transform duration-300 overflow-y-auto ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          } lg:relative lg:inset-auto lg:h-auto lg:w-auto lg:translate-x-0 lg:bg-transparent lg:dark:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none lg:overflow-visible`}
         >
           <ul className="flex flex-col items-start justify-start min-h-full px-6 pt-6 pb-8 space-y-6 lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:gap-8 lg:px-0 lg:pt-0 lg:pb-0 lg:min-h-0">
             <NavItem
@@ -316,7 +368,6 @@ const FloatingNavbar = () => {
                               <li key={item}>
                                 <Link
                                   href={`/services/${slugify(category)}/${slugify(item)}`}
-                                 
                                   className="text-sm text-muted-foreground hover:text-primary transition block"
                                 >
                                   {item}

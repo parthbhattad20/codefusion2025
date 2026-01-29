@@ -68,7 +68,7 @@ export default function SOCPage() {
             <motion.div variants={sectionReveal} className="mt-10">
               <Link
                 href="/contact"
-                className="rounded-full bg-cyan-600 px-10 py-4 text-white font-medium hover:bg-cyan-500 transition"
+                className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-10 py-4 text-white font-medium hover:bg-cyan-500 transition"
               >
                 Get Started
               </Link>
@@ -88,7 +88,7 @@ export default function SOCPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               What is a Security Operations Centre?
             </h2>
 
@@ -164,7 +164,7 @@ export default function SOCPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-primary dark:text-primary">
               Inside Our Security Operations Centre
             </h2>
 
@@ -203,13 +203,13 @@ export default function SOCPage() {
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     {item.label}
                   </p>
-                  <p className="mt-2 text-xl font-semibold text-cyan-600 dark:text-cyan-400">
+                  <p className="mt-2 text-xl font-semibold text-primary dark:text-primary">
                     {item.value}
                   </p>
                 </div>
               ))}
 
-              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-cyan-600 to-indigo-600 text-white shadow-xl">
+              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-indigo-600 to-fuchsia-500 text-white shadow-xl">
                 <h4 className="text-lg font-semibold mb-2">
                   Enterprise-grade SOC Operations
                 </h4>

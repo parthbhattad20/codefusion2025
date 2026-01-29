@@ -70,7 +70,7 @@ export default function AnnualSecurityProgramPage() {
             >
               <Link
                 href="/contact"
-                className="rounded-full bg-cyan-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
+                className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
               >
                 Book a Free Consultation
               </Link>
@@ -183,13 +183,13 @@ export default function AnnualSecurityProgramPage() {
                   className="p-6 rounded-2xl border border-border bg-background/70 backdrop-blur-md shadow-sm"
                 >
                   <p className="text-sm text-muted-foreground">{item.label}</p>
-                  <p className="mt-2 text-lg font-semibold text-cyan-600 dark:text-cyan-400">
+                  <p className="mt-2 text-lg font-semibold text-primary dark:text-primary">
                     {item.value}
                   </p>
                 </div>
               ))}
 
-              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-lg">
+              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-indigo-600 to-fuchsia-600 text-white shadow-lg">
                 <h4 className="text-lg font-semibold mb-2">
                   Built for SaaS environments
                 </h4>

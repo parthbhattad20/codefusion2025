@@ -69,7 +69,7 @@ export default function ISO27701Page() {
 
           <motion.div whileHover={{ scale: 1.06 }}>
             <Link href="/contact">
-              <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
+              <button className="px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
                 Speak with a Privacy Expert
               </button>
             </Link>
@@ -87,7 +87,7 @@ export default function ISO27701Page() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is ISO 27701?
             </h1>
 
@@ -140,7 +140,7 @@ export default function ISO27701Page() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={reveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-fuchsia-600 dark:text-fuchsia-400">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               ISO 27701 Privacy Implementation Snapshot
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -172,7 +172,7 @@ export default function ISO27701Page() {
                 whileHover={{ y: -8 }}
                 className="rounded-2xl border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl transition"
               >
-                <div className="mb-3 text-sm font-semibold text-fuchsia-600">
+                <div className="mb-3 text-sm font-semibold text-primary">
                   Phase {i + 1}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
@@ -188,7 +188,7 @@ export default function ISO27701Page() {
           {/* Deliverables */}
           <motion.div variants={reveal}>
             <div className="rounded-3xl border border-gray-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 backdrop-blur p-10 shadow-xl">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-semibold text-primary dark:text-primary mb-6">
                 Privacy Deliverables You Receive
               </h3>
 
@@ -225,7 +225,7 @@ export default function ISO27701Page() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-          <motion.h2 variants={reveal} className="text-4xl font-semibold mb-14">
+          <motion.h2 variants={reveal} className="text-4xl font-semibold mb-14 text-primary">
             Our ISO 27701 Consulting Services
           </motion.h2>
 
@@ -283,7 +283,7 @@ export default function ISO27701Page() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={reveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our ISO 27701 Engagement Works
             </h2>
 
@@ -357,7 +357,7 @@ export default function ISO27701Page() {
       >
         <motion.h2
           variants={reveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Achieve ISO 27701 Certification Confidently
         </motion.h2>

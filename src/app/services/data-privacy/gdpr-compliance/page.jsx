@@ -123,7 +123,7 @@ export default function GDPRCompliancePage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What Is GDPR Compliance?
             </h1>
 
@@ -142,7 +142,7 @@ export default function GDPRCompliancePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why GDPR Compliance Matters
               </h2>
 
@@ -189,7 +189,7 @@ export default function GDPRCompliancePage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               GDPR Compliance Delivery Framework
             </h2>
 
@@ -216,7 +216,7 @@ export default function GDPRCompliancePage() {
                 transition={{ type: "spring", stiffness: 160, damping: 16 }}
                 className="rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black p-6 shadow-sm hover:shadow-md transition"
               >
-                <div className="mb-2 text-xs font-semibold tracking-wide text-gray-600 dark:text-gray-400">
+                <div className="mb-2 text-xs font-semibold tracking-wide text-primary dark:text-primary">
                   Phase {i + 1}
                 </div>
 
@@ -234,7 +234,7 @@ export default function GDPRCompliancePage() {
           {/* Deliverables */}
           <motion.div variants={sectionReveal}>
             <div className="rounded-3xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black p-10 shadow-lg">
-              <h3 className="text-2xl font-semibold text-black dark:text-white mb-6">
+              <h3 className="text-2xl font-semibold text-primary dark:text-primary mb-6">
                 Key GDPR Deliverables
               </h3>
 
@@ -275,7 +275,7 @@ export default function GDPRCompliancePage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our GDPR Compliance Process Works
             </h2>
 
@@ -347,7 +347,7 @@ export default function GDPRCompliancePage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Achieve GDPR Compliance Today
         </motion.h2>

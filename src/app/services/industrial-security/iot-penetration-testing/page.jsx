@@ -77,7 +77,7 @@ export default function IoTSecurityPage() {
             >
               <Link
                 href="/contact"
-                className="rounded-full bg-cyan-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
+                className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
               >
                 Talk to an Expert
               </Link>
@@ -176,7 +176,7 @@ export default function IoTSecurityPage() {
                 </ul>
               </div>
 
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-lg">
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-violet-700 to-fuchsia-400 text-white shadow-lg">
                 <h3 className="text-lg font-semibold mb-3">
                   Designed for real-world deployments
                 </h3>

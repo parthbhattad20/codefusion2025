@@ -56,22 +56,25 @@ const KloudRaksha = () => {
         initial="hidden"
         animate="show"
       >
-        <motion.div variants={fadeUp} className="mb-10">
+        {/* <motion.div variants={fadeUp} className="mb-10">
           <Link
             href="/products"
             className="inline-flex items-center text-muted-foreground hover:text-foreground transition"
           >
             <ArrowBigLeft className="mr-2" /> Back to Products
           </Link>
-        </motion.div>
+        </motion.div> */}
 
         <motion.section
           variants={fadeUp}
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-24"
         >
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-primary">
-              KloudRaksha – Cloud Security Configuration Audit Platform
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">
+            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              KloudRaksha 
+              </span>{" "}
+              – Cloud Security Configuration Audit Platform
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
@@ -321,7 +324,7 @@ const KloudRaksha = () => {
         Workflow overview
       </div>
 
-      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
         How KloudRaksha Works
       </h2>
 

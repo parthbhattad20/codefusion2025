@@ -25,7 +25,6 @@ const stagger = {
 export default function AwsServerHardeningPage() {
   return (
     <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <motion.section
         initial="hidden"
@@ -58,7 +57,7 @@ export default function AwsServerHardeningPage() {
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
             Strengthen your AWS cloud fortress toward a better security posture
-             with expert AWS Server Hardening services.
+            with expert AWS Server Hardening services.
           </motion.p>
 
           <Link href="/contact">
@@ -68,7 +67,7 @@ export default function AwsServerHardeningPage() {
                 boxShadow: "0 0 30px rgba(59,130,246,0.6)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-semibold transition"
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-indigo-500 to-fuchsia-400 text-white rounded-lg font-semibold transition"
             >
               TALK TO OUR CLOUD EXPERT
             </motion.button>
@@ -85,30 +84,28 @@ export default function AwsServerHardeningPage() {
         className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto">
-
           <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What Is AWS Server Hardening?
             </h1>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
               Server hardening is the process of minimizing the attack surface
               of a server to make it less vulnerable to cyber threats. AWS
-              (Amazon Web Services) enables organizations to access
-              scalable virtual computing resources without investing in heavy
-              on-premise infrastructure.
+              (Amazon Web Services) enables organizations to access scalable
+              virtual computing resources without investing in heavy on-premise
+              infrastructure.
             </p>
 
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Due to the rapid adoption of AWS, cloud threats are
-              constantly evolving. AWS Server Hardening helps secure cloud
-              environments by implementing proper ISMS practices, asset
-              classification, and AWS shared responsibility principles.
+              Due to the rapid adoption of AWS, cloud threats are constantly
+              evolving. AWS Server Hardening helps secure cloud environments by
+              implementing proper ISMS practices, asset classification, and AWS
+              shared responsibility principles.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
             <motion.div variants={fadeLeft} className="ml-10">
               <h2 className="text-2xl font-semibold text-primary mb-6">
                 Benefits of AWS Server Hardening
@@ -116,7 +113,9 @@ export default function AwsServerHardeningPage() {
 
               <ul className="space-y-4 text-gray-800 dark:text-gray-200">
                 <li>• Prevent unauthorized access and data breaches</li>
-                <li>• Improve compliance with security standards and regulations</li>
+                <li>
+                  • Improve compliance with security standards and regulations
+                </li>
                 <li>• Strengthen cloud security posture across AWS services</li>
                 <li>• Ensure end-to-end data protection</li>
                 <li>• Optimize technical and cost resources</li>
@@ -134,7 +133,6 @@ export default function AwsServerHardeningPage() {
                 className="w-full max-w-md rounded-xl shadow-lg transition"
               />
             </motion.div>
-
           </div>
         </div>
       </motion.section>
@@ -148,7 +146,6 @@ export default function AwsServerHardeningPage() {
         className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
-
           <motion.h2
             variants={fadeUp}
             className="text-4xl font-semibold text-primary mb-14"
@@ -199,76 +196,106 @@ export default function AwsServerHardeningPage() {
               </motion.div>
             ))}
           </motion.div>
-
         </div>
       </motion.section>
       {/* ================= DETAILED SERVICE INFO CONTAINER – AWS SERVER HARDENING ================= */}
-<motion.section
-  variants={fadeUp}
-  whileInView="show"
-  viewport={{ once: true }}
-  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
->
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      variants={fadeUp}
-      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-amber-500/10 dark:from-orange-500/20 dark:to-amber-500/20" />
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background shadow-xl"
+          >
+            {/* light gradient overlay – REQUIRED COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
-      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* LEFT CONTENT */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-orange-600 dark:text-blue-400 mb-6">
-            How Our AWS Server Hardening Works
-          </h3>
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* LEFT CONTENT */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-fuchsia-400 mb-6">
+                  How Our AWS Server Hardening Works
+                </h3>
 
-          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-            Our AWS Server Hardening service strengthens EC2 instances and cloud workloads by applying AWS
-            security best practices and industry benchmarks. We reduce attack surfaces, enforce least privilege,
-            and harden configurations to protect your cloud infrastructure from evolving threats.
-          </p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our AWS Server Hardening service strengthens EC2 instances and
+                  cloud workloads by applying AWS security best practices and
+                  industry benchmarks. We reduce attack surfaces, enforce least
+                  privilege, and harden configurations to protect your cloud
+                  infrastructure from evolving threats.
+                </p>
 
-          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-            <li>✔ EC2 instance & OS-level security assessment</li>
-            <li>✔ Secure IAM roles & least-privilege enforcement</li>
-            <li>✔ Network hardening (Security Groups & NACLs)</li>
-            <li>✔ Patch management & vulnerability mitigation</li>
-            <li>✔ Logging, monitoring & alerting setup</li>
-            <li>✔ CIS AWS benchmark alignment</li>
-          </ul>
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>EC2 instance &
+                    OS-level security assessment
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Secure IAM roles &
+                    least-privilege enforcement
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Network hardening
+                    (Security Groups & NACLs)
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Patch management &
+                    vulnerability mitigation
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Logging,
+                    monitoring & alerting setup
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>CIS AWS benchmark
+                    alignment
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "AWS server hardening assessment report",
+                    "Hardened EC2 & OS configurations",
+                    "IAM & network security improvements",
+                    "Risk & exposure reduction summary",
+                    "CIS AWS compliance mapping",
+                    "Post-hardening validation checklist",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-700 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div>
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            What You Get
-          </h4>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "AWS server hardening assessment report",
-              "Hardened EC2 & OS configurations",
-              "IAM & network security improvements",
-              "Risk & exposure reduction summary",
-              "CIS AWS compliance mapping",
-              "Post-hardening validation checklist",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
       <motion.section
@@ -279,10 +306,9 @@ export default function AwsServerHardeningPage() {
         className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background transition-colors"
       >
         <div className="max-w-7xl mx-auto">
-
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-            AWS Hardening & Risk Reduction 
+              AWS Hardening & Risk Reduction
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -294,7 +320,6 @@ export default function AwsServerHardeningPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
@@ -339,7 +364,6 @@ export default function AwsServerHardeningPage() {
                 <li>• Resilient AWS infrastructure</li>
               </ul>
             </motion.div>
-
           </div>
         </div>
       </motion.section>
@@ -371,7 +395,6 @@ export default function AwsServerHardeningPage() {
           </motion.button>
         </Link>
       </motion.section>
-
     </main>
   );
 }

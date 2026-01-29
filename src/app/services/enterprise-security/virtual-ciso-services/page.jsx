@@ -151,7 +151,7 @@ export default function VCISOPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why Vulnuris Virtual CISO Services
               </h2>
 
@@ -198,28 +198,50 @@ export default function VCISOPage() {
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={fadeUp}
-            className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background
+                 shadow-xl"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-blue-500/10 dark:from-emerald-500/20 dark:to-blue-500/20" />
+            {/* light gradient overlay – SAME COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
             <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* LEFT CONTENT */}
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-emerald-600 dark:text-blue-400 mb-6">
+                <h3
+                  className="text-2xl md:text-3xl font-bold
+                       bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                       bg-clip-text text-transparent mb-6"
+                >
                   How Our Virtual CISO Service Works
                 </h3>
 
-                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our Virtual CISO (vCISO) service provides strategic security leadership without the cost of a full-time executive. We work as an extension of your leadership team to design, implement, and continuously improve your cybersecurity posture.
+                <p className="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed">
+                  Our Virtual CISO (vCISO) service provides strategic security
+                  leadership without the cost of a full-time executive. We work
+                  as an extension of your leadership team to design, implement,
+                  and continuously improve your cybersecurity posture.
                 </p>
 
-                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Security posture & gap assessment</li>
-                  <li>✔ Cybersecurity strategy & roadmap planning</li>
-                  <li>✔ Policy, process & governance development</li>
-                  <li>✔ Risk management & threat prioritization</li>
-                  <li>✔ Compliance alignment & audit readiness</li>
-                  <li>✔ Continuous advisory & leadership reporting</li>
+                <ul className="space-y-3 text-gray-800 dark:text-gray-200">
+                  {[
+                    "Security posture & gap assessment",
+                    "Cybersecurity strategy & roadmap planning",
+                    "Policy, process & governance development",
+                    "Risk management & threat prioritization",
+                    "Compliance alignment & audit readiness",
+                    "Continuous advisory & leadership reporting",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-indigo-500 font-bold">✔</span>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -240,8 +262,13 @@ export default function VCISOPage() {
                   ].map((item, i) => (
                     <motion.div
                       key={i}
-                      whileHover={{ scale: 1.03 }}
-                      className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+                      whileHover={{ scale: 1.05 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-800 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
                     >
                       {item}
                     </motion.div>
@@ -252,7 +279,6 @@ export default function VCISOPage() {
           </motion.div>
         </div>
       </motion.section>
-
 
       {/* ================= VCISO SERVICES GRID ================= */}
       <motion.section
@@ -265,7 +291,7 @@ export default function VCISOPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Virtual CISO (VCISO) Program: Protect Your Organization
           </motion.h2>
@@ -330,7 +356,7 @@ export default function VCISOPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               What Are Our Virtual CISO (vCISO) Services?
             </h2>
 
@@ -407,7 +433,7 @@ export default function VCISOPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Strengthen Your Security Leadership
         </motion.h2>
