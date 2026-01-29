@@ -69,7 +69,7 @@ export default function DoraCompliancePage() {
 
           <motion.div whileHover={{ scale: 1.06 }}>
             <Link href="/contact">
-              <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
+              <button className="px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
                 Request a DORA Assessment
               </button>
             </Link>

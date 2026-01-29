@@ -40,7 +40,6 @@ const floating3D = {
 export default function EmailSecurityAuditPage() {
   return (
     <main className="w-full bg-white text-gray-900 dark:bg-background dark:text-foreground">
-
       {/* ================= HERO ================= */}
       <section className="relative h-screen overflow-hidden">
         <video
@@ -100,12 +99,16 @@ export default function EmailSecurityAuditPage() {
             transition={{ delay: 0.5 }}
             className="text-sm md:text-xl text-gray-200 max-w-4xl text-center"
           >
-            Securing your electronic communication channels across modern organizations.
-            Our Email Security Audit services protect inboxes from phishing, malware, and
-            data leakage.
+            Securing your electronic communication channels across modern
+            organizations. Our Email Security Audit services protect inboxes
+            from phishing, malware, and data leakage.
           </motion.p>
 
-          <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.96 }} className="mt-10">
+          <motion.div
+            whileHover={{ scale: 1.07 }}
+            whileTap={{ scale: 0.96 }}
+            className="mt-10"
+          >
             <Link href="/contact">
               <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition">
                 Protect Your Inbox
@@ -169,72 +172,103 @@ export default function EmailSecurityAuditPage() {
       </motion.section>
 
       {/* ================= DETAILED SERVICE INFO CONTAINER – EMAIL SECURITY AUDIT ================= */}
-<motion.section
-  variants={fadeUp}
-  whileInView="show"
-  viewport={{ once: true }}
-  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
->
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      variants={fadeUp}
-      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10 dark:from-cyan-500/20 dark:to-blue-500/20" />
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background shadow-xl"
+          >
+            {/* light gradient overlay – REQUIRED COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
-      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* LEFT CONTENT */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-cyan-600 dark:text-blue-400 mb-6">
-            How Our Email Security Audit Works
-          </h3>
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* LEFT CONTENT */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-fuchsia-400 mb-6">
+                  How Our Email Security Audit Works
+                </h3>
 
-          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-            Our Email Security Audit evaluates your organization’s email ecosystem to identify weaknesses that
-            attackers commonly exploit for phishing, spoofing, malware delivery, and business email compromise (BEC).
-            The assessment focuses on configuration, policy, and user-level risks.
-          </p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our Email Security Audit evaluates your organization’s email
+                  ecosystem to identify weaknesses that attackers commonly
+                  exploit for phishing, spoofing, malware delivery, and business
+                  email compromise (BEC). The assessment focuses on
+                  configuration, policy, and user-level risks.
+                </p>
 
-          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-            <li>✔ Email infrastructure & gateway review</li>
-            <li>✔ SPF, DKIM & DMARC configuration analysis</li>
-            <li>✔ Phishing & spoofing risk assessment</li>
-            <li>✔ Malware & attachment protection checks</li>
-            <li>✔ User awareness & policy evaluation</li>
-            <li>✔ Risk scoring & prioritized improvements</li>
-          </ul>
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Email
+                    infrastructure & gateway review
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>SPF, DKIM & DMARC
+                    configuration analysis
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Phishing &
+                    spoofing risk assessment
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Malware &
+                    attachment protection checks
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>User awareness &
+                    policy evaluation
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Risk scoring &
+                    prioritized improvements
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Email security posture report",
+                    "SPF / DKIM / DMARC findings",
+                    "Phishing & BEC risk analysis",
+                    "Misconfiguration evidence",
+                    "Compliance-aligned recommendations",
+                    "Step-by-step remediation guidance",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-700 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div>
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            What You Get
-          </h4>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "Email security posture report",
-              "SPF / DKIM / DMARC findings",
-              "Phishing & BEC risk analysis",
-              "Misconfiguration evidence",
-              "Compliance-aligned recommendations",
-              "Step-by-step remediation guidance",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* ================= SERVICES GRID ================= */}
       <motion.section
@@ -245,7 +279,10 @@ export default function EmailSecurityAuditPage() {
         viewport={{ once: true }}
       >
         <div className="max-w-7xl mx-auto text-center">
-          <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
+          <motion.h2
+            variants={sectionReveal}
+            className="text-4xl font-semibold mb-14"
+          >
             Our Email Security Audit Approach
           </motion.h2>
 
@@ -294,10 +331,9 @@ export default function EmailSecurityAuditPage() {
         viewport={{ once: true, margin: "-120px" }}
       >
         <div className="max-w-7xl mx-auto">
-
           <motion.div variants={sectionReveal} className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Our Audit Methodology
+              Our Audit Methodology
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
@@ -310,7 +346,9 @@ export default function EmailSecurityAuditPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <motion.div className="relative p-8 rounded-2xl border bg-white/80 dark:bg-slate-900/70 shadow-lg">
-              <h3 className="text-xl font-semibold mb-6">Audit & Risk Assessment</h3>
+              <h3 className="text-xl font-semibold mb-6">
+                Audit & Risk Assessment
+              </h3>
               <ul className="space-y-3">
                 <li>• Infrastructure assessment</li>
                 <li>• Threat exposure review</li>
@@ -321,7 +359,9 @@ export default function EmailSecurityAuditPage() {
             </motion.div>
 
             <motion.div className="relative p-8 rounded-2xl border bg-white/80 dark:bg-slate-900/70 shadow-lg">
-              <h3 className="text-xl font-semibold mb-6">Reporting & Continuous Protection</h3>
+              <h3 className="text-xl font-semibold mb-6">
+                Reporting & Continuous Protection
+              </h3>
               <ul className="space-y-3">
                 <li>• Detailed security findings</li>
                 <li>• Risk scoring & prioritization</li>

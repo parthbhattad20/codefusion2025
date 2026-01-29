@@ -73,7 +73,7 @@ export default function CloudSecurityPage() {
                 boxShadow: "0 0 30px rgba(59,130,246,0.7)",
               }}
               whileTap={{ scale: 0.95 }}
-              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg font-semibold"
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold"
             >
               SPEAK WITH AN EXPERT
             </motion.button>
@@ -197,72 +197,103 @@ export default function CloudSecurityPage() {
       </motion.section>
 
       {/* ================= DETAILED SERVICE INFO CONTAINER – CLOUD SECURITY SERVICES ================= */}
-<motion.section
-  variants={fadeUp}
-  whileInView="show"
-  viewport={{ once: true }}
-  className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
->
-  <div className="max-w-7xl mx-auto">
-    <motion.div
-      variants={fadeUp}
-      className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-cyan-500/10 dark:from-indigo-500/20 dark:to-cyan-500/20" />
+      <motion.section
+        variants={fadeUp}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={fadeUp}
+            className="relative overflow-hidden rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-background shadow-xl"
+          >
+            {/* light gradient overlay – REQUIRED COLORS */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br
+                   from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/15 dark:to-fuchsia-500/15"
+            />
 
-      <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* LEFT CONTENT */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6">
-            How Our Cloud Security Services Work
-          </h3>
+            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* LEFT CONTENT */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-600 dark:text-fuchsia-400 mb-6">
+                  How Our Cloud Security Services Work
+                </h3>
 
-          <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-            Our Cloud Security Services help organizations design, implement, and manage secure cloud environments
-            across public, private, and hybrid infrastructures. We focus on protecting identities, workloads,
-            data, and configurations while enabling scalable and compliant cloud operations.
-          </p>
+                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
+                  Our Cloud Security Services help organizations design,
+                  implement, and manage secure cloud environments across public,
+                  private, and hybrid infrastructures. We focus on protecting
+                  identities, workloads, data, and configurations while enabling
+                  scalable and compliant cloud operations.
+                </p>
 
-          <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-            <li>✔ Cloud security posture & risk assessment</li>
-            <li>✔ Secure cloud architecture design & review</li>
-            <li>✔ Identity & access management configuration</li>
-            <li>✔ Network, workload & container security</li>
-            <li>✔ Continuous monitoring & threat detection</li>
-            <li>✔ Compliance alignment & best practices</li>
-          </ul>
+                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Cloud security
+                    posture & risk assessment
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Secure cloud
+                    architecture design & review
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Identity & access
+                    management configuration
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Network, workload
+                    & container security
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Continuous
+                    monitoring & threat detection
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="text-indigo-500">✔</span>Compliance
+                    alignment & best practices
+                  </li>
+                </ul>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+                  What You Get
+                </h4>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    "Cloud security assessment report",
+                    "Secure cloud architecture & design guidance",
+                    "Identity & access control configurations",
+                    "Misconfiguration & exposure findings",
+                    "Compliance mapping (ISO / SOC2 / CIS)",
+                    "Actionable cloud security roadmap",
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ scale: 1.03 }}
+                      className="rounded-xl
+                           border border-indigo-500/25 dark:border-fuchsia-500/25
+                           px-4 py-3 text-sm
+                           text-gray-700 dark:text-gray-200
+                           bg-white/80 dark:bg-black/40
+                           backdrop-blur transition"
+                    >
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* RIGHT CONTENT */}
-        <div>
-          <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            What You Get
-          </h4>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              "Cloud security assessment report",
-              "Secure cloud architecture & design guidance",
-              "Identity & access control configurations",
-              "Misconfiguration & exposure findings",
-              "Compliance mapping (ISO / SOC2 / CIS)",
-              "Actionable cloud security roadmap",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.03 }}
-                className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</motion.section>
-
+      </motion.section>
 
       {/* ================= DETAILS ================= */}
       <motion.section
@@ -297,7 +328,7 @@ export default function CloudSecurityPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-sky-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Infrastructure & Operations
@@ -320,7 +351,7 @@ export default function CloudSecurityPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Platforms & Architecture

@@ -76,7 +76,7 @@ export default function CyberSecurityConsultingPage() {
             whileHover={{ scale: 1.05 }}
           >
             <Link href="/contact">
-              <button className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition mt-6">
+              <button className="px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition mt-6">
                 Get Your Free Consultation
               </button>
             </Link>
