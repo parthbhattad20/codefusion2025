@@ -119,7 +119,7 @@ const Vaultix = () => {
           <div className="space-y-6">
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
               <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-                Vaultix
+                Vaultix 
               </span>{" "}
               – State of Art Next-Gen ITSM Platform
             </h1>
@@ -222,7 +222,7 @@ const Vaultix = () => {
         >
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">
+              <h2 className="text-primary md:text-4xl font-extrabold leading-tight">
                 Why Vaultix is Critical for{" "}
                 <span className="text-primary">Modern Enterprises</span>
               </h2>
@@ -358,7 +358,7 @@ const Vaultix = () => {
         AI-assisted ITSM workflow
       </motion.div>
 
-      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
         Intelligent Ticket Management
       </h2>
 

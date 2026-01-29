@@ -77,8 +77,11 @@ const VCrypt = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-28"
         >
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-extrabold text-primary tracking-tight">
-              V-Crypt – Smart SFP Edge Encryption
+            <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              V-Crypt
+              </span>{" "}
+               – Smart SFP Edge Encryption
             </h1>
 
             <ul className="list-disc pl-5 space-y-2 text-lg md:text-xl">
