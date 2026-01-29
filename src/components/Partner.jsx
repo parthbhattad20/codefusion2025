@@ -3,6 +3,7 @@
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Partner() {
   const benefits = [
@@ -115,12 +116,14 @@ export default function Partner() {
           whileTap={{ scale: 0.96 }}
           transition={{ type: "spring", stiffness: 220, damping: 18 }}
         >
+        <Link href="/contact">
           <Button
             size="lg"
             className="px-8 py-3 rounded-full bg-gradient-to-b from-violet-500 to-violet-600 text-white focus:ring-2 focus:ring-violet-400 hover:shadow-2xl dark:hover:shadow-violet-900 transition-shadow duration-300 text-lg font-bold"
           >
             Become a Partner
           </Button>
+        </Link>
         </motion.div>
       </motion.div>
     </section>

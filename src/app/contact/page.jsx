@@ -164,7 +164,7 @@ const ContactPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
                         <h5 className="font-semibold text-foreground">India</h5>
-                        <p className="text-muted-foreground">Nitaan Towers,Aundh, Pune, Maharashtra 411007</p>
+                        <p className="text-muted-foreground">Nitaan Towers, Aundh, Pune, Maharashtra 411007</p>
                       </div>
                       <div>
                         <h5 className="font-semibold text-foreground">Kuwait</h5>

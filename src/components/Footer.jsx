@@ -61,7 +61,7 @@ export default function Footer() {
       "Managed Security Services",
       "Security Operations Centre",
       "Annual Security Program",
-      "AI SOC",
+      // "AI SOC",
     ],
     "Industrial Security": [
       "IoT Penetration Testing",
@@ -73,7 +73,7 @@ export default function Footer() {
       "Network Penetration Testing",
       "Wireless Security Assessment",
     ],
-    "Managed VAPT": ["Managed Threat Hunting", "Pro active threat hunting"],
+    "Managed VAPT": ["Managed Threat Hunting", "Proactive threat hunting"],
     "Threat Simulations": ["Phishing Simulation", "Red Teaming"],
     // "Cyber Forensics": ["Digital Forensics", "Incident Response", "Malware Analysis"],
   };

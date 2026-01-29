@@ -293,9 +293,9 @@ const Vumas = () => {
             Empower Your Threat Intelligence Today
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Learn how Vumas can elevate your security strategy with deeper, contextual threat intelligence.
+            Learn how Vaultix can elevate your security strategy with deeper, contextual threat intelligence.
           </p>
-          <Link href="/contact?subject=Vumas%20Demo" passHref legacyBehavior>
+          <Link href="/contact?subject=Vaultix%20Demo" passHref legacyBehavior>
             <Button size="lg" className="bg-gradient-to-r from-violet-500 to-blue-600 text-white font-semibold hover:opacity-90 transition duration-300 text-lg shadow-md rounded-full px-8">
               Request a Vaultix Demo
             </Button>
