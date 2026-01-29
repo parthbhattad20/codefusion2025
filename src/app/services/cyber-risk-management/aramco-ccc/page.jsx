@@ -45,7 +45,7 @@ export default function AramcoCCCPage() {
           transition={{ duration: 1 }}
           className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
         >
-          <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(139,92,246,0.6)]">
+          <h1 className="text-4xl md:text-6xl font-extrabold  text-white">
             Aramco Cybersecurity Compliance (CCC)
           </h1>
 
@@ -58,7 +58,7 @@ export default function AramcoCCCPage() {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-8 px-10 py-3 bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white rounded-full font-semibold shadow-[0_0_25px_rgba(139,92,246,0.6)]"
+              className="mt-8 px-10 py-3 bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white rounded-full font-semibold "
             >
               Speak with an Expert
             </motion.button>

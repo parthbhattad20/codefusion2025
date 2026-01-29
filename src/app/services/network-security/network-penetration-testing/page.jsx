@@ -92,7 +92,7 @@ export default function NetworkSecurityPage() {
             className="mt-10"
           >
             <Link href="/contact">
-              <button className="px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition text-white font-semibold shadow-lg">
+              <button className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:bg-blue-500 transition text-white font-semibold shadow-lg">
                 Speak With an Expert
               </button>
             </Link>
@@ -110,10 +110,10 @@ export default function NetworkSecurityPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               Network Security Consulting Services
             </h1>
-            <p className="mt-4 text-lg font-semibold text-sky-600 dark:text-sky-400">
+            <p className="mt-4 text-lg font-semibold text-primary dark:text-primary">
               Comprehensive IT, Cyber & Network Security
             </p>
             <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
@@ -125,7 +125,7 @@ export default function NetworkSecurityPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why Choose Our Network Security Services
               </h2>
 
@@ -164,7 +164,11 @@ export default function NetworkSecurityPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h2
+              className="text-3xl md:text-4xl font-bold
+                     bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                     bg-clip-text text-transparent"
+            >
               Network Security Control Model
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
@@ -177,10 +181,17 @@ export default function NetworkSecurityPage() {
           {/* Main panel */}
           <motion.div
             variants={sectionReveal}
-            className="relative rounded-3xl border border-blue-500/20 bg-gradient-to-br from-[#0b1220] to-[#050b16] p-10 shadow-2xl overflow-hidden"
+            className="relative rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-[#050b16]
+                 p-10 shadow-2xl overflow-hidden"
           >
-            {/* glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_60%)]" />
+            {/* gradient glow */}
+            <div
+              className="absolute inset-0
+                   bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/20 dark:to-fuchsia-500/20"
+            />
 
             <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
@@ -212,19 +223,23 @@ export default function NetworkSecurityPage() {
                 <motion.div
                   key={i}
                   variants={cardReveal}
-                  className="rounded-2xl border border-blue-400/20 bg-white/5 backdrop-blur-md p-6 hover:bg-white/10 transition"
+                  className="rounded-2xl
+                       border border-indigo-500/25 dark:border-fuchsia-500/25
+                       bg-white/70 dark:bg-white/5
+                       backdrop-blur-md
+                       p-6
+                       hover:bg-white/90 dark:hover:bg-white/10
+                       transition"
                 >
-                  <h3 className="text-lg font-semibold text-blue-400">
+                  <h3 className="text-lg font-semibold text-indigo-600 dark:text-fuchsia-400">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+                  <p className="mt-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>
               ))}
             </div>
-
-           
           </motion.div>
         </div>
       </motion.section>
@@ -240,7 +255,7 @@ export default function NetworkSecurityPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Network Security & Managed IT Services
           </motion.h2>
@@ -271,7 +286,7 @@ export default function NetworkSecurityPage() {
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
 
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                <h3 className="font-semibold text-lg mb-3 text-primary dark:text-primary">
                   {title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
@@ -293,7 +308,7 @@ export default function NetworkSecurityPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Strengthen Your Network Security
         </motion.h2>
@@ -308,7 +323,7 @@ export default function NetworkSecurityPage() {
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
           <Link href="/contact">
-            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-blue-600 to-sky-600 text-white shadow-xl">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-xl">
               Talk to a Network Security Expert
             </button>
           </Link>

@@ -76,7 +76,7 @@ export default function ManagedSecurityPage() {
             >
               <Link
                 href="/contact"
-                className="rounded-full bg-cyan-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
+                className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
               >
                 Start Your Security Journey
               </Link>
@@ -185,7 +185,7 @@ export default function ManagedSecurityPage() {
                 </div>
               ))}
 
-              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-lg">
+              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-400 text-white shadow-lg">
                 <h4 className="text-lg font-semibold mb-2">
                   Enterprise-grade Security Operations
                 </h4>

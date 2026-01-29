@@ -74,7 +74,7 @@ export default function OTSecurityPage() {
             >
               <Link
                 href="/contact"
-                className="rounded-full bg-cyan-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
+                className="rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3 text-white font-medium hover:bg-cyan-500 transition"
               >
                 Request Security Check
               </Link>
@@ -158,7 +158,7 @@ export default function OTSecurityPage() {
               systems.
             </p>
 
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-cyan-500 to-blue-600" />
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-indigo-600 to-fuchsia-400" />
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -190,7 +190,7 @@ export default function OTSecurityPage() {
                 </ul>
               </div>
 
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white shadow-lg">
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-indigo-600 to-fuchsia-600 text-white shadow-lg">
                 <h3 className="text-lg font-semibold mb-3">
                   Designed for safety-critical operations
                 </h3>

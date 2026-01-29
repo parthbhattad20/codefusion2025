@@ -62,7 +62,7 @@ export default function ProactiveThreatHuntingPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-4 py-2 rounded-full border border-blue-400/30 bg-blue-400/10 text-blue-300 text-sm tracking-widest"
+            className="inline-block mb-6 px-4 py-2 rounded-full border border-primary bg-primary-400/10 text-blue-300 text-sm tracking-widest"
           >
             ADVANCED CYBER DEFENSE
           </motion.div>
@@ -92,7 +92,7 @@ export default function ProactiveThreatHuntingPage() {
             className="mt-10"
           >
             <Link href="/contact">
-              <button className="px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition text-white font-semibold shadow-lg">
+              <button className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:bg-blue-500 transition text-white font-semibold shadow-lg">
                 Get Protected
               </button>
             </Link>
@@ -111,7 +111,7 @@ export default function ProactiveThreatHuntingPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               What is Proactive Threat Hunting?
             </h1>
 
@@ -135,7 +135,7 @@ export default function ProactiveThreatHuntingPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-blue-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h2 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Why Proactive Threat Hunting Matters
@@ -159,7 +159,7 @@ export default function ProactiveThreatHuntingPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl flex items-center justify-center"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <motion.img
                 src="/assets/services/proactive-threat-hunting-2.jpeg"
@@ -175,7 +175,7 @@ export default function ProactiveThreatHuntingPage() {
       </motion.section>
       {/* ================= PROACTIVE THREAT HUNTING OPERATIONS MODEL ================= */}
       <motion.section
-        className="py-28 px-6 bg-gradient-to-b from-white to-blue-50 dark:from-background dark:to-background"
+        className="py-28 px-6 bg-white dark:bg-background"
         variants={stagger}
         initial="hidden"
         whileInView="show"
@@ -184,7 +184,11 @@ export default function ProactiveThreatHuntingPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h2
+              className="text-3xl md:text-4xl font-bold
+                   bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                   bg-clip-text text-transparent"
+            >
               Proactive Threat Hunting Framework
             </h2>
 
@@ -198,17 +202,29 @@ export default function ProactiveThreatHuntingPage() {
           {/* Main panel */}
           <motion.div
             variants={sectionReveal}
-            className="relative rounded-3xl border border-blue-200 dark:border-blue-500/20
-                 bg-white/75 dark:bg-muted/40 backdrop-blur-xl
-                 p-10 shadow-[0_30px_80px_rgba(59,130,246,0.15)]"
+            className="relative rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white/80 dark:bg-[#050b16]
+                 backdrop-blur-xl
+                 p-10 shadow-[0_30px_80px_rgba(139,92,246,0.18)]
+                 overflow-hidden"
           >
-            {/* soft glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_60%)] pointer-events-none" />
+            {/* soft gradient glow */}
+            <div
+              className="absolute inset-0
+                   bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/20 dark:to-fuchsia-500/20
+                   pointer-events-none"
+            />
 
             <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10">
               {/* Telemetry */}
               <div>
-                <h3 className="text-sm tracking-widest uppercase text-blue-500 mb-4">
+                <h3
+                  className="text-sm tracking-widest uppercase mb-4
+                       bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                       bg-clip-text text-transparent"
+                >
                   Telemetry Collected
                 </h3>
 
@@ -222,8 +238,10 @@ export default function ProactiveThreatHuntingPage() {
                   <motion.div
                     key={i}
                     variants={cardReveal}
-                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
-                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                    className="mb-3 rounded-xl
+                         border border-indigo-500/20 dark:border-fuchsia-500/20
+                         bg-white dark:bg-white/5
+                         px-4 py-3 backdrop-blur shadow-sm"
                   >
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       {item}
@@ -234,7 +252,11 @@ export default function ProactiveThreatHuntingPage() {
 
               {/* Analysis */}
               <div>
-                <h3 className="text-sm tracking-widest uppercase text-blue-500 mb-4">
+                <h3
+                  className="text-sm tracking-widest uppercase mb-4
+                       bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                       bg-clip-text text-transparent"
+                >
                   Hunting & Analysis
                 </h3>
 
@@ -248,8 +270,10 @@ export default function ProactiveThreatHuntingPage() {
                   <motion.div
                     key={i}
                     variants={cardReveal}
-                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
-                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                    className="mb-3 rounded-xl
+                         border border-indigo-500/20 dark:border-fuchsia-500/20
+                         bg-white dark:bg-white/5
+                         px-4 py-3 backdrop-blur shadow-sm"
                   >
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       {item}
@@ -260,7 +284,11 @@ export default function ProactiveThreatHuntingPage() {
 
               {/* Outcomes */}
               <div>
-                <h3 className="text-sm tracking-widest uppercase text-blue-500 mb-4">
+                <h3
+                  className="text-sm tracking-widest uppercase mb-4
+                       bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                       bg-clip-text text-transparent"
+                >
                   Operational Outcomes
                 </h3>
 
@@ -274,8 +302,10 @@ export default function ProactiveThreatHuntingPage() {
                   <motion.div
                     key={i}
                     variants={cardReveal}
-                    className="mb-3 rounded-xl border border-gray-200 dark:border-border
-                         bg-white dark:bg-background px-4 py-3 shadow-sm"
+                    className="mb-3 rounded-xl
+                         border border-indigo-500/20 dark:border-fuchsia-500/20
+                         bg-white dark:bg-white/5
+                         px-4 py-3 backdrop-blur shadow-sm"
                   >
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       {item}
@@ -284,8 +314,6 @@ export default function ProactiveThreatHuntingPage() {
                 ))}
               </div>
             </div>
-
-           
           </motion.div>
         </div>
       </motion.section>
@@ -301,7 +329,7 @@ export default function ProactiveThreatHuntingPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our Proactive Threat Hunting Process
           </motion.h2>
@@ -327,7 +355,7 @@ export default function ProactiveThreatHuntingPage() {
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                <h3 className="font-semibold text-lg mb-3 text-primary dark:text-primary">
                   {title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
@@ -349,7 +377,7 @@ export default function ProactiveThreatHuntingPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Stay Ahead of Cyber Threats
         </motion.h2>
@@ -364,7 +392,7 @@ export default function ProactiveThreatHuntingPage() {
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
           <Link href="/contact">
-            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-xl">
               Start Proactive Hunting
             </button>
           </Link>

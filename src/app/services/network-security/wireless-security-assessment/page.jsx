@@ -60,7 +60,7 @@ export default function WirelessSecurityPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-4 py-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 text-emerald-300 text-sm tracking-widest"
+            className="inline-block mb-6 px-4 py-2 rounded-full border border-primary bg-primary-400/10 text-primary text-sm tracking-widest"
           >
             WIRELESS DEFENSE
           </motion.div>
@@ -85,7 +85,7 @@ export default function WirelessSecurityPage() {
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.96 }} className="mt-10">
             <Link href="/contact">
-              <button className="px-10 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 transition text-white font-semibold shadow-lg">
+              <button className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:bg-blue-500 transition text-white font-semibold shadow-lg">
                 Request Wireless PenTest
               </button>
             </Link>
@@ -105,7 +105,7 @@ export default function WirelessSecurityPage() {
         <div className="max-w-7xl mx-auto">
 
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is Wireless Penetration Testing?
             </h1>
 
@@ -118,7 +118,7 @@ export default function WirelessSecurityPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why Wireless Security Testing Matters
               </h2>
 
@@ -161,7 +161,11 @@ export default function WirelessSecurityPage() {
 
     {/* Heading */}
     <motion.div variants={sectionReveal} className="text-center mb-16">
-      <h2 className="text-3xl md:text-4xl font-bold text-emerald-600 dark:text-emerald-400">
+      <h2
+        className="text-3xl md:text-4xl font-bold
+                   bg-gradient-to-r from-indigo-500 to-fuchsia-500
+                   bg-clip-text text-transparent"
+      >
         Wireless Security Control Model
       </h2>
 
@@ -174,12 +178,17 @@ export default function WirelessSecurityPage() {
     {/* Main command panel */}
     <motion.div
       variants={sectionReveal}
-      className="relative rounded-3xl border border-emerald-500/20
-                 bg-gradient-to-br from-[#071512] to-[#030b08]
+      className="relative rounded-3xl
+                 border border-indigo-500/25 dark:border-fuchsia-500/25
+                 bg-white dark:bg-[#050b16]
                  p-10 shadow-2xl overflow-hidden"
     >
-      {/* signal glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.15),transparent_60%)]" />
+      {/* gradient glow */}
+      <div
+        className="absolute inset-0
+                   bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10
+                   dark:from-indigo-500/20 dark:to-fuchsia-500/20"
+      />
 
       <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -212,15 +221,19 @@ export default function WirelessSecurityPage() {
           <motion.div
             key={i}
             variants={cardReveal}
-            className="rounded-2xl border border-emerald-400/20
-                       bg-white/5 backdrop-blur-md p-6
-                       hover:bg-white/10 transition"
+            className="rounded-2xl
+                       border border-indigo-500/25 dark:border-fuchsia-500/25
+                       bg-white/70 dark:bg-white/5
+                       backdrop-blur-md
+                       p-6
+                       hover:bg-white/90 dark:hover:bg-white/10
+                       transition"
           >
-            <h3 className="text-lg font-semibold text-emerald-400">
+            <h3 className="text-lg font-semibold text-indigo-600 dark:text-fuchsia-400">
               {item.title}
             </h3>
 
-            <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+            <p className="mt-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
               {item.desc}
             </p>
           </motion.div>
@@ -228,12 +241,11 @@ export default function WirelessSecurityPage() {
 
       </div>
 
-     
-
     </motion.div>
 
   </div>
 </motion.section>
+
 
 
       {/* ================= SERVICES GRID ================= */}
@@ -246,7 +258,7 @@ export default function WirelessSecurityPage() {
       >
         <div className="max-w-7xl mx-auto text-center">
 
-          <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14">
+          <motion.h2 variants={sectionReveal} className="text-4xl font-semibold mb-14 text-primary">
             Our Wireless Security Assessment Services
           </motion.h2>
 
@@ -271,7 +283,7 @@ export default function WirelessSecurityPage() {
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent" />
 
-                <h3 className="font-semibold text-lg mb-3 text-emerald-600 dark:text-emerald-400">
+                <h3 className="font-semibold text-lg mb-3 text-primary dark:text-primary">
                   {title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
@@ -303,7 +315,7 @@ export default function WirelessSecurityPage() {
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
           <Link href="/contact">
-            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-xl">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-xl">
               Request Wireless Assessment
             </button>
           </Link>

@@ -111,7 +111,7 @@ export default function ManagedThreatHuntingPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               What is Managed Threat Hunting?
             </h1>
 
@@ -122,7 +122,7 @@ export default function ManagedThreatHuntingPage() {
               tools.
             </p>
 
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-indigo-500 to-fuchsia-500" />
           </motion.div>
 
           {/* Cards */}
@@ -136,7 +136,7 @@ export default function ManagedThreatHuntingPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h2 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Why Managed Threat Hunting Matters
@@ -160,7 +160,7 @@ export default function ManagedThreatHuntingPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl flex items-center justify-center"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-cyan-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <motion.img
                 src="/assets/services/cyber.jpg"
@@ -282,17 +282,7 @@ export default function ManagedThreatHuntingPage() {
               </div>
             </div>
 
-            {/* Footer strip */}
-            <div
-              className="mt-10 rounded-xl bg-violet-100 dark:bg-violet-600/10
-                      border border-violet-200 dark:border-violet-500/20
-                      p-5 text-center"
-            >
-              <p className="text-sm text-violet-700 dark:text-violet-300">
-                Integrates with SIEM, EDR, NDR, identity platforms, and cloud
-                security tooling
-              </p>
-            </div>
+           
           </motion.div>
         </div>
       </motion.section>
@@ -308,7 +298,7 @@ export default function ManagedThreatHuntingPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our Managed Threat Hunting Process
           </motion.h2>
@@ -355,7 +345,7 @@ export default function ManagedThreatHuntingPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Hunt Threats Before They Become Breaches
         </motion.h2>

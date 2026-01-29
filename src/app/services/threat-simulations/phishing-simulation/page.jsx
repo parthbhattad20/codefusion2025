@@ -62,7 +62,7 @@ export default function PhishingSimulationPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-4 py-2 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-sm tracking-widest"
+            className="inline-block mb-6 px-4 py-2 rounded-full border border-primary bg-primary-400/10 text-blue-300 text-sm tracking-widest"
           >
             HUMAN FIREWALL PROGRAM
           </motion.div>
@@ -92,7 +92,7 @@ export default function PhishingSimulationPage() {
             className="mt-10"
           >
             <Link href="/contact">
-              <button className="px-10 py-4 rounded-full bg-sky-600 hover:bg-sky-500 transition text-white font-semibold shadow-lg">
+              <button className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 hover:bg-sky-500 transition text-white font-semibold shadow-lg">
                 Start Phishing Simulation
               </button>
             </Link>
@@ -159,7 +159,7 @@ export default function PhishingSimulationPage() {
         {/* scan beam */}
         <motion.div
           className="absolute inset-y-0 w-[30%]
-               bg-gradient-to-r from-transparent via-sky-400/10 to-transparent"
+               bg-gradient-to-r from-transparent via-primary-400/10 to-transparent"
           animate={{ x: ["-40%", "140%"] }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         />
@@ -167,7 +167,7 @@ export default function PhishingSimulationPage() {
         <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT CONTENT */}
           <motion.div variants={sectionReveal}>
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-primary">
               Inside Our Phishing Simulation Platform
             </h2>
 
@@ -212,7 +212,7 @@ export default function PhishingSimulationPage() {
                  border border-gray-200 dark:border-sky-400/20
                  shadow-lg dark:shadow-[0_0_40px_rgba(56,189,248,0.12)]"
           >
-            <h3 className="text-2xl font-semibold mb-8">
+            <h3 className="text-2xl font-semibold mb-8 text-primary">
               Security Metrics We Analyze
             </h3>
 
@@ -257,7 +257,7 @@ export default function PhishingSimulationPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Phishing Simulation Capabilities
           </motion.h2>
@@ -285,7 +285,7 @@ export default function PhishingSimulationPage() {
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-sky-500/10 to-transparent" />
 
-                <h3 className="font-semibold text-lg mb-3 text-sky-600 dark:text-sky-400">
+                <h3 className="font-semibold text-lg mb-3 text-primary dark:text-primary">
                   {title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
@@ -318,7 +318,7 @@ export default function PhishingSimulationPage() {
               organization’s human firewall.
             </p>
 
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
+            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500" />
           </motion.div>
 
           {/* Cards */}
@@ -332,7 +332,7 @@ export default function PhishingSimulationPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-indigo-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Simulation & Training Process
@@ -355,7 +355,7 @@ export default function PhishingSimulationPage() {
                    bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl
                    shadow-lg hover:shadow-2xl"
             >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-cyan-500 rounded-full" />
+              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
                 Measurement & Risk Reduction
@@ -382,7 +382,7 @@ export default function PhishingSimulationPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Stop Phishing Before It Starts
         </motion.h2>
@@ -396,7 +396,7 @@ export default function PhishingSimulationPage() {
 
         <motion.div variants={sectionReveal} whileHover={{ scale: 1.08 }}>
           <Link href="/contact">
-            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-xl">
+            <button className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-xl">
               Talk to a Security Expert
             </button>
           </Link>

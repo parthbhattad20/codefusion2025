@@ -83,7 +83,7 @@ export default function DataPrivacyPage() {
 
           <motion.div whileHover={{ scale: 1.06 }}>
             <Link href="/contact">
-              <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
+              <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-violet-600 hover:bg-blue-500 text-white rounded-lg font-semibold transition mt-6 shadow-lg">
                 BOOK YOUR CONSULTATION
               </button>
             </Link>
@@ -101,7 +101,7 @@ export default function DataPrivacyPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               What is Data Privacy?
             </h1>
 
@@ -119,7 +119,7 @@ export default function DataPrivacyPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-primary">
                 Why Data Privacy Matters
               </h2>
 
@@ -160,7 +160,7 @@ export default function DataPrivacyPage() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-emerald-800 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
               Data Privacy Compliance Framework
             </h2>
 
@@ -187,7 +187,7 @@ export default function DataPrivacyPage() {
                 className="rounded-2xl border border-emerald-200 dark:border-neutral-700
                      bg-white dark:bg-neutral-900 p-6 shadow-sm hover:shadow-md transition"
               >
-                <div className="mb-2 text-xs font-semibold tracking-wide text-emerald-700 dark:text-emerald-400">
+                <div className="mb-2 text-xs font-semibold tracking-wide text-primary dark:text-primary">
                   Step {i + 1}
                 </div>
 
@@ -208,7 +208,7 @@ export default function DataPrivacyPage() {
               className="rounded-3xl border border-emerald-200 dark:border-neutral-700
                       bg-white dark:bg-neutral-900 p-10 shadow-lg"
             >
-              <h3 className="text-2xl font-semibold text-emerald-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-semibold text-primary dark:text-primary mb-6">
                 What You Get
               </h3>
 
@@ -249,7 +249,7 @@ export default function DataPrivacyPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-primary"
           >
             Our Data Privacy Services
           </motion.h2>
@@ -286,7 +286,7 @@ export default function DataPrivacyPage() {
                 className="relative bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm cursor-pointer overflow-hidden group"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
-                  <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-blue-500/40 via-violet-500/40 to-blue-500/40 blur-sm" />
+                  <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-r blur-sm" />
                 </div>
 
                 <h3 className="relative font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
@@ -311,7 +311,7 @@ export default function DataPrivacyPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               How Our Data Privacy Consulting Works
             </h2>
 
@@ -381,7 +381,7 @@ export default function DataPrivacyPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-primary"
         >
           Secure Your Business With Data Privacy
         </motion.h2>

@@ -117,7 +117,7 @@ export default function FirewallAuditPage() {
       >
         <div className="max-w-7xl mx-auto">
           <motion.div variants={sectionReveal} className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-red-600 dark:text-red-700">
               What is a Firewall Security Audit?
             </h1>
 
@@ -131,7 +131,7 @@ export default function FirewallAuditPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionReveal} className="ml-10">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="text-2xl font-semibold mb-6 text-red-600">
                 Why Firewall Audits Matter
               </h2>
 
@@ -282,7 +282,7 @@ export default function FirewallAuditPage() {
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             variants={sectionReveal}
-            className="text-4xl font-semibold mb-14"
+            className="text-4xl font-semibold mb-14 text-red-600"
           >
             Our Firewall Audit Services
           </motion.h2>
@@ -312,7 +312,7 @@ export default function FirewallAuditPage() {
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-red-500/10 to-orange-500/10" />
 
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+                <h3 className="font-semibold text-lg mb-3 text-red-600 dark:text-red-600">
                   {title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
@@ -334,7 +334,7 @@ export default function FirewallAuditPage() {
       >
         <motion.h2
           variants={sectionReveal}
-          className="text-3xl md:text-4xl font-bold mb-4"
+          className="text-3xl md:text-4xl font-bold mb-4 text-red-600"
         >
           Protect Your Network Frontier
         </motion.h2>
