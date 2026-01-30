@@ -214,7 +214,7 @@ export default function Footer() {
             <h2 className="text-xl font-semibold mb-2">Links</h2>
             <ul className="space-y-2 text-sm">
               {[
-                { name: "Blog", url: "/blogs" },
+                { name: "Blogs", url: "/blogs" },
                 { name: "Privacy Policy", url: "/privacy-policy" },
               ].map((itemLink) => (
                 <li key={itemLink.name} className="relative group">

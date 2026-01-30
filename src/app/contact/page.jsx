@@ -186,9 +186,9 @@ const ContactPage = () => {
                   <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold text-foreground">Email Us</h4>
-                    <a href="mailto:hello@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors block">
+                    {/* <a href="mailto:hello@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors block">
                       hello@vulnuris.com
-                    </a>
+                    </a> */}
                     <a href="mailto:connect@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors block">
                       connect@vulnuris.com
                     </a>
