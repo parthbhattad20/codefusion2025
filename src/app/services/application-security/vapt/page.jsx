@@ -70,7 +70,7 @@ export default function VAPTPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
@@ -98,7 +98,7 @@ export default function VAPTPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        className="py-16 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="ml-10">
@@ -134,16 +134,16 @@ export default function VAPTPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-15 px-6 bg-gray-50 dark:bg-background"
+        className="py-12 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold text-primary mb-16">
+          <h2 className="text-3xl font-semibold text-primary mb-12">
             Vulnerability Assessment | Penetration Testing
           </h2>
 
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16"
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12"
           >
             {[
               {
@@ -191,12 +191,12 @@ export default function VAPTPage() {
         </div>
       </motion.section>
 
-      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      {/* ================= DETAILED SERVICE INFO CONTAINER (UPDATED) ================= */}
       <motion.section
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        className="py-16 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -236,8 +236,14 @@ export default function VAPTPage() {
                     "Technical vulnerability report",
                     "Proof‑of‑concept screenshots",
                     "CVSS risk ratings",
-                    "Compliance mapping (ISO / SOC2 / PCI‑DSS)",
+                    "Compliance mapping (ISO/SOC2/PCI‑DSS)",
                     "Remediation roadmap",
+                    "Attack chain analysis",
+                    "Retest verification report",
+                    "Security posture scoring",
+                    "Prioritized fix recommendations",
+                    "Network topology diagrams",
+                    "Post-assessment consultation",
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -260,10 +266,10 @@ export default function VAPTPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
               What Is Vulnerability Assessment & Penetration Testing?
             </h2>
@@ -318,10 +324,10 @@ export default function VAPTPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+        className="py-16 px-6 text-center bg-gray-50 dark:bg-background"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-          Don’t Leave Vulnerabilities for Hackers
+          Don't Leave Vulnerabilities for Hackers
         </h2>
 
         <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">

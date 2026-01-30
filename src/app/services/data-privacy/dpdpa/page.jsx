@@ -110,7 +110,7 @@ export default function DPDPACompliancePage() {
             className="mt-10"
           >
             <Link href="/contact">
-              <button className="px-10 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition">
+              <button className="px-10 py-4 bg-gradient-to-r from-indigo-700 to-fuchsia-400 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transition">
                 Consult DPDPA Expert
               </button>
             </Link>
@@ -317,7 +317,7 @@ export default function DPDPACompliancePage() {
                 className="relative bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm cursor-pointer overflow-hidden group"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">
-                  <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-r from-blue-500/40 via-violet-500/40 to-blue-500/40 blur-sm" />
+                  <div className="absolute inset-[-1px] rounded-2xl blur-sm" />
                 </div>
 
                 <h3 className="relative font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">

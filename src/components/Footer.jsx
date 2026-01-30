@@ -128,9 +128,9 @@ export default function Footer() {
         viewport={{ once: true, margin: "-120px" }}
         className="max-w-[92%] mx-auto pt-8 md:pt-12 font-primary"
       >
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-3 gap-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-3 gap-y-10">
           {/* Brand + Certifications */}
-          <motion.div variants={item} className="flex flex-col items-start">
+          <motion.div variants={item} className="flex flex-col items-start md:col-span-3">
   {/* Company Logo */}
   <Link
   href="/"
@@ -210,7 +210,7 @@ export default function Footer() {
 </motion.div>
 
           {/* Links */}
-          <motion.div variants={item} className="flex flex-col gap-3 items-start">
+          <motion.div variants={item} className="flex flex-col gap-3 items-start md:col-span-2 md:pr-2">
             <h2 className="text-xl font-semibold mb-2">Links</h2>
             <ul className="space-y-2 text-sm">
               {[
@@ -228,7 +228,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Services */}
-          <motion.div variants={item} className="flex flex-col gap-3 items-start">
+          <motion.div variants={item} className="flex flex-col gap-3 items-start md:col-span-3 md:-ml-10">
             <h2 className="text-xl font-semibold mb-2">Services</h2>
             <ul
               className="space-y-2 text-sm w-full max-h-[520px] overflow-y-auto pr-2
@@ -311,7 +311,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Products */}
-          <motion.div variants={item} className="flex flex-col gap-3 items-start">
+          <motion.div variants={item} className="flex flex-col gap-3 items-start md:col-span-2 md:ml-4">
             <h2 className="text-xl font-semibold mb-2">Products</h2>
             <ul className="space-y-2 text-sm">
               {[
@@ -331,7 +331,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Social */}
-          <motion.div variants={item} className="flex flex-col gap-3 items-start">
+          <motion.div variants={item} className="flex flex-col gap-3 items-start md:col-span-2">
             <h3 className="text-xl font-semibold mb-2">Social</h3>
             <ul className="space-y-3">
               {[
