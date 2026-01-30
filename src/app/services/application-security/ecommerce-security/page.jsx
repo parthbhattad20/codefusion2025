@@ -2,14 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Code,
-  ShieldAlert,
-  Bug,
-  FileSearch,
-  LineChart,
-  Lock,
-} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -18,6 +10,42 @@ const fadeUp = {
 
 const stagger = {
   show: { transition: { staggerChildren: 0.12 } },
+};
+
+// Added animation variants for the service section
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const cardItemVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
 };
 
 export default function SourceCodeReviewPage() {
@@ -55,9 +83,16 @@ export default function SourceCodeReviewPage() {
             variants={fadeUp}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
-            Deep testing of source code to identify weaknesses before hackers
-            exploit them. Secure your applications at the atomic level of
-            software security.
+            <p>
+              Over 70% of critical security breaches originate from
+              vulnerabilities embedded directly in application source code,
+              making insecure code a top enterprise risk.
+            </p>
+            Vulnuris simulates real-world attacker behavior at the code level to
+            uncover injection flaws, broken authentication logic, cryptographic
+            weaknesses, hardcoded secrets, and business logic errors—helping you
+            prevent incidents, protect sensitive data, meet compliance
+            requirements, and confidently release secure software.
           </motion.p>
 
           <Link href="/contact">
@@ -146,22 +181,23 @@ export default function SourceCodeReviewPage() {
         </div>
       </motion.section>
 
-      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      {/* ================= DETAILED SERVICE INFO CONTAINER (FIXED) ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
         className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
-            variants={fadeUp}
+            variants={itemVariants}
             className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
 
             <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
+              <motion.div variants={itemVariants}>
                 <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
                   How Our E-commerce Security Service Works
                 </h3>
@@ -175,21 +211,24 @@ export default function SourceCodeReviewPage() {
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Platform & infrastructure security assessment</li>
-                  <li>✔ Payment gateway & PCI-DSS validation</li>
-                  <li>✔ Web & mobile penetration testing</li>
-                  <li>✔ Business logic & fraud scenario testing</li>
-                  <li>✔ Secure configuration & patch review</li>
+                  <li>✔ Platform and infrastructure security assessment</li>
+                  <li>✔ Payment gateway and PCI-DSS validation</li>
+                  <li>✔ Web and mobile penetration testing</li>
+                  <li>✔ Business logic and fraud scenario testing</li>
+                  <li>✔ Secure configuration and patch review</li>
                   <li>✔ Risk scoring using CVSS methodology</li>
                 </ul>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={itemVariants}>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
                   What You Get
                 </h4>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.div
+                  variants={containerVariants}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                >
                   {[
                     "Executive risk summary with financial and business impact",
                     "Comprehensive technical vulnerability assessment report",
@@ -201,18 +240,18 @@ export default function SourceCodeReviewPage() {
                     "Data exposure and customer information leakage analysis",
                     "API and third-party integration security findings",
                     "CVSS v3.1 severity scoring and risk prioritization",
-                  
                   ].map((item, i) => (
                     <motion.div
                       key={i}
+                      variants={cardItemVariants}
                       whileHover={{ scale: 1.03 }}
                       className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
                     >
                       {item}
                     </motion.div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -241,11 +280,11 @@ export default function SourceCodeReviewPage() {
                 desc: "Identify security flaws at the earliest stage to reduce remediation cost and risk.",
               },
               {
-                title: "Business & Reputation Protection",
+                title: "Business and Reputation Protection",
                 desc: "Prevent breaches that could damage customer trust and brand reputation.",
               },
               {
-                title: "Compliance & Legal Readiness",
+                title: "Compliance and Legal Readiness",
                 desc: "Meet regulatory and security compliance requirements with confidence.",
               },
               {
@@ -311,7 +350,7 @@ export default function SourceCodeReviewPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Review & Analysis
+                Review and Analysis
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
@@ -331,14 +370,14 @@ export default function SourceCodeReviewPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Reporting & Continuous Monitoring
+                Reporting and Continuous Monitoring
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg mb-6">
                 <li>• Detailed vulnerability findings</li>
                 <li>• Secure coding recommendations</li>
                 <li>• Developer-friendly remediation guidance</li>
-                <li>• Risk severity & impact analysis</li>
+                <li>• Risk severity and impact analysis</li>
               </ul>
 
               <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">

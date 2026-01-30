@@ -47,9 +47,16 @@ export default function MobileAppSecurityTestingPage() {
             variants={fadeUp}
             className="mt-6 max-w-4xl text-lg md:text-xl text-gray-200"
           >
-            Deep testing of mobile applications to uncover weaknesses before
-            hackers exploit them — helping you build safer, production-ready
-            Android and iOS apps.
+            <p>
+              Nearly 60% of mobile app breaches stem from insecure client-side
+              logic, exposed APIs, and improper data handling, making mobile
+              applications a critical enterprise attack surface.
+            </p>
+            Vulnuris simulates real-world attacker behavior to identify insecure
+            storage, authentication bypasses, API misuse, reverse-engineering
+            weaknesses, and business logic flaws—helping you prevent incidents,
+            protect sensitive data, meet compliance requirements, and
+            confidently release secure Android and iOS applications.
           </motion.p>
 
           <Link href="/contact">
@@ -165,10 +172,10 @@ export default function MobileAppSecurityTestingPage() {
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Application & API scope definition</li>
-                  <li>✔ Static and dynamic analysis (SAST & DAST)</li>
-                  <li>✔ Runtime manipulation & instrumentation</li>
-                  <li>✔ Business logic & authorization testing</li>
+                  <li>✔ Application and API scope definition</li>
+                  <li>✔ Static and dynamic analysis (SAST and DAST)</li>
+                  <li>✔ Runtime manipulation and instrumentation</li>
+                  <li>✔ Business logic and authorization testing</li>
                   <li>✔ Secure exploitation to validate impact</li>
                   <li>✔ CVSS-based risk classification</li>
                 </ul>
@@ -191,7 +198,6 @@ export default function MobileAppSecurityTestingPage() {
                     "Authentication, session, and authorization flaw analysis",
                     "Reverse engineering and binary-level assessment results",
                     "Mapped OWASP Mobile Top 10 & CWE references",
-                   
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -350,18 +356,18 @@ export default function MobileAppSecurityTestingPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Application & Device Security
+                Application and Device Security
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
                 <li>• OWASP Mobile Top 10</li>
                 <li>• Data storage security</li>
-                <li>• Authentication & authorization</li>
-                <li>• Device & jailbreak detection</li>
-                <li>• Secure communication & encryption</li>
-                <li>• Binary & file-level analysis</li>
+                <li>• Authentication and authorization</li>
+                <li>• Device and jailbreak detection</li>
+                <li>• Secure communication and encryption</li>
+                <li>• Binary and file-level analysis</li>
                 <li>• Source code review</li>
-                <li>• API & web services security</li>
+                <li>• API and web services security</li>
               </ul>
             </motion.div>
 
@@ -376,17 +382,17 @@ export default function MobileAppSecurityTestingPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Advanced & Infrastructure Testing
+                Advanced and Infrastructure Testing
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
-                <li>• Black box, grey box & white box testing</li>
-                <li>• Reverse engineering & decompiling</li>
+                <li>• Black box, grey box and white box testing</li>
+                <li>• Reverse engineering and decompiling</li>
                 <li>• Cryptography validation</li>
                 <li>• Business logic flaws</li>
-                <li>• Platform & architecture review</li>
-                <li>• Updates & CVE checks</li>
-                <li>• Backend & database risks</li>
+                <li>• Platform and architecture review</li>
+                <li>• Updates and CVE checks</li>
+                <li>• Backend and database risks</li>
               </ul>
             </motion.div>
           </div>
