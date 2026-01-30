@@ -118,7 +118,7 @@ const KloudRaksha = () => {
     </Button>
   </a>
 
-  <a href="/docs/KloudRaksha-Brochure.pdf" download>
+  <a href="/docs/Kloudraksha-Brochure.pdf" download>
     <Button
       size="lg"
       className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
