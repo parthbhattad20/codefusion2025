@@ -78,21 +78,54 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+        className="py-12 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
+          <div className="relative text-center mb-20">
+            {/* Section Label */}
+            <span className="inline-block mb-5 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full">
+              SAAS SECURITY
+            </span>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl font-extrabold text-primary dark:text-primary tracking-tight">
               Understanding the Need for SaaS Cybersecurity
             </h1>
 
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Software as a Service (SaaS) applications are cloud-based
-              platforms accessed over the internet without local installations.
-              With nearly 30,000 SaaS organizations worldwide and a market
-              expected to reach 700 billion USD by 2030, the security risks and
-              data exposure associated with SaaS platforms are growing rapidly.
-            </p>
+            {/* Content Card */}
+            <div className="mt-10 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10">
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+                Software as a Service (SaaS) platforms are cloud-native
+                applications accessed over the internet without local
+                installations. While this model enables rapid scalability and
+                global accessibility, it also concentrates sensitive customer
+                data, business logic, and critical infrastructure behind exposed
+                web interfaces and APIs.
+              </p>
+
+              <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+                With tens of thousands of SaaS providers worldwide and a market
+                projected to exceed{" "}
+                <span className="font-semibold">USD 700 billion by 2030</span>,
+                attackers increasingly target SaaS platforms for data theft,
+                account takeover, privilege escalation, and abuse of
+                multi-tenant architectures. A single vulnerability can impact
+                thousands of customers simultaneously.
+              </p>
+
+              <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+                SaaS cybersecurity must go beyond basic cloud security controls.
+                It requires continuous assessment of authentication flows,
+                role-based access controls, APIs, business logic, and tenant
+                isolation mechanisms. Identifying weaknesses early helps prevent
+                large-scale breaches, compliance failures, and irreversible loss
+                of customer trust.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -125,14 +158,12 @@ export default function SourceCodeReviewPage() {
         </div>
       </motion.section>
 
-     
-
       {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
       <motion.section
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -148,7 +179,10 @@ export default function SourceCodeReviewPage() {
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our secure code review follows a rigorous manual and automated analysis process to identify insecure coding patterns, logic flaws, cryptographic weaknesses, and data handling risks before they reach production.
+                  Our secure code review follows a rigorous manual and automated
+                  analysis process to identify insecure coding patterns, logic
+                  flaws, cryptographic weaknesses, and data handling risks
+                  before they reach production.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
@@ -171,9 +205,14 @@ export default function SourceCodeReviewPage() {
                     "Executive security summary",
                     "Developer-friendly technical findings",
                     "Annotated vulnerable code snippets",
-                    "CVSS severity scoring",
-                    "Compliance mapping (ISO, PCI, SOC2)",
+                    "CVSS v3.1 severity scoring",
+                    "Compliance mapping (ISO 27001, PCI DSS, SOC 2)",
                     "Prioritized remediation roadmap",
+                    "Root-cause analysis of security flaws",
+                    "Authentication and authorization logic review",
+                    "Insecure data handling and validation findings",
+                    "Hardcoded secrets and credential exposure analysis",
+                
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -196,7 +235,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
@@ -258,7 +297,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        className="py-16 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -328,7 +367,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Code. Secure Applications.

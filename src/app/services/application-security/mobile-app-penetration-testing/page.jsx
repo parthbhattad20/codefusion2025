@@ -70,30 +70,79 @@ export default function MobileAppSecurityTestingPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto text-center">
+          {/* Section Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-4 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
+          >
+            MOBILE SECURITY TESTING
+          </motion.span>
+
+          {/* Title */}
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-foreground">
             What We Do
           </h2>
 
-          <p className="max-w-5xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-            We perform deep penetration testing and security audits inside
-            Android and iOS environments. Our certified experts manually exploit
-            vulnerabilities, validate business logic, perform binary and
-            file-level analysis, and ensure zero false positives while meeting
-            global compliance standards such as PCI, GDPR, HIPAA, NIST, ISO
-            27001 and more.
-          </p>
+          {/* Glass Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
+          >
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              We conduct in-depth mobile application penetration testing and
+              security audits across Android and iOS environments. Our
+              assessments simulate real-world attack scenarios by analyzing
+              application behavior at runtime, reverse engineering binaries,
+              intercepting network traffic, and evaluating client–server trust
+              boundaries.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Our certified security experts manually exploit vulnerabilities
+              related to insecure data storage, improper cryptography,
+              authentication and session flaws, insecure API communication, and
+              business logic bypasses. We perform binary, file-system, and
+              memory-level analysis to ensure accurate findings with zero false
+              positives.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Security is most effective when addressed early in the development
+              lifecycle. Our testing aligns with global standards and regulatory
+              frameworks including OWASP Mobile Top 10, PCI DSS, GDPR, HIPAA,
+              NIST, and ISO/IEC 27001. We deliver actionable remediation
+              guidance, validated proof-of-concept evidence, and post-assessment
+              support to help you reduce risk before vulnerabilities are
+              exploited in production.
+            </p>
+          </motion.div>
         </div>
       </motion.section>
+
       {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
       <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -132,12 +181,17 @@ export default function MobileAppSecurityTestingPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Executive summary for stakeholders",
-                    "Detailed technical vulnerability report",
-                    "Proof-of-concept screenshots & traces",
-                    "CVSS severity ratings",
-                    "Compliance mapping (PCI, ISO, HIPAA, GDPR)",
-                    "Step-by-step remediation roadmap",
+                    "Executive summary with business risk impact",
+                    "Detailed vulnerability descriptions across Android & iOS",
+                    "Affected components and insecure API endpoints",
+                    "Proof-of-concept screenshots, logs, and traffic captures",
+                    "Reproducible attack steps and exploitation paths",
+                    "CVSS v3.1 severity scoring and risk prioritization",
+                    "Insecure data storage and cryptographic misuse findings",
+                    "Authentication, session, and authorization flaw analysis",
+                    "Reverse engineering and binary-level assessment results",
+                    "Mapped OWASP Mobile Top 10 & CWE references",
+                   
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -160,7 +214,7 @@ export default function MobileAppSecurityTestingPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-28 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background"
+        className="py-10 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
@@ -226,7 +280,7 @@ export default function MobileAppSecurityTestingPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        className="py-10 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
@@ -266,7 +320,7 @@ export default function MobileAppSecurityTestingPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background"
+        className="py-20 px-6 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
@@ -345,7 +399,7 @@ export default function MobileAppSecurityTestingPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        className="py-10 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
@@ -388,7 +442,7 @@ export default function MobileAppSecurityTestingPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
           Secure Your Mobile Applications Today

@@ -78,19 +78,71 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-24 px-6"
+        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto text-center">
+          {/* Section Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-5 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
+          >
+            APPLICATION SECURITY
+          </motion.span>
+
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-foreground tracking-tight">
             What is E-commerce Security?
           </h1>
 
-          <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-            E-commerce security refers to security standards that ensure safe
-            online purchasing experiences. With the rapid growth of online
-            shopping, securing customer data, transactions, and business systems
-            is critical to protect against evolving cyber threats.
-          </p>
+          {/* Glass Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
+          >
+            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              E-commerce security focuses on protecting online stores, payment
+              flows, customer data, and backend systems from cyber threats that
+              directly impact revenue and trust. Modern e-commerce platforms
+              expose a large attack surface through web applications, APIs,
+              third-party services, and complex business logic.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Attackers actively target checkout processes, authentication
+              logic, payment gateways, and order management workflows to commit
+              fraud, steal sensitive data, or disrupt business operations. A
+              single vulnerability can result in financial loss, compliance
+              violations, and long-term reputational damage.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Effective e-commerce security is proactive by design. By
+              identifying weaknesses early — before they are exploited in
+              production — organizations reduce breach risk, protect customer
+              trust, and ensure secure growth as transaction volumes scale.
+            </p>
+
+            {/* Text-only CTA */}
+            <p className="mt-8 text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Securing an e-commerce platform before attackers exploit it is one
+              of the most effective ways to safeguard revenue, customer
+              confidence, and brand reputation.
+            </p>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -99,7 +151,7 @@ export default function SourceCodeReviewPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -115,7 +167,11 @@ export default function SourceCodeReviewPage() {
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our e-commerce security program combines vulnerability assessment, penetration testing, configuration hardening, and continuous monitoring to protect customer data, payment systems, and backend infrastructure from real-world cyber threats.
+                  Our e-commerce security program combines vulnerability
+                  assessment, penetration testing, configuration hardening, and
+                  continuous monitoring to protect customer data, payment
+                  systems, and backend infrastructure from real-world cyber
+                  threats.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
@@ -135,12 +191,17 @@ export default function SourceCodeReviewPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Executive risk summary report",
-                    "Technical vulnerability assessment report",
-                    "Proof-of-concept attack evidence",
-                    "PCI-DSS & compliance mapping",
-                    "Fraud & abuse prevention recommendations",
-                    "Prioritized remediation roadmap",
+                    "Executive risk summary with financial and business impact",
+                    "Comprehensive technical vulnerability assessment report",
+                    "Checkout, cart, and order workflow security analysis",
+                    "Authentication, session management, and access control findings",
+                    "Payment processing and PCI DSS–relevant security issues",
+                    "Proof-of-concept attack evidence with screenshots and traces",
+                    "Business logic abuse and fraud scenario identification",
+                    "Data exposure and customer information leakage analysis",
+                    "API and third-party integration security findings",
+                    "CVSS v3.1 severity scoring and risk prioritization",
+                  
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -157,17 +218,13 @@ export default function SourceCodeReviewPage() {
         </div>
       </motion.section>
 
-
-      
-     
-
       {/* ================= WHY YOU NEED IT ================= */}
       <motion.section
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
@@ -229,7 +286,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        className="py-16 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -299,7 +356,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Code. Secure Applications.

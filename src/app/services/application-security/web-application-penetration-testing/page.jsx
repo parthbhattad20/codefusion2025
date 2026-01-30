@@ -78,26 +78,66 @@ export default function WebAppPentestPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        className="relative py-16 px-5 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary">
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto text-center">
+          {/* Section Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-4 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
+          >
+            SECURITY OVERVIEW
+          </motion.span>
+
+          {/* Title */}
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-foreground">
             What We Do
           </h2>
 
-          <p className="mt-6 max-w-5xl mx-auto text-lg text-gray-700 dark:text-muted-foreground leading-relaxed">
-            Our application security testing assists in detecting
-            vulnerabilities across web applications and online services. We go
-            beyond automated scanners by simulating real hackers, identifying
-            the most vulnerable components, prioritizing risk, and providing
-            remediation guidance.
-          </p>
+          {/* Glass Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
+          >
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              We deliver comprehensive application security testing designed to
+              uncover real-world vulnerabilities across web applications, APIs,
+              mobile apps, and cloud services. Our approach mirrors how modern
+              attackers operate — validating exploitability, impact, and attack
+              paths rather than relying solely on automated scans.
+            </p>
 
-          <p className="mt-6 max-w-5xl mx-auto text-lg text-gray-700 dark:text-muted-foreground leading-relaxed">
-            Our testing includes OWASP Top 10, SANS Top 25, PCI, GDPR, HIPAA,
-            HL7, NIST, ISO/IEC 27001 & 27002, with tailored security advice and
-            up to one-month mitigation support.
-          </p>
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              By combining manual penetration testing, threat modeling, and
+              secure architecture review, we help you understand which
+              vulnerabilities truly matter, how they can be exploited, and how
+              to remediate them effectively. This enables informed risk
+              prioritization, reduced attack surface, and measurable security
+              improvements.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Our testing aligns with industry-recognized frameworks and
+              regulatory requirements including OWASP Top 10, SANS Top 25, PCI
+              DSS, GDPR, HIPAA, HL7, NIST, and ISO/IEC 27001 & 27002. We provide
+              clear remediation recommendations, proof-of-concept validation,
+              and up to one month of post-assessment mitigation support.
+            </p>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -106,7 +146,7 @@ export default function WebAppPentestPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -122,7 +162,10 @@ export default function WebAppPentestPage() {
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our Web Application Penetration Testing follows a strict attacker-centric methodology designed to uncover security weaknesses, logic flaws, and misconfigurations that automated scanners typically miss.
+                  Our Web Application Penetration Testing follows a strict
+                  attacker-centric methodology designed to uncover security
+                  weaknesses, logic flaws, and misconfigurations that automated
+                  scanners typically miss.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
@@ -142,12 +185,17 @@ export default function WebAppPentestPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Executive summary for leadership",
+                    "Executive summary with business risk impact",
+                    "Detailed vulnerability descriptions with affected endpoints",
                     "Developer-focused technical report",
-                    "Proof-of-concept evidence",
-                    "CVSS severity ratings",
-                    "Compliance mapping (PCI, ISO, GDPR, HIPAA)",
-                    "Step-by-step remediation plan",
+                    "Step-by-step attack reproduction guidance",
+                    "Proof-of-concept screenshots and payloads",
+                    "CVSS v3.1 severity scoring and risk prioritization",
+                    "Authentication & authorization flaw analysis",
+                    "Business logic and workflow abuse findings",
+                    "Mapped OWASP Top 10 & CWE references",
+                    "Compliance alignment (PCI DSS, ISO 27001, GDPR, HIPAA)",
+                    
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -231,7 +279,7 @@ export default function WebAppPentestPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        className="py-10 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -298,7 +346,7 @@ export default function WebAppPentestPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="relative py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -352,7 +400,7 @@ export default function WebAppPentestPage() {
         variants={fadeUp}
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
           Web App Pen Test Deliverables
