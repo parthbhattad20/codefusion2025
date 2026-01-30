@@ -106,7 +106,7 @@ const FloatingNavbar = () => {
       "Network Penetration Testing",
       "Wireless Security Assessment",
     ],
-    "Managed VAPT": ["Managed Threat Hunting", "Pro active threat hunting"],
+    "Managed VAPT": ["Managed Threat Hunting", "Proactive threat hunting"],
 
     "Threat simulations": ["Phishing Simulation", "Red Teaming"],
   };

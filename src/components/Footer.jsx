@@ -61,7 +61,7 @@ export default function Footer() {
       "Managed Security Services",
       "Security Operations Centre",
       "Annual Security Program",
-      "AI SOC",
+      // "AI SOC",
     ],
     "Industrial Security": [
       "IoT Penetration Testing",
@@ -73,7 +73,7 @@ export default function Footer() {
       "Network Penetration Testing",
       "Wireless Security Assessment",
     ],
-    "Managed VAPT": ["Managed Threat Hunting", "Pro active threat hunting"],
+    "Managed VAPT": ["Managed Threat Hunting", "Proactive threat hunting"],
     "Threat Simulations": ["Phishing Simulation", "Red Teaming"],
     // "Cyber Forensics": ["Digital Forensics", "Incident Response", "Malware Analysis"],
   };
@@ -214,7 +214,7 @@ export default function Footer() {
             <h2 className="text-xl font-semibold mb-2">Links</h2>
             <ul className="space-y-2 text-sm">
               {[
-                { name: "Blog", url: "/blogs" },
+                { name: "Blogs", url: "/blogs" },
                 { name: "Privacy Policy", url: "/privacy-policy" },
               ].map((itemLink) => (
                 <li key={itemLink.name} className="relative group">

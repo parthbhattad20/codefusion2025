@@ -164,7 +164,7 @@ const ContactPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
                         <h5 className="font-semibold text-foreground">India</h5>
-                        <p className="text-muted-foreground">Nitaan Towers,Aundh, Pune, Maharashtra 411007</p>
+                        <p className="text-muted-foreground">Nitaan Towers, Aundh, Pune, Maharashtra 411007</p>
                       </div>
                       <div>
                         <h5 className="font-semibold text-foreground">Kuwait</h5>
@@ -186,9 +186,9 @@ const ContactPage = () => {
                   <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold text-foreground">Email Us</h4>
-                    <a href="mailto:hello@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors block">
+                    {/* <a href="mailto:hello@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors block">
                       hello@vulnuris.com
-                    </a>
+                    </a> */}
                     <a href="mailto:connect@vulnuris.com" className="text-muted-foreground hover:text-primary transition-colors block">
                       connect@vulnuris.com
                     </a>
