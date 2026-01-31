@@ -1,14 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ShieldCheck,
-  AlertTriangle,
-  Lock,
-  LineChart,
-  ClipboardCheck,
-  Users,
-} from "lucide-react";
+
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -17,7 +10,20 @@ const fadeUp = {
 };
 
 const stagger = {
-  show: { transition: { staggerChildren: 0.12 } },
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const itemFadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
 };
 
 export default function WebAppPentestPage() {
@@ -56,9 +62,15 @@ export default function WebAppPentestPage() {
             variants={fadeUp}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl"
           >
-            In-depth security assessment of your web applications to identify
-            vulnerabilities, business logic flaws, and compliance gaps using
-            real-world attacker simulation.
+            <p> Over 80% of enterprise breaches originate from exploitable web
+            application attack surfaces, making web apps a primary business risk
+            for modern organizations.</p>
+            Vulnuris simulates real-world attacker
+            behavior to expose injection flaws, broken authentication, business
+            logic abuse, insecure configurations, and privilege
+            escalation—helping you prevent incidents, protect sensitive data,
+            meet compliance requirements, and release secure applications with
+            confidence.
           </motion.p>
 
           <Link href="/contact">
@@ -75,38 +87,80 @@ export default function WebAppPentestPage() {
 
       {/* ================= OVERVIEW ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
+        className="relative py-16 px-5 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary">
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto text-center">
+          {/* Section Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-4 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
+          >
+            SECURITY OVERVIEW
+          </motion.span>
+
+          {/* Title */}
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-foreground">
             What We Do
           </h2>
 
-          <p className="mt-6 max-w-5xl mx-auto text-lg text-gray-700 dark:text-muted-foreground leading-relaxed">
-            Our application security testing assists in detecting
-            vulnerabilities across web applications and online services. We go
-            beyond automated scanners by simulating real hackers, identifying
-            the most vulnerable components, prioritizing risk, and providing
-            remediation guidance.
-          </p>
+          {/* Glass Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
+          >
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              We deliver comprehensive application security testing designed to
+              uncover real-world vulnerabilities across web applications, APIs,
+              mobile apps, and cloud services. Our approach mirrors how modern
+              attackers operate — validating exploitability, impact, and attack
+              paths rather than relying solely on automated scans.
+            </p>
 
-          <p className="mt-6 max-w-5xl mx-auto text-lg text-gray-700 dark:text-muted-foreground leading-relaxed">
-            Our testing includes OWASP Top 10, SANS Top 25, PCI, GDPR, HIPAA,
-            HL7, NIST, ISO/IEC 27001 & 27002, with tailored security advice and
-            up to one-month mitigation support.
-          </p>
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              By combining manual penetration testing, threat modeling, and
+              secure architecture review, we help you understand which
+              vulnerabilities truly matter, how they can be exploited, and how
+              to remediate them effectively. This enables informed risk
+              prioritization, reduced attack surface, and measurable security
+              improvements.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Our testing aligns with industry-recognized frameworks and
+              regulatory requirements including OWASP Top 10, SANS Top 25, PCI
+              DSS, GDPR, HIPAA, HL7, NIST, and ISO/IEC 27001 & 27002. We provide
+              clear remediation recommendations, proof-of-concept validation,
+              and up to one month of post-assessment mitigation support.
+            </p>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      {/* ================= DETAILED SERVICE INFO CONTAINER ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -122,13 +176,16 @@ export default function WebAppPentestPage() {
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our Web Application Penetration Testing follows a strict attacker-centric methodology designed to uncover security weaknesses, logic flaws, and misconfigurations that automated scanners typically miss.
+                  Our Web Application Penetration Testing follows a strict
+                  attacker-centric methodology designed to uncover security
+                  weaknesses, logic flaws, and misconfigurations that automated
+                  scanners typically miss.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Application scope & asset mapping</li>
+                  <li>✔ Application scope and asset mapping</li>
                   <li>✔ Manual + automated vulnerability discovery</li>
-                  <li>✔ Business logic & access control testing</li>
+                  <li>✔ Business logic and access control testing</li>
                   <li>✔ Exploitation to validate real impact</li>
                   <li>✔ CVSS-based risk classification</li>
                   <li>✔ Retesting after fixes (optional)</li>
@@ -142,12 +199,16 @@ export default function WebAppPentestPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    "Executive summary for leadership",
+                    "Executive summary with business risk impact",
+                    "Detailed vulnerability descriptions with affected endpoints",
                     "Developer-focused technical report",
-                    "Proof-of-concept evidence",
-                    "CVSS severity ratings",
-                    "Compliance mapping (PCI, ISO, GDPR, HIPAA)",
-                    "Step-by-step remediation plan",
+                    "Step-by-step attack reproduction guidance",
+                    "Proof-of-concept screenshots and payloads",
+                    "CVSS v3.1 severity scoring and risk prioritization",
+                    "Authentication & authorization flaw analysis",
+                    "Business logic and workflow abuse findings",
+                    "Mapped OWASP Top 10 and CWE references",
+                    "Compliance alignment (PCI DSS, ISO 27001, GDPR, HIPAA)",
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -166,15 +227,19 @@ export default function WebAppPentestPage() {
 
       {/* ================= KEY BENEFITS ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-120px" }}
+        variants={stagger}
         className="py-20 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-center text-3xl font-bold text-primary mb-14">
+          <motion.h2
+            variants={fadeUp}
+            className="text-center text-3xl font-bold text-primary mb-14"
+          >
             Business Benefits
-          </h2>
+          </motion.h2>
 
           <motion.div
             variants={stagger}
@@ -190,7 +255,7 @@ export default function WebAppPentestPage() {
                 desc: "Improve developer speed and code quality with secure coding insights.",
               },
               {
-                title: "Lower Testing & Compliance Cost",
+                title: "Lower Testing and Compliance Cost",
                 desc: "Reduce testing and compliance costs without compromising security.",
               },
               {
@@ -208,7 +273,7 @@ export default function WebAppPentestPage() {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                variants={fadeUp}
+                variants={itemFadeUp}
                 whileHover={{ y: -10, scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
                 className="bg-white dark:bg-muted border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all"
@@ -230,11 +295,11 @@ export default function WebAppPentestPage() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
-        variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        variants={stagger}
+        className="py-10 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <motion.div variants={fadeUp} className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
               Our Penetration Testing Methodology
             </h2>
@@ -245,10 +310,11 @@ export default function WebAppPentestPage() {
             </p>
 
             <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
@@ -256,7 +322,7 @@ export default function WebAppPentestPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Discovery & Exploitation
+                Discovery and Exploitation
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
@@ -270,6 +336,7 @@ export default function WebAppPentestPage() {
             </motion.div>
 
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
@@ -277,7 +344,7 @@ export default function WebAppPentestPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Reporting & Remediation
+                Reporting and Remediation
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
@@ -295,13 +362,14 @@ export default function WebAppPentestPage() {
 
       {/* ================= WHAT WE TEST ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="relative py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        viewport={{ once: true, margin: "-120px" }}
+        variants={stagger}
+        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <motion.div variants={fadeUp} className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
               What Do We Test?
             </h2>
@@ -310,26 +378,26 @@ export default function WebAppPentestPage() {
               infrastructure layers.
             </p>
             <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
-          </div>
+          </motion.div>
 
           <motion.div
             variants={stagger}
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
           >
             {[
-              "OWASP Top 10 & SANS Top 25",
-              "Broken Access Control & IDOR",
-              "SQL Injection & XSS",
+              "OWASP Top 10 and SANS Top 25",
+              "Broken Access Control and IDOR",
+              "SQL Injection and XSS",
               "Business Logic Vulnerabilities",
-              "Secure Communication & Encryption",
-              "API & Web Services Security",
+              "Secure Communication and Encryption",
+              "API and Web Services Security",
               "Source Code Review",
-              "Updates, CVEs & Misconfigurations",
-              "PII & Sensitive Data Exposure",
+              "Updates, CVEs and Misconfigurations",
+              "PII and Sensitive Data Exposure",
             ].map((item, i) => (
               <motion.div
                 key={i}
-                variants={fadeUp}
+                variants={itemFadeUp}
                 whileHover={{ y: -10, scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
                 className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-violet-500/40 to-cyan-500/40"
@@ -349,10 +417,11 @@ export default function WebAppPentestPage() {
 
       {/* ================= DELIVERABLES ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+        variants={fadeUp}
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
           Web App Pen Test Deliverables

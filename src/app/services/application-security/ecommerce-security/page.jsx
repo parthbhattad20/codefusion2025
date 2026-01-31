@@ -2,14 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  Code,
-  ShieldAlert,
-  Bug,
-  FileSearch,
-  LineChart,
-  Lock,
-} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -18,6 +10,42 @@ const fadeUp = {
 
 const stagger = {
   show: { transition: { staggerChildren: 0.12 } },
+};
+
+// Added animation variants for the service section
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const cardItemVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
 };
 
 export default function SourceCodeReviewPage() {
@@ -55,9 +83,16 @@ export default function SourceCodeReviewPage() {
             variants={fadeUp}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
-            Deep testing of source code to identify weaknesses before hackers
-            exploit them. Secure your applications at the atomic level of
-            software security.
+            <p>
+              Over 70% of critical security breaches originate from
+              vulnerabilities embedded directly in application source code,
+              making insecure code a top enterprise risk.
+            </p>
+            Vulnuris simulates real-world attacker behavior at the code level to
+            uncover injection flaws, broken authentication logic, cryptographic
+            weaknesses, hardcoded secrets, and business logic errors—helping you
+            prevent incidents, protect sensitive data, meet compliance
+            requirements, and confidently release secure software.
           </motion.p>
 
           <Link href="/contact">
@@ -78,88 +113,149 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-24 px-6"
+        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto text-center">
+          {/* Section Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-5 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
+          >
+            APPLICATION SECURITY
+          </motion.span>
+
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-foreground tracking-tight">
             What is E-commerce Security?
           </h1>
 
-          <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-            E-commerce security refers to security standards that ensure safe
-            online purchasing experiences. With the rapid growth of online
-            shopping, securing customer data, transactions, and business systems
-            is critical to protect against evolving cyber threats.
-          </p>
+          {/* Glass Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
+          >
+            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              E-commerce security focuses on protecting online stores, payment
+              flows, customer data, and backend systems from cyber threats that
+              directly impact revenue and trust. Modern e-commerce platforms
+              expose a large attack surface through web applications, APIs,
+              third-party services, and complex business logic.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Attackers actively target checkout processes, authentication
+              logic, payment gateways, and order management workflows to commit
+              fraud, steal sensitive data, or disrupt business operations. A
+              single vulnerability can result in financial loss, compliance
+              violations, and long-term reputational damage.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Effective e-commerce security is proactive by design. By
+              identifying weaknesses early — before they are exploited in
+              production — organizations reduce breach risk, protect customer
+              trust, and ensure secure growth as transaction volumes scale.
+            </p>
+
+            {/* Text-only CTA */}
+            <p className="mt-8 text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Securing an e-commerce platform before attackers exploit it is one
+              of the most effective ways to safeguard revenue, customer
+              confidence, and brand reputation.
+            </p>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      {/* ================= DETAILED SERVICE INFO CONTAINER (FIXED) ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
-            variants={fadeUp}
+            variants={itemVariants}
             className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
 
             <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
+              <motion.div variants={itemVariants}>
                 <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
                   How Our E-commerce Security Service Works
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our e-commerce security program combines vulnerability assessment, penetration testing, configuration hardening, and continuous monitoring to protect customer data, payment systems, and backend infrastructure from real-world cyber threats.
+                  Our e-commerce security program combines vulnerability
+                  assessment, penetration testing, configuration hardening, and
+                  continuous monitoring to protect customer data, payment
+                  systems, and backend infrastructure from real-world cyber
+                  threats.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Platform & infrastructure security assessment</li>
-                  <li>✔ Payment gateway & PCI-DSS validation</li>
-                  <li>✔ Web & mobile penetration testing</li>
-                  <li>✔ Business logic & fraud scenario testing</li>
-                  <li>✔ Secure configuration & patch review</li>
+                  <li>✔ Platform and infrastructure security assessment</li>
+                  <li>✔ Payment gateway and PCI-DSS validation</li>
+                  <li>✔ Web and mobile penetration testing</li>
+                  <li>✔ Business logic and fraud scenario testing</li>
+                  <li>✔ Secure configuration and patch review</li>
                   <li>✔ Risk scoring using CVSS methodology</li>
                 </ul>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={itemVariants}>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
                   What You Get
                 </h4>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.div
+                  variants={containerVariants}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                >
                   {[
-                    "Executive risk summary report",
-                    "Technical vulnerability assessment report",
-                    "Proof-of-concept attack evidence",
-                    "PCI-DSS & compliance mapping",
-                    "Fraud & abuse prevention recommendations",
-                    "Prioritized remediation roadmap",
+                    "Executive risk summary with financial and business impact",
+                    "Comprehensive technical vulnerability assessment report",
+                    "Checkout, cart, and order workflow security analysis",
+                    "Authentication, session management, and access control findings",
+                    "Payment processing and PCI DSS–relevant security issues",
+                    "Proof-of-concept attack evidence with screenshots and traces",
+                    "Business logic abuse and fraud scenario identification",
+                    "Data exposure and customer information leakage analysis",
+                    "API and third-party integration security findings",
+                    "CVSS v3.1 severity scoring and risk prioritization",
                   ].map((item, i) => (
                     <motion.div
                       key={i}
+                      variants={cardItemVariants}
                       whileHover={{ scale: 1.03 }}
                       className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
                     >
                       {item}
                     </motion.div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
       </motion.section>
-
-
-      
-     
 
       {/* ================= WHY YOU NEED IT ================= */}
       <motion.section
@@ -167,7 +263,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
@@ -184,11 +280,11 @@ export default function SourceCodeReviewPage() {
                 desc: "Identify security flaws at the earliest stage to reduce remediation cost and risk.",
               },
               {
-                title: "Business & Reputation Protection",
+                title: "Business and Reputation Protection",
                 desc: "Prevent breaches that could damage customer trust and brand reputation.",
               },
               {
-                title: "Compliance & Legal Readiness",
+                title: "Compliance and Legal Readiness",
                 desc: "Meet regulatory and security compliance requirements with confidence.",
               },
               {
@@ -229,7 +325,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        className="py-16 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -254,7 +350,7 @@ export default function SourceCodeReviewPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Review & Analysis
+                Review and Analysis
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
@@ -274,14 +370,14 @@ export default function SourceCodeReviewPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Reporting & Continuous Monitoring
+                Reporting and Continuous Monitoring
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg mb-6">
                 <li>• Detailed vulnerability findings</li>
                 <li>• Secure coding recommendations</li>
                 <li>• Developer-friendly remediation guidance</li>
-                <li>• Risk severity & impact analysis</li>
+                <li>• Risk severity and impact analysis</li>
               </ul>
 
               <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
@@ -299,7 +395,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Code. Secure Applications.

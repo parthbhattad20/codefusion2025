@@ -9,7 +9,20 @@ const fadeUp = {
 };
 
 const stagger = {
-  show: { transition: { staggerChildren: 0.15 } },
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemFadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
 };
 
 export default function VAPTPage() {
@@ -41,16 +54,23 @@ export default function VAPTPage() {
             variants={fadeUp}
             className="text-3xl md:text-5xl lg:text-5xl font-extrabold text-white mt-50"
           >
-            Vulnerability Assessment & Penetration Testing
+            Vulnerability Assessment and Penetration Testing
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
-            To ensure your data is secure, your business needs to complete
-            Vulnerability Assessment, Penetration Testing, and Cyber
-            Vulnerability Assessments.
+            <p>
+              {" "}
+              Over 70% of enterprise breaches originate from exploitable
+              vulnerabilities across applications, APIs, and infrastructure.
+            </p>
+            Vulnuris simulates real-world attacker behavior to uncover
+            authentication bypasses, business logic abuse, insecure
+            configurations, exposed APIs, and privilege escalation paths—helping
+            organizations prevent incidents, protect sensitive data, meet
+            compliance mandates, and ship secure systems with confidence.
           </motion.p>
 
           <Link href="/contact">
@@ -67,43 +87,87 @@ export default function VAPTPage() {
 
       {/* ================= VAPT OVERVIEW ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
+        className="relative py-20 px-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background transition-colors overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
-            Vulnerability Assessment & Penetration Testing (VAPT)
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto text-center">
+          {/* Section Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-4 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
+          >
+            SECURITY SERVICES
+          </motion.span>
+
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-foreground leading-tight">
+            Vulnerability Assessment and
+            <span className="block text-primary mt-2">
+              Penetration Testing (VAPT)
+            </span>
           </h1>
 
-          <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-            Comprehensive Vulnerability Assessment and Penetration Testing
-            (VAPT) is essential to securing your organization. Our
-            multidisciplinary approach examines security from every angle —
-            technology, people, and processes.
-          </p>
+          {/* Content Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
+          >
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Vulnerability Assessment and Penetration Testing (VAPT) is not
+              just about finding security gaps — it's about understanding how
+              real attackers think and act. Our structured, risk-based approach
+              evaluates your applications, infrastructure, networks, and cloud
+              environments from an attacker's perspective.
+            </p>
 
-          <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-            Adequate security starts with a clear understanding of your
-            vulnerabilities. We help you identify weak points and take
-            corrective action before attackers exploit them to sabotage your
-            business or steal confidential data.
-          </p>
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              We go beyond automated scans. By combining manual testing,
+              industry-proven methodologies, and real-world attack simulations,
+              we uncover critical vulnerabilities that automated tools often
+              miss. This enables you to prioritize risks, strengthen defenses,
+              and maintain compliance with security standards.
+            </p>
+
+            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+              Security should be proactive, not reactive. Identifying weaknesses
+              early helps prevent data breaches, financial losses, reputational
+              damage, and regulatory penalties. Our reports include clear risk
+              ratings, proof-of-concept evidence, and actionable remediation
+              guidance aligned with your business goals.
+            </p>
+          </motion.div>
         </div>
       </motion.section>
 
       {/* ================= WHY VAPT ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-50 dark:bg-background"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
+        className="py-16 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="ml-10">
             <h2 className="text-2xl font-semibold text-primary mb-6">
-              Why Vulnerability Assessment & Penetration Testing
+              Why Vulnerability Assessment and Penetration Testing
             </h2>
 
             <ul className="space-y-4 text-gray-800 dark:text-gray-200">
@@ -131,19 +195,23 @@ export default function VAPTPage() {
 
       {/* ================= SERVICES GRID ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-15 px-6 bg-gray-50 dark:bg-background"
+        viewport={{ once: true, margin: "-120px" }}
+        variants={stagger}
+        className="py-12 px-6 bg-gray-50 dark:bg-background"
       >
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold text-primary mb-16">
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl font-semibold text-primary mb-12"
+          >
             Vulnerability Assessment | Penetration Testing
-          </h2>
+          </motion.h2>
 
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16"
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12"
           >
             {[
               {
@@ -173,7 +241,7 @@ export default function VAPTPage() {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                variants={fadeUp}
+                variants={itemFadeUp}
                 whileHover={{ y: -10, scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
                 className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group"
@@ -191,12 +259,13 @@ export default function VAPTPage() {
         </div>
       </motion.section>
 
-      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      {/* ================= DETAILED SERVICE INFO CONTAINER (UPDATED) ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
+        className="py-16 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -212,11 +281,14 @@ export default function VAPTPage() {
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our Vulnerability Assessment & Penetration Testing service follows a structured, compliance‑aligned methodology designed to uncover real‑world security risks across your infrastructure, applications, and human layer.
+                  Our Vulnerability Assessment and Penetration Testing service
+                  follows a structured, compliance‑aligned methodology designed
+                  to uncover real‑world security risks across your
+                  infrastructure, applications, and human layer.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Asset discovery & scope definition</li>
+                  <li>✔ Asset discovery and scope definition</li>
                   <li>✔ Automated and manual vulnerability analysis</li>
                   <li>✔ Safe exploitation to validate impact</li>
                   <li>✔ Risk scoring using CVSS standards</li>
@@ -236,8 +308,14 @@ export default function VAPTPage() {
                     "Technical vulnerability report",
                     "Proof‑of‑concept screenshots",
                     "CVSS risk ratings",
-                    "Compliance mapping (ISO / SOC2 / PCI‑DSS)",
+                    "Compliance mapping (ISO/SOC2/PCI‑DSS)",
                     "Remediation roadmap",
+                    "Attack chain analysis",
+                    "Retest verification report",
+                    "Security posture scoring",
+                    "Prioritized fix recommendations",
+                    "Network topology diagrams",
+                    "Post-assessment consultation",
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -257,33 +335,38 @@ export default function VAPTPage() {
       {/* ================= VAPT DETAILS ================= */}
 
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        viewport={{ once: true, margin: "-120px" }}
+        variants={stagger}
+        className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <motion.div variants={fadeUp} className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary dark:text-primary">
-              What Is Vulnerability Assessment & Penetration Testing?
+              What Is Vulnerability Assessment and Penetration Testing?
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
-              A structured approach to identifying, prioritizing, and eliminating security weaknesses before attackers exploit them.
+              A structured approach to identifying, prioritizing, and
+              eliminating security weaknesses before attackers exploit them.
             </p>
 
             <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-indigo-500" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
             >
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Vulnerability Assessment</h3>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Vulnerability Assessment
+              </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
                 <li>• Continuous scanning to detect vulnerabilities</li>
@@ -294,18 +377,21 @@ export default function VAPTPage() {
             </motion.div>
 
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
             >
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Penetration Testing</h3>
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Penetration Testing
+              </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
-                <li>• Network & infrastructure testing</li>
+                <li>• Network and infrastructure testing</li>
                 <li>• Web application testing</li>
-                <li>• Internal & external penetration testing</li>
+                <li>• Internal and external penetration testing</li>
                 <li>• Vulnerability management program</li>
               </ul>
             </motion.div>
@@ -315,17 +401,19 @@ export default function VAPTPage() {
 
       {/* ================= CTA ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background"
+        variants={fadeUp}
+        className="py-16 px-6 text-center bg-gray-50 dark:bg-background"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-          Don’t Leave Vulnerabilities for Hackers
+          Don't Leave Vulnerabilities for Hackers
         </h2>
 
         <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Like a real threat actor, we simulate attacks to test how well your organization can withstand modern cyber threats.
+          Like a real threat actor, we simulate attacks to test how well your
+          organization can withstand modern cyber threats.
         </p>
 
         <Link href="/contact">

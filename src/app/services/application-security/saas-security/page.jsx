@@ -17,17 +17,45 @@ const fadeUp = {
 };
 
 const stagger = {
-  show: { transition: { staggerChildren: 0.12 } },
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+// Container animation
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+// Item animation
+const itemFadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
 };
 
 export default function SourceCodeReviewPage() {
   return (
-    <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
+    <motion.main
+      initial="hidden"
+      animate="show"
+      variants={stagger}
+      className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground"
+    >
       {/* ================= HERO ================= */}
       <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
         variants={fadeUp}
         className="relative h-screen overflow-hidden"
       >
@@ -55,9 +83,15 @@ export default function SourceCodeReviewPage() {
             variants={fadeUp}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
-            Deep testing of source code to identify weaknesses before hackers
-            exploit them. Secure your applications at the atomic level of
-            software security.
+            <p>Over 70% of exploitable security flaws are introduced during
+            development, making source code one of the most critical enterprise
+            attack surfaces. </p>
+            Vulnuris simulates real-world attacker behavior at
+            the code level to identify injection flaws, broken authentication
+            and authorization logic, cryptographic weaknesses, hardcoded
+            secrets, and business logic errors—helping you prevent incidents,
+            protect sensitive data, meet compliance requirements, and ship
+            secure software with confidence.
           </motion.p>
 
           <Link href="/contact">
@@ -77,47 +111,81 @@ export default function SourceCodeReviewPage() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
-        variants={fadeUp}
-        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+        variants={stagger}
+        className="py-12 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
-              Understanding the Need for SaaS Cybersecurity
+          <motion.div variants={fadeUp} className="relative text-center mb-20">
+            {/* Section Label */}
+            <span className="inline-block mb-5 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full">
+              SOURCE CODE REVIEW
+            </span>
+
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl font-extrabold text-primary dark:text-primary tracking-tight">
+              Understanding the Need for Source Code Security
             </h1>
 
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Software as a Service (SaaS) applications are cloud-based
-              platforms accessed over the internet without local installations.
-              With nearly 30,000 SaaS organizations worldwide and a market
-              expected to reach 700 billion USD by 2030, the security risks and
-              data exposure associated with SaaS platforms are growing rapidly.
-            </p>
-          </div>
+            {/* Content Card */}
+            <div className="mt-10 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10">
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+                Software as a Service (SaaS) platforms are cloud-native
+                applications accessed over the internet without local
+                installations. While this model enables rapid scalability and
+                global accessibility, it also concentrates sensitive customer
+                data, business logic, and critical infrastructure behind exposed
+                web interfaces and APIs.
+              </p>
+
+              <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+                With tens of thousands of SaaS providers worldwide and a market
+                projected to exceed{" "}
+                <span className="font-semibold">USD 700 billion by 2030</span>,
+                attackers increasingly target SaaS platforms for data theft,
+                account takeover, privilege escalation, and abuse of
+                multi-tenant architectures. A single vulnerability can impact
+                thousands of customers simultaneously.
+              </p>
+
+              <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+              <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
+                SaaS cybersecurity must go beyond basic cloud security controls.
+                It requires continuous assessment of authentication flows,
+                role-based access controls, APIs, business logic, and tenant
+                isolation mechanisms. Identifying weaknesses early helps prevent
+                large-scale breaches, compliance failures, and irreversible loss
+                of customer trust.
+              </p>
+            </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div variants={fadeUp} className="ml-10">
               <h2 className="text-2xl font-semibold text-primary mb-6">
-                SaaS Security Challenges
+                Source Code Security Challenges
               </h2>
 
               <ul className="space-y-4 text-gray-800 dark:text-gray-200">
-                <li>• Large volumes of sensitive user and business data</li>
-                <li>• Increased attack surface due to cloud exposure</li>
-                <li>• Multiple technologies and integrations</li>
-                <li>• High dependency of businesses on SaaS platforms</li>
-                <li>• Rising cyberattacks targeting SaaS environments</li>
+                <li>• Hidden vulnerabilities in application logic</li>
+                <li>• Insecure coding practices and patterns</li>
+                <li>• Authentication and authorization flaws</li>
+                <li>• Hardcoded secrets and credential exposure</li>
+                <li>• Data validation and sanitization issues</li>
               </ul>
             </motion.div>
 
             <motion.div
               variants={fadeUp}
               whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 180, damping: 18 }}
               className="flex justify-center md:justify-end mr-20"
             >
               <img
                 src="/assets/services/saas.jpg"
-                alt="SaaS Security"
+                alt="Source Code Security"
                 className="w-full max-w-md rounded-xl shadow-lg transition"
               />
             </motion.div>
@@ -125,14 +193,13 @@ export default function SourceCodeReviewPage() {
         </div>
       </motion.section>
 
-     
-
-      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      {/* ================= DETAILED SERVICE INFO CONTAINER ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeUp}
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -148,15 +215,18 @@ export default function SourceCodeReviewPage() {
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our secure code review follows a rigorous manual and automated analysis process to identify insecure coding patterns, logic flaws, cryptographic weaknesses, and data handling risks before they reach production.
+                  Our secure code review follows a rigorous manual and automated
+                  analysis process to identify insecure coding patterns, logic
+                  flaws, cryptographic weaknesses, and data handling risks
+                  before they reach production.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Codebase scoping & architecture review</li>
+                  <li>✔ Codebase scoping and architecture review</li>
                   <li>✔ Static analysis (SAST) + manual inspection</li>
-                  <li>✔ Authentication & authorization flow validation</li>
-                  <li>✔ Business logic & data validation testing</li>
-                  <li>✔ Secure dependency & library analysis</li>
+                  <li>✔ Authentication and authorization flow validation</li>
+                  <li>✔ Business logic and data validation testing</li>
+                  <li>✔ Secure dependency and library analysis</li>
                   <li>✔ CVSS-based risk classification</li>
                 </ul>
               </div>
@@ -171,9 +241,13 @@ export default function SourceCodeReviewPage() {
                     "Executive security summary",
                     "Developer-friendly technical findings",
                     "Annotated vulnerable code snippets",
-                    "CVSS severity scoring",
-                    "Compliance mapping (ISO, PCI, SOC2)",
+                    "CVSS v3.1 severity scoring",
+                    "Compliance mapping (ISO 27001, PCI DSS, SOC 2)",
                     "Prioritized remediation roadmap",
+                    "Root-cause analysis of security flaws",
+                    "Authentication and authorization logic review",
+                    "Insecure data handling and validation findings",
+                    "Hardcoded secrets and credential exposure analysis",
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -196,7 +270,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
@@ -206,18 +280,21 @@ export default function SourceCodeReviewPage() {
             Why Do You Need a Source Code Review?
           </motion.h2>
 
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+          <motion.div
+            variants={container}
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16"
+          >
             {[
               {
                 title: "Early Vulnerability Detection",
                 desc: "Identify security flaws at the earliest stage to reduce remediation cost and risk.",
               },
               {
-                title: "Business & Reputation Protection",
+                title: "Business and Reputation Protection",
                 desc: "Prevent breaches that could damage customer trust and brand reputation.",
               },
               {
-                title: "Compliance & Legal Readiness",
+                title: "Compliance and Legal Readiness",
                 desc: "Meet regulatory and security compliance requirements with confidence.",
               },
               {
@@ -235,7 +312,7 @@ export default function SourceCodeReviewPage() {
             ].map((item, i) => (
               <motion.div
                 key={i}
-                variants={fadeUp}
+                variants={itemFadeUp}
                 whileHover={{ y: -8, scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
                 className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all group"
@@ -257,11 +334,11 @@ export default function SourceCodeReviewPage() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
-        variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        variants={stagger}
+        className="py-16 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <motion.div variants={fadeUp} className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
               How Our Source Code Review Works
             </h2>
@@ -272,10 +349,11 @@ export default function SourceCodeReviewPage() {
             </p>
 
             <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
@@ -291,11 +369,11 @@ export default function SourceCodeReviewPage() {
                 <li>• Perform manual and automated code analysis</li>
                 <li>• Identify vulnerabilities at the root level</li>
                 <li>• Validate security controls and logic flows</li>
-                <li>• Prioritize risks based on business impact</li>
               </ul>
             </motion.div>
 
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
@@ -303,20 +381,15 @@ export default function SourceCodeReviewPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Reporting & Continuous Monitoring
+                Reporting and Continuous Monitoring
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg mb-6">
                 <li>• Detailed vulnerability findings</li>
                 <li>• Secure coding recommendations</li>
                 <li>• Developer-friendly remediation guidance</li>
-                <li>• Risk severity & impact analysis</li>
+                <li>• Risk severity and impact analysis</li>
               </ul>
-
-              <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-                Continuous assessments to proactively identify new
-                vulnerabilities as the codebase evolves.
-              </p>
             </motion.div>
           </div>
         </div>
@@ -328,7 +401,7 @@ export default function SourceCodeReviewPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Code. Secure Applications.
@@ -349,6 +422,6 @@ export default function SourceCodeReviewPage() {
           </motion.button>
         </Link>
       </motion.section>
-    </main>
+    </motion.main>
   );
 }

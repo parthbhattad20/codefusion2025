@@ -20,6 +20,42 @@ const stagger = {
   show: { transition: { staggerChildren: 0.12 } },
 };
 
+// Added animation variants for the service section
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const cardItemVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function APIPenTestingPage() {
   return (
     <main className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground">
@@ -54,10 +90,15 @@ export default function APIPenTestingPage() {
             variants={fadeUp}
             className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
           >
-            Application Programming Interface (API) Penetration Testing services
-            to protect the first line of defense of your applications. We attack
-            APIs like real hackers to uncover vulnerabilities, business logic
-            flaws, and data exposure risks.
+            <p>
+              Over 80% of modern application breaches exploit insecure APIs,
+              making APIs the most critical enterprise attack surface today.
+            </p>
+            Vulnuris simulates real-world attacker behavior to expose broken
+            object-level authorization, authentication bypasses, business logic
+            abuse, excessive data exposure, and rate-limit failures—helping you
+            prevent incidents, protect sensitive data, meet compliance mandates,
+            and confidently secure production releases.
           </motion.p>
 
           <Link href="/contact">
@@ -77,38 +118,93 @@ export default function APIPenTestingPage() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
-        variants={fadeUp}
-        className="py-24 px-6 bg-gray-50 dark:bg-background transition-colors"
+        variants={stagger}
+        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background transition-colors overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-primary">
-              API Security Testing Services
-            </h2>
+        {/* Decorative Glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+        </div>
 
-            <p className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              APIs are the connective tissue of modern applications. Our API
-              penetration testing team digs deep into your API ecosystem,
-              penetrates real attack paths, and reports critical security flaws
-              that automated scanners fail to detect.
-            </p>
+        <div className="relative max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <motion.span
+              variants={fadeUp}
+              className="inline-block mb-4 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
+            >
+              API SECURITY ASSESSMENT
+            </motion.span>
+
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-foreground"
+            >
+              API Security Testing Services
+            </motion.h2>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-6 max-w-4xl mx-auto text-lg leading-relaxed text-gray-700 dark:text-muted-foreground"
+            >
+              APIs are the backbone of modern applications and the primary
+              attack surface for data breaches. Our API penetration testing
+              evaluates your endpoints the way real attackers do — mapping trust
+              boundaries, exploiting authorization gaps, and validating abuse
+              scenarios that automated tools fail to identify.
+            </motion.p>
           </div>
 
+          {/* Content */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeUp}>
+            {/* Left */}
+            <motion.div
+              variants={fadeUp}
+              className="rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md border border-gray-200 dark:border-border shadow-xl p-8 md:p-10"
+            >
               <h3 className="text-2xl font-semibold text-primary mb-6">
                 Why API Penetration Testing Matters
               </h3>
 
-              <ul className="space-y-4 text-gray-800 dark:text-gray-200">
-                <li>• Simulate real-world API attacks</li>
-                <li>• Detect business logic vulnerabilities</li>
-                <li>• Prevent data leakage and abuse</li>
-                <li>• Improve API development quality</li>
-                <li>• Ensure compliance with security standards</li>
+              <ul className="space-y-4 text-gray-800 dark:text-muted-foreground">
+                <li>
+                  • Identify broken object-level and function-level
+                  authorization
+                </li>
+                <li>
+                  • Detect excessive data exposure and mass assignment flaws
+                </li>
+                <li>
+                  • Validate authentication, token handling, and session
+                  security
+                </li>
+                <li>
+                  • Test rate-limiting, abuse protection, and API throttling
+                </li>
+                <li>
+                  • Uncover business logic abuse and workflow manipulation
+                </li>
+                <li>
+                  • Prevent data leakage, account takeover, and API misuse
+                </li>
+                <li>
+                  • Reduce risk across microservices and third-party
+                  integrations
+                </li>
               </ul>
+
+              <div className="mt-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
+              <p className="mt-6 text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
+                Proactive API security testing helps organizations detect
+                weaknesses early, reduce their attack surface, and avoid costly
+                breaches caused by exposed endpoints and improper access
+                controls. Addressing API risks before production is critical to
+                maintaining trust and regulatory compliance.
+              </p>
             </motion.div>
 
+            {/* Right */}
             <motion.div
               variants={fadeUp}
               whileHover={{ scale: 1.03 }}
@@ -124,64 +220,76 @@ export default function APIPenTestingPage() {
         </div>
       </motion.section>
 
-      {/* ================= DETAILED SERVICE INFO CONTAINER (ADDED) ================= */}
+      {/* ================= DETAILED SERVICE INFO CONTAINER (FIXED) ================= */}
       <motion.section
-        variants={fadeUp}
+        initial="hidden"
         whileInView="show"
-        viewport={{ once: true }}
-        className="py-24 px-6 bg-gray-100 dark:bg-muted/30"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div
-            variants={fadeUp}
+            variants={itemVariants}
             className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
 
             <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
+              <motion.div variants={itemVariants}>
                 <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
                   How Our API Penetration Testing Works
                 </h3>
 
                 <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our API penetration testing follows an attacker-centric methodology to identify authorization bypasses, mass assignment issues, injection flaws, and sensitive data exposure across REST, SOAP, and GraphQL endpoints.
+                  Our API penetration testing follows an attacker-centric
+                  methodology to identify authorization bypasses, mass
+                  assignment issues, injection flaws, and sensitive data
+                  exposure across REST, SOAP, and GraphQL endpoints.
                 </p>
 
                 <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ API inventory & scope definition</li>
-                  <li>✔ Authentication & token handling review</li>
-                  <li>✔ Business logic & rate-limit testing</li>
+                  <li>✔ API inventory and scope definition</li>
+                  <li>✔ Authentication and token handling review</li>
+                  <li>✔ Business logic and rate-limit testing</li>
                   <li>✔ Manual + automated vulnerability discovery</li>
                   <li>✔ Safe exploitation to validate real impact</li>
                   <li>✔ CVSS-based risk classification</li>
                 </ul>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div variants={itemVariants}>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
                   What You Get
                 </h4>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.div
+                  variants={containerVariants}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+                >
                   {[
-                    "Executive security summary",
-                    "Developer-focused technical report",
-                    "Proof-of-concept attack traces",
-                    "CVSS severity scoring",
-                    "Compliance mapping (PCI, ISO, GDPR)",
-                    "Prioritized remediation roadmap",
+                    "Executive summary with business impact and API risk exposure",
+                    "Comprehensive API vulnerability report with affected endpoints",
+                    "Broken Object Level Authorization (BOLA) findings",
+                    "Broken Function Level Authorization (BFLA) analysis",
+                    "Authentication and token handling weaknesses (JWT, OAuth, API keys)",
+                    "Business logic abuse and workflow manipulation scenarios",
+                    "Mass assignment and excessive data exposure issues",
+                    "Injection flaws across REST, SOAP, and GraphQL APIs",
+                    "Proof-of-concept request/response attack traces",
+                    "CVSS v3.1 severity scoring and risk prioritization",
                   ].map((item, i) => (
                     <motion.div
                       key={i}
+                      variants={cardItemVariants}
                       whileHover={{ scale: 1.03 }}
                       className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
                     >
                       {item}
                     </motion.div>
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -193,7 +301,7 @@ export default function APIPenTestingPage() {
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
         variants={stagger}
-        className="py-16 px-6 bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 bg-gray-50 dark:bg-background transition-colors"
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
@@ -214,19 +322,19 @@ export default function APIPenTestingPage() {
                 desc: "Identify design and implementation flaws that enable unintended API behavior.",
               },
               {
-                title: "REST, SOAP & GraphQL",
+                title: "REST, SOAP and GraphQL",
                 desc: "Comprehensive testing for REST, SOAP, RPC, and GraphQL APIs.",
               },
               {
-                title: "Authentication & Authorization",
+                title: "Authentication and Authorization",
                 desc: "Validate token handling, session management, and access control enforcement.",
               },
               {
-                title: "Data Exposure & PII",
+                title: "Data Exposure and PII",
                 desc: "Detect excessive data exposure and sensitive information leakage.",
               },
               {
-                title: "Rate Limiting & Abuse",
+                title: "Rate Limiting and Abuse",
                 desc: "Test protection against brute force, abuse, and denial-of-service risks.",
               },
             ].map((item, i) => (
@@ -235,9 +343,9 @@ export default function APIPenTestingPage() {
                 variants={fadeUp}
                 whileHover={{ y: -10, scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
-                <h3 className="font-semibold text-lg mb-3 from-violet-500 to-indigo-500">
+                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
@@ -254,11 +362,11 @@ export default function APIPenTestingPage() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-120px" }}
-        variants={fadeUp}
-        className="py-28 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
+        variants={stagger}
+        className="py-16 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <motion.div variants={fadeUp} className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
               How Our API Penetration Testing Works
             </h2>
@@ -269,10 +377,11 @@ export default function APIPenTestingPage() {
             </p>
 
             <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
@@ -284,7 +393,7 @@ export default function APIPenTestingPage() {
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
-                <li>• Information gathering & threat modeling</li>
+                <li>• Information gathering and threat modeling</li>
                 <li>• API mapping and business logic analysis</li>
                 <li>• Manual and automated vulnerability testing</li>
                 <li>• Exploitation of security weaknesses</li>
@@ -293,6 +402,7 @@ export default function APIPenTestingPage() {
             </motion.div>
 
             <motion.div
+              variants={fadeUp}
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
               className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
@@ -300,7 +410,7 @@ export default function APIPenTestingPage() {
               <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
 
               <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Continuous Improvement & Support
+                Continuous Improvement and Support
               </h3>
 
               <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
@@ -321,7 +431,7 @@ export default function APIPenTestingPage() {
         whileInView="show"
         viewport={{ once: true }}
         variants={fadeUp}
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
+        className="py-10 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
           Secure Your APIs Before Attackers Do
