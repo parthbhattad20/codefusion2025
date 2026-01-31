@@ -387,16 +387,20 @@ export default function WebAppPentestPage() {
               Manual-led testing aligned to compliance frameworks, engineered for measurable outcomes.
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
-              <Link href="/contact" legacyBehavior>
-                <motion.a
-                  aria-label="Request Security Assessment"
-                  whileHover={reduceMotion ? undefined : { y: -2 }}
-                  whileTap={reduceMotion ? undefined : { y: 0 }}
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 cursor-pointer"
-                >
-                  Request Security Assessment
-                </motion.a>
-              </Link>
+<Link
+  href="/contact"
+  aria-label="Request Security Assessment"
+  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+>
+  <motion.span
+    whileHover={reduceMotion ? undefined : { y: -2 }}
+    whileTap={reduceMotion ? undefined : { y: 0 }}
+    className="inline-flex items-center"
+  >
+    Request Security Assessment
+  </motion.span>
+</Link>
+
             </div>
           </motion.div>
 
