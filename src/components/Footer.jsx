@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, Instagram, Linkedin, ChevronDown } from "lucide-react";
+import { StoreIcon, Instagram, Linkedin, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -130,84 +130,89 @@ export default function Footer() {
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-3 gap-y-10">
           {/* Brand + Certifications */}
-          <motion.div variants={item} className="flex flex-col items-start md:col-span-3">
-  {/* Company Logo */}
-  <Link
-  href="/"
-  aria-label="Vulnuris Home"
-  className="
-    relative block
-    w-full max-w-[220px]
-    sm:max-w-[260px]
-    lg:max-w-[300px]
-  "
->
-  <div className="relative aspect-[4/1] w-full">
-    <Image
-      src={
-        theme === "light"
-          ? "/assets/vulnuris_logo_full1.png"
-          : "/assets/vulnuris_logo_full2.png"
-      }
-      alt="Vulnuris logo"
-      fill
-      sizes="(max-width: 640px) 220px, (max-width: 1024px) 260px, 300px"
-      className="object-contain"
-      priority
-    />
-  </div>
-</Link>
-
-
-  {/* Certifications – clean, no boxes */}
-  <div className="mt-6 flex flex-wrap items-center gap-6">
-    {certifications.map((c) => (
-      <motion.div
-        key={c.src}
-        whileHover={{ scale: 1.06 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        className="relative h-14 sm:h-16 lg:h-18 w-auto"
-        title={c.alt}
-      >
+           <motion.div
+    variants={item}
+    className="flex flex-col items-center md:items-start md:col-span-3"
+  >
+    {/* Company Logo */}
+    <Link
+      href="/"
+      aria-label="Vulnuris Home"
+      className="
+        relative block
+        mx-auto md:mx-0
+        w-full max-w-[220px]
+        sm:max-w-[260px]
+        lg:max-w-[300px]
+        lg:-translate-x-8
+      "
+    >
+      <div className="relative aspect-[4/1] w-full">
         <Image
-          src={c.src}
-          alt={c.alt}
-          height={72}
-          width={120}
-          className="
-            h-full w-auto object-contain
-            opacity-80
-            grayscale
-            hover:grayscale-0 hover:opacity-100
-            transition-all duration-300
-          "
+          src={
+            theme === "light"
+              ? "/assets/vulnuris_logo_full1.png"
+              : "/assets/vulnuris_logo_full2.png"
+          }
+          alt="Vulnuris logo"
+          fill
+          sizes="(max-width: 640px) 220px, (max-width: 1024px) 260px, 300px"
+          className="object-contain"
+          priority
         />
-      </motion.div>
-    ))}
-  </div>
-
-<p
-  className="
-    mt-5 text-sm w-full max-w-xs
-    text-justify
-    text-muted-foreground
-    leading-relaxed
-    tracking-[0.01em]
-  "
-  style={{
-    hyphens: "auto",
-    WebkitHyphens: "auto",
-    msHyphens: "auto",
-  }}
->
-  Professional cybersecurity solutions protecting your digital assets since 2017.
-  <br />
-  Formerly known as Newtons Apple Security Solutions LLP.
-</p>
+      </div>
+    </Link>
 
 
+            {/* Certifications – clean, no boxes */}
+            <div className="mt-6 flex flex-wrap justify-center md:justify-start items-center gap-6">
+      {certifications.map((c) => (
+        <motion.div
+          key={c.src}
+          whileHover={{ scale: 1.06 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          className="relative h-14 sm:h-16 lg:h-18 w-auto"
+          title={c.alt}
+        >
+          <Image
+            src={c.src}
+            alt={c.alt}
+            height={72}
+            width={120}
+            className="
+              h-full w-auto object-contain
+              opacity-80
+              grayscale
+              hover:grayscale-0 hover:opacity-100
+              transition-all duration-300
+            "
+          />
+        </motion.div>
+      ))}
+    </div>
 
-</motion.div>
+    <p
+      className="
+        mt-5 text-sm w-full max-w-xs
+        text-justify md:text-left
+        text-muted-foreground
+        leading-relaxed
+        tracking-[0.01em]
+      "
+      style={{
+        hyphens: "auto",
+        WebkitHyphens: "auto",
+        msHyphens: "auto",
+      }}
+    >
+      Professional cybersecurity solutions protecting your digital assets since 2017.
+      <br />
+      Formerly known as Newtons Apple Security Solutions LLP.
+    </p>
+
+
+
+          </motion.div>
 
           {/* Links */}
           <motion.div variants={item} className="flex flex-col gap-3 items-start md:col-span-2 md:pr-2">
@@ -228,7 +233,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Services */}
-          <motion.div variants={item} className="flex flex-col gap-3 items-start md:col-span-3 md:-ml-10">
+          <motion.div variants={item} className="flex flex-col gap-3 items-start md:col-span-3 md:-ml-10 md:mr-10">
             <h2 className="text-xl font-semibold mb-2">Services</h2>
             <ul
               className="space-y-2 text-sm w-full max-h-[520px] overflow-y-auto pr-2
@@ -348,10 +353,10 @@ export default function Footer() {
                   url: "https://www.instagram.com/vulnuris/",
                 },
                 {
-                  name: "Facebook",
-                  icon: <Facebook size={18} />,
-                  color: "hover:text-blue-600",
-                  url: "https://www.facebook.com/vulnuris/",
+                  name: "B2B MarketPlace  ",
+                  icon: <StoreIcon size={18} />,
+                  color: "hover:text-purple-600",
+                  url: "https://stafir.com/users/company/company-detail/vulnuris-security-solutions",
                 },
               ].map((itemSocial) => (
                 <li key={itemSocial.name} className="relative group">
@@ -380,25 +385,63 @@ export default function Footer() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="max-w-[92%] mx-auto mt-12 pt-5 border-t-2 border-border pb-10"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-sm gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 text-sm gap-6">
           {[
-            ["India", "Nitaan Towers, Aundh, Pune, Maharashtra 411007"],
+            ["India", "Nitaan Towers, Aundh, \nPune, Maharashtra 411007"],
             ["Kuwait", "Panasonic Tower,\nKuwait City, Kuwait"],
             ["USA", "12310 Pinecrest Road,\nSuite #306, Reston, VA 20191"],
             ["UAE", "Vulnuris Security Solutions FZCO,\nA1, IFZA, Dubai, UAE"],
           ].map(([country, address], idx) => (
             <div
               key={country}
-              className={`p-2 ${idx !== 0 ? "border-l border-border lg:border-l-2" : ""}`}
+              className={`flex gap-3 p-2 ${idx !== 0 ? "border-l border-border lg:border-l-2" : ""
+                }`}
             >
-              <h5 className="font-semibold mb-2">{country}</h5>
-              <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                {address}
-              </p>
+              {/* Logo as location symbol */}
+              <div className="shrink-0 mt-1">
+                <img
+                  src="/assets/vul_logo.png"
+                  alt="Vulnuris location"
+                  className="
+              h-6 w-5
+              object-contain
+              opacity-80
+              hover:grayscale-0 hover:opacity-100
+              transition-all duration-300
+              mb-5
+            "
+                  style={{
+                    filter: "drop-shadow(0 0 5px rgba(0, 0, 0, 0.2))",
+                    position: "relative",
+                    bottom: "0.4rem",
+                  }}
+                />
+              </div>
+
+              {/* Text */}
+              <div>
+                <h5 className="font-semibold mb-1">{country}
+
+                  {country === "India" && (
+                    <span >
+                      {" "}
+                    </span>
+                  )}
+                  {country === "India" && (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">
+                      HQ
+                    </span>
+                  )}
+                </h5>
+                <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
+                  {address}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </motion.div>
+
 
       {/* Bottom */}
       <motion.div
@@ -415,3 +458,17 @@ export default function Footer() {
     </>
   );
 }
+
+
+//    <p>
+//   We are listed on{' '}
+//   <Link
+//     href="https://stafir.com"
+//     target="_blank"
+//     rel="noopener noreferrer"
+//     className="text-blue-600 underline"
+//   >
+//     B2B Marketplace
+//   </Link>{' '}
+//   Stafir
+// </p>
