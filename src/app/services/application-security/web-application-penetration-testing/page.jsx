@@ -1,447 +1,875 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 
-import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
+const outcomes = [
+  {
+    title: "Board-ready risk clarity",
+    description:
+      "Translate findings into business impact and exposure so leadership can prioritize confidently.",
   },
-};
-
-const itemFadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+  {
+    title: "Measurable reduction in attack surface",
+    description:
+      "Evidence-based severity and closure tracking for critical workflows.",
   },
-};
+  {
+    title: "Compliance-ready assurance",
+    description:
+      "Mapped to OWASP Top 10, PCI DSS, ISO 27001, SOC 2, GDPR, and DPDPA.",
+  },
+  {
+    title: "Release velocity without blind spots",
+    description:
+      "Security validation aligned with your SDLC to keep releases on schedule.",
+  },
+];
+
+const complianceBadges = [
+  "OWASP Top 10",
+  "PCI DSS",
+  "ISO 27001",
+  "SOC 2",
+  "GDPR",
+  "DPDPA",
+];
+
+const methodology = [
+  {
+    title: "Scope & Threat Modeling",
+    description:
+      "Align on crown-jewel workflows, business impact, and realistic adversary paths.",
+  },
+  {
+    title: "Manual + Assisted Testing",
+    description:
+      "Human-led testing with targeted automation for depth without noise.",
+  },
+  {
+    title: "Exploit Validation",
+    description:
+      "Prove impact with safe, controlled demonstrations and evidence capture.",
+  },
+  {
+    title: "Executive Reporting",
+    description:
+      "Board-level summary plus technical detail for engineering actionability.",
+  },
+  {
+    title: "Fix & Retest",
+    description:
+      "Remediation support and verification to close audit findings.",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Scope",
+    description: "Define crown jewels, environments, and success criteria.",
+  },
+  {
+    title: "Test",
+    description: "Manual-led testing across critical workflows and APIs.",
+  },
+  {
+    title: "Report",
+    description: "Executive summary + technical evidence and risk ratings.",
+  },
+  {
+    title: "Fix",
+    description: "Remediation guidance prioritized by business impact.",
+  },
+  {
+    title: "Retest",
+    description: "Verification and retest certificate for assurance.",
+  },
+];
+
+const testCategories = [
+  {
+    title: "Auth & Session",
+    items: ["MFA flows", "Account lifecycle", "Session integrity", "Token misuse"],
+  },
+  {
+    title: "Access Control",
+    items: ["Role enforcement", "Object-level access", "Privilege boundaries"],
+  },
+  {
+    title: "Input & Injection",
+    items: ["Injection vectors", "XSS exposure", "Unsafe deserialization"],
+  },
+  {
+    title: "API & Business Logic",
+    items: ["Schema abuse", "Rate limits", "Workflow bypasses"],
+  },
+  {
+    title: "Config & Exposure",
+    items: ["CORS & headers", "Secret leakage", "Sensitive data handling"],
+  },
+];
+
+const deliverables = [
+  "Executive summary with business impact",
+  "Technical report with evidence and repro steps",
+  "Risk ratings aligned to CVSS and business context",
+  "Remediation guidance with prioritization",
+  "Jira-ready tickets with clear ownership",
+  "Retest certificate after fixes",
+];
+
+const useCases = [
+  {
+    title: "Regulated FinTech",
+    description:
+      "Support PCI DSS and SOC 2 audits with verified testing across payment flows.",
+  },
+  {
+    title: "Enterprise SaaS",
+    description:
+      "Validate tenant isolation, admin workflows, and privileged access controls.",
+  },
+  {
+    title: "Healthcare & Life Sciences",
+    description:
+      "Protect PHI and verify privacy controls across portals and APIs.",
+  },
+  {
+    title: "Global Marketplaces",
+    description:
+      "Assess fraud vectors, pricing manipulation, and vendor impersonation risk.",
+  },
+];
+
+const engagementTiers = [
+  {
+    title: "Assurance Sprint",
+    description:
+      "Focused assessment for a critical release, acquisition, or regulatory checkpoint.",
+    bullets: ["2-3 week delivery", "Priority workflows", "Executive briefing"],
+  },
+  {
+    title: "Comprehensive Assessment",
+    description:
+      "Full-coverage testing across web apps, APIs, and supporting services.",
+    bullets: ["Broader scope", "Risk-based prioritization", "Retest included"],
+  },
+  {
+    title: "Continuous Assurance",
+    description:
+      "Quarterly or release-aligned testing with trend reporting.",
+    bullets: ["Ongoing cadence", "Leadership metrics", "Program alignment"],
+  },
+];
+
+const faqs = [
+  {
+    question: "How do you align with compliance requirements?",
+    answer:
+      "We map findings and controls to OWASP Top 10, PCI DSS, ISO 27001, SOC 2, GDPR, and DPDPA with audit-ready evidence.",
+  },
+  {
+    question: "Will this disrupt production systems?",
+    answer:
+      "Testing is planned with your teams, using safe techniques, rate limits, and non-production environments where possible.",
+  },
+  {
+    question: "What does the board receive?",
+    answer:
+      "A concise executive summary with impact, exposure, and remediation progress that can be shared in leadership reviews.",
+  },
+  {
+    question: "Do you retest after fixes?",
+    answer:
+      "Yes. Retesting is included to confirm closures and provide a retest certificate.",
+  },
+];
+
+const painPoints = [
+  "Board asks: Are we exposed?",
+  "Can we prove we tested?",
+  "What is the remediation plan?",
+];
+
+const IconShield = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 3l7 3v5c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-3z" />
+    <path d="M9.5 12l2 2 3.5-3.5" />
+  </svg>
+);
+
+const IconPulse = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M3 12h4l2-6 4 12 2-6h4" />
+  </svg>
+);
+
+const IconTarget = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="12" cy="12" r="9" />
+    <circle cx="12" cy="12" r="5" />
+    <path d="M12 7v5l3 3" />
+  </svg>
+);
+
+const Section = ({ className = "", children, id }) => (
+  <section id={id} className={`relative py-16 ${className}`}>
+    {children}
+  </section>
+);
+
+const Container = ({ className = "", children }) => (
+  <div className={`mx-auto w-full max-w-6xl px-6 ${className}`}>{children}</div>
+);
+
+const SectionHeader = ({ eyebrow, title, subtitle, align = "center" }) => (
+  <div
+    className={
+      align === "left" ? "text-left" : align === "right" ? "text-right" : "text-center"
+    }
+  >
+    {eyebrow ? (
+      <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+        {eyebrow}
+      </div>
+    ) : null}
+    <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white">
+      {title}
+    </h2>
+    {subtitle ? (
+      <p className="mt-3 text-base md:text-lg text-slate-600 dark:text-slate-300">
+        {subtitle}
+      </p>
+    ) : null}
+  </div>
+);
+
+const Card = ({ className = "", children }) => (
+  <div
+    className={`rounded-2xl border border-slate-200/70 bg-white/80 p-5 shadow-sm backdrop-blur-md transition dark:border-slate-800/70 dark:bg-slate-900/70 ${className}`}
+  >
+    {children}
+  </div>
+);
+
+const Badge = ({ children }) => (
+  <span className="rounded-full border border-slate-200/70 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200">
+    {children}
+  </span>
+);
+
+const WhatWeTestIllustration = () => (
+  <svg viewBox="0 0 420 320" className="h-full w-full" aria-hidden="true">
+    <defs>
+      <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stopColor="#0f172a" stopOpacity="0.15" />
+        <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.2" />
+      </linearGradient>
+      <linearGradient id="pulse" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stopColor="#22d3ee" />
+        <stop offset="100%" stopColor="#6366f1" />
+      </linearGradient>
+    </defs>
+    <rect x="30" y="28" width="280" height="180" rx="14" fill="url(#panel)" stroke="#94a3b8" strokeOpacity="0.4" />
+    <rect x="48" y="48" width="246" height="18" rx="8" fill="#0f172a" fillOpacity="0.2" />
+    <rect x="48" y="78" width="210" height="12" rx="6" fill="#0f172a" fillOpacity="0.15" />
+    <rect x="48" y="98" width="180" height="12" rx="6" fill="#0f172a" fillOpacity="0.15" />
+    <rect x="48" y="130" width="110" height="18" rx="8" fill="url(#pulse)" fillOpacity="0.45" />
+    <circle cx="320" cy="90" r="40" fill="url(#pulse)" fillOpacity="0.2" />
+    <path
+      d="M320 54l22 10v16c0 16-9 28-22 32-13-4-22-16-22-32V64l22-10z"
+      stroke="#22d3ee"
+      strokeWidth="2"
+      fill="none"
+    />
+    <path d="M310 88l8 8 14-16" stroke="#22d3ee" strokeWidth="2" fill="none" />
+    <circle cx="80" cy="250" r="18" fill="#0f172a" fillOpacity="0.08" stroke="#94a3b8" strokeOpacity="0.4" />
+    <circle cx="200" cy="250" r="18" fill="#0f172a" fillOpacity="0.08" stroke="#94a3b8" strokeOpacity="0.4" />
+    <circle cx="320" cy="250" r="18" fill="#0f172a" fillOpacity="0.08" stroke="#94a3b8" strokeOpacity="0.4" />
+    <path d="M98 250h84M218 250h84" stroke="#94a3b8" strokeOpacity="0.5" strokeDasharray="4 6" />
+  </svg>
+);
 
 export default function WebAppPentestPage() {
+  const reduceMotion = useReducedMotion();
+  const [showMobileCta, setShowMobileCta] = useState(false);
+  const [openFaq, setOpenFaq] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowMobileCta(window.scrollY > 520);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 18 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduceMotion ? 0 : 0.6, ease: "easeOut" },
+    },
+  };
+
+  const stagger = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: reduceMotion ? 0 : 0.12 },
+    },
+  };
+
   return (
     <motion.main
       initial="hidden"
       animate="show"
       variants={stagger}
-      className="w-full bg-gray-50 dark:bg-background text-gray-900 dark:text-foreground"
+      className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white"
     >
-      {/* ================= HERO ================= */}
-
-      <motion.section
-        variants={fadeUp}
-        className="relative h-screen overflow-hidden"
-      >
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/assets/videos/main.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
-
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
-          <motion.h1
-            variants={fadeUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
-          >
-            Web Application Penetration Testing
-          </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl"
-          >
-            <p> Over 80% of enterprise breaches originate from exploitable web
-            application attack surfaces, making web apps a primary business risk
-            for modern organizations.</p>
-            Vulnuris simulates real-world attacker
-            behavior to expose injection flaws, broken authentication, business
-            logic abuse, insecure configurations, and privilege
-            escalation—helping you prevent incidents, protect sensitive data,
-            meet compliance requirements, and release secure applications with
-            confidence.
-          </motion.p>
-
-          <Link href="/contact">
-            <motion.button
-              whileHover={{ scale: 1.06 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-8 px-8 py-3 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
-            >
-              GET STARTED
-            </motion.button>
-          </Link>
-        </div>
-      </motion.section>
-
-      {/* ================= OVERVIEW ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="relative py-16 px-5 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background overflow-hidden"
-      >
-        {/* Decorative Glow */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+      <Section className="pt-24 sm:pt-28 md:pt-0 pb-14">
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/assets/videos/main.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/assets/img.jpg"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-950" />
+          <div className="absolute -left-20 top-20 h-56 w-56 rounded-full bg-cyan-500/20 blur-3xl" />
+          <div className="absolute -right-24 bottom-6 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto text-center">
-          {/* Section Label */}
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block mb-4 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
-          >
-            SECURITY OVERVIEW
-          </motion.span>
-
-          {/* Title */}
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-foreground">
-            What We Do
-          </h2>
-
-          {/* Glass Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
-          >
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              We deliver comprehensive application security testing designed to
-              uncover real-world vulnerabilities across web applications, APIs,
-              mobile apps, and cloud services. Our approach mirrors how modern
-              attackers operate — validating exploitability, impact, and attack
-              paths rather than relying solely on automated scans.
+        <Container className="relative z-10 flex min-h-[86vh] flex-col justify-center">
+          <motion.div variants={fadeUp} className="max-w-3xl ">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+              Web Application Penetration Testing
+            </div>
+            <h1 className="mt-6 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+              Expose real-world risk before it reaches your customers or the board.
+            </h1>
+            <p className="mt-4 text-lg text-white/80 md:text-xl">
+              CISO-grade testing that proves impact, quantifies exposure, and delivers board-ready reporting.
             </p>
-
-            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              By combining manual penetration testing, threat modeling, and
-              secure architecture review, we help you understand which
-              vulnerabilities truly matter, how they can be exploited, and how
-              to remediate them effectively. This enables informed risk
-              prioritization, reduced attack surface, and measurable security
-              improvements.
+            <p className="mt-3 text-sm text-white/70 md:text-base">
+              Manual-led testing aligned to compliance frameworks, engineered for measurable outcomes.
             </p>
-
-            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-            <p className="text-lg leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Our testing aligns with industry-recognized frameworks and
-              regulatory requirements including OWASP Top 10, SANS Top 25, PCI
-              DSS, GDPR, HIPAA, HL7, NIST, and ISO/IEC 27001 & 27002. We provide
-              clear remediation recommendations, proof-of-concept validation,
-              and up to one month of post-assessment mitigation support.
-            </p>
+            <div className="mt-7 flex flex-wrap gap-4">
+              <Link href="/contact" legacyBehavior>
+                <motion.a
+                  aria-label="Request Security Assessment"
+                  whileHover={reduceMotion ? undefined : { y: -2 }}
+                  whileTap={reduceMotion ? undefined : { y: 0 }}
+                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 cursor-pointer"
+                >
+                  Request Security Assessment
+                </motion.a>
+              </Link>
+            </div>
           </motion.div>
-        </div>
-      </motion.section>
 
-      {/* ================= DETAILED SERVICE INFO CONTAINER ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeUp}
-        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
-      >
-        <div className="max-w-7xl mx-auto">
+          <motion.div variants={fadeUp} className="mt-12 max-w-4xl">
+            <div className="grid gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 md:grid-cols-3">
+              {painPoints.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
           <motion.div
-            variants={fadeUp}
-            className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
+            <SectionHeader
+              eyebrow="Outcomes"
+              title="Security assurance that leadership can act on."
+              subtitle="Move from vulnerability lists to risk decisions with measurable outcomes and prioritization."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {outcomes.map((item) => (
+                <motion.div
+                  key={item.title}
+                  variants={fadeUp}
+                  whileHover={reduceMotion ? undefined : { y: -4 }}
+                >
+                  <Card>
+                    <div className="flex items-start gap-4">
+                      <div className="rounded-full bg-slate-900/5 p-3 text-slate-900 dark:bg-white/10 dark:text-white">
+                        <IconShield className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
 
-            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
-                  How Our Web App Pentest Works
-                </h3>
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }}>
+            <SectionHeader
+              eyebrow="Trust & Compliance"
+              title="Assurance aligned to the frameworks your auditors expect."
+              subtitle="Testing evidence mapped to industry and regulatory standards for board and audit committees."
+            />
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {complianceBadges.map((badge) => (
+                <Badge key={badge}>{badge}</Badge>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
 
-                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our Web Application Penetration Testing follows a strict
-                  attacker-centric methodology designed to uncover security
-                  weaknesses, logic flaws, and misconfigurations that automated
-                  scanners typically miss.
-                </p>
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Methodology"
+              title="A disciplined, attacker-led methodology."
+              subtitle="We mirror real adversaries while keeping tests safe, controlled, and measurable."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {methodology.map((item) => (
+                <motion.div key={item.title} variants={fadeUp}>
+                  <Card>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {item.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
 
-                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Application scope and asset mapping</li>
-                  <li>✔ Manual + automated vulnerability discovery</li>
-                  <li>✔ Business logic and access control testing</li>
-                  <li>✔ Exploitation to validate real impact</li>
-                  <li>✔ CVSS-based risk classification</li>
-                  <li>✔ Retesting after fixes (optional)</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                  What You Get
-                </h4>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    "Executive summary with business risk impact",
-                    "Detailed vulnerability descriptions with affected endpoints",
-                    "Developer-focused technical report",
-                    "Step-by-step attack reproduction guidance",
-                    "Proof-of-concept screenshots and payloads",
-                    "CVSS v3.1 severity scoring and risk prioritization",
-                    "Authentication & authorization flaw analysis",
-                    "Business logic and workflow abuse findings",
-                    "Mapped OWASP Top 10 and CWE references",
-                    "Compliance alignment (PCI DSS, ISO 27001, GDPR, HIPAA)",
-                  ].map((item, i) => (
+            <div className="mt-10 rounded-2xl border border-slate-200/70 bg-slate-50 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white">Engagement process</h3>
+              <div className="relative mt-6">
+                <div className="pointer-events-none absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-slate-300 to-transparent md:block dark:via-slate-700" />
+                <motion.div
+                  variants={stagger}
+                  className="grid gap-4 md:grid-cols-5"
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-120px" }}
+                >
+                  {processSteps.map((step) => (
                     <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.03 }}
-                      className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+                      key={step.title}
+                      variants={fadeUp}
+                      whileHover={reduceMotion ? undefined : { y: -4 }}
+                      className="relative"
                     >
-                      {item}
+                      <Card className="h-full">
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                          {step.title}
+                        </div>
+                        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                          {step.description}
+                        </p>
+                      </Card>
                     </motion.div>
                   ))}
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+            className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
+          >
+            <div>
+              <SectionHeader
+                align="left"
+                eyebrow="What We Test"
+                title="Coverage across the attack surface that matters."
+                subtitle="Focus on the exploit paths most likely to lead to data loss, fraud, or systemic outage."
+              />
+              <div className="mt-8">
+                <div className="relative rounded-2xl border border-slate-200/70 bg-white/80 p-5 shadow-sm backdrop-blur-md dark:border-slate-800/70 dark:bg-slate-900/70">
+                  <div className="pointer-events-none absolute -inset-1 rounded-[22px] bg-gradient-to-r from-cyan-500/30 via-indigo-500/20 to-transparent opacity-70" />
+                  <div className="relative overflow-hidden rounded-2xl bg-slate-950/5 p-4 dark:bg-slate-950">
+                    <div className="absolute -left-8 -top-8 h-28 w-28 rounded-full bg-cyan-500/20 blur-2xl" />
+                    <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-indigo-500/20 blur-2xl" />
+                    <WhatWeTestIllustration />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="grid gap-4">
+                {testCategories.map((category) => (
+                  <motion.div key={category.title} variants={fadeUp}>
+                    <Card>
+                      <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                        {category.title}
+                      </h3>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {category.items.map((item) => (
+                          <Badge key={item}>{item}</Badge>
+                        ))}
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Why Vulnuris"
+              title="Security outcomes built for executive confidence."
+              subtitle="Senior testers, attacker mindset, and compliance-ready reporting that scales across teams."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {[
+                {
+                  title: "Senior-led testing",
+                  description: "Experienced testers validate exploitability end-to-end.",
+                  Icon: IconTarget,
+                },
+                {
+                  title: "Evidence-driven reporting",
+                  description: "Clear evidence so engineering can remediate quickly and confidently.",
+                  Icon: IconPulse,
+                },
+                {
+                  title: "Retest included",
+                  description: "Verification of fixes and a retest certificate for assurance.",
+                  Icon: IconShield,
+                },
+              ].map((item) => (
+                <motion.div key={item.title} variants={fadeUp}>
+                  <Card className="h-full">
+                    <div className="mb-4 inline-flex rounded-full bg-slate-900/5 p-3 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <item.Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {item.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Deliverables"
+              title="What you get"
+              subtitle="Actionable outputs for executives, engineering, and compliance teams."
+            />
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {deliverables.map((item) => (
+                <motion.div key={item} variants={fadeUp}>
+                  <Card>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-cyan-500" />
+                      <p className="text-sm text-slate-700 dark:text-slate-300">{item}</p>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Industry Use Cases"
+              title="Aligned to the risk realities of modern enterprises."
+              subtitle="Designed for high-impact environments where availability and trust are non-negotiable."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {useCases.map((item) => (
+                <motion.div key={item.title} variants={fadeUp}>
+                  <Card className="h-full">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {item.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }}>
+            <SectionHeader
+              eyebrow="Proof"
+              title="Evidence over assumptions."
+              subtitle="Typical engagements uncover critical findings in authentication, access control, and business logic."
+            />
+            <div className="mt-8 grid gap-5 lg:grid-cols-3">
+              {[
+                {
+                  title: "Critical findings",
+                  value: "Industry estimates suggest 30-40% of apps contain exploitable access control gaps.",
+                },
+                {
+                  title: "Remediation speed",
+                  value: "Clients typically close prioritized issues 2-3x faster with Jira-ready tickets.",
+                },
+                {
+                  title: "Audit readiness",
+                  value: "Board-ready reporting reduces audit cycle friction and accelerates sign-off.",
+                },
+              ].map((item) => (
+                <Card key={item.title} className="h-full">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    {item.title}
+                  </div>
+                  <p className="mt-3 text-sm text-slate-700 dark:text-slate-300">{item.value}</p>
+                </Card>
+              ))}
+            </div>
+            <div className="mt-8 rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/70">
+              <div className="grid gap-6 md:grid-cols-3">
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Case study snapshot</p>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                    Global SaaS provider reduced high-risk findings by 62% in one release cycle.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Scope</p>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                    4 apps, 18 APIs, and a privileged admin console.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white">Outcome</p>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                    Board briefing delivered with remediation roadmap and retest certificate.
+                  </p>
                 </div>
               </div>
             </div>
           </motion.div>
-        </div>
-      </motion.section>
+        </Container>
+      </Section>
 
-      {/* ================= KEY BENEFITS ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-120px" }}
-        variants={stagger}
-        className="py-20 px-6 bg-gray-50 dark:bg-background"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            variants={fadeUp}
-            className="text-center text-3xl font-bold text-primary mb-14"
-          >
-            Business Benefits
-          </motion.h2>
-
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
           >
-            {[
-              {
-                title: "Simulated Real-World Attacks",
-                desc: "Evaluate your real security posture using hacker-like techniques.",
-              },
-              {
-                title: "Faster Secure Development",
-                desc: "Improve developer speed and code quality with secure coding insights.",
-              },
-              {
-                title: "Lower Testing and Compliance Cost",
-                desc: "Reduce testing and compliance costs without compromising security.",
-              },
-              {
-                title: "Early Vulnerability Detection",
-                desc: "Identify and fix issues early in the SDLC.",
-              },
-              {
-                title: "Continuous Security Visibility",
-                desc: "Dashboards to monitor your web application security posture.",
-              },
-              {
-                title: "Release Without Delay",
-                desc: "Prevent security testing from delaying application releases.",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={itemFadeUp}
-                whileHover={{ y: -10, scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="bg-white dark:bg-muted border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all"
-              >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
-                  {item.title}
-                </h3>
-                <p className="text-gray-700 dark:text-muted-foreground text-sm">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+            <SectionHeader
+              eyebrow="Pricing Approach"
+              title="Engagement tiers built for enterprise reality."
+              subtitle="Choose the scope and cadence that fits your release and risk profile."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {engagementTiers.map((tier) => (
+                <motion.div key={tier.title} variants={fadeUp}>
+                  <Card className="h-full">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {tier.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {tier.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {tier.bullets.map((bullet) => (
+                        <Badge key={bullet}>{bullet}</Badge>
+                      ))}
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
-        </div>
-      </motion.section>
+        </Container>
+      </Section>
 
-      {/* ================= METHODOLOGY ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-120px" }}
-        variants={stagger}
-        className="py-10 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div variants={fadeUp} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-              Our Penetration Testing Methodology
-            </h2>
-
-            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
-              A structured, battle-tested approach to uncover vulnerabilities
-              and validate real-world attack scenarios.
-            </p>
-
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
-            >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
-
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Discovery and Exploitation
-              </h3>
-
-              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
-                <li>• Information gathering</li>
-                <li>• Threat modelling</li>
-                <li>• Application mapping</li>
-                <li>• Vulnerability detection</li>
-                <li>• Manual exploitation</li>
-                <li>• Privilege escalation</li>
-              </ul>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
-            >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
-
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Reporting and Remediation
-              </h3>
-
-              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
-                <li>• Result analysis</li>
-                <li>• Developer-friendly reporting</li>
-                <li>• Security briefing workshop</li>
-                <li>• Mitigation support</li>
-                <li>• Complimentary retesting</li>
-                <li>• Executive summary report</li>
-              </ul>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ================= WHAT WE TEST ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-120px" }}
-        variants={stagger}
-        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div variants={fadeUp} className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-              What Do We Test?
-            </h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Comprehensive security validation across application, API, and
-              infrastructure layers.
-            </p>
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
-          </motion.div>
-
-          <motion.div
-            variants={stagger}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
-          >
-            {[
-              "OWASP Top 10 and SANS Top 25",
-              "Broken Access Control and IDOR",
-              "SQL Injection and XSS",
-              "Business Logic Vulnerabilities",
-              "Secure Communication and Encryption",
-              "API and Web Services Security",
-              "Source Code Review",
-              "Updates, CVEs and Misconfigurations",
-              "PII and Sensitive Data Exposure",
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={itemFadeUp}
-                whileHover={{ y: -10, scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-violet-500/40 to-cyan-500/40"
-              >
-                <div className="relative h-full rounded-2xl bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl p-6 border border-gray-200/60 dark:border-slate-800 shadow-lg hover:shadow-2xl transition-all">
-                  <div className="absolute top-4 right-4 h-2.5 w-2.5 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 opacity-80 group-hover:scale-125 transition-transform" />
-
-                  <p className="text-base font-semibold text-gray-800 dark:text-gray-100 leading-relaxed">
-                    {item}
-                  </p>
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }}>
+            <SectionHeader
+              eyebrow="FAQ"
+              title="Answers for security and executive stakeholders."
+              subtitle="Short responses to keep decisions moving."
+            />
+            <div className="mt-8 space-y-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={faq.question}
+                  className="rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/70"
+                >
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between text-left text-sm font-semibold text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 dark:text-white"
+                    aria-expanded={openFaq === index}
+                    onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
+                  >
+                    <span>{faq.question}</span>
+                    <span className="text-slate-500">{openFaq === index ? "–" : "+"}</span>
+                  </button>
+                  {openFaq === index ? (
+                    <div className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                      {faq.answer}
+                    </div>
+                  ) : null}
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </motion.div>
-        </div>
-      </motion.section>
+        </Container>
+      </Section>
 
-      {/* ================= DELIVERABLES ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeUp}
-        className="py-10 px-6 text-center bg-gray-50 dark:bg-background"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-          Web App Pen Test Deliverables
-        </h2>
-
-        <p className="max-w-4xl mx-auto text-lg text-gray-700 dark:text-muted-foreground mb-10">
-          Developer-friendly reports, remediation workshops, retesting, secure
-          badge, and up to one-year on-call advisory support.
-        </p>
-
-        <Link href="/contact">
-          <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-lg transition"
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+            className="rounded-3xl border border-slate-200/70 bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 px-6 py-10 text-center text-white shadow-xl dark:border-slate-800/70"
           >
-            Talk to a Security Expert
-          </motion.button>
-        </Link>
-      </motion.section>
+            <h2 className="text-3xl font-semibold md:text-4xl">
+              Move from uncertainty to assurance in weeks.
+            </h2>
+            <p className="mt-3 text-sm text-white/70 md:text-base">
+              Get a scope-aligned assessment, executive reporting, and a remediation plan that your board can trust.
+            </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-4">
+              <Link
+                href="/contact"
+                aria-label="Request Security Assessment"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              >
+                Request Security Assessment
+              </Link>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200/70 bg-white/95 px-4 py-3 shadow-lg backdrop-blur-md transition md:hidden dark:border-slate-800/70 dark:bg-slate-950/90 ${
+          showMobileCta ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
+        }`}
+        role="region"
+        aria-label="Quick action"
+      >
+        <div className="flex items-center justify-between gap-3">
+          <div className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+            Ready for a security assessment?
+          </div>
+          <Link
+            href="/contact"
+            aria-label="Request Security Assessment"
+            className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white"
+          >
+            Request Security Assessment
+          </Link>
+        </div>
+      </div>
     </motion.main>
   );
 }
