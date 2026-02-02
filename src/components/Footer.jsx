@@ -33,6 +33,7 @@ export default function Footer() {
       "PCI DSS Compliance",
       "Cyber Security Strategic Consulting",
       "GRC Advisory and Audit",
+      "SOC2 compliance"
     ],
     "Enterprise Security": [
       "Virtual CISO Services",

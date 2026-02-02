@@ -447,7 +447,7 @@ const SOC2Illustration = () => (
   </svg>
 );
 
-/* ===================== PAGE COMPONENT ===================== */
+
 
 export default function SOC2CompliancePage() {
   const reduceMotion = useReducedMotion();
