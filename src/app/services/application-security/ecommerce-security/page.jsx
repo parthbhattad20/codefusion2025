@@ -1,421 +1,928 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
-};
-
-const stagger = {
-  show: { transition: { staggerChildren: 0.12 } },
-};
-
-// Added animation variants for the service section
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
+const outcomes = [
+  {
+    title: "Protect customer data and revenue",
+    description:
+      "Identify payment processing flaws, data exposure, and checkout vulnerabilities before they lead to fraud or breaches.",
   },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
+  {
+    title: "Prevent fraud and abuse",
+    description:
+      "Uncover business logic flaws in pricing, discounts, inventory, and order workflows that enable financial manipulation.",
   },
-};
-
-const cardItemVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  show: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
+  {
+    title: "Meet PCI DSS requirements",
+    description:
+      "Demonstrate compliance with payment card security standards through validated testing and documented evidence.",
   },
-};
+  {
+    title: "Build customer trust",
+    description:
+      "CVSS-scored findings with business impact analysis to prioritize fixes that protect brand reputation and customer confidence.",
+  },
+];
 
-export default function SourceCodeReviewPage() {
+const complianceBadges = [
+  "PCI DSS",
+  "GDPR",
+  "CCPA",
+  "SOC 2",
+  "ISO 27001",
+  "OWASP Top 10",
+];
+
+const methodology = [
+  {
+    title: "Platform & Infrastructure Assessment",
+    description:
+      "Analyze e-commerce platform architecture, hosting environment, CDN configuration, and third-party integrations.",
+  },
+  {
+    title: "Payment Security Validation",
+    description:
+      "Test payment gateway integration, tokenization, PCI DSS controls, and transaction processing workflows.",
+  },
+  {
+    title: "Business Logic Testing",
+    description:
+      "Identify pricing manipulation, cart abuse, inventory bypass, coupon fraud, and order workflow vulnerabilities.",
+  },
+  {
+    title: "Authentication & Access Control",
+    description:
+      "Assess customer account security, admin panels, session management, and privilege escalation risks.",
+  },
+  {
+    title: "Risk Assessment & Remediation",
+    description:
+      "CVSS-scored findings with revenue impact analysis and prioritized remediation guidance for development teams.",
+  },
+];
+
+const processSteps = [
+  {
+    title: "Scope",
+    description: "Define platform, payment flows, and testing boundaries.",
+  },
+  {
+    title: "Recon",
+    description: "Map checkout process, APIs, and third-party services.",
+  },
+  {
+    title: "Test",
+    description: "Execute payment, logic, and infrastructure testing.",
+  },
+  {
+    title: "Exploit",
+    description: "Demonstrate financial impact with proof-of-concept.",
+  },
+  {
+    title: "Report",
+    description: "Deliver findings with PCI DSS compliance mapping.",
+  },
+];
+
+const testCategories = [
+  {
+    title: "Payment Security",
+    items: ["Gateway integration", "Card data handling", "PCI DSS controls", "Tokenization"],
+  },
+  {
+    title: "Business Logic",
+    items: ["Price manipulation", "Cart abuse", "Coupon fraud", "Inventory bypass"],
+  },
+  {
+    title: "Customer Data",
+    items: ["PII exposure", "Account takeover", "Data leakage", "Storage security"],
+  },
+  {
+    title: "Platform Security",
+    items: ["Admin access", "API security", "Session handling", "Input validation"],
+  },
+  {
+    title: "Third-Party Risks",
+    items: ["Plugin vulns", "Payment SDKs", "Shipping APIs", "Analytics tracking"],
+  },
+];
+
+const deliverables = [
+  "Executive summary with revenue risk analysis",
+  "Technical report with e-commerce specific vulnerabilities",
+  "Payment processing and PCI DSS compliance findings",
+  "Checkout workflow and transaction security issues",
+  "Price manipulation and business logic abuse scenarios",
+  "Cart tampering and inventory management vulnerabilities",
+  "Authentication and customer account security flaws",
+  "Admin panel and privileged access control weaknesses",
+  "Third-party integration and plugin security risks",
+  "CVSS v3.1 risk ratings with financial impact assessment",
+  "PCI DSS requirement mapping and compliance evidence",
+  "Developer-focused remediation with platform-specific guidance",
+];
+
+const useCases = [
+  {
+    title: "Retail & Consumer Goods",
+    description:
+      "Secure high-volume online stores, promotional campaigns, and customer loyalty programs against fraud.",
+  },
+  {
+    title: "Fashion & Apparel",
+    description:
+      "Protect seasonal sales, limited edition releases, and flash sale events from bot attacks and abuse.",
+  },
+  {
+    title: "Digital Products & Services",
+    description:
+      "Validate license key generation, subscription management, and digital delivery workflows.",
+  },
+  {
+    title: "B2B E-Commerce",
+    description:
+      "Secure enterprise procurement portals, volume pricing, and multi-user account management systems.",
+  },
+];
+
+const engagementTiers = [
+  {
+    title: "Pre-Launch Security Audit",
+    description:
+      "Comprehensive testing before going live to identify critical payment and checkout vulnerabilities.",
+    bullets: ["New platforms", "PCI DSS readiness", "1-2 weeks"],
+  },
+  {
+    title: "Annual Security Assessment",
+    description:
+      "Full penetration test covering platform, payments, and business logic with PCI DSS compliance validation.",
+    bullets: ["Yearly compliance", "Full coverage", "Executive reporting"],
+  },
+  {
+    title: "Continuous Commerce Security",
+    description:
+      "Ongoing testing aligned to release cycles with automated scanning and quarterly manual validation.",
+    bullets: ["Per-release testing", "Black Friday prep", "Security metrics"],
+  },
+];
+
+const ecommerceServices = [
+  {
+    title: "Shopify Security Testing",
+    desc: "Security assessment for Shopify stores including custom apps, checkout extensions, and payment flows.",
+  },
+  {
+    title: "WooCommerce / WordPress",
+    desc: "WordPress and WooCommerce plugin security, theme vulnerabilities, and payment gateway integration testing.",
+  },
+  {
+    title: "Magento / Adobe Commerce",
+    desc: "Magento security assessment including admin panel, payment processing, and custom module vulnerabilities.",
+  },
+  {
+    title: "Custom E-Commerce Platforms",
+    desc: "Bespoke platform security testing for custom-built shopping carts and checkout systems.",
+  },
+  {
+    title: "Payment Gateway Integration",
+    desc: "Stripe, PayPal, Square, and custom payment processor integration security validation.",
+  },
+  {
+    title: "Mobile Commerce Apps",
+    desc: "iOS and Android shopping app security including payment SDK integration and account security.",
+  },
+  {
+    title: "Marketplace Platforms",
+    desc: "Multi-vendor marketplace security including seller onboarding, commission logic, and dispute resolution.",
+  },
+  {
+    title: "Subscription & Recurring Billing",
+    desc: "Subscription management, recurring payment security, and billing logic vulnerability testing.",
+  },
+  {
+    title: "Headless Commerce APIs",
+    desc: "API security for headless commerce architectures, JAMstack deployments, and microservices.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Will testing disrupt our live e-commerce operations?",
+    answer:
+      "We conduct testing in controlled environments using staging/development instances whenever possible. For production testing, we coordinate with your team to test during low-traffic periods, use rate limiting, and employ non-destructive techniques. We never submit real payment transactions during testing and work closely with you to minimize any customer impact.",
+  },
+  {
+    question: "Do you test third-party plugins and extensions?",
+    answer:
+      "Yes, we assess security risks from third-party plugins, themes, payment gateways, shipping calculators, and other extensions. We identify vulnerable components, outdated versions, and insecure configurations that could compromise your platform. This is particularly important for platforms like WordPress/WooCommerce and Shopify that rely heavily on extensions.",
+  },
+  {
+    question: "How do you validate PCI DSS compliance?",
+    answer:
+      "While we don't perform official PCI DSS certification audits, our testing aligns with PCI DSS requirements and identifies vulnerabilities that would cause compliance failures. We map findings to specific PCI DSS requirements and provide evidence to support your compliance program. For official PCI DSS certification, you'll need a Qualified Security Assessor (QSA).",
+  },
+  {
+    question: "Can you test fraud prevention and abuse scenarios?",
+    answer:
+      "Yes, business logic testing is a core component of e-commerce security. We test for price manipulation, cart abuse, coupon stacking, inventory bypass, shipping cost manipulation, and other fraud scenarios. We also assess rate limiting, bot detection, and anti-automation controls to prevent abuse at scale.",
+  },
+];
+
+const painPoints = [
+  "Is our payment processing secure?",
+  "Can attackers manipulate prices or inventory?",
+  "Are we PCI DSS compliant?",
+];
+
+const IconShield = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 3l7 3v5c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-3z" />
+    <path d="M9.5 12l2 2 3.5-3.5" />
+  </svg>
+);
+
+const IconCart = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="9" cy="21" r="1" />
+    <circle cx="20" cy="21" r="1" />
+    <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" />
+  </svg>
+);
+
+const IconCreditCard = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="2" y="5" width="20" height="14" rx="2" />
+    <path d="M2 10h20" />
+  </svg>
+);
+
+const Section = ({ className = "", children, id }) => (
+  <section id={id} className={`relative py-16 ${className}`}>
+    {children}
+  </section>
+);
+
+const Container = ({ className = "", children }) => (
+  <div className={`mx-auto w-full max-w-6xl px-6 ${className}`}>{children}</div>
+);
+
+const SectionHeader = ({ eyebrow, title, subtitle, align = "center" }) => (
+  <div
+    className={
+      align === "left" ? "text-left" : align === "right" ? "text-right" : "text-center"
+    }
+  >
+    {eyebrow ? (
+      <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+        {eyebrow}
+      </div>
+    ) : null}
+    <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white">
+      {title}
+    </h2>
+    {subtitle ? (
+      <p className="mt-3 text-base md:text-lg text-slate-600 dark:text-slate-300">
+        {subtitle}
+      </p>
+    ) : null}
+  </div>
+);
+
+const Card = ({ className = "", children }) => (
+  <div
+    className={`rounded-2xl border border-slate-200/70 bg-white/80 p-5 shadow-sm backdrop-blur-md transition dark:border-slate-800/70 dark:bg-slate-900/70 ${className}`}
+  >
+    {children}
+  </div>
+);
+
+const Badge = ({ children }) => (
+  <span className="rounded-full border border-slate-200/70 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-200">
+    {children}
+  </span>
+);
+
+const EcommerceSecurityIllustration = () => (
+  <svg viewBox="0 0 420 320" className="h-full w-full" aria-hidden="true">
+    <defs>
+      <linearGradient id="ecom-panel" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stopColor="#0f172a" stopOpacity="0.15" />
+        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.2" />
+      </linearGradient>
+      <linearGradient id="ecom-pulse" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stopColor="#fbbf24" />
+        <stop offset="100%" stopColor="#f97316" />
+      </linearGradient>
+    </defs>
+    {/* Shopping cart */}
+    <circle cx="210" cy="160" r="50" fill="url(#ecom-panel)" stroke="#94a3b8" strokeOpacity="0.4" strokeWidth="2" />
+    <g transform="translate(185, 140)">
+      <circle cx="10" cy="35" r="4" fill="#f59e0b" />
+      <circle cx="40" cy="35" r="4" fill="#f59e0b" />
+      <path d="M5 5h10l5 20h20l5-15H15" stroke="#f59e0b" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </g>
+    
+    {/* Payment card */}
+    <rect x="280" y="100" width="100" height="60" rx="8" fill="url(#ecom-pulse)" fillOpacity="0.2" stroke="#f59e0b" strokeWidth="2" />
+    <rect x="290" y="115" width="80" height="8" rx="4" fill="#f59e0b" fillOpacity="0.3" />
+    <rect x="290" y="135" width="50" height="6" rx="3" fill="#94a3b8" fillOpacity="0.4" />
+    <rect x="290" y="145" width="60" height="6" rx="3" fill="#94a3b8" fillOpacity="0.4" />
+    
+    {/* Security shield */}
+    <g transform="translate(60, 130)">
+      <circle cx="30" cy="30" r="35" fill="url(#ecom-pulse)" fillOpacity="0.2" />
+      <path d="M30 5l20 9v15c0 14-8 22-20 26-12-4-20-12-20-26V14l20-9z" stroke="#f59e0b" strokeWidth="2" fill="none" />
+      <path d="M22 28l6 6 12-14" stroke="#f59e0b" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    </g>
+    
+    {/* Connection lines */}
+    <path d="M125 160h30M260 160h20M210 210v-50" stroke="#94a3b8" strokeOpacity="0.5" strokeDasharray="4 6" strokeWidth="2" />
+    
+    {/* Lock icon */}
+    <g transform="translate(195, 75)">
+      <rect x="0" y="8" width="30" height="20" rx="3" stroke="#10b981" strokeWidth="2" fill="none" />
+      <path d="M7 8V5a8 8 0 0116 0v3" stroke="#10b981" strokeWidth="2" fill="none" />
+      <circle cx="15" cy="18" r="2" fill="#10b981" />
+    </g>
+  </svg>
+);
+
+export default function EcommerceSecurityPage() {
+  const reduceMotion = useReducedMotion();
+  const [showMobileCta, setShowMobileCta] = useState(false);
+  const [openFaq, setOpenFaq] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowMobileCta(window.scrollY > 520);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: reduceMotion ? 0 : 18 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduceMotion ? 0 : 0.6, ease: "easeOut" },
+    },
+  };
+
+  const stagger = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: reduceMotion ? 0 : 0.12 },
+    },
+  };
+
   return (
-    <main className="w-full bg-gray-50 text-gray-900 dark:bg-background dark:text-foreground">
-      {/* ================= HERO ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeUp}
-        className="relative h-screen overflow-hidden"
-      >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/assets/videos/main.mp4" type="video/mp4" />
-        </video>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
-
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 pt-20">
-          <motion.h1
-            variants={fadeUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white"
-          >
-            Secure Source Code Review Services
-          </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            className="mt-6 text-sm md:text-xl text-gray-200 max-w-4xl text-left"
-          >
-            <p>
-              Over 70% of critical security breaches originate from
-              vulnerabilities embedded directly in application source code,
-              making insecure code a top enterprise risk.
-            </p>
-            Vulnuris simulates real-world attacker behavior at the code level to
-            uncover injection flaws, broken authentication logic, cryptographic
-            weaknesses, hardcoded secrets, and business logic errors—helping you
-            prevent incidents, protect sensitive data, meet compliance
-            requirements, and confidently release secure software.
-          </motion.p>
-
-          <Link href="/contact">
-            <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 mt-6 bg-gradient-to-r from-violet-500 to-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
-            >
-              Schedule Code Review
-            </motion.button>
-          </Link>
-        </div>
-      </motion.section>
-
-      {/* ================= OVERVIEW ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-120px" }}
-        variants={fadeUp}
-        className="relative py-10 px-6 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-background dark:to-background overflow-hidden"
-      >
-        {/* Decorative Glow */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 blur-3xl rounded-full" />
+    <motion.main
+      initial="hidden"
+      animate="show"
+      variants={stagger}
+      className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white"
+    >
+      {/* Hero Section */}
+      <Section className="pt-24 sm:pt-28 md:pt-0 pb-14 mt-10">
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/assets/videos/main.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/assets/img.jpg"
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-slate-900/80 via-slate-900/60 to-slate-950" />
+          <div className="absolute -left-20 top-20 h-56 w-56 rounded-full bg-amber-500/20 blur-3xl" />
+          <div className="absolute -right-24 bottom-6 h-64 w-64 rounded-full bg-orange-500/20 blur-3xl" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto text-center">
-          {/* Section Label */}
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block mb-5 px-4 py-1 text-sm font-semibold tracking-wider text-primary bg-primary/10 rounded-full"
-          >
-            APPLICATION SECURITY
-          </motion.span>
-
-          {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-foreground tracking-tight">
-            What is E-commerce Security?
-          </h1>
-
-          {/* Glass Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mt-12 max-w-5xl mx-auto rounded-2xl bg-white/80 dark:bg-muted/40 backdrop-blur-md shadow-xl border border-gray-200 dark:border-border p-8 md:p-10"
-          >
-            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
-              E-commerce security focuses on protecting online stores, payment
-              flows, customer data, and backend systems from cyber threats that
-              directly impact revenue and trust. Modern e-commerce platforms
-              expose a large attack surface through web applications, APIs,
-              third-party services, and complex business logic.
+        <Container className="relative z-10 flex min-h-[86vh] flex-col justify-center">
+          <motion.div variants={fadeUp} className="max-w-3xl">
+            <h1 className="mt-6 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+              Secure your e-commerce platform before fraud impacts revenue.
+            </h1>
+            <p className="mt-4 text-lg text-white/80 md:text-xl">
+              Comprehensive e-commerce security testing that protects payment flows, customer data, and business logic from attackers targeting checkout processes, pricing manipulation, and account takeover.
             </p>
-
-            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Attackers actively target checkout processes, authentication
-              logic, payment gateways, and order management workflows to commit
-              fraud, steal sensitive data, or disrupt business operations. A
-              single vulnerability can result in financial loss, compliance
-              violations, and long-term reputational damage.
+            <p className="mt-3 text-sm text-white/70 md:text-base">
+              Expert-led testing aligned to PCI DSS requirements with business logic validation to prevent fraud and abuse.
             </p>
-
-            <div className="my-6 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-
-            <p className="text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Effective e-commerce security is proactive by design. By
-              identifying weaknesses early — before they are exploited in
-              production — organizations reduce breach risk, protect customer
-              trust, and ensure secure growth as transaction volumes scale.
-            </p>
-
-            {/* Text-only CTA */}
-            <p className="mt-8 text-xl leading-relaxed text-gray-700 dark:text-muted-foreground">
-              Securing an e-commerce platform before attackers exploit it is one
-              of the most effective ways to safeguard revenue, customer
-              confidence, and brand reputation.
-            </p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* ================= DETAILED SERVICE INFO CONTAINER (FIXED) ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-        className="py-10 px-6 bg-gray-100 dark:bg-muted/30"
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            variants={itemVariants}
-            className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-border bg-white dark:bg-background shadow-xl"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-violet-500/10 dark:from-blue-500/20 dark:to-violet-500/20" />
-
-            <div className="relative p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-12">
-              <motion.div variants={itemVariants}>
-                <h3 className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-6">
-                  How Our E-commerce Security Service Works
-                </h3>
-
-                <p className="text-gray-700 dark:text-muted-foreground mb-4 leading-relaxed">
-                  Our e-commerce security program combines vulnerability
-                  assessment, penetration testing, configuration hardening, and
-                  continuous monitoring to protect customer data, payment
-                  systems, and backend infrastructure from real-world cyber
-                  threats.
-                </p>
-
-                <ul className="space-y-3 text-gray-700 dark:text-muted-foreground">
-                  <li>✔ Platform and infrastructure security assessment</li>
-                  <li>✔ Payment gateway and PCI-DSS validation</li>
-                  <li>✔ Web and mobile penetration testing</li>
-                  <li>✔ Business logic and fraud scenario testing</li>
-                  <li>✔ Secure configuration and patch review</li>
-                  <li>✔ Risk scoring using CVSS methodology</li>
-                </ul>
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                  What You Get
-                </h4>
-
-                <motion.div
-                  variants={containerVariants}
-                  className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            <div className="mt-7 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                aria-label="Request E-Commerce Security Assessment"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
+                <motion.span
+                  whileHover={reduceMotion ? undefined : { y: -2 }}
+                  whileTap={reduceMotion ? undefined : { y: 0 }}
+                  className="inline-flex items-center"
                 >
-                  {[
-                    "Executive risk summary with financial and business impact",
-                    "Comprehensive technical vulnerability assessment report",
-                    "Checkout, cart, and order workflow security analysis",
-                    "Authentication, session management, and access control findings",
-                    "Payment processing and PCI DSS–relevant security issues",
-                    "Proof-of-concept attack evidence with screenshots and traces",
-                    "Business logic abuse and fraud scenario identification",
-                    "Data exposure and customer information leakage analysis",
-                    "API and third-party integration security findings",
-                    "CVSS v3.1 severity scoring and risk prioritization",
-                  ].map((item, i) => (
+                  Request Security Assessment
+                </motion.span>
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="mt-12 max-w-4xl">
+            <div className="grid gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/80 md:grid-cols-3">
+              {painPoints.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Outcomes Section */}
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Outcomes"
+              title="E-commerce security that protects revenue and customer trust."
+              subtitle="Identify payment, fraud, and business logic vulnerabilities before they impact your bottom line."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {outcomes.map((item) => (
+                <motion.div
+                  key={item.title}
+                  variants={fadeUp}
+                  whileHover={reduceMotion ? undefined : { y: -4 }}
+                >
+                  <Card>
+                    <div className="flex items-start gap-4">
+                      <div className="rounded-full bg-slate-900/5 p-3 text-slate-900 dark:bg-white/10 dark:text-white">
+                        <IconCart className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Compliance Section */}
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }}>
+            <SectionHeader
+              eyebrow="Compliance & Standards"
+              title="Testing aligned to payment security and privacy regulations."
+              subtitle="Demonstrate PCI DSS compliance and protect customer data for privacy law requirements."
+            />
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {complianceBadges.map((badge) => (
+                <Badge key={badge}>{badge}</Badge>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Methodology Section - continuing in next part due to length */}
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Methodology"
+              title="Attacker-centric testing focused on revenue impact."
+              subtitle="We test e-commerce platforms the way fraudsters do—targeting payments, pricing logic, and customer accounts."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {methodology.map((item) => (
+                <motion.div key={item.title} variants={fadeUp}>
+                  <Card>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {item.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-slate-200/70 bg-slate-50 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white">Testing process</h3>
+              <div className="relative mt-6">
+                <div className="pointer-events-none absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-linear-to-r from-transparent via-slate-300 to-transparent md:block dark:via-slate-700" />
+                <motion.div
+                  variants={stagger}
+                  className="grid gap-4 md:grid-cols-5"
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-120px" }}
+                >
+                  {processSteps.map((step) => (
                     <motion.div
-                      key={i}
-                      variants={cardItemVariants}
-                      whileHover={{ scale: 1.03 }}
-                      className="rounded-xl border border-gray-200 dark:border-border px-4 py-3 text-sm text-gray-700 dark:text-muted-foreground bg-gray-50 dark:bg-muted"
+                      key={step.title}
+                      variants={fadeUp}
+                      whileHover={reduceMotion ? undefined : { y: -4 }}
+                      className="relative"
                     >
-                      {item}
+                      <Card className="h-full">
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                          {step.title}
+                        </div>
+                        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                          {step.description}
+                        </p>
+                      </Card>
                     </motion.div>
                   ))}
                 </motion.div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
-        </div>
-      </motion.section>
+        </Container>
+      </Section>
 
-      {/* ================= WHY YOU NEED IT ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-120px" }}
-        variants={stagger}
-        className="py-10 px-6 bg-gray-50 dark:bg-background transition-colors"
-      >
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h2
-            variants={fadeUp}
-            className="text-4xl font-semibold text-primary mb-14"
+      {/* Services, Coverage, Why Vulnuris, Deliverables, Use Cases, Tiers, FAQ, and CTA sections follow the same pattern */}
+      {/* Omitted for brevity but would follow exact same structure as previous pages */}
+      
+      {/* Services Section */}
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
           >
-            Why Do You Need a Source Code Review?
-          </motion.h2>
-
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-            {[
-              {
-                title: "Early Vulnerability Detection",
-                desc: "Identify security flaws at the earliest stage to reduce remediation cost and risk.",
-              },
-              {
-                title: "Business and Reputation Protection",
-                desc: "Prevent breaches that could damage customer trust and brand reputation.",
-              },
-              {
-                title: "Compliance and Legal Readiness",
-                desc: "Meet regulatory and security compliance requirements with confidence.",
-              },
-              {
-                title: "Secure Production Releases",
-                desc: "Ensure secure code before deployment into production environments.",
-              },
-              {
-                title: "Improved Code Quality",
-                desc: "Enhance maintainability, performance, and security best practices.",
-              },
-              {
-                title: "Reduced Long-Term Risk",
-                desc: "Fix issues early to avoid costly security incidents later.",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                whileHover={{ y: -8, scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="bg-white dark:bg-muted border border-gray-200 dark:border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all group"
-              >
-                <h3 className="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400 group-hover:text-violet-600 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-gray-700 dark:text-muted-foreground text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+            <SectionHeader
+              eyebrow="Services"
+              title="Platform-specific security expertise for all e-commerce systems."
+              subtitle="From Shopify to custom platforms, we secure every type of online store."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {ecommerceServices.map((item) => (
+                <motion.div
+                  key={item.title}
+                  variants={fadeUp}
+                  whileHover={reduceMotion ? undefined : { y: -4 }}
+                >
+                  <Card className="h-full">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {item.desc}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
-        </div>
-      </motion.section>
+        </Container>
+      </Section>
 
-      {/* ================= ENGAGEMENT PROCESS ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-120px" }}
-        variants={fadeUp}
-        className="py-16 px-6 bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-              How Our Source Code Review Works
-            </h2>
-
-            <p className="mt-4 max-w-3xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
-              Deep security analysis to uncover vulnerabilities hidden within
-              your application logic.
-            </p>
-
-            <div className="mt-6 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-violet-500 to-indigo-500" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
-            >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
-
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Review and Analysis
-              </h3>
-
-              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg">
-                <li>• Assess application architecture and codebase</li>
-                <li>• Perform manual and automated code analysis</li>
-                <li>• Identify vulnerabilities at the root level</li>
-                <li>• Validate security controls and logic flows</li>
-                <li>• Prioritize risks based on business impact</li>
-              </ul>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative p-8 rounded-2xl border border-gray-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg hover:shadow-2xl"
-            >
-              <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-indigo-500 to-fuchsia-500 rounded-full" />
-
-              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
-                Reporting and Continuous Monitoring
-              </h3>
-
-              <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg mb-6">
-                <li>• Detailed vulnerability findings</li>
-                <li>• Secure coding recommendations</li>
-                <li>• Developer-friendly remediation guidance</li>
-                <li>• Risk severity and impact analysis</li>
-              </ul>
-
-              <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-                Continuous assessments to proactively identify new
-                vulnerabilities as the codebase evolves.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ================= CTA ================= */}
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        variants={fadeUp}
-        className="py-10 px-6 text-center bg-gray-50 dark:bg-background transition-colors"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
-          Secure Code. Secure Applications.
-        </h2>
-
-        <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700 dark:text-muted-foreground">
-          Identify vulnerabilities early and build secure applications with
-          Vulnuris Secure Source Code Review Services.
-        </p>
-
-        <Link href="/contact">
-          <motion.button
-            whileHover={{ scale: 1.12 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-3 rounded-full text-lg font-semibold bg-gradient-to-r from-violet-500 to-blue-600 text-white shadow-md hover:shadow-xl transition-all duration-300"
+      {/* Testing Coverage Section */}
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+            className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
           >
-            Talk to a Security Expert
-          </motion.button>
-        </Link>
-      </motion.section>
-    </main>
+            <div>
+              <SectionHeader
+                align="left"
+                eyebrow="Testing Coverage"
+                title="Comprehensive analysis of e-commerce attack vectors."
+                subtitle="We test the vulnerabilities that lead to fraud, data theft, and revenue loss."
+              />
+              <div className="mt-8">
+                <div className="relative rounded-2xl border border-slate-200/70 bg-white/80 p-5 shadow-sm backdrop-blur-md dark:border-slate-800/70 dark:bg-slate-900/70">
+                  <div className="pointer-events-none absolute -inset-1 rounded-[22px] bg-linear-to-r from-amber-500/30 via-orange-500/20 to-transparent opacity-70" />
+                  <div className="relative overflow-hidden rounded-2xl bg-slate-950/5 p-4 dark:bg-slate-950">
+                    <div className="absolute -left-8 -top-8 h-28 w-28 rounded-full bg-amber-500/20 blur-2xl" />
+                    <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-orange-500/20 blur-2xl" />
+                    <EcommerceSecurityIllustration />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="grid gap-4">
+                {testCategories.map((category) => (
+                  <motion.div key={category.title} variants={fadeUp}>
+                    <Card>
+                      <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+                        {category.title}
+                      </h3>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {category.items.map((item) => (
+                          <Badge key={item}>{item}</Badge>
+                        ))}
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Why Vulnuris Section */}
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Why Vulnuris"
+              title="E-commerce expertise that protects revenue and reputation."
+              subtitle="We understand online retail—from payment flows to promotional abuse to customer account security."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {[
+                {
+                  title: "E-commerce specialization",
+                  description: "Our testers understand shopping cart logic, payment gateways, inventory systems, and the fraud patterns unique to online retail.",
+                  Icon: IconCart,
+                },
+                {
+                  title: "Business logic focus",
+                  description: "We identify pricing manipulation, coupon abuse, and checkout bypasses that automated scanners cannot detect.",
+                  Icon: IconShield,
+                },
+                {
+                  title: "PCI DSS expertise",
+                  description: "Clear guidance on payment security requirements with evidence to support your compliance program and assessments.",
+                  Icon: IconCreditCard,
+                },
+              ].map((item) => (
+                <motion.div key={item.title} variants={fadeUp}>
+                  <Card className="h-full">
+                    <div className="mb-4 inline-flex rounded-full bg-slate-900/5 p-3 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <item.Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {item.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Deliverables Section */}
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Deliverables"
+              title="Comprehensive reports with revenue impact analysis."
+              subtitle="From executive summaries to PCI DSS compliance evidence, we provide actionable intelligence."
+            />
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {deliverables.map((item) => (
+                <motion.div key={item} variants={fadeUp}>
+                  <Card>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-amber-500" />
+                      <p className="text-sm text-slate-700 dark:text-slate-300">{item}</p>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Use Cases Section */}
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Industry Applications"
+              title="Specialized testing for diverse e-commerce verticals."
+              subtitle="Industry-specific threat modeling and fraud prevention for different online retail models."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {useCases.map((item) => (
+                <motion.div key={item.title} variants={fadeUp}>
+                  <Card className="h-full">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {item.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Engagement Tiers Section */}
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+          >
+            <SectionHeader
+              eyebrow="Engagement Options"
+              title="Flexible security programs for every business stage."
+              subtitle="From pre-launch to peak season preparation, we adapt to your e-commerce calendar."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {engagementTiers.map((tier) => (
+                <motion.div key={tier.title} variants={fadeUp}>
+                  <Card className="h-full">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                      {tier.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                      {tier.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {tier.bullets.map((bullet) => (
+                        <Badge key={bullet}>{bullet}</Badge>
+                      ))}
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section className="bg-slate-50 dark:bg-slate-950/70">
+        <Container>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }}>
+            <SectionHeader
+              eyebrow="FAQ"
+              title="Common questions about e-commerce security testing."
+              subtitle="Clear answers to help you understand our approach to protecting online stores."
+            />
+            <div className="mt-8 space-y-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={faq.question}
+                  className="rounded-2xl border border-slate-200/70 bg-white/80 p-5 dark:border-slate-800/70 dark:bg-slate-900/70"
+                >
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between text-left text-sm font-semibold text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 dark:text-white"
+                    aria-expanded={openFaq === index}
+                    onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
+                  >
+                    <span>{faq.question}</span>
+                    <span className="text-slate-500">{openFaq === index ? "–" : "+"}</span>
+                  </button>
+                  {openFaq === index ? (
+                    <div className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                      {faq.answer}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* CTA Section */}
+      <Section className="bg-white dark:bg-slate-950">
+        <Container>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-120px" }}
+            className="rounded-3xl border border-slate-200/70 bg-linear-to-r from-slate-900 via-slate-950 to-slate-900 px-6 py-10 text-center text-white shadow-xl dark:border-slate-800/70"
+          >
+            <h2 className="text-3xl font-semibold md:text-4xl">
+              Protect your revenue before fraudsters exploit your checkout.
+            </h2>
+            <p className="mt-3 text-sm text-white/70 md:text-base">
+              Get expert e-commerce security testing with PCI DSS validation and business logic abuse prevention.
+            </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-4">
+              <Link
+                href="/contact"
+                aria-label="Request E-Commerce Security Assessment"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              >
+                Request Security Assessment
+              </Link>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Mobile CTA */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200/70 bg-white/95 px-4 py-3 shadow-lg backdrop-blur-md transition md:hidden dark:border-slate-800/70 dark:bg-slate-950/90 ${
+          showMobileCta ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
+        }`}
+        role="region"
+        aria-label="Quick action"
+      >
+        <div className="flex items-center justify-between gap-3">
+          <div className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+            Ready to secure your store?
+          </div>
+          <Link
+            href="/contact"
+            aria-label="Request E-Commerce Security Assessment"
+            className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white"
+          >
+            Request Assessment
+          </Link>
+        </div>
+      </div>
+    </motion.main>
   );
 }
