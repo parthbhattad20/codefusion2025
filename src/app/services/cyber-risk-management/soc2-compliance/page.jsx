@@ -509,7 +509,7 @@ export default function SOC2CompliancePage() {
             <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-sm">
               Compliance & Trust Assurance
             </div>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="mt-16 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
               SOC 2 Compliance Services
             </h1>
             <p className="mt-4 text-lg text-white/85 md:text-xl">
@@ -520,7 +520,7 @@ export default function SOC2CompliancePage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/contact?subject=SOC%202%20Compliance"
                 aria-label="Talk to a SOC 2 Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
@@ -1010,7 +1010,7 @@ export default function SOC2CompliancePage() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact"
+                href="/contact?subject=SOC%202%20Compliance"
                 aria-label="Speak with a SOC 2 Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -1034,7 +1034,7 @@ export default function SOC2CompliancePage() {
             Start SOC 2 compliance
           </div>
           <Link
-            href="/contact"
+            href="/contact?subject=SOC%202%20Compliance"
             aria-label="Get Started"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white dark:bg-white dark:text-slate-900"
           >

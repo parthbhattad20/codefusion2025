@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -27,6 +28,7 @@ const ContactPage = () => {
     const formData = {
       name: form.name.value,
       email: form.email.value,
+      phone: form.phone.value,
       company: form.company.value,
       subject: form.subject.value,
       message: form.message.value,
@@ -43,6 +45,7 @@ const ContactPage = () => {
       if (data.success) {
         setMsg('Message sent successfully!');
         form.reset();
+        setSubject('');
 
         setTimeout(() => {
           setMsg('');
@@ -57,6 +60,17 @@ const ContactPage = () => {
       setLoading(false);
     }
   };
+
+  const searchParams = useSearchParams();
+  const [subject, setSubject] = useState('');
+
+  useEffect(() => {
+    const s = searchParams.get('subject');
+   if(s){
+    setSubject(s);
+   } 
+  }, []);
+
 
   return (
     <motion.div
@@ -97,6 +111,8 @@ const ContactPage = () => {
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>
                       <Input id="name" name="name" placeholder="Jane Doe" required />
@@ -108,13 +124,30 @@ const ContactPage = () => {
                   </div>
 
                   <div className="space-y-2">
+                    <Label htmlFor="company">Phone Number (Optional)</Label>
+                    <Input id="phone" name="phone" placeholder="123-456-7890"
+                      pattern="^\+?[0-9]{10,15}$"
+                      title="Please enter a valid phone number."
+                      type="tel" />
+                  </div>
+
+                  <div className="space-y-2">
                     <Label htmlFor="company">Company (Optional)</Label>
                     <Input id="company" name="company" placeholder="Example Corp" />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" name="subject" placeholder="Question about Pen Testing" required />
+                    {/* <Input id="subject" name="subject" placeholder="Question about Pen Testing" required /> */}
+                    <Input
+                      id="subject"
+                      name="subject"
+                      placeholder="Question about Pen Testing"
+                      value={subject} // controlled input
+                      onChange={(e) => setSubject(e.target.value)}
+                      required
+                    />
+
                   </div>
 
                   <div className="space-y-2">

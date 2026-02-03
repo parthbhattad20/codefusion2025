@@ -377,7 +377,7 @@ export default function WebAppPentestPage() {
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
               Web Application Penetration Testing
             </div>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="mt-16 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
               Expose real-world risk before it reaches your customers or the board.
             </h1>
             <p className="mt-4 text-lg text-white/80 md:text-xl">
@@ -387,19 +387,19 @@ export default function WebAppPentestPage() {
               Manual-led testing aligned to compliance frameworks, engineered for measurable outcomes.
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
-<Link
-  href="/contact"
-  aria-label="Request Security Assessment"
-  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
->
-  <motion.span
-    whileHover={reduceMotion ? undefined : { y: -2 }}
-    whileTap={reduceMotion ? undefined : { y: 0 }}
-    className="inline-flex items-center"
-  >
-    Request Security Assessment
-  </motion.span>
-</Link>
+              <Link
+                href="/contact?subject=Web%20Application%20Security%20Assessment"
+                aria-label="Request Security Assessment"
+                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+              >
+                <motion.span
+                  whileHover={reduceMotion ? undefined : { y: -2 }}
+                  whileTap={reduceMotion ? undefined : { y: 0 }}
+                  className="inline-flex items-center"
+                >
+                  Request Security Assessment
+                </motion.span>
+              </Link>
 
             </div>
           </motion.div>
@@ -843,7 +843,7 @@ export default function WebAppPentestPage() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact"
+                href="/contact?subject=Web%20Application%20Security%20Assessment"
                 aria-label="Request Security Assessment"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -855,9 +855,8 @@ export default function WebAppPentestPage() {
       </Section>
 
       <div
-        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200/70 bg-white/95 px-4 py-3 shadow-lg backdrop-blur-md transition md:hidden dark:border-slate-800/70 dark:bg-slate-950/90 ${
-          showMobileCta ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
-        }`}
+        className={`fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200/70 bg-white/95 px-4 py-3 shadow-lg backdrop-blur-md transition md:hidden dark:border-slate-800/70 dark:bg-slate-950/90 ${showMobileCta ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
+          }`}
         role="region"
         aria-label="Quick action"
       >
@@ -866,7 +865,7 @@ export default function WebAppPentestPage() {
             Ready for a security assessment?
           </div>
           <Link
-            href="/contact"
+            href="/contact?subject=Web%20Application%20Security%20Assessment"
             aria-label="Request Security Assessment"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white"
           >

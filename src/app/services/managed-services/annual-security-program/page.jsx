@@ -490,7 +490,7 @@ export default function AnnualSecurityProgramPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/contact?subject=Annual%20Security%20Program"
                 aria-label="Book a Free Consultation"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
@@ -996,7 +996,7 @@ export default function AnnualSecurityProgramPage() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact"
+                href="/contact?subject=Annual%20Security%20Program"
                 aria-label="Get Started with ASP"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -1020,7 +1020,7 @@ export default function AnnualSecurityProgramPage() {
             Secure your SaaS today
           </div>
           <Link
-            href="/contact"
+            href="/contact?subject=Annual%20Security%20Program"
             aria-label="Get Started"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white dark:bg-white dark:text-slate-900"
           >
