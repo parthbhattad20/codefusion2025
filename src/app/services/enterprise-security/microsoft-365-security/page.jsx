@@ -427,7 +427,7 @@ export default function Microsoft365SecurityPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/contact?subject=Microsoft%20365%20Security"
+                href="/contact?subject=services&subSubject=Microsoft%20365%20Security"
                 aria-label="Secure Your M365 Environment"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
@@ -879,7 +879,7 @@ export default function Microsoft365SecurityPage() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact?subject=Microsoft%20365%20Security"
+                href="/contact?subject=services&subSubject=Microsoft%20365%20Security"
                 aria-label="Speak With a Security Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -902,7 +902,7 @@ export default function Microsoft365SecurityPage() {
             Ready to secure your M365?
           </div>
           <Link
-            href="/contact?subject=Microsoft%20365%20Security"
+            href="/contact?subject=services&subSubject=Microsoft%20365%20Security"
             aria-label="Get Started"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white"
           >

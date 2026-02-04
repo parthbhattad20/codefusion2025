@@ -442,7 +442,7 @@ export default function AramcoCCCPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/contact?subject=Aramco%20CCC%20Certification"
+                href="/contact?subject=series&subSubject=Aramco%20CCC%20Certification"
                 aria-label="Get Aramco CCC Certified"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
@@ -885,7 +885,7 @@ export default function AramcoCCCPage() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact?subject=Aramco%20CCC%20Certification"
+                href="/contact?subject=series&subSubject=Aramco%20CCC%20Certification"
                 aria-label="Speak With an Aramco CCC Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -909,7 +909,7 @@ export default function AramcoCCCPage() {
             Ready for CCC certification?
           </div>
           <Link
-            href="/contact?subject=Aramco%20CCC%20Certification"
+            href="/contact?subject=series&subSubject=Aramco%20CCC%20Certification"
             aria-label="Speak With an Aramco CCC Expert"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white"
           >

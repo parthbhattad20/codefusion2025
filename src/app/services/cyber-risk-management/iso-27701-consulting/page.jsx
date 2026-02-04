@@ -437,7 +437,7 @@ export default function ISO27701Page() {
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/contact?subject=ISO%2027701%20Consulting"
+                href="/contact?subject=services&subSubject=ISO%2027701%20Consulting"
                 aria-label="Speak with a Privacy Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
@@ -880,7 +880,7 @@ export default function ISO27701Page() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact?subject=ISO%2027701%20Consulting"
+                href="/contact?subject=services&subSubject=ISO%2027701%20Consulting"
                 aria-label="Speak With a Privacy Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -904,7 +904,7 @@ export default function ISO27701Page() {
             Ready for privacy certification?
           </div>
           <Link
-            href="/contact?subject=ISO%2027701%20Consulting"
+            href="/contact?subject=services&subSubject=ISO%2027701%20Consulting"
             aria-label="Speak With a Privacy Expert"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white"
           >

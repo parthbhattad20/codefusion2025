@@ -341,7 +341,7 @@ export default function SOCPage() {
             powered by AI.
           </p>
 
-          <Link href="/contact">
+          <Link href="/contact?subject=services&subSubject=SOC">
             <button className="px-10 py-3 rounded-full bg-gradient-to-r from-violet-500 to-blue-600 text-white font-bold shadow-lg hover:shadow-2xl transition">
               Request a Demo
             </button>

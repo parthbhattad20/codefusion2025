@@ -31,6 +31,13 @@ const ContactClient = () => {
     if (s) setSubject(s);
   }, [searchParams]);
 
+  useEffect(() => {
+    if (subject) {
+      const sub = searchParams.get('subSubject');
+      if (sub) setSubSubject(sub);
+    }
+  }, [subject, searchParams]);
+
   const products = [
     'Vaultix',
     'Phishinstinct',
@@ -213,18 +220,8 @@ const ContactClient = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
-                    {/* <Input id="subject" name="subject" placeholder="Question about Pen Testing" required /> */}
-                    {/* <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="Question about Pen Testing"
-                      value={subject} // controlled input
-                      onChange={(e) => setSubject(e.target.value)}
-                      required
-                    /> */}
-
                     <select
-                      value={subject}
+                      value={subject || ''}
                       onChange={(e) => {
                         setSubject(e.target.value);
                         setMainService('');

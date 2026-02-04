@@ -98,7 +98,7 @@ const VCrypt = () => {
             </p>
 
             <div className="mt-5 flex flex-wrap gap-10 justify-center">
-              <a href="/contact?subject=V-Crypt%20Demo">
+              <a href="/contact?subject=product&subSubject=Vcrypt">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
@@ -277,7 +277,7 @@ const VCrypt = () => {
           </p>
 
           <motion.div whileHover={{ scale: 1.12, y: -6 }}>
-            <Link href="/contact?subject=Vumas%20Demo">
+            <Link href="/contact?subject=product&subSubject=Vcrypt">
               <Button
                 size="lg"
                 className="rounded-full px-12 bg-gradient-to-r from-violet-500 to-blue-600 shadow-xl hover:shadow-blue-500/40 transition-all"

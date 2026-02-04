@@ -137,7 +137,7 @@ const Vaultix = () => {
             </p>
 
             <div className="flex flex-wrap gap-6 pt-4">
-              <a href="/contact?subject=Vaultix%20Demo">
+              <a href="/contact?subject=product&subSubject=Vaultix">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
@@ -456,7 +456,7 @@ const Vaultix = () => {
           </p>
 
           <motion.div whileHover={{ scale: 1.12, y: -6 }}>
-            <Link href="/contact?subject=Vaultix%20Demo">
+            <Link href="/contact?subject=product&subSubject=Vaultix">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-12 shadow-xl hover:shadow-violet-500/50 transition-all"

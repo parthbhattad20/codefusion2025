@@ -109,7 +109,7 @@ const KloudRaksha = () => {
             </div> */}
 
             <div className="flex flex-wrap gap-6 pt-4">
-  <a href="/contact?subject=KloudRaksha%20Demo">
+  <a href="/contact?subject=product&subSubject=Kloudraksha">
     <Button
       size="lg"
       className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
@@ -462,7 +462,7 @@ const KloudRaksha = () => {
             Discover how KloudRaksha simplifies cloud security audits.
           </p>
           <motion.div whileHover={{ scale: 1.08, y: -4 }}>
-            <Link href="/contact?subject=KloudRaksha%20Demo">
+            <Link href="/contact?subject=product&subSubject=Kloudraksha">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg"

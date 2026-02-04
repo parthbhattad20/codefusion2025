@@ -460,7 +460,7 @@ export default function AwsServerHardeningPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/contact?subject=AWS%20Server%20Hardening"
+                href="/contact?subject=services&subSubject=AWS%20Server%20Hardening"
                 aria-label="Talk to AWS Security Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
@@ -912,7 +912,7 @@ export default function AwsServerHardeningPage() {
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact?subject=AWS%20Server%20Hardening"
+                href="/contact?subject=services&subSubject=AWS%20Server%20Hardening"
                 aria-label="Talk to AWS Security Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
@@ -936,7 +936,7 @@ export default function AwsServerHardeningPage() {
             Ready for AWS hardening?
           </div>
           <Link
-            href="/contact?subject=AWS%20Server%20Hardening"
+            href="/contact?subject=services&subSubject=AWS%20Server%20Hardening"
             aria-label="Talk to AWS Security Expert"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white"
           >
