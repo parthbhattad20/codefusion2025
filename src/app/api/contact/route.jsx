@@ -13,7 +13,7 @@ const ses = new SESClient({
 export async function POST(req) {
   try {
     // Get form data
-    const { name, email, phone, company, subject, message } = await req.json();
+    const { name, email, phone, company, subject, subSubject, message } = await req.json();
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -28,7 +28,8 @@ export async function POST(req) {
     // ----------------------
     const emailParams = {
       Source: "contact@vulnuris.in", // Replace with SES verified email
-      Destination: { ToAddresses: ["parth.b@vulnuris.com","vishal.h@vulnuris.com"] },
+      Destination: { ToAddresses: ["raj.k@vulnuris.com","atharva.b@vulnuris.com"] },
+      
       Message: {
         Subject: { Data: `New Inquiry from ${name} –  ${company}` },
         Body: {
@@ -107,6 +108,15 @@ export async function POST(req) {
           </td>
         </tr>
 
+        <tr>
+          <td style="padding:12px; font-weight:600; border:1px solid #e5e7eb;">
+            Sub-Subject
+          </td>
+          <td style="padding:12px; border:1px solid #e5e7eb;">
+            ${subSubject || "General Inquiry"}
+          </td>
+        </tr>
+
         <tr style="background-color:#f1f5f9;">
           <td colspan="2" style="padding:12px; font-weight:600; color:#020617; border:1px solid #e5e7eb;">
             Message Details
@@ -140,6 +150,7 @@ Email: ${email}
 Phone: ${phone || "N/A"}
 Company: ${company || "N/A"}
 Subject: ${subject || "N/A"}
+Sub-subject:${subSubject || "N/A"}
 Message: ${message}
 
 

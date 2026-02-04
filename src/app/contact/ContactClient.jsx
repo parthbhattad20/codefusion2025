@@ -19,6 +19,10 @@ const ContactClient = () => {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState('');
   const [subject, setSubject] = useState('');
+  const [subSubject, setSubSubject] = useState('');
+  const [open, setOpen] = useState(false); // dropdown
+  const [expandedService, setExpandedService] = useState(null);
+  const [mainService, setMainService] = useState('');
 
   const searchParams = useSearchParams();
 
@@ -26,6 +30,83 @@ const ContactClient = () => {
     const s = searchParams.get('subject');
     if (s) setSubject(s);
   }, [searchParams]);
+
+  const products = [
+    'Vaultix',
+    'Phishinstinct',
+    'Kloudraksha',
+    'Vcrypt',
+  ];
+
+  const services = {
+    "Application Security": [
+      "VAPT",
+      "Web Application Penetration Testing",
+      "Mobile App Penetration Testing",
+      "API Penetration Testing",
+      "Secure Source Code Review",
+      "Ecommerce Security",
+      "SaaS Security",
+    ],
+    "Cyber Risk Management": [
+      "ISO 27001 Consulting",
+      "ISO 27701 Consulting",
+      "Aramco CCC",
+      "Dora Compliance",
+      "HIPAA Compliance",
+      "PCI DSS Compliance",
+      "Cyber Security Strategic Consulting",
+      "SOC2 compliance"
+    ],
+    "Enterprise Security": [
+      "Virtual CISO Services",
+      "Black Box Testing",
+      "Email Security Audit",
+      "Server Hardening",
+      "Microsoft 365 Security",
+      "ERP Security Audit Assessment",
+      "Security Architecture Review",
+    ],
+    "Cloud Security": [
+      "Cloud Security Audit",
+      "Cloud Application Security Assessment",
+      "AWS Server Hardening",
+      "Azure Server Hardening",
+      "GCP Server Hardening",
+      "Container Security",
+    ],
+    "Data Privacy": [
+      "DPO as a Service",
+      "GDPR Compliance",
+      "Data Privacy Consulting",
+      "DPDPA",
+    ],
+    "Managed Services": [
+      "Managed Security Services",
+      "Security Operations Centre",
+      "Annual Security Program",
+    ],
+    "Industrial Security": [
+      "IoT Penetration Testing",
+      "OT Security Assessment",
+      "ICS Scada Security Testing",
+    ],
+    "Network Security": [
+      "Firewall Assessment",
+      "Network Penetration Testing",
+      "Wireless Security Assessment",
+    ],
+    "Managed VAPT": [
+      "Managed Threat Hunting",
+      "Proactive threat hunting"
+    ],
+    "Threat simulations": [
+      "Phishing Simulation",
+      "Red Teaming"
+    ],
+  };
+
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,7 +119,8 @@ const ContactClient = () => {
       email: form.email.value,
       phone: form.phone.value,
       company: form.company.value,
-      subject: form.subject.value,
+      subject,
+      subSubject,
       message: form.message.value,
     };
 
@@ -132,16 +214,129 @@ const ContactClient = () => {
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
                     {/* <Input id="subject" name="subject" placeholder="Question about Pen Testing" required /> */}
-                    <Input
+                    {/* <Input
                       id="subject"
                       name="subject"
                       placeholder="Question about Pen Testing"
                       value={subject} // controlled input
                       onChange={(e) => setSubject(e.target.value)}
                       required
-                    />
+                    /> */}
+
+                    <select
+                      value={subject}
+                      onChange={(e) => {
+                        setSubject(e.target.value);
+                        setMainService('');
+                        setSubSubject('');
+                      }}
+                      required
+                      className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-violet-500"
+                    >
+                      <option value="">Select Subject</option>
+                      <option value="product">Product</option>
+                      <option value="services">Services</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="Sub-subject">Sub-Subject</Label>
+                    {subject === 'product' && (
+                      <select
+                        value={subSubject}
+                        onChange={(e) => setSubSubject(e.target.value)}
+                        required
+                        className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:ring-2 focus:ring-violet-500"
+                      >
+                        <option value="">Select Product</option>
+                        {products.map((p) => (
+                          <option key={p} value={p}>{p}</option>
+                        ))}
+                      </select>
+                    )}
+
+                    {subject === 'services' && (
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => setOpen(!open)}
+                          className="w-full flex justify-between items-center rounded-md border border-input bg-background px-4 py-3 text-sm font-medium hover:border-violet-400 transition"
+                        >
+                          <span className={subSubject ? 'text-foreground' : 'text-muted-foreground'}>
+                            {subSubject || 'Select Service'}
+                          </span>
+                          <span
+                            className={`transition-transform duration-200 ${open ? 'rotate-180' : ''
+                              }`}
+                          >
+                            ▼
+                          </span>
+                        </button>
+
+                        {open && (
+                          <div className="absolute z-50 mt-2 w-full max-h-72 overflow-y-auto rounded-xl border bg-background shadow-xl scrollbar-hide">
+
+                            {Object.entries(services).map(([main, subs]) => (
+                              <div key={main} className="border-b last:border-none">
+
+                                {/* MAIN SERVICE */}
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setExpandedService(expandedService === main ? null : main)
+                                  }
+                                  className="
+            w-full flex justify-between items-center
+            px-5 py-3 text-left text-sm font-semibold
+            hover:bg-muted/60 transition
+          "
+                                >
+                                  {main}
+                                  <span
+                                    className={`transition-transform duration-200 ${expandedService === main ? 'rotate-90' : ''
+                                      }`}
+                                  >
+                                    ▶
+                                  </span>
+                                </button>
+
+                                {/* SUB SERVICES */}
+                                {expandedService === main && (
+                                  <div className="pl-6 pb-3 space-y-1">
+                                    {subs.map((s) => (
+                                      <button
+                                        key={s}
+                                        type="button"
+                                        onClick={() => {
+                                          setSubSubject(s);
+                                          setOpen(false);
+                                          setExpandedService(null);
+                                        }}
+                                        className="
+                  block w-full text-left
+                  px-3 py-2 rounded-md text-sm
+                  hover:bg-violet-50 hover:text-violet-700
+                  transition
+                "
+                                      >
+                                        {s}
+                                      </button>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                      </div>
+                    )}
+
+
+
 
                   </div>
+
 
                   <div className="space-y-2">
                     <Label htmlFor="message">Your Message</Label>
