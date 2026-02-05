@@ -418,7 +418,10 @@ const ContactClient = () => {
                   <div>
                     <h4 className="font-semibold text-foreground">Call Us</h4>
                     <a href="tel:+918208387709" className="text-muted-foreground hover:text-primary transition-colors block">
-                      +91 82083 87709
+                      +91 8208387709
+                    </a>
+                    <a href="tel:+918208387709" className="text-muted-foreground hover:text-primary transition-colors block">
+                      +91 7744099136
                     </a>
                   </div>
                 </div>
