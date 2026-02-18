@@ -7,280 +7,266 @@ import { motion, useReducedMotion } from "framer-motion";
 /* ===================== DATA ===================== */
 
 const painPoints = [
-  "Missing advanced threats with traditional tools?",
-  "Need proactive threat detection capabilities?",
-  "Concerned about unknown attacker presence?",
+  "Customers asking for SOC 2 before signing?",
+  "Unsure whether you need Type I or Type II?",
+  "Concerned about audit delays or failure?",
 ];
 
 const outcomes = [
   {
-    title: "Early Threat Detection",
+    title: "Increased Customer Trust",
     description:
-      "Proactively identify advanced persistent threats, insider threats, and sophisticated attackers before they cause damage to your organization.",
+      "Demonstrate strong security and compliance posture through an independent SOC 2 attestation validated by third-party auditors.",
   },
   {
-    title: "Reduced Dwell Time",
+    title: "Reduced Vendor Risk",
     description:
-      "Minimize the time attackers remain undetected in your environment from industry average of 200+ days to under 24 hours.",
+      "Provide stakeholders with clear evidence of control effectiveness across systems and processes, building confidence in your services.",
   },
   {
-    title: "Faster Incident Response",
+    title: "Regulatory & Enterprise Readiness",
     description:
-      "Accelerate threat containment and remediation with immediate actionable intelligence and expert-led investigation support.",
+      "Meet enterprise, regulatory, and governance expectations with confidence through standardized SOC 2 compliance.",
   },
   {
-    title: "Improved Security Posture",
+    title: "Scalable Compliance Program",
     description:
-      "Continuously strengthen defenses through threat intelligence insights, detection rule optimization, and security gap identification.",
+      "Build controls that evolve with your business, cloud infrastructure, and customer demands across all service models.",
   },
 ];
 
 const complianceBadges = [
-  "24/7 Hunting",
-  "MITRE ATT&CK",
-  "Threat Intel",
-  "Behavioral Analytics",
-  "Expert Led",
-  "Zero-Day Detection",
+  "SOC 2 Type I",
+  "SOC 2 Type II",
+  "AICPA",
+  "SSAE 18",
+  "Trust Services",
 ];
 
 const methodology = [
   {
-    title: "Hypothesis Development",
+    title: "Scoping & Discovery",
     description:
-      "Create threat hypotheses based on intelligence feeds, vulnerability disclosures, attack patterns, and organizational risk profile to guide hunting missions.",
+      "Define systems, services, data flows, and Trust Services Criteria in scope. Identify critical assets handling sensitive data like PHI and PII.",
   },
   {
-    title: "Data Collection & Analysis",
+    title: "Readiness Assessment",
     description:
-      "Aggregate telemetry from endpoints, networks, cloud platforms, and applications for comprehensive behavioral analysis and anomaly detection.",
+      "Identify control gaps and remediation actions before the formal audit. Address weaknesses early to streamline the certification process.",
   },
   {
-    title: "Hunting Execution",
+    title: "Audit Planning & System Description",
     description:
-      "Conduct systematic searches using MITRE ATT&CK framework, behavioral analytics, and custom detection logic to uncover hidden threats.",
+      "Prepare comprehensive system descriptions and align audit boundaries with business operations. Submit documentation to guide auditor review.",
   },
   {
-    title: "Threat Investigation",
+    title: "Fieldwork & Evidence Collection",
     description:
-      "Deep-dive forensic analysis to validate findings, determine scope of compromise, identify indicators of compromise, and assess business impact.",
+      "Collect and validate logs, policies, access reviews, and operational evidence. Auditors conduct interviews and sample testing to verify controls.",
   },
   {
-    title: "Containment & Remediation",
+    title: "Reporting & Attestation",
     description:
-      "Coordinate rapid response actions including threat isolation, artifact collection, attacker eviction, and system recovery with minimal disruption.",
-  },
-  {
-    title: "Intelligence & Optimization",
-    description:
-      "Document findings, update threat intelligence, improve detection rules, and enhance security controls based on hunting discoveries.",
+      "Review draft report, finalize management assertions and representation letters, and receive the final SOC 2 attestation report.",
   },
 ];
 
 const processSteps = [
-  { title: "Hypothesize", description: "Develop threat scenarios." },
-  { title: "Collect", description: "Gather telemetry data." },
-  { title: "Hunt", description: "Search for threats." },
-  { title: "Investigate", description: "Validate findings." },
-  { title: "Respond", description: "Contain and remediate." },
+  { title: "Scope", description: "Define systems & trust categories." },
+  { title: "Readiness", description: "Identify and fix gaps." },
+  { title: "Planning", description: "System description & controls." },
+  { title: "Fieldwork", description: "Evidence & testing." },
+  { title: "Reporting", description: "Final SOC 2 report." },
 ];
 
-const huntingCapabilities = [
+const trustServicesCriteria = [
   {
-    title: "Detection Methods",
-    items: ["Behavioral analytics", "Anomaly detection", "Pattern matching", "Threat intel"],
+    title: "Security (Mandatory)",
+    items: ["Access control", "Monitoring", "Incident response", "Encryption"],
+    description: "The foundation of all controls. Protects information and systems from unauthorized access.",
   },
   {
-    title: "Data Sources",
-    items: ["Endpoint telemetry", "Network traffic", "Cloud logs", "Auth events"],
+    title: "Availability",
+    items: ["Uptime", "DR", "Resilience", "Performance"],
+    description: "Ensures systems are accessible and operational as committed or agreed upon.",
   },
   {
-    title: "Hunting Focus",
-    items: ["APTs", "Insider threats", "Lateral movement", "Data exfiltration"],
+    title: "Processing Integrity",
+    items: ["Accuracy", "Completeness", "Timeliness", "Reliability"],
+    description: "Guarantees data processing is accurate, complete, and delivered as intended.",
   },
   {
-    title: "Frameworks",
-    items: ["MITRE ATT&CK", "Cyber Kill Chain", "Diamond Model", "TTP mapping"],
-  },
-];
-
-const threatHuntingServices = [
-  {
-    title: "Advanced Persistent Threat (APT) Hunting",
-    desc: "Proactive search for sophisticated nation-state actors, advanced malware, and long-term compromises using behavioral analytics.",
+    title: "Confidentiality",
+    items: ["Sensitive data", "Encryption", "Restrictions", "Proprietary info"],
+    description: "Protects confidential information from unauthorized disclosure.",
   },
   {
-    title: "Insider Threat Detection",
-    desc: "Identify malicious insiders, compromised accounts, and privilege abuse through user behavior analytics and anomaly detection.",
-  },
-  {
-    title: "Lateral Movement Tracking",
-    desc: "Detect attackers moving through your network by analyzing authentication patterns, network connections, and privilege escalation.",
-  },
-  {
-    title: "Data Exfiltration Detection",
-    desc: "Identify unauthorized data transfers, DNS tunneling, covert channels, and staged exfiltration through traffic analysis.",
-  },
-  {
-    title: "Zero-Day Threat Hunting",
-    desc: "Hunt for unknown exploits, novel attack techniques, and emerging threats using heuristic analysis and threat intelligence.",
-  },
-  {
-    title: "Cloud Threat Hunting",
-    desc: "Multi-cloud threat detection across AWS, Azure, and GCP focusing on misconfigurations, API abuse, and cloud-native attacks.",
-  },
-  {
-    title: "Ransomware Hunting",
-    desc: "Early detection of ransomware operators, encryption activities, and backup tampering before widespread damage occurs.",
-  },
-  {
-    title: "Supply Chain Attack Detection",
-    desc: "Identify compromised dependencies, malicious software updates, and third-party risks through software composition analysis.",
-  },
-  {
-    title: "Threat Intelligence Integration",
-    desc: "Leverage global threat feeds, dark web intelligence, and industry-specific indicators to prioritize hunting missions.",
-  },
-];
-
-const coreResponsibilities = [
-  {
-    category: "Proactive Hunting",
-    items: [
-      "Hypothesis-driven threat hunting campaigns",
-      "Behavioral anomaly analysis and investigation",
-      "MITRE ATT&CK technique mapping and detection",
-      "Custom hunting queries and detection logic",
-    ],
-  },
-  {
-    category: "Threat Investigation",
-    items: [
-      "Deep-dive forensic analysis of suspicious activity",
-      "Indicator of Compromise (IOC) identification",
-      "Attack timeline reconstruction and scoping",
-      "Threat actor attribution and profiling",
-    ],
-  },
-  {
-    category: "Response Coordination",
-    items: [
-      "Rapid threat containment and isolation",
-      "Incident response team coordination",
-      "Remediation strategy development",
-      "Post-hunt security recommendations",
-    ],
-  },
-  {
-    category: "Continuous Improvement",
-    items: [
-      "Detection rule optimization and tuning",
-      "Threat intelligence feed integration",
-      "Security gap identification and remediation",
-      "Hunting playbook development and refinement",
-    ],
+    title: "Privacy",
+    items: ["PII", "GDPR", "CCPA", "Data lifecycle"],
+    description: "Governs collection, use, retention, disclosure, and disposal of personal information.",
   },
 ];
 
 const deliverables = [
-  "24/7 proactive threat hunting operations",
-  "Hypothesis-driven hunting campaigns",
-  "Behavioral anomaly detection and analysis",
-  "MITRE ATT&CK framework-based detection",
-  "Endpoint and network telemetry analysis",
-  "Cloud environment threat hunting (AWS/Azure/GCP)",
-  "Insider threat detection and investigation",
-  "Advanced persistent threat (APT) hunting",
-  "Threat intelligence integration and correlation",
-  "Custom detection rule development",
-  "Monthly threat hunting reports",
-  "Executive threat landscape briefings",
+  "SOC 2 readiness & gap assessment report",
+  "Trust Services Criteria control mapping",
+  "Comprehensive system description document",
+  "Evidence preparation & validation support",
+  "Auditor coordination and liaison assistance",
+  "Draft report review and feedback",
+  "Final SOC 2 attestation report (Type I or Type II)",
+  "Management assertion and representation letters",
+  "Remediation roadmap & ongoing compliance guidance",
+  "Control matrix and documentation package",
 ];
 
 const useCases = [
   {
-    title: "Financial Services & Banking",
+    title: "SaaS & Cloud Providers",
     description:
-      "Detect advanced fraud schemes, account takeovers, insider trading, and nation-state attacks targeting financial infrastructure.",
+      "Meet customer and enterprise security assurance requirements for cloud-based services across SaaS, PaaS, and IaaS models.",
   },
   {
-    title: "Healthcare & Life Sciences",
+    title: "Fintech & Regulated Industries",
     description:
-      "Identify ransomware operators, medical device compromises, patient data theft, and research IP exfiltration attempts.",
+      "Demonstrate operational and data security controls to satisfy regulatory oversight and financial reporting requirements.",
   },
   {
-    title: "Technology & SaaS",
+    title: "Healthcare & HIPAA-Covered Entities",
     description:
-      "Hunt for supply chain attacks, cloud infrastructure compromises, API abuse, and intellectual property theft targeting tech companies.",
+      "Prove PHI protection capabilities and HIPAA alignment through independent SOC 2 validation for healthcare service providers.",
   },
   {
-    title: "Critical Infrastructure",
+    title: "Vendor Due Diligence",
     description:
-      "Detect nation-state actors, industrial espionage, operational technology threats, and attacks on essential services.",
+      "Provide SOC 2 reports during customer security reviews, RFPs, and third-party risk assessments to accelerate sales cycles.",
   },
   {
-    title: "Government & Defense",
+    title: "Post-Incident Assurance",
     description:
-      "Advanced threat hunting for APTs, espionage campaigns, insider threats, and adversaries targeting classified information.",
+      "Rebuild stakeholder trust after security or compliance incidents through independent validation of remediated controls.",
   },
   {
-    title: "Retail & E-commerce",
+    title: "IT & ITES Organizations",
     description:
-      "Identify payment card theft, point-of-sale compromises, customer data breaches, and e-commerce fraud operations.",
+      "Showcase security maturity and operational resilience for IT services, managed service providers, and outsourcing firms.",
   },
 ];
 
 const engagementTiers = [
   {
-    title: "Essential Hunting",
+    title: "SOC 2 Type I",
     description:
-      "Quarterly threat hunting campaigns with hypothesis-driven searches, basic anomaly detection, and threat reports.",
-    bullets: ["Quarterly hunts", "Basic detection", "Threat reports", "Email support"],
+      "Evaluate design and implementation of controls at a specific point in time. Ideal for initial compliance validation.",
+    bullets: ["Point-in-time assessment", "Design validation", "Early assurance", "Foundation building"],
   },
   {
-    title: "Advanced Hunting",
+    title: "SOC 2 Type II",
     description:
-      "Monthly threat hunting with continuous monitoring, advanced analytics, custom detection rules, and dedicated hunters.",
-    bullets: ["Monthly hunts", "24/7 monitoring", "Custom rules", "Dedicated hunters"],
+      "Assess operational effectiveness of controls over 6–12 months. Demonstrates consistent control execution over time.",
+    bullets: ["6-12 month period", "Evidence-based testing", "High assurance", "Enterprise ready"],
   },
   {
-    title: "Elite Threat Hunting",
+    title: "Continuous Compliance Advisory",
     description:
-      "Continuous threat hunting operations with real-time analysis, advanced threat intelligence, and embedded security team.",
-    bullets: ["Continuous hunting", "Real-time analysis", "Threat intel", "Embedded team"],
+      "Ongoing advisory and audit readiness support year-round with quarterly reviews and control maturity tracking.",
+    bullets: ["Quarterly reviews", "Control monitoring", "Risk tracking", "Annual renewal support"],
+  },
+];
+
+const soc2Services = [
+  {
+    title: "Gap Assessment & Readiness",
+    desc: "Comprehensive evaluation of current security controls against SOC 2 requirements with detailed remediation roadmap.",
+  },
+  {
+    title: "Control Design & Implementation",
+    desc: "Design and implementation of security controls, policies, and procedures aligned with Trust Services Criteria.",
+  },
+  {
+    title: "System Description Development",
+    desc: "Creation of detailed system descriptions outlining infrastructure, processes, and control environment for audit.",
+  },
+  {
+    title: "Evidence Collection Support",
+    desc: "Assistance with gathering, organizing, and validating evidence including logs, policies, and operational records.",
+  },
+  {
+    title: "Auditor Coordination",
+    desc: "Liaison with independent auditors, managing audit timelines, and facilitating smooth fieldwork execution.",
+  },
+  {
+    title: "Report Review & Finalization",
+    desc: "Expert review of draft reports, management assertion preparation, and final attestation report validation.",
+  },
+  {
+    title: "Training & Awareness",
+    desc: "Staff training on SOC 2 requirements, control execution, and compliance responsibilities across the organization.",
+  },
+  {
+    title: "Annual Surveillance & Monitoring",
+    desc: "Ongoing compliance monitoring, control testing, and readiness preparation for annual SOC 2 renewals.",
+  },
+  {
+    title: "Multi-Criteria Expansion",
+    desc: "Strategic addition of Availability, Processing Integrity, Confidentiality, or Privacy criteria to existing SOC 2 reports.",
   },
 ];
 
 const faqs = [
   {
-    question: "What is Managed Threat Hunting?",
+    question: "What is SOC 2 compliance?",
     answer:
-      "Managed Threat Hunting is a proactive security service where expert analysts actively search for hidden threats in your environment that have bypassed traditional security tools. Unlike reactive security monitoring that waits for alerts, threat hunting uses hypothesis-driven investigations, behavioral analysis, and threat intelligence to find sophisticated attackers before they cause damage. Our hunters analyze endpoint telemetry, network traffic, authentication logs, and cloud activity to detect advanced persistent threats, insider threats, and zero-day attacks.",
+      "SOC 2 is an independent attestation framework developed by the American Institute of Certified Public Accountants (AICPA) that evaluates how service organizations manage and protect customer data using the Trust Services Criteria. It provides standardized assurance over security, availability, processing integrity, confidentiality, and privacy controls.",
   },
   {
-    question: "How is threat hunting different from SOC monitoring?",
+    question: "What is the difference between Type I and Type II?",
     answer:
-      "SOC monitoring is reactive—it responds to alerts from security tools. Threat hunting is proactive—it actively searches for threats that bypass automated detection. SOC analysts triage known threats, while threat hunters investigate unknown threats using hypotheses and behavioral analytics. Threat hunting focuses on advanced attackers who use sophisticated evasion techniques. Both services are complementary: SOC provides continuous monitoring and alert response, while threat hunting finds hidden threats that SOC tools miss. We recommend combining both for comprehensive security coverage.",
+      "SOC 2 Type I evaluates the design and implementation of controls at a specific point in time, verifying that controls are properly designed and in place. SOC 2 Type II evaluates operational effectiveness over a defined period (typically 6–12 months), testing real-world evidence to confirm controls function consistently as intended. Type II provides stronger assurance and is preferred by enterprise clients.",
   },
   {
-    question: "What tools and technologies do you use for threat hunting?",
+    question: "How long does a SOC 2 audit take?",
     answer:
-      "We use advanced SIEM platforms (Splunk, Sentinel, QRadar), endpoint detection and response (EDR/XDR) tools like CrowdStrike and SentinelOne, network traffic analysis platforms, and threat intelligence platforms. We leverage MITRE ATT&CK framework for detection logic, custom hunting queries in SPL/KQL, behavioral analytics engines, and machine learning models for anomaly detection. Our hunters also use open-source tools like Velociraptor, YARA, Sigma rules, and threat hunting frameworks. We integrate with your existing security stack and can recommend tool improvements.",
+      "A SOC 2 audit typically takes 6–8 weeks to several months depending on organizational readiness, scope complexity, available resources, company size, and current security maturity. The timeline includes scoping, planning, fieldwork, and reporting phases. Organizations with strong existing controls and documentation can complete audits more quickly.",
   },
   {
-    question: "How quickly can you detect threats in our environment?",
+    question: "Will this disrupt operations?",
     answer:
-      "For continuous threat hunting (Elite tier), we can detect advanced threats within hours compared to the industry average of 200+ days. Monthly hunting campaigns (Advanced tier) typically reduce dwell time to under 30 days. Detection speed depends on threat sophistication, data quality, and hunting frequency. We prioritize high-risk threats like ransomware operators, lateral movement, and data exfiltration for immediate investigation. Critical findings trigger immediate alerts with containment recommendations. Our goal is to find attackers before they achieve their objectives.",
+      "No. SOC 2 audits are evidence-based and do not involve intrusive testing that disrupts business operations. Auditors review documentation, interview staff, and examine evidence such as logs and policies. The process is designed to assess controls without interfering with day-to-day operations, though internal resources will need to dedicate time to evidence collection and interviews.",
   },
   {
-    question: "Can threat hunting help us meet compliance requirements?",
+    question: "Which Trust Services Criteria should I include?",
     answer:
-      "Yes, proactive threat hunting demonstrates security due diligence for frameworks like PCI DSS, HIPAA, SOC 2, ISO 27001, and NIST. Regulators increasingly expect organizations to proactively search for threats rather than only responding to alerts. We provide detailed hunting reports, threat findings documentation, and evidence of continuous security improvement for auditors. Our MITRE ATT&CK mapping helps demonstrate coverage of attack techniques. Threat hunting also identifies compliance gaps and security control weaknesses that need remediation.",
+      "Security is mandatory for all SOC 2 reports. Additional criteria—Availability, Processing Integrity, Confidentiality, and Privacy—should be selected based on your services, customer expectations, and contractual commitments. Organizations often start with Security only and add criteria over time as they mature. Consider what assurances your customers require and what controls are most critical to your service delivery.",
   },
   {
-    question: "What happens when you find a threat during hunting?",
+    question: "How much does SOC 2 compliance cost?",
     answer:
-      "When we identify a confirmed threat, we immediately notify your security team with detailed findings including indicators of compromise (IOCs), attack scope, affected systems, and recommended containment actions. For critical threats, we provide real-time support to isolate attackers and prevent further damage. We conduct forensic analysis to determine root cause, document the attack timeline, and identify all compromised assets. After containment, we help with remediation planning, evidence collection for investigations, and security improvements to prevent recurrence. All findings are documented in detailed threat reports.",
+      "SOC 2 costs vary widely based on several factors: the type and number of Trust Services Criteria in scope, environment size, report type (Type I or Type II), number of applications and systems, and employee count. Initial audits are typically more expensive, with potential cost reductions of 10–20% in subsequent years. After a scoping session, we provide tailored cost estimates based on your specific requirements.",
+  },
+];
+
+const reportComparison = [
+  {
+    report: "SOC 1",
+    focus: "Internal Control over Financial Reporting (ICFR)",
+    purpose: "Evaluates financial reporting controls relevant to users' financial audits",
+    audience: "Auditors, current clients (with NDA for prospects)",
+    distribution: "Restricted – primarily for auditor-to-auditor communication",
+  },
+  {
+    report: "SOC 2",
+    focus: "Trust Services Criteria (Security, Availability, Processing Integrity, Confidentiality, Privacy)",
+    purpose: "Assesses operational and data security controls of a service organization",
+    audience: "Clients, regulators, management, third parties",
+    distribution: "Limited distribution – often shared under NDA due to sensitive details",
+  },
+  {
+    report: "SOC 3",
+    focus: "Same as SOC 2 (Trust Services Criteria)",
+    purpose: "Provides general assurance of security controls in a simplified, public-facing format",
+    audience: "General public",
+    distribution: "Unrestricted – can be publicly shared as a trust-building and marketing tool",
   },
 ];
 
@@ -351,40 +337,6 @@ const IconCheckCircle = ({ className }) => (
   </svg>
 );
 
-const IconUsers = ({ className }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-    <circle cx="9" cy="7" r="4" />
-    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-  </svg>
-);
-
-const IconSearch = ({ className }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <circle cx="11" cy="11" r="8" />
-    <path d="m21 21-4.35-4.35" />
-  </svg>
-);
-
 /* ===================== UI PRIMITIVES ===================== */
 
 const Section = ({ className = "", children, id }) => (
@@ -433,9 +385,71 @@ const Badge = ({ children }) => (
   </span>
 );
 
-/* ===================== PAGE COMPONENT ===================== */
+/* ===================== SOC 2 ILLUSTRATION ===================== */
 
-export default function ManagedThreatHuntingPage() {
+const SOC2Illustration = () => (
+  <svg viewBox="0 0 420 340" className="h-full w-full" aria-hidden="true">
+    <defs>
+      <linearGradient id="soc2-panel" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.15" />
+        <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.2" />
+      </linearGradient>
+      <linearGradient id="soc2-pulse" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0%" stopColor="#a78bfa" />
+        <stop offset="100%" stopColor="#7c3aed" />
+      </linearGradient>
+    </defs>
+    
+    {/* Central SOC 2 emblem */}
+    <rect x="150" y="90" width="120" height="140" rx="14" fill="url(#soc2-panel)" stroke="#a78bfa" strokeOpacity="0.5" strokeWidth="2" />
+    
+    {/* SOC 2 text */}
+    <text x="210" y="135" fontSize="24" fill="#7c3aed" fontFamily="sans-serif" textAnchor="middle" fontWeight="bold">SOC 2</text>
+    <text x="210" y="160" fontSize="11" fill="#94a3b8" fontFamily="sans-serif" textAnchor="middle">Service Organization</text>
+    <text x="210" y="175" fontSize="11" fill="#94a3b8" fontFamily="sans-serif" textAnchor="middle">Control Report</text>
+    
+    {/* Trust badge */}
+    <circle cx="210" cy="200" r="18" fill="url(#soc2-pulse)" fillOpacity="0.3" stroke="#7c3aed" strokeWidth="2.5" />
+    <path d="M203 200l4 4 8-8" stroke="#7c3aed" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+    
+    {/* Five Trust Services Criteria circles */}
+    <circle cx="70" cy="100" r="28" fill="url(#soc2-pulse)" fillOpacity="0.2" stroke="#a78bfa" strokeWidth="2" />
+    <text x="70" y="95" fontSize="9" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">SECURITY</text>
+    <text x="70" y="108" fontSize="8" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="500">(Required)</text>
+    
+    <circle cx="350" cy="100" r="28" fill="url(#soc2-pulse)" fillOpacity="0.2" stroke="#a78bfa" strokeWidth="2" />
+    <text x="350" y="98" fontSize="8" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">AVAILABILITY</text>
+    <text x="350" y="108" fontSize="8" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="500">(Optional)</text>
+    
+    <circle cx="70" cy="240" r="28" fill="url(#soc2-pulse)" fillOpacity="0.2" stroke="#a78bfa" strokeWidth="2" />
+    <text x="70" y="233" fontSize="7" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">PROCESSING</text>
+    <text x="70" y="243" fontSize="7" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">INTEGRITY</text>
+    <text x="70" y="253" fontSize="8" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="500">(Optional)</text>
+    
+    <circle cx="350" cy="240" r="28" fill="url(#soc2-pulse)" fillOpacity="0.2" stroke="#a78bfa" strokeWidth="2" />
+    <text x="350" y="233" fontSize="7" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">CONFIDENTI-</text>
+    <text x="350" y="243" fontSize="7" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">ALITY</text>
+    <text x="350" y="253" fontSize="8" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="500">(Optional)</text>
+    
+    <circle cx="210" cy="290" r="28" fill="url(#soc2-pulse)" fillOpacity="0.2" stroke="#a78bfa" strokeWidth="2" />
+    <text x="210" y="288" fontSize="8" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">PRIVACY</text>
+    <text x="210" y="300" fontSize="8" fill="#a78bfa" fontFamily="sans-serif" textAnchor="middle" fontWeight="500">(Optional)</text>
+    
+    {/* Connection lines */}
+    <path d="M98 100h30M278 100h45M98 240h30M278 240h45M210 230v35" stroke="#94a3b8" strokeOpacity="0.4" strokeWidth="2" />
+    <path d="M130 120l-30 100M130 220l-30-100M290 120l30 100M290 220l30-100" stroke="#94a3b8" strokeOpacity="0.3" strokeDasharray="4 6" strokeWidth="2" />
+    
+    {/* AICPA indicator */}
+    <circle cx="185" cy="65" r="2.5" fill="#7c3aed" />
+    <circle cx="210" cy="55" r="2.5" fill="#7c3aed" />
+    <circle cx="235" cy="65" r="2.5" fill="#7c3aed" />
+    <text x="210" y="40" fontSize="8" fill="#7c3aed" fontFamily="sans-serif" textAnchor="middle" fontWeight="600">AICPA</text>
+  </svg>
+);
+
+
+
+export default function SOC2CompliancePage() {
   const reduceMotion = useReducedMotion();
   const [showMobileCta, setShowMobileCta] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
@@ -474,7 +488,7 @@ export default function ManagedThreatHuntingPage() {
       className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white"
     >
       {/* Hero Section */}
-      <Section className="pt-24 sm:pt-28 md:pt-0 pb-14 mt-20">
+      <Section className="pt-24 sm:pt-28 md:pt-0 pb-14 mt-10">
         <div className="absolute inset-0 overflow-hidden">
           <video
             className="absolute inset-0 h-full w-full object-cover"
@@ -486,36 +500,28 @@ export default function ManagedThreatHuntingPage() {
             poster="/assets/img.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/70 to-slate-950" />
-          <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#8b5cf622_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf622_1px,transparent_1px)] bg-[size:90px_90px]" />
           <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl" />
           <div className="absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-purple-500/20 blur-3xl" />
-          
-          {/* Scan beam effect */}
-          <motion.div
-            className="absolute inset-y-0 w-[40%] bg-gradient-to-r from-transparent via-violet-500/10 to-transparent"
-            animate={{ x: ["-40%", "140%"] }}
-            transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
-          />
         </div>
 
         <Container className="relative z-10 flex min-h-[86vh] flex-col justify-center">
           <motion.div variants={fadeUp} className="max-w-3xl">
             <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-sm">
-              Cyber Defense Operations
+              Compliance & Trust Assurance
             </div>
-            <h1 className="mt-6 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-              Managed Threat Hunting
+            <h1 className="mt-16 text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+              SOC 2 Compliance Services
             </h1>
             <p className="mt-4 text-lg text-white/85 md:text-xl">
-              Proactively detect, investigate, and eliminate advanced cyber threats before they impact your operations.
+              Build trust, prove resilience, and align security with your business growth through independent SOC 2 attestation.
             </p>
             <p className="mt-3 text-sm text-white/70 md:text-base">
-              Expert-led threat hunting with behavioral analytics, threat intelligence, and MITRE ATT&CK framework.
+              Expert-led SOC 2 implementation with gap assessment, control design, evidence collection, and auditor coordination for service organizations across SaaS, fintech, healthcare, and IT services.
             </p>
             <div className="mt-7 flex flex-wrap gap-4">
               <Link
-                href="/contact?subject=services&subSubject=Managed%20Threat%20Hunting"
-                aria-label="Start Threat Hunting"
+                href="/contact?subject=services&subSubject=SOC%202%20Compliance"
+                aria-label="Talk to a SOC 2 Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
               >
                 <motion.span
@@ -523,7 +529,7 @@ export default function ManagedThreatHuntingPage() {
                   whileTap={reduceMotion ? undefined : { y: 0 }}
                   className="inline-flex items-center"
                 >
-                  Start Threat Hunting
+                  Talk to a SOC 2 Expert
                 </motion.span>
               </Link>
             </div>
@@ -553,8 +559,8 @@ export default function ManagedThreatHuntingPage() {
           >
             <SectionHeader
               eyebrow="Outcomes"
-              title="Proactive threat detection and elimination."
-              subtitle="Expert-led hunting operations to identify advanced threats, reduce dwell time, and improve security posture."
+              title="SOC 2 compliance that builds credibility."
+              subtitle="Independent assurance for modern service organizations across SaaS, cloud, fintech, and healthcare sectors."
             />
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {outcomes.map((item) => (
@@ -590,9 +596,9 @@ export default function ManagedThreatHuntingPage() {
         <Container>
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }}>
             <SectionHeader
-              eyebrow="Capabilities"
-              title="Advanced threat hunting capabilities."
-              subtitle="Continuous hunting operations using behavioral analytics, threat intelligence, and MITRE ATT&CK framework."
+              eyebrow="Standards"
+              title="Aligned with AICPA Trust Services Framework."
+              subtitle="SOC 2 reports provide standardized, independent assurance based on rigorous attestation standards."
             />
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               {complianceBadges.map((badge) => (
@@ -614,8 +620,8 @@ export default function ManagedThreatHuntingPage() {
           >
             <SectionHeader
               eyebrow="Methodology"
-              title="Threat Hunting Operations Model"
-              subtitle="A structured framework to uncover stealthy threats that bypass traditional automated detection systems."
+              title="Structured approach to SOC 2 certification."
+              subtitle="We guide organizations through every phase—from initial scoping to final attestation and ongoing compliance."
             />
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {methodology.map((item) => (
@@ -633,7 +639,7 @@ export default function ManagedThreatHuntingPage() {
             </div>
 
             <div className="mt-10 rounded-2xl border border-slate-200/70 bg-slate-50 p-5 dark:border-slate-800/70 dark:bg-slate-900/50">
-              <h3 className="text-base font-semibold text-slate-900 dark:text-white">Threat hunting lifecycle</h3>
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white">Audit process overview</h3>
               <div className="relative mt-6">
                 <div className="pointer-events-none absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-violet-300 to-transparent md:block dark:via-violet-700" />
                 <motion.div
@@ -678,11 +684,11 @@ export default function ManagedThreatHuntingPage() {
           >
             <SectionHeader
               eyebrow="Services"
-              title="Our Managed Threat Hunting Capabilities"
-              subtitle="Comprehensive threat detection from APT hunting to insider threats and zero-day detection."
+              title="End-to-end SOC 2 compliance and advisory services."
+              subtitle="From gap assessment to annual renewals, we provide comprehensive support throughout your SOC 2 journey."
             />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {threatHuntingServices.map((item) => (
+              {soc2Services.map((item) => (
                 <motion.div
                   key={item.title}
                   variants={fadeUp}
@@ -703,7 +709,7 @@ export default function ManagedThreatHuntingPage() {
         </Container>
       </Section>
 
-      {/* Image + Capabilities Section */}
+      {/* Trust Services Criteria Section */}
       <Section className="bg-white dark:bg-slate-950">
         <Container>
           <motion.div
@@ -716,9 +722,9 @@ export default function ManagedThreatHuntingPage() {
             <div>
               <SectionHeader
                 align="left"
-                eyebrow="Why It Matters"
-                title="Why Choose Managed Threat Hunting"
-                subtitle="Proactive threat detection with expert hunters, advanced analytics, and continuous monitoring."
+                eyebrow="Trust Services Criteria"
+                title="Comprehensive coverage across all five TSC categories."
+                subtitle="Security is mandatory. Additional criteria can be added based on your service model and customer requirements."
               />
               <div className="mt-8">
                 <div className="relative rounded-2xl border border-slate-200/70 bg-white/80 p-5 shadow-sm backdrop-blur-md dark:border-slate-800/70 dark:bg-slate-900/70">
@@ -726,25 +732,24 @@ export default function ManagedThreatHuntingPage() {
                   <div className="relative overflow-hidden rounded-2xl bg-slate-950/5 p-4 dark:bg-slate-950">
                     <div className="absolute -left-8 -top-8 h-28 w-28 rounded-full bg-violet-500/20 blur-2xl" />
                     <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-purple-500/20 blur-2xl" />
-                    <img
-                      src="/assets/services/cyber.jpg"
-                      alt="Managed Threat Hunting"
-                      className="w-full rounded-xl shadow-xl"
-                    />
+                    <SOC2Illustration />
                   </div>
                 </div>
               </div>
             </div>
             <div>
               <div className="grid gap-4">
-                {huntingCapabilities.map((capability) => (
-                  <motion.div key={capability.title} variants={fadeUp}>
+                {trustServicesCriteria.map((criteria) => (
+                  <motion.div key={criteria.title} variants={fadeUp}>
                     <Card>
                       <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400">
-                        {capability.title}
+                        {criteria.title}
                       </h3>
+                      <p className="mt-2 text-xs text-slate-600 dark:text-slate-400">
+                        {criteria.description}
+                      </p>
                       <div className="mt-3 flex flex-wrap gap-2">
-                        {capability.items.map((item) => (
+                        {criteria.items.map((item) => (
                           <Badge key={item}>{item}</Badge>
                         ))}
                       </div>
@@ -757,7 +762,7 @@ export default function ManagedThreatHuntingPage() {
         </Container>
       </Section>
 
-      {/* Core Responsibilities Section */}
+      {/* SOC Report Comparison Section */}
       <Section className="bg-slate-50 dark:bg-slate-950/70">
         <Container>
           <motion.div
@@ -767,28 +772,35 @@ export default function ManagedThreatHuntingPage() {
             viewport={{ once: true, margin: "-120px" }}
           >
             <SectionHeader
-              eyebrow="Process"
-              title="How Our Threat Hunting Service Works"
-              subtitle="A structured hunting framework with hypothesis development, investigation, and continuous improvement."
+              eyebrow="Report Types"
+              title="Understanding SOC 1, SOC 2, and SOC 3 differences."
+              subtitle="Each SOC report serves different purposes, audiences, and distribution needs within the attestation framework."
             />
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {coreResponsibilities.map((responsibility) => (
-                <motion.div key={responsibility.category} variants={fadeUp}>
-                  <Card className="h-full">
-                    <h3 className="text-lg font-semibold text-violet-600 dark:text-violet-400 mb-4">
-                      {responsibility.category}
-                    </h3>
-                    <ul className="space-y-3">
-                      {responsibility.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
-                          <IconCheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-600 dark:text-violet-400" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
-                </motion.div>
-              ))}
+            <div className="mt-10 overflow-x-auto">
+              <div className="min-w-[768px]">
+                <div className="grid grid-cols-5 gap-4 rounded-t-2xl border border-slate-200/70 bg-violet-50/50 p-4 text-xs font-semibold uppercase tracking-wider text-violet-900 dark:border-slate-800/70 dark:bg-violet-900/20 dark:text-violet-300">
+                  <div>Report Type</div>
+                  <div>Focus Area</div>
+                  <div>Purpose</div>
+                  <div>Audience</div>
+                  <div>Distribution</div>
+                </div>
+                {reportComparison.map((item, index) => (
+                  <motion.div
+                    key={item.report}
+                    variants={fadeUp}
+                    className={`grid grid-cols-5 gap-4 border-x border-b border-slate-200/70 p-4 text-sm dark:border-slate-800/70 ${
+                      index === reportComparison.length - 1 ? "rounded-b-2xl" : ""
+                    } ${index % 2 === 0 ? "bg-white/50 dark:bg-slate-900/30" : "bg-slate-50/50 dark:bg-slate-900/50"}`}
+                  >
+                    <div className="font-semibold text-violet-600 dark:text-violet-400">{item.report}</div>
+                    <div className="text-slate-700 dark:text-slate-300">{item.focus}</div>
+                    <div className="text-slate-600 dark:text-slate-400">{item.purpose}</div>
+                    <div className="text-slate-600 dark:text-slate-400">{item.audience}</div>
+                    <div className="text-slate-600 dark:text-slate-400">{item.distribution}</div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </Container>
@@ -805,25 +817,25 @@ export default function ManagedThreatHuntingPage() {
           >
             <SectionHeader
               eyebrow="Why Vulnuris"
-              title="Trusted threat hunting expertise since 2017."
-              subtitle="We've helped organizations across UAE, GCC, and international markets detect and eliminate advanced threats."
+              title="Trusted SOC 2 expertise since 2017."
+              subtitle="We've guided service organizations across IT/ITES, SaaS, fintech, healthcare, and manufacturing through successful SOC 2 certifications."
             />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {[
                 {
-                  title: "Expert threat hunters",
-                  description: "Certified hunters with deep expertise in APT detection, behavioral analytics, and MITRE ATT&CK framework.",
-                  Icon: IconSearch,
-                },
-                {
-                  title: "Advanced detection",
-                  description: "State-of-the-art threat hunting tools, custom detection rules, and threat intelligence integration.",
+                  title: "Proactive cybersecurity approach",
+                  description: "We take a proactive stance on security, working closely with clients to identify risks early and build scalable compliance programs that grow with your business.",
                   Icon: IconShield,
                 },
                 {
-                  title: "Proven track record",
-                  description: "Successfully detected APTs, insider threats, and zero-day attacks across financial, healthcare, and technology sectors.",
+                  title: "Cross-industry experience",
+                  description: "Deep expertise across IT/ITES, manufacturing, healthcare, fintech, and banking sectors with proven SOC 2 implementation success for diverse service models.",
                   Icon: IconClipboard,
+                },
+                {
+                  title: "Dedicated support team",
+                  description: "Highly skilled professionals committed to exceptional service, delivering audit readiness support, evidence validation, and ongoing compliance guidance throughout your SOC 2 lifecycle.",
+                  Icon: IconAward,
                 },
               ].map((item) => (
                 <motion.div key={item.title} variants={fadeUp}>
@@ -856,8 +868,8 @@ export default function ManagedThreatHuntingPage() {
           >
             <SectionHeader
               eyebrow="Deliverables"
-              title="What You Get"
-              subtitle="Comprehensive threat hunting coverage, regular campaigns, and expert analysis with actionable intelligence."
+              title="Complete SOC 2 compliance documentation and support."
+              subtitle="Everything you need for audit readiness, attestation, and ongoing compliance management."
             />
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {deliverables.map((item) => (
@@ -886,8 +898,8 @@ export default function ManagedThreatHuntingPage() {
           >
             <SectionHeader
               eyebrow="Industry Applications"
-              title="Threat hunting for diverse sectors."
-              subtitle="Tailored hunting operations for financial services, healthcare, technology, and critical infrastructure."
+              title="SOC 2 compliance for diverse service organizations."
+              subtitle="Tailored implementation for SaaS providers, fintech platforms, healthcare services, and IT/ITES organizations."
             />
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {useCases.map((item) => (
@@ -918,8 +930,8 @@ export default function ManagedThreatHuntingPage() {
           >
             <SectionHeader
               eyebrow="Engagement Options"
-              title="Flexible threat hunting programs for every need."
-              subtitle="Choose from essential, advanced, or elite hunting operations based on your threat landscape."
+              title="Flexible SOC 2 programs for every compliance stage."
+              subtitle="Choose from Type I validation, Type II operational testing, or continuous compliance advisory based on your needs."
             />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
               {engagementTiers.map((tier) => (
@@ -950,8 +962,8 @@ export default function ManagedThreatHuntingPage() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }}>
             <SectionHeader
               eyebrow="FAQ"
-              title="Common questions about threat hunting."
-              subtitle="Clear answers to help you understand proactive threat detection, hunting operations, and value."
+              title="Common questions about SOC 2 compliance."
+              subtitle="Clear answers to help you understand SOC 2 requirements, timelines, costs, and implementation considerations."
             />
             <div className="mt-8 space-y-4">
               {faqs.map((faq, index) => (
@@ -991,18 +1003,18 @@ export default function ManagedThreatHuntingPage() {
             className="rounded-3xl border border-slate-200/70 bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 px-6 py-10 text-center text-white shadow-xl dark:border-slate-800/70"
           >
             <h2 className="text-3xl font-semibold md:text-4xl">
-              Hunt Threats Before They Become Breaches
+              Ready to start your SOC 2 journey?
             </h2>
             <p className="mt-3 text-sm text-white/70 md:text-base">
-              Deploy elite threat hunters across your infrastructure today and detect advanced threats early.
+              Prepare, pass, and scale with confidence. Build credibility that drives business growth.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">
               <Link
-                href="/contact?subject=services&subSubject=Managed%20Threat%20Hunting"
-                aria-label="Talk to a Threat Hunter"
+                href="/contact?subject=services&subSubject=SOC%202%20Compliance"
+                aria-label="Speak with a SOC 2 Expert"
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-white/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
               >
-                Talk to a Threat Hunter
+                Speak with a SOC 2 Expert
               </Link>
             </div>
           </motion.div>
@@ -1019,10 +1031,10 @@ export default function ManagedThreatHuntingPage() {
       >
         <div className="flex items-center justify-between gap-3">
           <div className="text-xs font-semibold text-slate-700 dark:text-slate-200">
-            Start hunting threats today
+            Start SOC 2 compliance
           </div>
           <Link
-            href="/contact?subject=services&subSubject=Managed%20Threat%20Hunting"
+            href="/contact?subject=services&subSubject=SOC%202%20Compliance"
             aria-label="Get Started"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white dark:bg-white dark:text-slate-900"
           >

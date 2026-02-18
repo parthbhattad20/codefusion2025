@@ -85,10 +85,10 @@ const PhishInstinct = () => {
         >
           <div className="space-y-6">
             <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
-            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-              PhishInstinct
+              <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                PhishInstinct
               </span>{" "}
-               – Build a Human Firewall
+              – Build a Human Firewall
             </h1>
 
             <ul className="list-disc pl-5 text-lg md:text-xl space-y-1">
@@ -102,54 +102,35 @@ const PhishInstinct = () => {
               transform employee behavior into your strongest security layer.
             </p>
 
-            {/* <div className="mt-6 flex flex-wrap gap-6">
-              <Link href="/contact?subject=PhishInstinct%20Demo">
+            <div className="flex flex-wrap gap-6 pt-4">
+              <a href="/contact?subject=product&subSubject=Phishinstinct">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:scale-105"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
                 >
                   Get a Demo
                 </Button>
-              </Link>
+              </a>
 
-              <a href="/docs/PhishInstinct-Brochure.pdf" download>
+              <a href="/docs/Phishinstinct-Brochure.pdf" download>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:scale-105"
+                  className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
                 >
                   Download Brochure
                 </Button>
               </a>
-            </div> */}
-            <div className="flex flex-wrap gap-6 pt-4">
-  <a href="/contact?subject=PhishInstinct%20Demo">
-    <Button
-      size="lg"
-      className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
-    >
-      Get a Demo
-    </Button>
-  </a>
 
-  <a href="/docs/Phishinstinct-Brochure.pdf" download>
-    <Button
-      size="lg"
-      className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
-    >
-      Download Brochure
-    </Button>
-  </a>
-
-  {/* Learn More */}
-  <a
-    href="https://phishinstinct.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button
-      size="lg"
-      variant="outline"
-      className="
+              {/* Learn More */}
+              <a
+                href="https://phishinstinct.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="
         rounded-full px-10
         border-2 border-violet-500/40
         text-violet-500
@@ -157,11 +138,11 @@ const PhishInstinct = () => {
         hover:border-violet-500
         transition-all hover:scale-105
       "
-    >
-      Learn More
-    </Button>
-  </a>
-</div>
+                >
+                  Learn More
+                </Button>
+              </a>
+            </div>
 
           </div>
 
@@ -314,165 +295,165 @@ const PhishInstinct = () => {
 
         {/* How It Works */}
         <motion.section
-  variants={phishSectionVariants}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.25 }}
-  className="
+          variants={phishSectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="
     relative overflow-hidden
     py-20 sm:py-24 lg:py-28
     border-y border-border
     bg-background
     mb-28
   "
->
-  {/* Subtle, professional background (no heavy color) */}
-  <div className="pointer-events-none absolute inset-0">
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,6,23,0.06),transparent_55%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_55%)]" />
-    <div className="absolute -top-48 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-foreground/5 blur-3xl" />
-  </div>
+        >
+          {/* Subtle, professional background (no heavy color) */}
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(2,6,23,0.06),transparent_55%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_55%)]" />
+            <div className="absolute -top-48 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-foreground/5 blur-3xl" />
+          </div>
 
-  <div className="relative max-w-7xl mx-auto px-6">
-    {/* Heading */}
-    <div className="text-center mb-12 sm:mb-14 lg:mb-16">
-      <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-4 py-2 text-sm text-muted-foreground backdrop-blur">
-        <span className="h-1.5 w-1.5 rounded-full bg-foreground/60" />
-        Workflow overview
-      </div>
+          <div className="relative max-w-7xl mx-auto px-6">
+            {/* Heading */}
+            <div className="text-center mb-12 sm:mb-14 lg:mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-4 py-2 text-sm text-muted-foreground backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-foreground/60" />
+                Workflow overview
+              </div>
 
-      <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
-        How PhishInstinct Works
-      </h2>
+              <h2 className="mt-5 text-3xl md:text-4xl font-extrabold tracking-tight text-primary">
+                How PhishInstinct Works
+              </h2>
 
-      <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-        Continuous phishing simulations with automated measurement and adaptive security training cycles.
-      </p>
+              <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                Continuous phishing simulations with automated measurement and adaptive security training cycles.
+              </p>
 
-      <div className="mt-6 h-px w-24 mx-auto bg-border" />
-    </div>
+              <div className="mt-6 h-px w-24 mx-auto bg-border" />
+            </div>
 
-    {/* Steps */}
-    <div className="relative">
-      {/* Connector line (desktop) */}
-      <div className="hidden md:block pointer-events-none absolute left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-border/70" />
+            {/* Steps */}
+            <div className="relative">
+              {/* Connector line (desktop) */}
+              <div className="hidden md:block pointer-events-none absolute left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-border/70" />
 
-      <motion.div
-        variants={phishGridVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
-      >
-        {phishSteps.map((step, idx) => {
-          const n = idx + 1;
-          const isLeft = idx % 2 === 0;
-
-          return (
-            <motion.div
-              key={step.title}
-              variants={phishCardVariants}
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
-              className={[
-                "group relative rounded-2xl",
-                "border border-border",
-                "bg-card/70 dark:bg-card/50",
-                "backdrop-blur-xl",
-                "shadow-sm hover:shadow-md",
-                "transition-shadow",
-                "p-6 sm:p-7",
-                isLeft ? "md:pr-8" : "md:pl-8",
-              ].join(" ")}
-            >
-              {/* timeline node (desktop) */}
-              <div
-                className={[
-                  "hidden md:block pointer-events-none absolute top-9",
-                  isLeft ? "right-0 translate-x-[14px]" : "left-0 -translate-x-[14px]",
-                ].join(" ")}
+              <motion.div
+                variants={phishGridVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.25 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
               >
-                <div className="h-3 w-3 rounded-full bg-foreground/60 shadow-[0_0_0_6px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_6px_rgba(255,255,255,0.06)]" />
-              </div>
+                {phishSteps.map((step, idx) => {
+                  const n = idx + 1;
+                  const isLeft = idx % 2 === 0;
 
-              <div className="flex items-start gap-5">
-                {/* Step badge (minimal, enterprise) */}
-                <div className="shrink-0 w-11 h-11 rounded-xl border border-border bg-muted/40 text-foreground flex items-center justify-center font-semibold">
-                  {n}
-                </div>
+                  return (
+                    <motion.div
+                      key={step.title}
+                      variants={phishCardVariants}
+                      whileHover={{ y: -4 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                      className={[
+                        "group relative rounded-2xl",
+                        "border border-border",
+                        "bg-card/70 dark:bg-card/50",
+                        "backdrop-blur-xl",
+                        "shadow-sm hover:shadow-md",
+                        "transition-shadow",
+                        "p-6 sm:p-7",
+                        isLeft ? "md:pr-8" : "md:pl-8",
+                      ].join(" ")}
+                    >
+                      {/* timeline node (desktop) */}
+                      <div
+                        className={[
+                          "hidden md:block pointer-events-none absolute top-9",
+                          isLeft ? "right-0 translate-x-[14px]" : "left-0 -translate-x-[14px]",
+                        ].join(" ")}
+                      >
+                        <div className="h-3 w-3 rounded-full bg-foreground/60 shadow-[0_0_0_6px_rgba(0,0,0,0.04)] dark:shadow-[0_0_0_6px_rgba(255,255,255,0.06)]" />
+                      </div>
 
-                {/* Content */}
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <h3 className="text-lg sm:text-xl font-semibold text-foreground">
-                      {step.title}
-                    </h3>
-                    <span className="text-xs text-muted-foreground border border-border rounded-full px-2 py-0.5">
-                      Step {n}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-muted-foreground leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
+                      <div className="flex items-start gap-5">
+                        {/* Step badge (minimal, enterprise) */}
+                        <div className="shrink-0 w-11 h-11 rounded-xl border border-border bg-muted/40 text-foreground flex items-center justify-center font-semibold">
+                          {n}
+                        </div>
 
-              {/* subtle hover wash (no strong colors) */}
-              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top,rgba(2,6,23,0.06),transparent_60%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_60%)] rounded-2xl" />
-            </motion.div>
-          );
-        })}
-      </motion.div>
-    </div>
-  </div>
-</motion.section>
+                        {/* Content */}
+                        <div className="min-w-0">
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                            <h3 className="text-lg sm:text-xl font-semibold text-foreground">
+                              {step.title}
+                            </h3>
+                            <span className="text-xs text-muted-foreground border border-border rounded-full px-2 py-0.5">
+                              Step {n}
+                            </span>
+                          </div>
+                          <p className="mt-2 text-muted-foreground leading-relaxed">
+                            {step.desc}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* subtle hover wash (no strong colors) */}
+                      <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top,rgba(2,6,23,0.06),transparent_60%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_60%)] rounded-2xl" />
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
 
         {/* FAQ */}
-       <motion.section variants={fadeUp} className="py-24 mb-24">
-  <div className="max-w-4xl mx-auto px-6">
+        <motion.section variants={fadeUp} className="py-24 mb-24">
+          <div className="max-w-4xl mx-auto px-6">
 
-    <h2 className="text-center text-3xl md:text-4xl font-semibold text-primary mb-14">
-      Frequently Asked Questions
-    </h2>
+            <h2 className="text-center text-3xl md:text-4xl font-semibold text-primary mb-14">
+              Frequently Asked Questions
+            </h2>
 
-    <div className="space-y-4">
+            <div className="space-y-4">
 
-      {[
-        [
-          "What is PhishInstinct?",
-          "PhishInstinct is a phishing simulation and security awareness platform designed to continuously evaluate and improve employee security behavior.",
-        ],
-        [
-          "Does it support compliance?",
-          "Yes. It provides audit-ready reports aligned with common compliance frameworks such as ISO 27001 and SOC 2.",
-        ],
-        [
-          "Is automation supported?",
-          "Yes. Campaigns, simulations, reporting, and training cycles can be fully automated and scheduled.",
-        ],
-      ].map(([q, a], i) => (
-        <motion.details
-          key={i}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.08 }}
-          className="group rounded-xl border border-border bg-background hover:bg-muted/40 transition-colors"
-        >
-          <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-lg font-medium text-foreground">
-            {q}
-            <span className="ml-4 text-muted-foreground transition-transform group-open:rotate-45">
-              +
-            </span>
-          </summary>
+              {[
+                [
+                  "What is PhishInstinct?",
+                  "PhishInstinct is a phishing simulation and security awareness platform designed to continuously evaluate and improve employee security behavior.",
+                ],
+                [
+                  "Does it support compliance?",
+                  "Yes. It provides audit-ready reports aligned with common compliance frameworks such as ISO 27001 and SOC 2.",
+                ],
+                [
+                  "Is automation supported?",
+                  "Yes. Campaigns, simulations, reporting, and training cycles can be fully automated and scheduled.",
+                ],
+              ].map(([q, a], i) => (
+                <motion.details
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
+                  className="group rounded-xl border border-border bg-background hover:bg-muted/40 transition-colors"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-lg font-medium text-foreground">
+                    {q}
+                    <span className="ml-4 text-muted-foreground transition-transform group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
 
-          <div className="px-6 pb-5 text-muted-foreground leading-relaxed">
-            {a}
+                  <div className="px-6 pb-5 text-muted-foreground leading-relaxed">
+                    {a}
+                  </div>
+                </motion.details>
+              ))}
+
+            </div>
           </div>
-        </motion.details>
-      ))}
-
-    </div>
-  </div>
-</motion.section>
+        </motion.section>
 
 
         {/* CTA */}
@@ -485,7 +466,7 @@ const PhishInstinct = () => {
           </p>
 
           <motion.div whileHover={{ scale: 1.08, y: -4 }}>
-            <Link href="/contact?subject=PhishInstinct%20Demo">
+            <Link href="/contact?subject=product&subSubject=Phishinstinct">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg"

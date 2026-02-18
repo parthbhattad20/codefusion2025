@@ -4,9 +4,10 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
-  ScanSearch,
-  Brain,
-  Layers,
+  Workflow ,
+  GitGraph,
+  Boxes ,
+  Bug,
   LinkIcon,
   ArrowBigLeft,
 } from "lucide-react";
@@ -137,7 +138,7 @@ const Vaultix = () => {
             </p>
 
             <div className="flex flex-wrap gap-6 pt-4">
-              <a href="/contact?subject=Vaultix%20Demo">
+              <a href="/contact?subject=product&subSubject=Vaultix">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-10 shadow-lg hover:shadow-violet-500/40 transition-all hover:scale-105"
@@ -282,24 +283,24 @@ const Vaultix = () => {
           >
             {[
               [
-                Layers,
-                "Curated Threat Feeds",
-                "Tailored industry threat intelligence.",
+                Boxes,
+                "Unified Asset Inventory",
+                "Real-time discovery and tracking of hardware, software, cloud, virtual machines, containers, and unmanaged assets in a single platform.",
               ],
               [
-                Brain,
-                "Dark Web Monitoring",
-                "Monitor underground forums and leak sites.",
+                Bug,
+                "Vulnerability-to-Ticket Automation",
+                "Automatically converts vulnerability findings into ITSM tickets with ownership, severity, and SLA tracking for faster remediation.",
               ],
               [
-                ScanSearch,
-                "IOC Tracking & Alerts",
-                "Track malicious infrastructure.",
+                GitGraph,
+                "SBOM & Dependency Visibility",
+                "Generates automated SBOMs and maps software dependencies to identify supply-chain risks, vulnerable components, and compliance gaps.",
               ],
               [
-                LinkIcon,
-                "Executive Threat Briefings",
-                "Weekly leadership reports.",
+                Workflow,
+                "Intelligent ITSM Workflows",
+                "End-to-end IT service workflows with automated assignment, escalation, and SLA monitoring to accelerate incident and remediation handling.",
               ],
             ].map(([Icon, title, desc], i) => (
               <motion.div
@@ -456,7 +457,7 @@ const Vaultix = () => {
           </p>
 
           <motion.div whileHover={{ scale: 1.12, y: -6 }}>
-            <Link href="/contact?subject=Vaultix%20Demo">
+            <Link href="/contact?subject=product&subSubject=Vaultix">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-violet-500 to-blue-600 rounded-full px-12 shadow-xl hover:shadow-violet-500/50 transition-all"

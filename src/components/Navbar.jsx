@@ -67,6 +67,7 @@ const FloatingNavbar = () => {
       "HIPAA Compliance",
       "PCI DSS Compliance",
       "Cyber Security Strategic Consulting",
+      "SOC2 compliance"
     ],
     "Enterprise Security": [
       "Virtual CISO Services",
